@@ -1,0 +1,72 @@
+38.12: Insulation and fire protection to ventilation ducts
+38.13: Alternative I - Insulation and fire protection to duct fittings
+38.14: Insulation and fire protection to equipment
+38.15: Fire stopping
+38.16: Identification
+38.17: Testing
+38.18: Commissioning
+38.19: System validation
+38.20: Operation and maintenance manuals
+38.21: Drawing preparation
+38.22: Training
+38.23: Loose ancillaries
+38.24: Post-completion services
+39.1: Primary equipment
+39.2: Terminal equipment and fittings
+39.3: Cable containment
+39.4: Alternative I - cable containment fittings
+39.5: Cables
+39.6: Cable terminations and joints
+39.7: Final circuits
+39.8: Modular wiring systems
+39.9: Busbar
+39.10: Alternative I - busbar fittings
+39.11: Tapes
+39.12: Electrodes, earth rods, air terminations, termination bars
+39.13: Fire stopping and other associated fire protect work
+39.14: Identification
+39.15: Testing
+39.16: Commissioning
+39.17: System validation
+39.18: Operation and maintenance manuals
+39.19: Drawing preparation
+39.20: Training
+39.21: Loose ancillaries
+39.22: Post practical completion services
+40.1: System
+40.2: Fire stopping and other associated fire protect work
+40.3: Identification
+40.4: Testing and commissioning
+40.5: System validation
+40.6: Operation and maintenance manuals
+40.7: Drawing preparation
+40.8: Training
+40.9: Loose ancillaries
+40.10: Post practical completion services
+41.1: General builder's work in connection with:
+41.2: Marking position of holes, mortices and chases in structure
+41.3: Pipe and duct sleeves
+41.4: Bases, plinths and the like
+41.5: Duct covers and frames
+41.6: Supports for services not provided by services contractor
+41.7: Catenary cables
+41.8: Cutting holes through existing structures
+41.9: Cutting mortices and sinking in existing structure
+41.10: Cutting chases through existing structures
+41.11: Lifting and replacing floor boards
+41.12: Lifting and replacing duct covers or chequer plates
+41.13: Underground service runs
+41.14: Items extra over service runs irrespective of depth or pipe size
+41.15: Pipe duct fittings
+41.16: Accessories
+41.17: Manholes
+41.18: Access chambers
+41.19: Valve chambers
+41.20: Inspection chambers
+41.21: Surface boxes
+41.22: Stopcock pits
+41.23: Extra over the excavation for:
+41.24: Marker posts
+41.25: Marker plates
+41.26: Connections
+41.27: Testing and commissioning

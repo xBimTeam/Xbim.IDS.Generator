@@ -1,0 +1,1139 @@
+0: Facilitating works
+0.1: Toxic/hazardous/contaminated material treatment
+0.1.1: Toxic or hazardous material removal
+0.1.1.1: Toxic or hazardous material removal
+0.1.1.2: Toxic or hazardous chemical removal
+0.1.2: Contaminated land
+0.1.2.1: Contaminated ground material removal
+0.1.2.2: Contaminated ground material treatment
+0.1.3: Eradication of plant growth
+0.1.3.1: Eradication by dig and dump strategy
+0.1.3.2: Eradication by chemical treatment
+0.2: Major demolition works
+0.2.1: Demolition works
+0.2.1.1: Demolition of entire buildings
+0.2.1.2: Demolition of major parts of existing buildings
+0.2.1.3: Temporary propping to existing basement retaining walls
+0.2.1.4: Extra over temporary propping for providing wailings
+0.2.1.5: Periodic technical nr inspections of temporary propping
+0.2.1.6: Returning to site to reposition temporary props
+0.2.1.7: Removal of temporary props
+0.2.1.8: Removal of wailings
+0.2.1.9: Grubbing up of anchor nr blocks/ foundations to temporary props and infilling voids
+0.2.2: Soft strip works
+0.2.2.1: Preparatory to item/m2 demolition
+0.2.2.2: Preparatory to refurbishment
+0.3: Temporary support to adjacent structures
+0.3.1: Temporary support to adjacent structures
+0.3.1.1: Support structures
+0.3.1.2: Taking down and repositioning support structures
+0.3.1.3: Periodic technical inspections of temporary support structures
+0.3.1.4: Removing support structures
+0.4: Specialist groundworks
+0.4.1: Site dewatering and pumping
+0.4.1.1: Site dewatering
+0.4.2: Soil stabilisation measures
+0.4.2.1: Soil stabilisation measures
+0.4.3: Ground gas venting measures
+0.4.3.1: Ground gas venting
+0.5: Temporary diversion works
+0.5.1: Temporary diversion works
+0.5.1.1: Temporary diversion of drains
+0.5.1.2: Temporary diversion of services
+0.5.1.3: Temporary diversion of waterways
+0.6: Extraordinary site investigation works
+0.6.1: Archaeological investigation
+0.6.1.1: Excavation works
+0.6.1.2: Temporary screens and the like
+0.6.1.3: Attendance on archaeologists
+0.6.2: Reptile/wildlife mitigation measures
+0.6.2.1: Physical reptile/wildlife mitigation measures
+0.6.2.2: Temporary fences, barriers and the like
+0.6.2.3: Attendance
+0.6.3: Other extraordinary site investigation works
+0.6.3.1: Physical site investigation works
+0.6.3.2: Temporary screens, fences, barriers and the like
+0.6.3.3: Attendance
+1: Substructure
+1.1: Substructure
+1.1.1: Standard foundations
+1.1.1.1: Strip foundations
+1.1.1.2: Isolated pad foundations
+1.1.1.3: Extra for disposal of contaminated excavated material
+1.1.2: Specialist foundations
+1.1.2.1: Piling mats/platforms
+1.1.2.2: Piling plant
+1.1.2.3: Moving piling rig to pile position
+1.1.2.4: Piles
+1.1.2.5: Extra for pile casings or linings
+1.1.2.6: Caissons
+1.1.2.7: Disposal of excavated material arising from piling
+1.1.2.8: Extra for breaking through obstructions
+1.1.2.9: Cutting off tops of concrete piles and preparing pile heads
+1.1.2.10: Pile tests
+1.1.2.11: Vibro-compacted columns
+1.1.2.12: Pile caps
+1.1.2.13: Ground beams
+1.1.2.14: Underpinning
+1.1.3: Lowest floor construction
+1.1.3.1: Lowest floor construction
+1.1.3.2: Extra over lowest floor construction for forming ramps and the like
+1.1.3.3: Extra over lowest floor nr construction for forming of lift pits and the like
+1.1.3.4: Extra over lowest floor construction for forming swimming pool tanks and the like
+1.1.3.5: Retaining walls at changes in level
+1.1.3.6: Designed joints
+1.1.3.7: Drainage below ground
+1.1.3.8: Gullies, floor outlets nr and the like
+1.1.3.9: Internal manholes, catch-pits, petrol interceptors or the like
+1.1.3.10: Testing of drainage installations
+1.1.3.11: Commissioning of drainage installations
+1.1.4: Basement excavation
+1.1.4.1: Basement excavation
+1.1.4.2: Disposal of excavated material
+1.1.4.3: Extra for disposal of contaminated excavated material
+1.1.4.4: Earthwork support
+1.1.4.5: Additional excavation
+1.1.5: Basement retaining walls
+1.1.5.1: Basement retaining wall
+1.1.5.2: Piling mats/ platforms
+1.1.5.3: Piling plant
+1.1.5.4: Moving piling rig to pile position
+1.1.5.5: Guide walls
+1.1.5.6: Piles
+1.1.5.7: Contiguous bored pile walls
+1.1.5.8: Disposal of excavated material arising from piling
+1.1.5.9: Cutting off tops of concrete piles
+1.1.5.10: Steel sheet piling
+1.1.5.11: Cutting off surplus lengths steel sheet piling
+1.1.5.12: Pile tests
+1.1.5.13: Diaphragm walls
+1.1.5.14: Ground anchors
+1.1.5.14: Ground anchors
+1.1.5.16: Temporary works
+1.1.5.17: Removal of temporary works
+1.1.5.18: Capping beams
+1.1.5.19: Basement retaining wall components
+1.1.5.20: Concrete applied by spray or gun
+2: Superstructure
+2.1: Frame
+2.1.1: Steel frames
+2.1.1.1: Structural steel frame, including fittings and fixings
+2.1.1.2: Fire protection to steel frame
+2.1.1.3: Factory applied paint systems
+2.1.2: Space frames/decks
+2.1.2.1: Space frame/deck, including structural support framework, fittings and fixings
+2.1.2.2: Fire protection to steel frame
+2.1.2.3: Factory applied paint systems
+2.1.3: Concrete casings to steel frames
+2.1.3.1: Column casings
+2.1.3.2: Beam casings
+2.1.4: Concrete frames
+2.1.4.1: Columns
+2.1.4.2: Beams
+2.1.4.3: Walls
+2.1.4.4: Extra over walls for forming openings in walls for doors, windows, screens and the like
+2.1.4.5: Designed joints
+2.1.5: Timber frames
+2.1.5.1: Timber frames
+2.1.6: Specialist frames
+2.1.6.1: Specialist frame
+2.2: Upper floors
+2.2.1: Floors
+2.2.1.1: Suspended floor slabs
+2.2.1.2: Edge formwork
+2.2.1.3: Designed joints
+2.2.1.4: Surface treatments
+2.2.1.5: Suspended floor slab
+2.2.1.6: Timber floors
+2.2.1.7: Structural screeds
+2.2.2: Balconies
+2.2.2.1: Balconies
+2.2.3: Drainage to balconies
+2.2.3.1: Rainwater pipes
+2.2.3.2: Floor outlets
+2.2.3.3: Testing of installations
+2.2.3.4: Commissioning of installations
+2.3: Roof
+2.3.1: Roof structure
+2.3.1.1: Roof structure - pitched roofs
+2.3.1.2: Extra over roof structure – pitched roofs for forming dormer
+2.3.1.3: Prefabricated dormers
+2.3.1.4: Roof structure – flat roofs
+2.3.2: Roof coverings
+2.3.2.1: Roof coverings, non-structural screeds, thermal insulation, and surface treatments
+2.3.2.2: Extra over roof coverings for coverings to dormers, including cladding to dormer cheeks
+2.3.2.3: Eaves, verge treatment to pitched roofs
+2.3.2.4: Edge treatment to flat roofs
+2.3.2.5: Flashings
+2.3.4: Roof drainage
+2.3.3.1: Gutters
+2.3.3.2: Rainwater pipes
+2.3.3.3: Testing of installations
+2.3.3.4: Commissioning of installations
+2.3.3: Specialist roof systems
+2.3.5: Rooflights, skylights and openings
+2.3.5.1: Rooflights, skylights and openings
+2.3.6: Roof finishes
+2.3.6.1: Roof features
+2.4: Stairs and ramps
+2.4.1: Stair/ramp structures
+2.4.1.1: Stair structures
+2.4.1.2: Ramp structures
+2.4.2: Stair/ramp finishes
+2.4.2.1: Stair finishes
+2.4.2.2: Ramp finishes
+2.4.3: Stair/ramp balustrades and handrails
+2.4.3.1: Wall handrails
+2.4.3.2: Combined balustrades and handrails
+2.4.4: Ladders/chutes/slides
+2.4.4.1: Ladders
+2.4.4.2: Chutes
+2.4.4.3: Slides
+2.5: External walls
+2.5.1: External enclosing walls above ground level
+2.5.1.1: External walls
+2.5.1.2: Extra over external walls for plinths, cornices, ornamental bands and the like
+2.5.1.3: Extra over external walls for quoins
+2.5.1.4: Extra over external walls for forming openings for windows
+2.5.1.5: Extra over external walls for forming openings for external doors
+2.5.1.6: Extra over cladding or curtain walling system for integral photovoltaic panels
+2.5.1.7: Extra over cladding or nr/m2 curtain walling system for integral opening vents and panels
+2.5.1.8: Projecting fins to nr cladding or curtain walling system
+2.5.1.9: Extra over projecting item fins for applied artwork
+2.5.1.10: Safety barriers, handrails or combined balusters and handrails to facetted glazing or cladding systems
+2.5.1.11: Finishes applied to external walls
+2.5.2: External enclosing walls below ground level
+2.5.2.1: External walls
+2.5.2.2: Extra over external walls for plinths, cornices, ornamental bands and the like
+2.5.2.3: Extra over external walls for quoins
+2.5.2.4: Extra over external walls for forming openings for windows
+2.5.2.5: Extra over external walls for forming openings for external doors
+2.5.2.6: Finishes to external walls
+2.5.3: Solar/rain screening
+2.5.3.1: Vertical solar/rain screening
+2.5.3.2: Horizontal solar/rain screening
+2.5.4: External soffits
+2.5.4.1: External soffit
+2.5.4.2: Cornices, covings and the like
+2.5.4.3: Shadow gaps and the like
+2.5.4.4: Access hatches and the like
+2.5.4.5: Finishes applied to external soffits
+2.5.5: Subsidiary walls, balustrades and proprietary balconies
+2.5.5.1: Walls
+2.5.5.2: Walls forming planters
+2.5.5.3: Combined balustrades and handrails
+2.5.5.4: Wall mounted handrails
+2.5.5.5: Parapet railings
+2.5.5.6: Proprietary bolt-on balconies
+2.5.5.7: Rainwater pipes
+2.5.5.8: Floor outlets
+2.5.5.9: Testing of rainwater drainage installation
+2.5.5.10: Commissioning of rainwater drainage installation
+2.5.6: Facade access/cleaning systems
+2.5.6.1: Facade cleaning systems
+2.5.6.2: Testing of installations
+2.5.6.3: Commissioning of installations
+2.6: Windows and external doors
+2.6.1: External windows
+2.6.1.1: Windows
+2.6.1.2: Louvers
+2.6.1.3: Shop fronts
+2.6.1.4: Roller shutters, sliding shutters, grilles and the like to window openings
+2.6.2: External doors
+2.6.2.1: External doors
+2.6.2.2: Revolving doors
+2.6.2.3: Shop front doors
+2.6.2.4: Roller shutters, sliding shutters and the like to external door openings
+2.6.2.5: Garage doors
+2.6.2.6: Canopies
+2.6.2.7: Grilles
+2.6.2.8: Architraves
+2.7: Internal walls and partitions
+2.7.1: Walls and partitions
+2.7.1.1: Internal walls
+2.7.1.2: Extra over internal walls for forming openings in walls for internal doors and the like
+2.7.1.3: Fixed partitions
+2.7.1.4: Extra over fixed partitions for forming openings in partitions for internal doors and the like
+2.7.2: Balustrades and handrails
+2.7.2.1: Combined balustrades and handrails
+2.7.3: Moveable room dividers
+2.7.3.1: Moveable room dividers and partitions
+2.7.4: Cubicles
+2.7.4.1: Cubicles
+2.7.4.2: Fixed partitions
+2.8: Internal doors
+2.8.1: Internal doors
+2.8.1.1: Internal doors
+2.8.1.2: Fire resisting doors
+2.8.1.3: Door sets
+2.8.1.4: Composite door and sidelights/over panel units
+2.8.1.5: Roller shutters, sliding shutters, grilles and the like
+2.8.1.6: Architraves
+3: Internal finishes
+3.1: Wall finishes
+3.1.1: Wall finishes
+3.1.1.1: Finishes to walls and columns
+3.1.1.2: Picture rails, dado rails and the like
+3.1.1.3: Proprietary impact and bumper guards, protection strips, corner protectors and the like
+3.2: Floor finishes
+3.2.1: Finishes to floors
+3.2.1.1: Finishes to floors
+3.2.1.2: Specialist flooring systems
+3.2.1.3: Skirtings and the like
+3.2.1.4: Mat wells and mats
+3.2.1.5: Finishes to swimming pool tanks, including tank linings
+3.2.1.6: Line markings
+3.2.1.7: Numeral and symbols
+3.2.2: Raised access floors
+3.2.2.1: Raised access floor systems
+3.2.2.2: Skirtings and the like
+3.3: Ceiling finishes
+3.3.1: Finishes to ceilings
+3.3.1.1: Finishes to ceilings
+3.3.1.2: Cornices, covings and the like
+3.3.2: False ceilings
+3.3.2.1: False ceilings
+3.3.2.2: Cornices, covings and the like
+3.3.2.3: Access hatches and the like
+3.3.3: Demountable suspended ceilings
+3.3.3.1: Demountable suspended ceilings
+3.3.3.2: Shadow gaps and the like
+3.3.3.3: Access hatches and the like
+4: Fittings, furnishings and equipment
+4.1: Fittings, furnishings and equipment
+4.1.1: General fittings, furnishings and equipment
+4.1.1.1: Fittings
+4.1.1.2: Furnishings
+4.1.1.3: Equipment
+4.1.2: Domestic kitchen fittings and equipment
+4.1.2.1: Kitchen units
+4.1.2.2: Kitchen appliances
+4.1.2.3: Waste bins, towel rails, storage racks and other accessories
+4.1.3: Special purpose fittings, furnishings and equipment
+4.1.3.1: Fittings
+4.1.3.2: Furnishings
+4.1.3.3: Equipment
+4.1.4: Signs/notices
+4.1.4.1: Component
+4.1.5: Works of art
+4.1.5.1: Objects d'art and other ornamental features
+4.1.5.2: Decorative features and panels
+4.1.6: Non-mechanical and non-electrical equipment
+4.1.6.1: Equipment
+4.1.6.2: Removable ladders and the like
+4.1.7: Internal planting
+4.1.7.1: Plant and shrub beds
+4.1.7.2: Plant containers
+4.1.7.3: Trees
+4.1.7.4: Tree planters
+4.1.8: Bird and vermin control
+4.1.8.1: Wires, nets, traps and the like
+4.1.8.2: Electronic and sonic system
+4.1.8.3: Bird repellant coatings
+5: Services
+5.1: Sanitary installations
+5.1.1: Sanitary appliance
+5.1.1.1: Sanitary appliance
+5.1.1.2: Testing of installations
+5.1.1.3: Commissioning of installations
+5.1.2: Sanitary ancillaries
+5.1.2.1: Fittings
+5.2: Services equipment
+5.2.1: Services equipment
+5.2.1.1: Services equipment
+5.2.1.2: Testing of installations
+5.2.1.3: Commissioning of installations
+5.3: Disposal installations
+5.3.1: Foul drainage above ground
+5.3.1.1: Drainage to sanitary appliance
+5.3.1.2: Drainage to services equipment
+5.3.1.3: Testing of installations
+5.3.1.4: Commissioning of installations
+5.3.2: Chemical, toxic and industrial liquid waste drainage
+5.3.2.1: Drainage to appliance or equipment
+5.3.2.2: Testing of installations
+5.3.2.3: Commissioning of installations
+5.3.3: Refuse disposal
+5.3.3.1: Refuse disposal installation
+5.3.3.2: Testing of installations
+5.3.3.3: Commissioning of installations
+5.4: Water installations
+5.4.1: Mains water supply
+5.4.1.1: Mains water supply
+5.4.1.2: Testing of installations
+5.4.1.3: Commissioning of installations
+5.4.2: Cold water distribution
+5.4.2.1: Cold water distribution
+5.4.2.2: Storage tanks
+5.4.2.3: Rainwater harvesting systems
+5.4.2.4: Testing of installations
+5.4.2.5: Commissioning of installations
+5.4.3: Hot water distribution
+5.4.3.1: Hot water distribution
+5.4.3.2: Testing of installations
+5.4.3.3: Commissioning of installations
+5.4.4: Local hot water distribution
+5.4.4.1: Water heaters
+5.4.4.2: Testing of installations
+5.4.4.3: Commissioning of installations
+5.4.5: Steam and condensate distribution
+5.4.5.1: Steam and condensate distribution
+5.4.5.2: Testing of installations
+5.4.5.3: Commissioning of installations
+5.5: Heat source
+5.5.1: Heat source
+5.5.1.1: Heat source (nr)
+5.5.1.2: Testing of installations
+5.5.1.3: Commissioning of installations
+5.6: Space heating and air conditioning
+5.6.1: Central heating
+5.6.1.1: Central heating systems
+5.6.1.2: Testing of installations
+5.6.1.3: Commissioning of installations
+5.6.2: Local heating
+5.6.2.1: Heaters
+5.6.2.2: Testing of installations
+5.6.2.3: Commissioning of installations
+5.6.3: Central cooling
+5.6.3.1: Central cooling systems
+5.6.3.2: Testing of installations
+5.6.3.3: Commissioning of installations
+5.6.4: Local cooling
+5.6.4.1: Cooling units
+5.6.4.2: Testing of installations
+5.6.4.3: Commissioning of installations
+5.6.5: Central heating and cooling
+5.6.5.1: Combined central heating and cooling systems
+5.6.5.2: Testing of installations
+5.6.5.3: Commissioning of installations
+5.6.6: Local heating and cooling
+5.6.6.1: Local heating and cooling units
+5.6.6.2: Testing of installations
+5.6.6.3: Commissioning of installations
+5.6.7: Central air conditioning
+5.6.7.1: Central air conditioning system
+5.6.7.2: Testing of installations
+5.6.7.3: Commissioning of installations
+5.6.8: Local air conditioning
+5.6.8.1: Self-contained air conditioning units
+5.6.8.2: Other local air conditioning systems
+5.6.8.3: Testing of installations
+5.6.8.4: Commissioning of installations
+5.7: Ventilation
+5.7.1: Central ventilation
+5.7.1.1: Central ventilation systems
+5.7.1.2: Testing of installations
+5.7.1.3: Commissioning of installations
+5.7.2: Local and special ventilation
+5.7.2.1: Toilet/ bathroom ventilation units
+5.7.2.2: Kitchen ventilation units
+5.7.2.3: Safety cabinet and fume cupboard extracts
+5.7.2.4: Fume extracts
+5.7.2.5: Dust collection units
+5.7.2.6: Anaesthetic gas extracts
+5.7.2.7: Cyclone systems
+5.7.2.8: Unit extract fans
+5.7.2.9: Rotating ventilators
+5.7.2.10: Roof mounted ventilation units
+5.7.2.11: Car parking ventilation
+5.7.2.12: Other local and special ventilation systems
+5.7.2.13: Testing of installations
+5.7.2.14: Commissioning of installations
+5.7.3: Smoke extract/control
+5.7.3.1: Smoke extract/control systems
+5.7.3.2: Testing of installations
+5.7.3.3: Commissioning of installations
+5.8: Electrical installations
+5.8.1: Electrical mains and sub-mains distribution
+5.8.1.1: Electrical mains and sub-mains distribution
+5.8.1.2: Testing of installations
+5.8.1.3: Commissioning of installations
+5.8.2: Power installations
+5.8.2.1: Power installation
+5.8.2.2: Testing of installations
+5.8.2.3: Commissioning of installations
+5.8.3: Lighting installations
+5.8.3.1: Lighting installation
+5.8.3.2: Testing of installations
+5.8.3.3: Commissioning of installations
+5.8.4: Specialist lighting installations
+5.8.4.1: Specialist lighting installation
+5.8.4.2: Testing of installations
+5.8.4.3: Commissioning of installations
+5.8.5: Local electricity generation systems
+5.8.5.1: Electricity generation systems
+5.8.5.2: Testing of installations
+5.8.5.3: Commissioning of installations
+5.8.5.4: Wind turbines
+5.8.5.5: Photovoltaic devices
+5.8.5.6: Other transformation devices
+5.8.5.7: Testing of installations
+5.8.5.8: Commissioning of installations
+5.8.6: Earthing and bonding systems
+5.8.6.1: Earthing and bonding systems
+5.8.6.2: Testing of installations
+5.8.6.3: Commissioning of installations
+5.9: Fuel installations
+5.9.1: Fuel storage
+5.9.1.1: Fuel storage
+5.9.1.2: Testing of installations
+5.9.1.3: Commissioning of installations
+5.9.2: Fuel distribution systems
+5.9.2.1: Piped distribution systems
+5.9.2.2: Testing of installations
+5.9.2.3: Commissioning of installations
+5.10: Lift and conveyor installations
+5.10.1: Lifts and enclosed hoists
+5.10.1.1: Passenger lift
+5.10.1.2: Wall climbing lifts
+5.10.1.3: Goods lifts
+5.10.1.4: Testing of lift installations
+5.10.1.5: Commissioning of lift installations
+5.10.1.6: Enclosed hoists
+5.10.1.7: Testing of enclosed hoist installations
+5.10.1.8: Commissioning of enclosed hoist installations
+5.10.2: Escalators
+5.10.2.1: Escalators
+5.10.2.2: Testing of installations
+5.10.2.3: Commissioning of installations
+5.10.3: Moving pavements
+5.10.3.1: Moving pavements
+5.10.3.2: Testing of installations
+5.10.3.3: Commissioning of installations
+5.10.4: Powered stairlifts
+5.10.4.1: Powered stairlifts
+5.10.4.2: Testing of installations
+5.10.4.3: Commissioning of installations
+5.10.5: Conveyors
+5.10.5.1: People conveyors
+5.10.5.2: Goods conveyors
+5.10.5.3: Testing of installations
+5.10.5.4: Commissioning of installations
+5.10.6: Dock levellers and scissor lifts
+5.10.6.1: Dock levellers and scissor lifts
+5.10.6.2: Scissor lists
+5.10.6.3: Testing of installations
+5.10.6.4: Commissioning of installations
+5.10.7: Cranes and unenclosed hoists
+5.10.7.1: Cranes
+5.10.7.2: Travelling cranes
+5.10.7.3: Unenclosed hoists
+5.10.7.4: Testing of installations
+5.10.7.5: Commissioning of installations
+5.10.8: Car lifts, car stacking systems, turntables and the like
+5.10.8.1: Car lifts
+5.10.8.2: Car stacking systems
+5.10.8.3: Vehicle turntables
+5.10.8.4: Testing of installations
+5.10.8.5: Commissioning of installations
+5.10.9: Document handling systems
+5.10.9.1: Document handling/delivery systems
+5.10.9.2: Warehouse picking systems
+5.10.9.3: Other systems
+5.10.9.4: Testing of installations
+5.10.9.5: Commissioning of installations
+5.10.10: Other lift and conveyor installations
+5.10.10.1: Other lift and conveyor installations
+5.10.10.2: Testing of installations
+5.10.10.3: Commissioning of installations
+5.11: Fire and lightning protection
+5.11.1: Fire fighting systems
+5.11.1.1: Fire hose reels
+5.11.1.2: Dry risers
+5.11.1.3: Wet risers
+5.11.1.4: Fire and smoke protection curtains
+5.11.1.5: Other fire fighting systems
+5.11.1.6: Testing of installations
+5.11.1.7: Commissioning of installations
+5.11.2: Fire suppression systems
+5.11.2.1: Sprinklers
+5.11.2.2: Deluge systems
+5.11.2.3: Gas fire fighting systems
+5.11.2.4: Foam fire fighting systems
+5.11.2.5: Other fire fighting systems
+5.11.2.6: Testing of installations
+5.11.2.7: Commissioning of installations
+5.11.3: Lightning systems
+5.11.3.1: Lightning protection installations (m2)
+5.11.3.2: Testing of installations
+5.11.3.3: Commissioning of installations
+5.12: Communication, security and control systems
+5.12.1: Communication systems
+5.12.1.1: Telecommunication systems
+5.12.1.2: Data transmission systems
+5.12.1.3: Paging and emergency call systems
+5.12.1.4: Public address and conference audio systems
+5.12.1.5: Radio systems
+5.12.1.6: Projection systems
+5.12.1.7: Fire detection and alarm systems
+5.12.1.8: Smoke detection and alarm systems
+5.12.1.9: Liquid detection systems
+5.12.1.10: Clocks, card clocks, flexitime installations
+5.12.1.11: Door entry systems
+5.12.1.12: Radio and televisions
+5.12.1.13: Television systems
+5.12.1.14: TV monitors
+5.12.1.15: Pneumatic message systems
+5.12.1.16: Other communication systems
+5.12.1.17: Testing of installations
+5.12.1.18: Commissioning of installations
+5.12.2: Security systems
+5.12.2.1: Surveillance equipment
+5.12.2.2: Security detection equipment
+5.12.2.3: Security alarm equipment
+5.12.2.4: Access control systems
+5.12.2.5: Burglar and security alarms
+5.12.2.6: Door entry systems
+5.12.2.7: Security lights and lighting systems
+5.12.2.8: Other security systems
+5.12.2.9: Testing of installations
+5.12.2.10: Commissioning of installations
+5.12.3: Central control/building management systems
+5.12.3.1: Central control/building management systems
+5.12.3.2: Computer aided facilities manage system
+5.12.3.3: Testing of installations
+5.12.3.4: Commissioning of installations
+5.13: Specialist installations
+5.13.1: Specialist piped supply systems
+5.13.1.1: Medical and laboratory gas supply systems
+5.13.1.2: Centralised vacuum cleaning systems
+5.13.1.3: Treated water systems
+5.13.1.4: Swimming pool water treatment systems
+5.13.1.5: Compressed air systems
+5.13.1.6: Vacuum installations
+5.13.1.7: Other specialist piped supply systems
+5.13.1.8: Testing of installations
+5.13.1.9: Commissioning of installations
+5.13.2: Specialist refrigeration systems
+5.13.2.1: Cold rooms
+5.13.2.2: Ice pads
+5.13.2.3: Other specialist refrigeration systems
+5.13.2.4: Testing of installations
+5.13.2.5: Commissioning of installations
+5.13.3: Specialist mechanical installations
+5.13.3.1: Other specialist installations
+5.13.3.2: Testing of installations
+5.13.3.3: Commissioning of installations
+5.13.4: Specialist electrical/electronic installations
+5.13.4.1: Specialist electrical and electronic installation or and systems
+5.13.4.2: Testing of installations
+5.13.4.3: Commissioning of installations
+5.13.5: Water features
+5.13.5.1: Water feature
+5.13.5.2: Testing of installations
+5.13.5.3: Commissioning of installations
+5.14: Builder's work in connection with services
+5.14.1: Builder's work in connection with services
+5.14.1.1: Builder's work in general areas
+5.14.1.2: Builder's work to landlord areas
+5.14.1.3: Builder's work to plant rooms
+5.14.1.4: Large plant and equipment bases
+5.14.1.5: Fuel bunds
+6: Prefabricated buildings and building units
+6.1: Prefabricated buildings and building units
+6.1.1: Complete buildings
+6.1.1.1: Prefabricated modular buildings
+6.1.1.2: On-site testing of installations
+6.1.1.3: On-site commissioning of installations
+6.1.2: Building units
+6.1.2.1: Prefabricated room units
+6.1.2.2: On-site testing of installations
+6.1.2.3: On-site commissioning of installations
+6.1.3: Pods
+6.1.3.1: Prefabricated bathroom pods
+6.1.3.2: Prefabricated toilet pods
+6.1.3.3: Prefabricated shower room pods
+6.1.3.4: On-site testing of installations
+6.1.3.5: On-site commissioning of installations
+7: Works to existing buildings
+7.1: Minor demolition and alteration works
+7.1.1: Minor demolition and alteration works
+7.1.1.1: Spot items
+7.1.1.2: Minor demolition works
+7.1.1.3: Removal
+7.1.1.4: Alteration works
+7.2: Repairs to existing services
+7.2.1: Repairs to existing services
+7.2.1.1: Equipment/plant repairs
+7.2.1.2: Overhauling services installations/systems
+7.2.1.3: Testing of equipment/plant and/or installations
+7.2.1.4: Commissioning of equipment/plant and/or installations
+7.3: Damp-proof courses/fungus and beetle eradication
+7.3.1: Damp-proof courses
+7.3.1.1: Damp-proof courses
+7.3.2: Fungus/beetle eradication
+7.3.2.1: Eradication treatment
+7.4: Facade retention
+7.4.1: Facade retention
+7.4.1.1: Support structures
+7.4.1.2: Periodic technical inspections of support structures
+7.4.1.3: Removing support structures
+7.5: Cleaning existing surfaces
+7.5.1: Cleaning
+7.5.1.1: Cleaning existing surfaces
+7.5.2: Protective coatings
+7.5.2.1: Protective coatings to existing surfaces
+7.6: Renovation works
+7.6.1: Masonry repairs
+7.6.1.1: Masonry repairs
+7.6.2: Concrete repairs
+7.6.2.1: Concrete repairs
+7.6.3: Metal repairs
+7.6.3.1: Metal repairs
+7.6.4: Timber repairs
+7.6.4.1: Timber repairs
+7.6.5: Plastics repairs
+7.6.5.1: Plastics repairs
+8: External works
+8.1: Site preparation works
+8.1.1: Site clearance
+8.1.1.1: Clearing vegetation
+8.1.1.2: Taking down trees
+8.1.1.3: Removing tree stumps and roots
+8.1.1.4: Tree protection
+8.1.1.5: Minor demolition works
+8.1.1.6: Applying herbicides
+8.1.2: Preparatory groundworks
+8.1.2.1: Forming new site contours and adjusting existing site levels
+8.1.2.2: Breaking out existing substructures
+8.1.2.3: Breaking out existing hard pavings
+8.1.2.4: Grubbing up old m drainage pipelines
+8.1.2.5: Grubbing up old nr manholes and the like
+8.1.2.6: Filling disused manholes and the like
+8.1.2.7: Removing existing underground storage tanks, including disposal
+8.2: Roads, paths, pavings and surfacing
+8.2.1: Roads, paths and pavings
+8.2.1.1: Roads
+8.2.1.2: Paths
+8.2.1.3: Paved areas, hardstandings and the like
+8.2.1.4: Roundabouts
+8.2.1.5: Road crossings
+8.2.1.6: Steps
+8.2.1.7: Ramps
+8.2.1.8: Traffic calming accessories
+8.2.1.9: Tree grilles
+8.2.1.10: Vehicle protection barriers
+8.2.1.11: Bumpers
+8.2.1.12: Pavement markings
+8.2.1.13: Repairs to existing roads, paths and pavings
+8.2.2: Special surfacing and pavings
+8.2.2.1: Surfacings and paving
+8.3: Soft landscapes, planting and irrigation systems
+8.3.1: Seeding and turfing
+8.3.1.1: Grassed areas
+8.3.1.2: Reinforced grass proprietary systems
+8.3.1.3: Marking out of grass sports pitches
+8.3.1.4: Work to existing grassed areas
+8.3.1.5: Maintenance of grassed areas
+8.3.2: External planting
+8.3.2.1: Planting
+8.3.2.2: Planting reed beds
+8.3.2.3: Hedges
+8.3.2.4: Trees
+8.3.2.5: Woodland planting
+8.3.2.6: Tree surgery, thinning and pruning
+8.3.2.7: Maintenance work to plants and shrubs and planting beds
+8.3.2.8: Maintenance work to trees
+8.3.2.9: Maintenance work to hedges
+8.3.3: Irrigation systems
+8.3.3.1: Irrigation systems
+8.8: Minor building works and ancillary buildings
+8.8.3: Underpinning to external site boundary walls
+8.3.3.1: Underpinning to external site boundary walls and the like
+8.3.3.2: Testing of installations
+8.3.3.3: Commissioning of installations
+8.4: Fencing, railings and walls
+8.4.1: Fencing and railings
+8.4.1.1: Fencing
+8.4.1.2: Railings
+8.4.1.3: Gates
+8.4.2: Walls and screens
+8.4.2.1: Walls
+8.4.2.2: Screens
+8.4.2.3: Gates
+8.4.3: Retaining walls
+8.4.3.1: Retaining walls
+8.4.4: Barriers and guardrails
+8.4.4.1: Vehicle restraint systems
+8.4.4.2: Pedestrian restraint systems
+8.4.4.3: Vehicle and pedestrian nr control barriers and gates
+8.5: External fixtures
+8.5.1: Site/street furniture and equipment
+8.5.1.1: Component
+8.5.2: Ornamental features
+8.5.2.1: Water features
+8.5.2.2: Other features
+8.6: External drainage
+8.6.1: Surface water and foul water drainage
+8.6.1.1: Connections to statutory undertaker’s sewers
+8.6.1.2: Drainage runs; below ground
+8.6.1.3: Drainage runs; above ground
+8.6.1.4: Prefabricated channels
+8.6.1.5: Manholes and the like
+8.6.1.6: Alterations to existing external drainage systems
+8.6.1.7: Work to existing manholes or the like
+8.6.1.8: Clearing existing drains
+8.6.1.9: Sealing redundant drains
+8.6.1.10: Filling disused manholes or the like
+8.6.1.11: Testing of installations
+8.6.1.12: Commissioning of installations
+8.6.2: Ancillary drainage systems
+8.6.2.1: Pumping stations
+8.6.2.2: Ejector stations
+8.6.2.3: Storage/retention tanks and vessels
+8.6.2.4: Sewage treatment systems
+8.6.2.5: Enzyme systems
+8.6.2.6: Sustainable urban drainage schemes
+8.6.2.7: Testing of installations
+8.6.2.8: Commissioning of installations
+8.6.3: External chemical, toxic and industrial liquid waste drainage
+8.6.3.1: Drainage runs; below ground
+8.6.3.2: Drainage runs; above ground
+8.6.3.3: Equipment and plant
+8.6.3.4: Testing of installations
+8.6.3.5: Commissioning of installations
+8.6.4: Land drainage
+8.6.4.1: Drainage runs; below ground
+8.6.4.2: Manholes and the like
+8.6.4.3: Drainage blankets
+8.6.4.4: Land drainage to parkland
+8.6.4.5: Testing of installations
+8.6.4.6: Commissioning of installations
+8.7: External services
+8.7.1: Water mains supply
+8.7.1.1: Connections to statutory undertaker's water main
+8.7.1.2: Connections to external plant and equipment
+8.7.1.3: Service runs
+8.7.1.4: Rainwater harvesting systems
+8.7.1.5: Grey water systems
+8.7.1.6: Testing of installations
+8.7.1.7: Commissioning of installations
+8.7.2: Electricity mains supply
+8.7.2.1: Connections to statutory undertaker’s electricity main
+8.7.2.2: Service runs
+8.7.2.3: Transformer sub-stations
+8.7.2.4: External electricity generation installation/ plant
+8.7.3: External transformation devices
+8.7.3.1: Wind turbines
+8.7.3.2: Photovoltaic devices
+8.7.3.3: Other transformation devices
+8.7.3.4: Testing of installations
+8.7.3.5: Commissioning of installations
+8.7.4: Electricity distribution to external plant and equipment
+8.7.4.1: Connections to external plant or equipment
+8.7.4.2: Connections to external equipment
+8.7.4.3: Service runs
+8.7.4.4: Testing of installations
+8.7.4.5: Commissioning of installations
+8.7.5: Gas mains supply
+8.7.5.1: Connections to statutory undertaker's gas main
+8.7.5.2: Service runs
+8.7.5.3: Governing stations
+8.7.5.4: Testing of installations
+8.7.5.5: Commissioning of installations
+8.7.6: Telecommunications and other communication system connections
+8.7.6.1: Telecommunication connections
+8.7.6.2: Cable television connections
+8.7.6.3: Other communication connections
+8.7.6.4: Service runs
+8.7.6.5: Testing of installations
+8.7.6.6: Commissioning of installations
+8.7.7: External fuel storage and piped distribution systems
+8.7.7.1: Fuel storage and piped distribution systems
+8.7.7.2: Service runs
+8.7.7.3: Testing of installations
+8.7.7.4: Commissioning of installations
+8.7.8: External security systems
+8.7.8.1: Surveillance equipment
+8.7.8.2: Security detection equipment
+8.7.8.3: Security alarm equipment
+8.7.8.4: Gate access control systems
+8.7.8.5: Gate entry systems
+8.7.8.6: Security lights and lighting systems
+8.7.8.7: Other security systems
+8.7.8.8: Service runs
+8.7.8.9: Testing of installations
+8.7.8.10: Commissioning of installations
+8.7.9: External street lighting systems
+8.7.9.1: External lighting to pedestrian areas
+8.7.9.2: External lighting to paths
+8.7.9.3: External lighting to roads
+8.7.9.4: Illuminated traffic signs
+8.7.9.5: Testing of installations
+8.7.9.6: Commissioning of installations
+8.7.10: Local/district heating installations
+8.7.10.1: Heat source associated plant and equipment
+8.7.10.2: Service runs
+8.7.10.3: External heating ducts and duct access covers
+8.7.10.4: Testing of installations
+8.7.10.5: Commissioning of installations
+8.7.11: Builder's work in connection with external services
+8.7.11.1: Ducts and the like
+8.7.11.2: Supports to external storage tanks, vessels and the like
+8.7.11.3: Fuel bunds and the like to storage/retention tanks and vessels
+8.7.11.4: Protective compounds fencing storage racks associated with LPG installations and the like
+8.7.11.5: Protective compounds, connected with transformer sub-stations and the like
+8.7.11.6: Bases for services equipment.
+8.7.11.7: Other builder’s work in connection with external services
+8.7.11.8: Testing of installations
+8.7.11.9: Commissioning of installations
+8.8.1: Minor building works
+8.8.1.1: Refurbishment of existing ancillary buildings
+8.8.1.2: Overhauling existing mechanical and electrical plant and equipment
+8.8.1.3: Repairs to existing fences, railings, walls and screen walls
+8.8.2: Ancillary buildings and structures
+8.8.2.1: Minor ancillary building – built
+8.8.2.2: Minor ancillary building – prefabricated/ proprietary
+9: Main contractor's preliminaries
+9.1: Main contractor's preliminaries
+9.1.1: Site accommodation
+9.1.1.1: Site accommodation
+9.1.1.2: Furniture and equipment
+9.1.1.3: Telecommunication and IT systems
+9.1.2: Site records
+9.1.2.1: Site records
+9.1.3: Completion and post-completion requirements
+9.1.3.1: Handover requirements
+9.1.3.2: Operation and maintenance services
+9.2: Main contractor's cost items
+9.2.1: Management and staff
+9.2.1.1: Project specific management and staff
+9.2.1.2: Visiting management and staff
+9.2.1.3: Extraordinary support costs
+9.2.1.4: Staff travel
+9.2.2: Site establishment
+9.2.2.1: Site accommodation
+9.2.2.2: Temporary works in connection with site establishment
+9.2.2.3: Furniture and equipment
+9.2.2.4: IT systems
+9.2.2.5: Consumables and services
+9.2.2.6: Brought in services
+9.2.2.7: Sundries
+9.2.3: Temporary services
+9.2.3.1: Temporary water supply
+9.2.3.2: Temporary gas supply
+9.2.3.3: Temporary electricity supply
+9.2.3.4: Temporary telecommunication systems
+9.2.3.5: Temporary drainage
+9.2.4: Security
+9.2.4.1: Security staff
+9.2.4.2: Security equipment
+9.2.4.3: Hoardings, fences and gates
+9.2.5: Safety and environmental protection
+9.2.5.1: Safety programme
+9.2.5.2: Barriers and safety scaffolding
+9.2.5.3: Environmental protection measures
+9.2.6: Control and protection
+9.2.6.1: Surveys, inspections and monitoring
+9.2.6.2: Setting out
+9.2.6.3: Protection of works
+9.2.6.4: Samples
+9.2.6.5: Environmental control of building
+9.2.7: Mechanical plant
+9.2.7.1: Generally
+9.2.7.2: Tower cranes
+9.2.7.3: Mobile cranes
+9.2.7.4: Hoists
+9.2.7.5: Access plant
+9.2.7.6: Concrete plant
+9.2.7.7: Other plant
+9.2.8: Temporary works
+9.2.8.1: Access scaffolding
+9.2.8.2: Temporary works
+9.2.9: Site records
+9.2.9.1: Site records
+9.2.9.2: Web-based documentation management systems
+9.2.10: Completion and post-completion requirements
+9.2.10.1: Testing and commissioning plan
+9.2.10.2: Handover
+9.2.10.3: Post-completion services
+9.2.11: Cleaning
+9.2.11.1: Site tidy
+9.2.11.2: Maintenance of roads, paths and pavings
+9.2.11.3: Building clean
+9.2.12: Fees and charges
+9.2.12.1: Fees
+9.2.12.2: Charges
+9.2.13: Site services
+9.2.13.1: Temporary works
+9.2.13.2: Multi-service gang
+9.2.14: Insurance, bonds, guarantees and warranties
+9.2.14.1: Works insurances
+9.2.14.2: Public liability insurances
+9.2.14.3: Employer’s (main contractor’s) liability insurances
+9.2.14.4: Other insurances
+9.2.14.5: Bonds
+9.2.14.6: Guarantees
+9.2.14.7: Warranties
+10: Main contractor's overheads and profit
+10.1: Main contractor's overheads and profit
+10.1.1: Main contractor's overheads
+10.1.1.1: Generally, the costs of head office set up and administration proportioned to each contract by the main contractor
+10.1.2: Main contractor's profit
+10.1.2.1: he amount of net profit that the main contractor needs to achieve
+11: Project/design team fees
+11.1: Consultants' fees
+11.1.1: Project team and design team consultants/fees
+11.1.1.1: Professional adviser
+11.1.1.2: Project manager
+11.1.1.3: Contract administrator
+11.1.1.4: Employer's agent
+11.1.1.5: Architect
+11.1.1.6: Quantity surveyor/cost manager
+11.1.1.7: Building services engineer(s)
+11.1.1.8: Structural engineer
+11.1.1.9: CDM co-ordinator
+11.1.1.10: Interior designer
+11.1.1.11: Landscape architect
+11.1.1.12: Infrastructure engineer
+11.1.1.13: Drainage engineer
+11.1.1.14: Construction/logistics/sequencing advisor
+11.1.2: Other consultants' fees
+11.1.2.1: Measuring surveyor
+11.1.2.2: Drainage and utilities surveyor
+11.1.2.3: Geotechnical engineer
+11.1.2.4: Environmental consultant
+11.1.2.5: Ecologist
+11.1.2.6: Arboriculturist
+11.1.2.7: Party wall surveyor
+11.1.2.8: Rights of light surveyor
+11.1.2.9: Asbestos consultant
+11.1.2.10: Acoustic consultant
+11.1.2.11: Facade consultant
+11.1.2.12: Facade access consultant
+11.1.2.13: Lift consultant
+11.1.2.14: Fire consultant
+11.1.2.15: Building control consultant
+11.1.2.16: Traffic consultant
+11.1.2.17: Invasive weeds specialist
+11.1.2.18: Sustainability consultant
+11.1.2.19: Archaeologist
+11.1.2.20: Environmental assessment method assessor
+11.1.2.21: Facilities manager
+11.1.2.22: Value engineering facilitator
+11.1.2.23: Risk management facilitator
+11.1.2.24: Building surveyor
+11.1.2.25: Unexploded devices consultant
+11.1.2.26: Photographer
+11.1.2.27: Specialist contractors/consultants
+11.1.2.28: Other specialist consultants
+11.1.4: Specialist support consultants' fees
+11.1.4.1: Planning consultant
+11.1.4.2: Political consultants
+11.1.4.3: Letting agents
+11.1.4.4: Legal advice – property
+11.1.4.5: Legal advice – construction
+11.1.4.6: Legal advice – environmental
+11.1.4.7: Tax specialist
+11.1.4.8: Grants advice
+11.1.4.9: Other specialist support consultants
+11.1.3: Site investigation fees
+11.1.13.1: Site investigation
+11.1.13.2: Geotechnical investigation
+11.1.13.3: Trial pits
+11.1.13.4: Pile probing
+11.1.13.5: Intrusive investigations for toxic or hazardous materials
+11.1.13.6: Other site investigations
+11.2: Main contractor's pre-construction fees
+11.2.1: Management and staff fees
+11.2.1.1: Project director
+11.2.1.2: Project manager
+11.2.1.3: Construction manager
+11.2.1.4: Commercial manager
+11.2.1.5: Quantity surveyors
+11.2.1.6: Procurement manager
+11.2.1.7: Planning/programming manager and staff
+11.2.1.8: Design manager
+11.2.1.9: Temporary works design engineers
+11.2.1.10: Works package managers
+11.2.1.11: Building services engineering managers/co-ordinators
+11.2.1.12: Health and safety manager
+11.2.1.13: Secretary/administrative support
+11.2.1.14: Other pre-construction management and staff
+11.2.2: Specialist support services fees
+11.2.2.1: Legal advice (i.e. solicitors)
+11.2.2.2: Specialist subcontractor advice/participation
+11.2.2.3: Geotechnical investigations, procured by main contractor as part of pre-construction services
+11.2.2.4: Site investigations, procured by main contractor as part of pre-construction services
+11.2.2.5: Other pre-construction support services
+11.2.3: Temporary accommodation, services and facilities charges
+11.2.3.1: Offices, including rental of temporary office space
+11.2.3.2: Service provider’s charges for water, electricity and gas
+11.2.3.3: Rates
+11.2.3.4: Furniture and equipment, including workstations
+11.2.3.5: Office equipment, including photocopiers
+11.2.3.6: Telecommunications, including internet and intranet access
+11.2.3.7: IT systems, including hardware, printers, plotters and the like
+11.2.3.8: Office consumables
+11.2.3.9: Cleaning
+11.2.3.10: Other costs associated with the provision of pre-construction accommodation, services and facilities
+11.2.3.11: Reinstating accommodation to original condition on completion of pre-construction services
+11.2.4: Main contractor's overheads and profits
+11.2.4.1: 1 Main contractor’s overheads and profit associated with pre-construction services
+11.3: Main contractor's design fees
+11.3.1: Main contractor's design fees
+11.3.1.1: Architect
+11.3.1.2: Building services engineer(s)
+11.3.1.3: Structural engineer
+11.3.1.4: Interior designer
+11.3.1.5: Landscape architect
+11.3.1.6: Infrastructure engineer
+11.3.1.7: Drainage engineer
+11.3.1.8: Site investigation services (by specialist subcontractor or consultant)
+12: Other development/project costs
+12.1: Other development/project costs
+12.1.1: Land acquisition costs
+12.1.1.1: Costs in connection with land acquisition
+12.1.2: Employer finance costs
+12.1.2.1: Costs in connection with funding of building project
+12.1.3: Fees
+12.1.3.1: Planning fees
+12.1.3.2: Building control fees, where not paid by the main contractor
+12.1.3.3: Oversailing fees, where not paid by the main contractor
+12.1.3.4: Fees in connection with party wall awards
+12.1.3.5: Fees in connection with rights of light agreements
+12.1.3.6: Building scheme registration fees (e.g. NHBC Buildmark) or similar fees, where not paid by the main contractor
+12.1.3.7: Fees in connection with other agreements between the employer and neighbours to facilitate the building project
+12.1.3.8: Other fees in connection with licenses, permits and agreements, where not paid by the main contractor
+12.1.4: Charges
+12.1.4.1: Adoption charges in connection with highways
+12.1.4.2: Maintenance costs in connection with highways
+12.1.4.3: Adoption charges in connection with services (e.g. sewers, water, electricity and gas)
+12.1.4.4: Maintenance costs in connection with services
+12.1.5: Planning contributions
+12.1.5.1: Direct financial contributions in connection with planning consent (e.g. Section 106 and Section 278 contributions in the UK)
+12.1.5.2: Environmental improvement works
+12.1.6: Insurances
+12.1.6.1: Insurance for the works - existing buildings
+12.1.6.2: Insurance for the works - new buildings, where insurance taken out by the employer
+12.1.6.3: Other insurances in connection with the works
+12.1.6.4: Insurance premium tax (IPT)
+12.1.7: Archaeological fieldwork
+12.1.7.1: Fees and charges in connection with fieldwork carried out by an archaeologist
+12.1.8: Other specialist fieldwork
+12.1.8.1: Fees and charges in connection with fieldwork carried out by a specialist
+12.1.9: Decanting and relocation costs
+12.1.9.1: Temporary relocation costs
+12.1.9.2: Fit-out of temporary accommodation
+12.1.9.3: Rents and other running costs
+12.1.10: Fittings, furnishings and equipment
+12.1.10.1: Fittings, furnishings and equipment which do not form part of a building contract
+12.1.11: Tenant's costs/contributions
+12.1.11.1: Tenant's costs
+12.1.11.2: Tenant's contributions
+12.1.12: Marketing costs
+12.1.12.1: Launch event
+12.1.12.2: Site based advertising (e.g. sales hoardings)
+12.1.12.3: Show unit/marketing suites (i.e. separate or within building to be built)
+12.1.12.4: Operating costs associated with show unit/marketing suites
+12.1.12.5: Marketing literature
+12.1.13: Other employer costs
+12.1.13.1: Other employer costs in connection with the building project (to be stated)
+13: Risks
+13.1: Design development risks
+13.2: Construction risks
+13.3: Employer change risks
+13.4: Employer other risks
+14: Inflation
+14.1: Tender inflation
+14.2: Construction inflation

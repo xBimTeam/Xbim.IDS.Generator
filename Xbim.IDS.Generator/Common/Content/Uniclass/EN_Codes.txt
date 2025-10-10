@@ -1,0 +1,589 @@
+En_20 : Administrative, commercial and protective service entities
+En_20_10 : Legislative entities
+En_20_10_45 : Governmental buildings
+En_20_15 : Administrative office entities
+En_20_15_10 : Multiple occupation office buildings
+En_20_15_70 : Single occupation office buildings
+En_20_20 : Secular representative entities
+En_20_20_10 : Buildings for representatives of nation states abroad
+En_20_20_40 : Local government buildings
+En_20_20_50 : National government buildings
+En_20_20_70 : Regional government buildings
+En_20_45 : Motor vehicle maintenance and fuelling entities
+En_20_45_50 : Motor vehicle fuelling and charging entities
+En_20_45_54 : Motor vehicle servicing and repair entities
+En_20_50 : Commercial entities
+En_20_50_05 : Auction buildings
+En_20_50_22 : Department stores
+En_20_50_29 : Financial and professional services buildings
+En_20_50_50 : Markets
+En_20_50_53 : Mixed use buildings
+En_20_50_55 : Motor vehicle sales entities
+En_20_50_80 : Shop units
+En_20_50_85 : Supermarkets
+En_20_50_97 : Wholesale buildings
+En_20_55 : Postal communications entities
+En_20_55_65 : Post office buildings
+En_20_55_80 : Sorting office buildings
+En_20_60 : Military entities
+En_20_60_02 : Air force buildings
+En_20_60_10 : Army buildings
+En_20_60_56 : Navy buildings
+En_20_65 : Law enforcement operational entities
+En_20_65_09 : Police buildings
+En_20_70 : Judicial entities
+En_20_70_40 : Law court buildings
+En_20_75 : Detention entities
+En_20_75_10 : Detention buildings
+En_20_80 : Weapons training ranges
+En_20_80_29 : Firing range buildings
+En_20_80_30 : Exterior firing ranges
+En_20_85 : Security entities
+En_20_85_15 : Security control buildings
+En_20_85_30 : Security fences
+En_20_90 : Incident support entities
+En_20_90_10 : Fire and rescue training buildings
+En_20_90_15 : Fire station buildings
+En_25 : Cultural, educational, scientific and information entities
+En_25_05 : Commemoration entities
+En_25_05_35 : Gardens of remembrance
+En_25_05_50 : Memorials
+En_25_05_55 : Monuments
+En_25_10 : Educational entities
+En_25_10_10 : Preschool educational buildings
+En_25_10_20 : Infant educational buildings
+En_25_10_30 : Primary educational buildings
+En_25_10_40 : Secondary educational buildings
+En_25_10_50 : Pre-tertiary educational buildings
+En_25_10_60 : Tertiary educational buildings
+En_25_10_70 : Adult educational buildings
+En_25_30 : Scientific and laboratory entities
+En_25_30_40 : Laboratory buildings
+En_25_30_50 : Meteorological stations
+En_25_30_60 : Observatory buildings
+En_25_30_66 : Observatory antennas
+En_25_30_70 : Research buildings
+En_25_30_77 : Seed banks
+En_25_30_90 : Triangulation pillars
+En_25_50 : Exhibition entities
+En_25_50_02 : Art exhibition buildings
+En_25_50_04 : Art installations
+En_25_50_15 : Collection exhibition buildings
+En_25_50_29 : Fauna exhibition buildings
+En_25_50_30 : Fauna exhibition grounds
+En_25_50_31 : Flora exhibition buildings
+En_25_50_32 : Flora exhibition grounds
+En_25_50_54 : Multipurpose exhibition buildings
+En_25_70 : Information entities
+En_25_70_02 : Archive buildings
+En_25_70_11 : Clock towers
+En_25_70_13 : Conference buildings
+En_25_70_42 : Information kiosks
+En_25_70_47 : Library buildings
+En_25_90 : Worship entities
+En_25_90_30 : Faith worship buildings
+En_30 : Industrial entities
+En_30_10 : Mineral extraction entities
+En_30_10_57 : Offshore oil and gas extraction platforms
+En_30_10_80 : Spoil heaps
+En_30_10_85 : Surface mining structures
+En_30_10_86 : Surface mining cuttings
+En_30_10_90 : Underground mining structures
+En_30_20 : Nuclear and chemical management entities
+En_30_20_15 : Radioactivity waste management control buildings
+En_30_20_30 : High-heat-generating radioactive waste management tunnels
+En_30_20_35 : High-heat radioactive waste package transfer buildings
+En_30_20_45 : Low-heat radioactive waste package transfer buildings
+En_30_20_60 : Low-heat-generating radioactive waste management vault
+En_30_20_70 : Radioactivity decontamination buildings
+En_30_20_75 : Radioactivity effluent management buildings
+En_30_30 : Mineral processing entities
+En_30_30_33 : Gas processing structures
+En_30_30_58 : Oil processing structures
+En_30_30_59 : Ore processing structures
+En_30_40 : Animal and plant products processing entities
+En_30_40_01 : Animal processing buildings
+En_30_40_20 : Crop processing buildings
+En_30_40_30 : Fish processing buildings
+En_30_40_40 : Horticultural processing buildings
+En_30_40_90 : Timber processing buildings
+En_30_50 : Manufacturing entities
+En_30_50_15 : Cranes
+En_30_50_50 : Manufacturing buildings
+En_30_60 : Cleaning and maintenance entities
+En_30_60_20 : Decontamination laundry buildings
+En_30_60_40 : Laundry buildings
+En_30_60_50 : Maintenance buildings
+En_30_60_94 : Vehicle-cleaning buildings
+En_30_70 : Process entities
+En_30_70_13 : Chimney stacks
+En_30_70_15 : Conveyors
+En_30_70_17 : Cooling towers
+En_30_70_28 : Equipment gantries
+En_30_80 : Mechanical power generation
+En_30_80_96 : Watermills
+En_30_80_97 : Windmills
+En_30_85 : Marine and water entities
+En_30_85_07 : Boathouse buildings
+En_30_85_08 : Boatyard buildings
+En_30_85_24 : Dry docks
+En_30_85_80 : Shipyard buildings
+En_30_85_97 : Wet docks
+En_30_90 : Warehousing and distribution entities
+En_30_90_33 : Goods warehousing buildings
+En_30_90_35 : Goods distribution buildings
+En_32 : Water and land management entities
+En_32_10 : Agricultural and horticultural entities
+En_32_10_02 : Arable buildings
+En_32_10_04 : Arable land
+En_32_10_06 : Barns
+En_32_10_20 : Coppices
+En_32_10_28 : Fishing buildings
+En_32_10_29 : Fishing cages
+En_32_10_30 : Forestry buildings
+En_32_10_31 : Forestry plantations
+En_32_10_37 : Hedgerows
+En_32_10_39 : Horticultural buildings
+En_32_10_40 : Horticultural land
+En_32_10_46 : Livestock buildings
+En_32_10_47 : Livestock paddocks and fields
+En_32_10_93 : Vineyard and winery buildings
+En_32_10_94 : Vineyard plantations
+En_32_15 : Dam entities
+En_32_15_19 : Dam cut-off walls
+En_32_15_22 : Dam discharge conduits
+En_32_15_23 : Dam spillways
+En_32_15_26 : Drop inlet works
+En_32_15_27 : Emergency spillways
+En_32_15_57 : Outlet channels
+En_32_15_58 : Outlet works
+En_32_15_85 : Spillway gates
+En_32_15_88 : Toe drains
+En_32_20 : Designated land entities
+En_32_20_65 : Plots of land
+En_32_35 : Grounds
+En_32_35_05 : Arboretums
+En_32_35_15 : Community gardens
+En_32_35_33 : Gardens
+En_32_35_36 : Hard landscapes
+En_32_35_80 : Soft landscapes
+En_32_40 : Land managed entities
+En_32_40_20 : Cuttings
+En_32_40_26 : Embankments
+En_32_40_30 : False cuttings
+En_32_40_37 : High ground
+En_32_40_65 : Precipitation compounds
+En_32_40_90 : Trenches
+En_32_50 : Marine and waterside entities
+En_32_50_20 : Degaussing and acoustic ranges
+En_32_50_22 : Dock buildings
+En_32_50_44 : Jetties
+En_32_50_46 : Landing stages
+En_32_50_58 : Offshore anchorages
+En_32_50_63 : Piers
+En_32_50_65 : Pontoons
+En_32_50_69 : Quays
+En_32_50_96 : Waterside platforms
+En_32_50_98 : Wharfs
+En_32_60 : Pollution control entities
+En_32_60_40 : Groundwater storage entities
+En_32_60_60 : Permeable reactive barriers
+En_32_65 : Natural entities
+En_32_65_06 : Beaches
+En_32_65_13 : Cliff faces
+En_32_65_14 : Cliff toes
+En_32_65_15 : Clifftops
+En_32_65_37 : Heathlands
+En_32_65_50 : Marshes and wet grasslands
+En_32_65_51 : Meadows
+En_32_65_53 : Moorlands
+En_32_65_55 : Mudflats
+En_32_65_59 : Open grasslands
+En_32_65_73 : Rocks and screes
+En_32_65_75 : Sand dunes
+En_32_65_76 : Scrub
+En_32_65_80 : Shingle banks
+En_32_65_81 : Shores
+En_32_65_82 : Species-rich grassland
+En_32_65_95 : Washland
+En_32_85 : Water control and retaining entities
+En_32_85_06 : Barrier beaches
+En_32_85_10 : Breakwaters
+En_32_85_15 : Control gates
+En_32_85_23 : Debris screens
+En_32_85_24 : Dolphins
+En_32_85_25 : Draw-off towers
+En_32_85_30 : Flood prevention structures
+En_32_85_31 : Flumes
+En_32_85_35 : Groynes
+En_32_85_45 : Levees
+En_32_85_59 : Outfalls
+En_32_85_72 : Revetments
+En_32_85_75 : Sand traps
+En_32_85_77 : Sea dikes
+En_32_85_80 : Sluices
+En_32_85_82 : Spillways
+En_32_85_84 : Stilling basins
+En_32_85_96 : Water-retaining walls
+En_32_85_97 : Weirs
+En_32_85_98 : Wells
+En_32_95 : Waterways
+En_32_95_14 : Channels
+En_32_95_16 : Complex culverts
+En_32_95_23 : Ditches
+En_32_95_30 : Fish, eel and lamprey passes
+En_32_95_59 : Open channels
+En_32_95_80 : Simple culverts
+En_32_95_85 : Surface water channels
+En_32_95_86 : Swales
+En_35 : Medical, health, welfare and sanitary entities
+En_35_10 : Medical entities
+En_35_10_10 : Medical buildings
+En_35_50 : Welfare entities
+En_35_50_21 : Day welfare buildings
+En_35_50_70 : Residential welfare buildings
+En_35_50_94 : Visitor welfare buildings
+En_35_70 : Funerary entities
+En_35_70_06 : Body storage buildings
+En_35_70_10 : Burial buildings
+En_35_70_11 : Burial grounds
+En_35_70_30 : Funeral buildings
+En_35_70_60 : Medical chimney stacks
+En_35_80 : Sanitary entities
+En_35_80_10 : Bathing buildings
+En_35_80_90 : Toilet buildings
+En_35_85 : Animal entities
+En_35_85_02 : Animal cage buildings
+En_35_85_03 : Animal pen buildings
+En_35_85_84 : Stable buildings
+En_35_90 : Animal medical, health, welfare and funerary entities
+En_35_90_10 : Animal cemeteries
+En_35_90_30 : Animal funerary buildings
+En_35_90_50 : Animal medical buildings
+En_35_90_80 : Small animal treatment buildings
+En_40 : Recreational entities
+En_40_05 : Amusement entities
+En_40_05_03 : Amusement buildings
+En_40_05_13 : Casinos
+En_40_05_27 : E-sport buildings
+En_40_05_42 : Indoor fairgrounds
+En_40_05_60 : Outdoor fairgrounds
+En_40_05_68 : Public amenities
+En_40_20 : Dining entities
+En_40_20_23 : Dining buildings
+En_40_35 : Historic entities
+En_40_35_10 : Buildings of historic interest
+En_40_35_36 : Historic buildings
+En_40_60 : Performing arts entities
+En_40_60_10 : Multiple performing arts buildings
+En_40_60_70 : Single performing arts buildings
+En_40_75 : Social recreation entities
+En_40_75_10 : Multiple social recreation buildings
+En_40_75_15 : Club houses
+En_40_75_70 : Single social recreation buildings
+En_40_75_94 : Visitor centres
+En_42 : Sport and activity entities
+En_42_15 : Courts, pitches and field sports entities
+En_42_15_04 : Athletics facilities
+En_42_15_06 : Ball courts
+En_42_15_81 : Sports grounds
+En_42_15_82 : Sports pitches
+En_42_40 : Indoor activity entities
+En_42_40_80 : Sports buildings
+En_42_55 : Outdoor activity entities
+En_42_55_01 : Activity grounds
+En_42_55_18 : Cricket pavilions
+En_42_55_34 : Golf driving ranges
+En_42_85 : Swimming entities
+En_42_85_60 : Outdoor swimming pools
+En_42_85_83 : Swimming pool buildings
+En_42_90 : Water activity entities
+En_42_95 : Winter sports entities
+En_42_95_40 : Ice rink buildings
+En_42_95_80 : Ski resort buildings
+En_45 : Residential entities
+En_45_10 : Residential buildings
+En_45_10_39 : Houses
+En_45_10_47 : Long-term residential buildings
+En_45_10_70 : Short-term residential buildings
+En_45_10_90 : Temporary residential buildings
+En_50 : Waste disposal entities
+En_50_10 : Gas waste collection entities
+En_50_20 : Non-aqueous waste collection entities
+En_50_20_10 : Non-aqueous waste collection tanks
+En_50_30 : Drainage collection entities
+En_50_30_25 : Drainage collection pipelines
+En_50_35 : Wastewater collection entities
+En_50_35_93 : Wastewater collection pumping stations
+En_50_35_98 : Wastewater collection pipelines
+En_50_40 : Dry waste collection and distribution
+En_50_40_10 : Dry waste collection structures
+En_50_40_11 : Dry waste storage structures
+En_50_40_12 : Dry waste storage yards
+En_50_40_50 : Dry waste distribution structures
+En_50_50 : Gas waste storage, treatment and disposal
+En_50_60 : Non-aqueous waste storage, treatment and disposal
+En_50_70 : Drainage storage, treatment and disposal
+En_50_75 : Wastewater storage, treatment and disposal entities
+En_50_75_28 : Effluent transfer and disposal pipelines
+En_50_75_30 : Effluent transfer and disposal pumping stations
+En_50_75_68 : Wastewater treatment pumping stations
+En_50_75_80 : Sludge treatment entities
+En_50_75_95 : Wastewater treatment entities
+En_50_75_96 : Wastewater storage entities
+En_50_80 : Dry waste treatment and disposal
+En_50_80_40 : Dry waste treatment structures
+En_50_80_70 : Dry waste disposal structures
+En_55 : Piped supply entities
+En_55_05 : Gas extraction, treatment and storage
+En_55_05_30 : Gas extraction structures
+En_55_05_35 : Gas extraction vessels
+En_55_05_38 : Gas extraction pipelines
+En_55_05_40 : Gas storage tanks
+En_55_05_70 : Gas treatment buildings
+En_55_05_75 : Gas treatment plant
+En_55_05_78 : Gas treatment pipelines
+En_55_10 : Liquid fuel extraction and treatment entities
+En_55_10_10 : Oil extraction structures
+En_55_10_45 : Oil storage tanks
+En_55_10_50 : Fuel treatment buildings
+En_55_10_55 : Fuel treatment tanks
+En_55_10_58 : Fuel treatment pipelines
+En_55_15 : Water extraction and treatment entities
+En_55_15_50 : Raw water treatment entities
+En_55_15_72 : Raw water pipelines
+En_55_15_75 : Raw water pumping stations
+En_55_15_80 : Raw water storage entities
+En_55_20 : Gas supply entities
+En_55_20_50 : Gas distribution structures
+En_55_20_60 : Gas distribution pipelines
+En_55_30 : Fire-extinguishing supply entities
+En_55_40 : Steam supply entities
+En_55_50 : Liquid fuel supply entities
+En_55_50_20 : Fuel distribution pipelines
+En_55_50_45 : Liquid fuel distribution buildings
+En_55_60 : Process liquid supply entities
+En_55_70 : Water supply entities
+En_55_70_85 : Treated water pipelines
+En_55_70_87 : Treated water pumping stations
+En_55_70_89 : Treated water storage entities
+En_55_90 : Piped solids supply entities
+En_60 : Heating, cooling and refrigeration entities
+En_60_30 : Rail and paving heating entities
+En_60_40 : Space heating and cooling entities
+En_60_40_10 : District heating buildings
+En_60_40_20 : District heating pipelines
+En_60_40_50 : District cooling buildings
+En_60_40_60 : District cooling pipelines
+En_60_60 : Refrigeration entities
+En_60_80 : Drying entities
+En_65 : Ventilation and air conditioning entities
+En_65_40 : Ventilation entities
+En_65_40_80 : Shaft and tunnel ventilation plant building
+En_65_80 : Air conditioning entities
+En_70 : Electrical power generation and distribution entities
+En_70_10 : Electrical power generation entities
+En_70_10_10 : Electrical power generation buildings
+En_70_10_35 : Generator transformer substations
+En_70_10_39 : Hydroelectric power generation entities
+En_70_10_80 : Solar panel fields
+En_70_10_90 : Wind turbines
+En_70_20 : Electrical power transmission entities
+En_70_20_02 :  Air-insulated transmission substations
+En_70_20_05 : Autotransformer feeder stations
+En_70_20_15 : Alternating current (a.c.) to direct current (d.c.) converter stations
+En_70_20_22 : Direct current (d.c.) switching stations
+En_70_20_24 : Electrical cable sealing end (CSE) compounds
+En_70_20_27 : Electricity transmission towers
+En_70_20_33 : Gas-insulated transmission substations
+En_70_20_35 : High-voltage switchyards
+En_70_20_59 : Outside gas-insulated transmission substations
+En_70_20_60 : Overhead electricity transmission lines
+En_70_20_61 : Overhead electricity transmission line sections
+En_70_20_62 : Overhead electricity transmission line spans
+En_70_20_80 : Sub-sea electricity transmission lines
+En_70_20_88 : Transmission network services buildings
+En_70_20_90 : Underground electricity transmission lines
+En_70_30 : Electrical power distribution entities
+En_70_30_26 : Sub-transmission substations
+En_70_30_35 : Distribution substations
+En_70_30_45 : Low-voltage electricity substations
+En_70_30_60 : Overhead power distribution lines
+En_70_30_92 : Underground electricity distribution lines
+En_75 : Communications, security, safety and protection entities
+En_75_10 : Communication entities
+En_75_10_10 : Broadcast communications buildings
+En_75_10_16 : Broadcast communications masts and towers
+En_75_10_20 : Data centres
+En_75_10_50 : Mobile telecommunications masts and towers
+En_75_10_90 : Telecommunications buildings
+En_75_10_97 : Wireless communications masts and towers
+En_75_30 : Signalling entities
+En_75_30_10 : Peer-to-peer communications buildings
+En_75_30_18 : Peer-to-peer communications networks
+En_75_30_78 : Signalling control centres
+En_75_40 : Security systems entities
+En_75_50 : Safety and protection entities
+En_75_60 : Environmental safety entities
+En_75_70 : Control and management entities
+En_75_70_60 : Operational control centres
+En_75_80 : Protection entities
+En_80 : Transport entities
+En_80_05 : Aerospace entities
+En_80_05_01 : Air traffic control towers
+En_80_05_02 : Aircraft hangars
+En_80_05_60 : Passenger terminal buildings
+En_80_05_70 : Runways
+En_80_05_90 : Taxiways
+En_80_20 : Cable transport entities
+En_80_20_11 : Cable car entities
+En_80_20_12 : Cable car stations
+En_80_20_86 : Suspended cableways
+En_80_35 : Road entities
+En_80_35_01 : Access roads
+En_80_35_05 : Bus lanes
+En_80_35_07 : Bus maintenance depots
+En_80_35_09 : Bus and coach stations
+En_80_35_34 : Guided bus lanes
+En_80_35_35 : Highway maintenance depots
+En_80_35_38 : Highway service stations
+En_80_35_56 : Motorways
+En_80_35_67 : Private roads
+En_80_35_74 : Roads
+En_80_35_77 : Service area buildings
+En_80_35_88 : Tollgates
+En_80_35_89 : Tracks
+En_80_35_90 : Truck maintenance depots
+En_80_40 : Pathways
+En_80_40_02 : Active travel networks
+En_80_40_08 : Bridleways
+En_80_40_10 : Byways
+En_80_40_20 : Cycle pathways
+En_80_40_30 : Footpaths
+En_80_40_37 : Hiking paths
+En_80_40_66 : Promenades
+En_80_40_70 : Rambler ways
+En_80_40_90 : Trails
+En_80_45 : Vehicle storage entities
+En_80_45_08 : Bus parks
+En_80_45_11 : Car garaging entities
+En_80_45_17 : Coach parks
+En_80_45_19 : Cycle hubs
+En_80_45_20 : Cycle shelters
+En_80_45_55 : Multistorey vehicle parks
+En_80_45_85 : Surface vehicle parks
+En_80_45_89 : Truck parks
+En_80_45_92 : Underground vehicle parks
+En_80_50 : Railway entities
+En_80_50_53 : Monorail entities
+En_80_50_58 : Platforms
+En_80_50_60 : Rack rail maintenance buildings
+En_80_50_62 : Rack railways track entities
+En_80_50_64 : Rail distribution depots
+En_80_50_68 : Rail marshalling entities
+En_80_50_71 : Railway corridors
+En_80_50_74 : Railway stations
+En_80_50_78 : Rolling stock depots
+En_80_50_83 : Station buildings
+En_80_50_85 : Test track entities
+En_80_50_86 : Track maintenance depots
+En_80_50_87 : Trackside circuit breaker equipment buildings
+En_80_50_88 : Train maintenance depots
+En_80_50_90 : Tramways
+En_80_50_94 : Underground railway stations
+En_80_50_95 : Wagon decontamination buildings
+En_80_50_97 : Wagon maintenance buildings
+En_80_70 : Marine and waterways transport entities
+En_80_70_06 : Barge loading terminals
+En_80_70_11 : Canal channels
+En_80_70_15 : Canal locks
+En_80_70_46 : Lake passenger terminals
+En_80_70_50 : Marinas
+En_80_70_52 : Marine and waterways passenger terminals
+En_80_70_71 : River passenger terminals
+En_80_90 : Transport hub entities
+En_80_90_30 : Freight depots
+En_80_90_66 : Rail freight entities
+En_80_90_73 : Road freight depots
+En_80_90_90 : Transport interchanges
+En_80_94 : Bridges
+En_80_94_05 : Arch bridges
+En_80_94_08 : Beam bridges
+En_80_94_11 : Cable-stayed bridges
+En_80_94_13 : Cantilever bridges
+En_80_94_30 : Fixed bridges
+En_80_94_50 : Moveable bridges
+En_80_94_85 : Suspension bridges
+En_80_94_90 : Transporter bridges
+En_80_94_92 : Truss bridges
+En_80_96 : Tunnels and shafts
+En_80_96_17 : Cross-passage tunnels
+En_80_96_20 : Drift tunnels
+En_80_96_46 : Lined drift tunnels
+En_80_96_49 : Lined tunnels
+En_80_96_58 : Operational caverns
+En_80_96_70 : Running tunnels
+En_80_96_80 : Shafts
+En_80_96_89 : Tunnel approach ramps
+En_80_96_90 : Tunnels
+En_80_96_91 : Tunnel portals
+En_80_96_92 : Underpasses
+En_82 : Vehicle entities
+En_82_10 : Bus and coach entities
+En_82_10_27 : Electric bus entities
+En_82_10_39 : Hybrid bus entities
+En_82_10_42 : Internal combustion bus entities
+En_82_15 : Car and van entities
+En_82_15_27 : Electric vehicle entities
+En_82_15_39 : Hybrid vehicle entities
+En_82_15_42 : Internal combustion vehicle entities
+En_82_48 : Locomotive entities
+En_82_48_07 : Battery-electric locomotive entities
+En_82_48_15 : Conductor rail electric locomotive entities
+En_82_48_23 : Diesel locomotive entities
+En_82_48_59 : Overhead line electric locomotive entities
+En_82_48_84 : Steam locomotive entities
+En_82_55 : Multiple-unit (MU) train entities
+En_82_55_23 : Diesel multiple-unit (DMU) train entities
+En_82_55_27 : Electric multiple-unit (EMU) train entities
+En_82_70 : Railway vehicle entities
+En_82_70_30 : Flat wagons
+En_82_70_38 : Hopper wagons
+En_82_70_53 : Motor bogies
+En_82_70_70 : Railway wagons
+En_82_70_73 : Road-rail vehicles
+En_82_70_77 : Shunting vehicles
+En_82_70_79 : Sleeper wagons
+En_82_70_83 : Spoil wagons
+En_82_70_89 : Trailer bogies
+En_82_70_93 : Ultrasonic testing trolleys
+En_90 : Circulation, storage and general entities
+En_90_10 : Circulation entities
+En_90_10_02 : Access stairways and walkways
+En_90_10_42 : Inspection galleries
+En_90_10_62 : Pedestrianized areas
+En_90_10_77 : External service areas
+En_90_30 : Construction entities
+En_90_30_10 : Building envelope
+En_90_30_15 : Construction sites
+En_90_30_95 : Work areas
+En_90_50 : Storage entities
+En_90_50_02 : Agricultural storage buildings
+En_90_50_03 : Agricultural storage silos
+En_90_50_28 : Explosives stores
+En_90_50_50 : Manufacturing tanks and silos
+En_90_50_53 : Mineral storage silos
+En_90_50_55 : Motor vehicle storage entities
+En_90_50_68 : Refrigerated container storage entities
+En_90_50_75 : Salt storage barns
+En_90_50_80 : Storage buildings
+En_90_90 : Plant and control entities
+En_90_90_09 : Buried services routes
+En_90_90_11 : Cable routes
+En_90_90_27 : Environment monitoring buildings
+En_90_90_33 : Gauge houses
+En_90_90_35 : Gauging station buildings
+En_90_90_50 : Mechanical services buildings
+En_90_90_64 : Plant and equipment buildings
+En_90_90_68 : Pump houses
+En_90_90_80 : Services routes

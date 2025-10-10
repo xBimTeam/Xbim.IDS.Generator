@@ -1,0 +1,1393 @@
+00: Overarching Introduction
+00-01: Overarching Introduction
+01: Actuators
+01-01: Introductory Procedures - Actuators
+01-02: Pre-Maintenance Procedures - Actuators
+01-03: Thermal Actuators
+01-04: Pneumatic Actuators
+01-05: Hydraulic Actuators
+01-06: Motor Driven Actuators
+01-07: Power Fail - Motor Return Actuators
+01-08: Power Fail - Spring Return Actuator
+02: Air Conditioning
+02-01 : Introductory Procedures - Air Conditioning
+02-02: Air Pressure Relief Damper
+03: Air Handling Units
+03-01: Air Handling Units - General
+03-02: Magnahelic Gauge Panel and Manometers
+04: Belts
+04-01: Belt Drives
+05: Boilers/Heat Generators
+05-01: Introductory Procedures - Boilers/Heat Generators
+05-02: Pre-Maintenance Procedures - Boilers/Heat Generators
+05-03: Atmospheric Gas Burner - Free Standing Boiler
+05-04: Atmospheric Gas Burner - Condensing Boiler
+05-05: Coal Fired Boilers - Bunkers and Conveyors
+05-06: Coal Fired Boilers - Coal Storage Handling and Feed Mechanisms, Automatic Ash Removal (where fitted)
+05-07: Coal Feed Mechanisms - Under Feed Stokers
+05-08: Coal Feed Mechanisms - Chain Grate Stokers
+05-09: Ash Handling System
+05-10: Blown Gas Burner Condensing Boiler
+05-11: Blown Gas Burner Modular Boiler
+05-12: Forced Draught Gas Condensing Boiler
+05-13: Oil Condensing Boiler - Forced Draught (Pressure Jet)
+05-14: Boilers MTHW up to 120ºC
+05-15: Multiple Boilers - Sequence Controls
+05-16: Boiler Controls - Single Boiler: On/off
+05-17: Boiler Protection Controls
+05-18: Boilers - Space Temperature Controls
+05-19: Steam Boilers Pre-Maintenance Check
+05-20: Steam Boilers Maintenance Schedule
+05-21: Electric Boilers
+05-22: Electrode Boilers
+05-23: Boilers LTHW Up to 95ºC
+05-24: Boilers - Fire and Safety Circuits
+05-25: Waste and Wood Burning Appliances (Including Boilers) - Fire and Boiler Safety Circuits
+05-26: Waste and Wood Burning Appliances (Including Boilers) - Combustion Chamber
+05-27: Waste and Wood Burning Appliances (Including Boilers) - Boiler (if fitted)
+05-28: Atmospheric Gas Burner Boiler - Small and/or Wall Hung for Domestic/Light Commercial Installation
+05-29: Combination Atmospheric Burner Gas Boiler
+05-30: Atmospheric Gas Burner/Condensing Combination Boiler
+05-31: Air to Water Heat Pump
+05-32: Water to Water Heat Pump
+05-33: Brine to Water Heat Pump
+05-34: Packaged Steam Generators
+05-35: Packaged Steam Generators - Electric
+05-36: Steam Boiler Report - Periodic Examination
+05-37: Boiler Superheater
+05-38: Biomass Boiler
+05-39: Gas Booster Sets
+05-40: Gas Governor or Gas Regulator
+05-41: Gas Incinerator
+05-42: Waste Incinerator
+05-43: Wet Scrubber System
+05-44: Fabric Filter System
+05-45: Sanitary Incinerator - Electrical
+05-46: Oil Fired Space Heaters
+05-47: Kiln - Electric
+05-48: Sample Cooler
+06: Building Management Systems
+06-01: Introductory Procedures - Building Management Systems
+06-03: Central Operator Station
+06-04: Communications
+06-05: Outstations
+06-06: Software Functions
+07: Burners
+07-01: Atmospheric Gas Burners
+07-02: Blown Gas Burner
+07-03: Forced Draught Gas Burner
+07-04: Fuel Oil Distribution and Pipework using Medium (220/960 Sec) Oil
+07-05: Oil Burner - Forced Draught (Pressure Jet)
+07-06: Light Oil Vaporising Pot Burner
+07-07: Gas/Oil Burners - Dual Fuel
+09: Chillers - Water
+09-01: Introductory Procedures - Chillers - Water
+09-02: Packaged Chiller Units
+09-03: Lithium Bromide/Water Absorption Chillers
+09-04: Gas Fired Absorption Chiller Up to 18kw Cooling Capacity
+09-05: Solar Thermal Absorption Chillers
+10: Cold Rooms and Food Storage
+100: Water Treatment and Drainage
+100-01: Bacterial and Enzyme Drain Dosing Systems
+100-02: External Chemical Dosing - Dishwashers and Glassware
+10-01: Cold Rooms
+10-02: Refrigerated Display Cabinets
+10-03: Cold Room Heater Mat System
+101: Cleaning Including Ductwork
+101-01: Kitchen - Deep Clean
+102: Miscellaneous Services and Equipment
+102-01: Cold Rooms - GMP-Compliant
+102-02: Medical Fridges and Freezers
+102-03: Slam Shut Valve Control Panel and Associated Equipment for the Liquid Nitrogen System
+102-04: Window Restrictors - Healthcare
+102-05: Bedpan Macerator
+102-07: Examination Light
+102-08: Fluid Warming/Blanket Warming Cabinet
+102-09: Incubators
+102-10: Medical, Laboratory, Blood and Pharmacy Drugs Fridges and Freezers
+102-11: Mortuary Foetal Cabinets
+102-12: Operating Theatre Light
+102-13: Pasteuriser
+102-14: Refrigerated Body Store
+102-15: Ultra-Low Freezers (-80°C)
+102-16: X-ray Viewer
+103: Mothballing and Reactivation
+103-01: Lightning Protection
+103-02: Lightning Protection
+104: Mothballing
+104-01: Management of Mothballing/Shutdowns
+104-02: Building Fabric Elements - Mothballing
+104-03: Building Management System (BMS)/Controls - Mothballing
+104-04: Catering Services - Mothballing
+104-05: Chilled Water Systems - Mothballing
+104-06: Compressed Air Systems - Mothballing
+104-07: DX Cooling Plant - Mothballing
+104-08: Electrical Systems - Mothballing
+104-09: Emergency Lighting - Mothballing
+104-10: Fire Alarm Systems - Mothballing
+104-11: Gas Supply - Mothballing
+104-12: Heating Systems - Mothballing
+104-13: Lighting and Lighting Systems - Mothballing
+104-14: Motors, Generators, UPS's and Battery Systems - Mothballing
+104-15: Oil Supply - Mothballing
+104-16: Pipework (All Systems) - Mothballing
+104-17: Refrigerant Gases - Mothballing
+104-18: Security Monitoring and Access Systems - Mothballing
+104-19: Swimming Pools - Mothballing
+104-20: Transformers and Substations - Mothballing
+104-21: Ventilation Plant - Mothballing
+104-22: Water Hygiene Services - Mothballing
+104-23: Water Services - Fire Protection and Environmental Supply Systems - Mothballing
+105: Reactivation
+105-01: Management of Reactivation
+105-02: Building Fabric Elements - Reactivation
+105-03: Building Management System (BMS)/Controls - Reactivation
+105-04: Catering Services - Reactivation
+105-05: Chilled Water Systems - Reactivation
+105-06: Compressed Air Systems - Reactivation
+105-07: DX Cooling Plant - Reactivation
+105-08: Electrical Systems - Reactivation
+105-09: Emergency Lighting - Reactivation
+105-10: Fire Alarm Systems - Reactivation
+105-11: Gas Supply - Reactivation
+105-12: Heating Systems - Reactivation
+105-13: Lighting and Lighting Systems - Reactivation
+105-14: Motors, Generators, UPS's and Battery Systems - Reactivation
+105-15: Oil Supply - Reactivation
+105-16: Pipework (All Systems) - Reactivation
+105-17: Refrigerant Gases - Reactivation
+105-18: Security Monitoring and Access Systems - Reactivation
+105-19: Swimming Pools - Reactivation
+105-20: Transformers and Substations - Reactivation
+105-21: Ventilation Plant - Reactivation
+105-22: Water Hygiene Services - Reactivation
+105-23: Water Services - Fire Protection and Environmental Supply Systems - Reactivation
+107: Landlord
+107-01: Landlord - Carbon Monoxide Alarms
+107-02: Landlord Checklists
+107-03: Landlord - Condition Appraisal/Inventory Checks
+107-04: Landlord - Electrical Safety and Electrical Goods Checks and Duties
+107-05: Landlord - Gas Safety Checks and Duties
+107-06: Landlord - Safety of Furniture
+109: Tenant
+109-01: Tenant - Carbon Monoxide Alarms
+109-02: Tenant - Gas Safety Duties
+11: Communication and P.A. Systems
+110: Laboratory Equipment
+110-01: Air Showers
+110-02: Drying and Heating Laboratory Oven
+110-03: Laboratory Glassware Washer
+110-04: Laboratory Rack Washer
+11-01: Communications - Public Address Systems
+11-02: Emergency Voice Communication (EVC) Systems
+11-03: Intercom System
+11-04: Television and Signal Receiving Equipment
+11-05: Telecommunications Equipment
+11-06: Audio-Frequency Induction Loop System (AFILS)
+11-07: Communication Unit - Pager System Control Panel
+11-08: TV Tuners and Control Panels
+12: Compressors - Refrigeration
+12-01: Compressors Refrigeration - Reciprocal (Includes Hermetic, Semi-Hermetic and Open)
+12-02: Compressors Refrigeration - Screw
+12-03: Compressors Refrigeration - Centrifugal
+12-04: Compressors Refrigeration - Scroll
+13: Condensers
+13-01: Condensers - Water Cooled
+13-02: Condensers - Air Cooled
+14: Control Panels and Controllers
+14-01: Introductory Procedures - Control Panels & Controllers
+14-02: Electrical Services (excluding Electrical Controllers and Pneumatic Relays)
+14-03: Lamps, Meters, Alarms etc
+14-04: Optimiser
+14-05: Heating Compensator
+14-06: Single Input Controller
+14-07: Unit Controllers and Sensor Controllers
+14-08: Controller Timers
+14-09: Step Controllers
+14-10: Time Switches
+14-11: Multi-Input Controllers
+14-12: Indicators and Displays
+14-13: Alarm Modules
+14-14: Level Controllers
+14-15: Speed Controllers
+14-16: Transducers - Pneumatic to Electronic and Electronic to Pneumatic
+14-17: Direct Current (DC) Drives
+14-18: Emergency Stop Buttons
+14-19: Access Control
+14-20: Emergency Assistance Alarm
+14-21: Instrument Control Panel
+14-22: Local Control Panel/Local Control Station
+14-23: Motor Control Centre
+14-24: Water Leak Detection Systems
+14-25: Lighting Control Module
+16: Ducting
+16-01: Introductory Procedures - Ducting and Air Distribution
+16-02: Ductwork System - General
+16-03: Ducting - Volume Control Dampers (VCDs)
+16-04: Ducting - Attenuators
+16-05: Ducting - Motorised Volume Control Dampers (VCDs)
+16-06: Ducting - Fire Dampers - Fusible Link Type
+16-07: Ducting - Combined Fire/Smoke Dampers used in Smoke Control Systems for Means of Escape
+16-08: Ducting - Combined Fire/Smoke Dampers used in Ventilation Systems
+17: Ductwork Cleaning
+17-01: Ventilation Ductwork - Inspections, Monitoring and Cleaning
+17-02: Kitchen Grease Extract System
+18: Electrics in Buildings
+18-01: Introductory Procedures - Electrics in Buildings
+18-02: Hair Dryer
+18-03: Hand Dryer
+18-04: Clocks - Mains and Battery Types
+18-05: Clocks - Master Type
+18-06: Data Rack
+18-07: Motorised Curtain Closer
+18-08: Time Clock (Clocking In Machines)
+18-09: Washing Machine (Domestic Style)
+19: Evaporators
+19-01: Refrigeration Evaporators
+20: Fans
+20-01: Introductory Procedures - Fans
+20-02: Ventilating Fans - General
+20-03: Centrifugal Fans
+20-04: Axial Fans
+20-05: Propeller Fans
+20-06: Mixed Flow Fans
+20-07: Bifurcated Fans
+20-08: Extract Fans - General
+20-09: Ammonia Extract Fan
+20-10: Hazardous Area Extract Fan
+20-11: Extract Fans - Twin Toilet
+20-12: Fans - Window or Wall Mounted
+21: Filters
+21-01: Introductory Procedures - Filters
+21-02: Air Filters
+21-03: Electrostatic Filters
+22: Fire Alarm Systems
+22-01.1: Introductory Information - Fire Alarms
+22-01.2: Fire Alarms and Associated Equipment - Grade A Systems
+22-01.3: Fire Alarms and Associated Equipment - Grade C Systems
+22-01.4: Fire Alarms and Associated Equipment - Grade D Systems
+22-01.5: Fire Alarms and Associated Equipment - Grade F Systems
+22-01: Fire Alarms - Associated Equipment
+22-03: Fire Alarm - Voice Alarm Systems
+23: Fire Protection Systems
+23-01: Introductory Procedures - Fire Protection Systems
+23-02: Hose Reels - Pressure Boosting Sets
+23-03: Hose Reels - Static or Swinging
+23-04: Rising Fire Mains and Hydrants
+23-05: Gas Extinguishing Systems
+23-06: Carbon Dioxide Total Flooding Fire Extinguishing System
+23-07: Expansion Foam Systems
+23-08: Fire Extinguishers - Gas Suppression
+23-09: Fire Extinguishers - Carbon Dioxide
+23-10: Fire Extinguishers - Foam (Stored Pressure) - Basic Service Procedure
+23-11: Fire Extinguishers - Powder (Gas Cartridge) - Basic Service Procedure
+23-12: Fire Extinguishers - Water (Gas Cartridge) - Basic Service Procedure
+23-13: Fire Extinguishers - Water Stored Pressure - Basic Service Procedure
+23-14.1: Fire Sprinkler Systems for Domestic and Residential Occupancies
+23-14: Sprinkler Systems
+23-15: Gas Detection/Flammable
+23-16: Kitchen Hood Fire Suppression
+23-17: Fire Doors
+23-18: Fire Shutters
+23-20: Fire Extinguishers - Foam (Stored Pressure) - Extended Service Procedure
+23-21: Fire Extinguishers - Powder (Gas Cartridge) - Extended Service Procedure
+23-22: Fire Extinguishers - Water (Gas Cartridge) - Extended Service Procedure
+23-23: Fire Extinguishers - Water Stored Pressure - Extended Service Procedure
+23-24: Fire Hydrants
+23-25: Rising Fire Mains - Dry Risers
+23-26: Rising Fire Mains - Wet Risers
+24: Flues
+24-01: Flues (All Combustible Fuels)
+24-02: Flue Gas Oxygen Control
+25: Fountains and Water Dispensers
+25-01: Fountains Outdoor - Ornamental
+25-02: Fountains Indoor - Ornamental
+25-03: Bottled Water Cooler
+25-04: Point of Use Water Dispenser
+25-05: Water Filter
+26: Grilles and Diffusers
+26-01: Grilles and Diffusers
+26-02: Louvres, Bird and Insect Screens
+27: Hazardous Areas
+27-01: Introductory Procedures - Hazardous Areas (Electrics)
+27-02: Hazardous Areas - Flameproof Equipment
+27-03: Hazardous Areas - Lighting
+27-04: Hazardous Areas - Earthing
+28: Heat Emitters
+28-01: Heat Emitters - Fan Convector Type (LTHW or Steam)
+28-02: Gas Fired Ceramic Plaque Infra-Red Heaters
+28-03: Gas Radiant Tube Heaters
+28-04: Gas Fired Natural and Fan Assisted Heaters - Conventional and Balanced Flue
+28-05: Gas Fire
+28-06: Gas Fired Unit Heaters
+28-07: Gas Fired Radiant Heaters
+28-08: Radiators and Vents
+28-09: Electric Heaters - Radiators, Tubular Heaters and Oil Filled Heaters
+28-10: Electric Overdoor Air Curtain/Heater
+28-11: LTHW Overdoor Air Curtain/Heater
+28-12: Heat Emitters - Fan Convector Type (Electric)
+28-13: Heat Emitters - Natural Convectors, Finned Convectors and Perimeter (Skirting) Heating
+28-14: Heat Emitters - Radiant Strip
+28-15: Heat Emitters - Unit Heaters
+29: Heat Exchangers
+29-01: Heat Exchangers - Water to Air
+29-02: Electric/Air Heater
+29-03: Plate Recuperator
+29-04: Thermal Wheels - Rotary Heat Regenerators
+29-05: Run Around Heat Recovery Coils
+29-06: Plate Heat Exchangers
+29-08: Heating Calorifiers - MTHW, HTHW or Steam
+29-09: Heat Recovery Units
+29-11: Heat Exchangers - Indirect Gas Fired to Air
+29-12: Heat Exchangers - Steam to Air
+29-13: Heat Exchangers - Water to Water
+30: Heat Rejection Systems
+30-01: Introductory Procedures - Heat Rejection Systems
+30-02: Cooling Towers - Precautions against Legionnaires Disease (Legionella Pneumophila)
+30-03: Dry Coolers
+30-04: Adiabatic Coolers
+31: Hot & Cold Water Services
+31-01: Introductory Procedures - Hot and Cold Water Services
+31-02: Legionella Training
+31-03: Train Water Points
+32: Hot and Cold Water Services
+32-01: Introductory Procedures - Hot Water Supply
+32-02: Hot and Cold Water Services - General
+32-03: Introductory Procedures - Calorifier Types
+32-04: Pre-Maintenance Procedures - Calorifiers
+32-05: Hot Water Calorifiers - Heated by LTHW
+32-06: Hot Water Calorifiers - Heated by Electricity
+32-07: Hot Water Supply Calorifiers
+32-08: Calorifier and Heat Exchange Controls
+32-09: Hot Water Cylinders
+32-10: Unvented Hot Water Systems
+32-11: Thermal Storage Cylinder (Individual Dwellings for DHWS)
+32-12: Expansion Vessels
+32-13: Direct Fired Water Heaters
+32-14: Instantaneous Electric Water Heaters (Non Drinks Type)
+32-15: Packaged Electric Water Heaters - Cistern Type (Non Drinks)
+32-16: Vented Hot Water Systems
+33: Humidifiers Including Disinfection Procedures
+33-01: Humidifiers - Cold Water Evaporator, Drum Type
+33-02: Humidifiers - Direct Steam Injection Type
+33-03: Humidifiers - Electrode Boiler
+33-04: Humidifiers - Compressed Air Type
+33-05: Humidifiers - Ultrasonic
+33-06: Humidifiers - Resistance Heater Type
+33-08: Humidifiers - Spray
+33-09: Humidifiers - Spirax Sarco Direct Steam Injection Type
+33-10: Humidifiers - Steam Humidifier (VAPAC Type)
+34: Ice Making Machines
+34-01: Ice Making Machines
+35: Insulation
+35-01: Thermal Insulation - Sheet
+35-02: Thermal Insulation - Pipe
+36: Lighting
+36-01: Introductory Procedures - Lighting
+36-02: Lighting - Switches - Internal and External
+36-03: Lighting Fittings including Luminaires General
+36-04: External Lighting including Illuminated Signs
+36-05: Traffic Light Systems
+37: Lighting - Emergency
+37-01: Emergency Lighting - Monthly Testing
+37-02: Emergency Lighting - Annual Testing
+37-03: Emergency Lighting System Self Testing - Self-Contained
+37-04: Emergency Lighting - Centrally Powered Vented Batteries
+38: Lightning Protection
+38-01: Lightning Conductor and Earth
+38-02: Lightning Conductors in Hazardous Areas
+39: Motors
+39-01: Motors - Drive Elements
+40: Pipework Systems
+40-01: Pipework In General
+40-02: Pipework Systems - Mountings
+40-03: Trace Heating - Electrical
+40-07: Pneumatic Equipment/Compressed Air Systems
+40-08: Air Compressors and Receivers
+40-09: Air Compressors Compressed Air Dryers
+40-10: Pipework for Low Pressure Natural Gas, Liquefied Petroleum Gas (LPG) or Oil
+40-11: Steam Services
+40-12: Flash Steam Vessel
+40-13: Gas Safety Shut-off Valve (GSSV)
+40-15: Pressure Reducing Valves
+40-16: Water Buffer/Surge Tanks
+40-17: Water Mains - Above Ground
+40-18: Boiler Water Deaerator
+40-19: Free Fall Fire Valves - Gas and Oil
+40-20: Heat Interface Units - Direct
+40-21: Side Stream Filtration Units
+40-22: Solenoid Gas/Oil Shut-off (Safety) Valves
+40-23: Vacuum Degasser
+40-24: Chilled and Condenser Water Systems
+40-25: Pressurisation Units - Chilled Water, Condenser Water and LTHW Types
+40-26: Air Dirt Separators
+40-27: Heat Interface Units - Indirect
+40-28: Condensate Receiver
+40-29: Flow Meter
+40-30: Heat Meter
+40-31: Large Float / Automatic Condensate Steam Pump
+40-32: Steam Meter
+40-33: Steam Trap Monitor
+40-34: Underfloor Heating - Wet Systems
+40-35: Air Compressors Compressed Air Dryers - Water Cooled After Coolers
+40-36: Air Compressors Compressed Air Dryers - Water Absorption Type
+40-37: Basket Water Strainers
+41: Pneumatics
+41-01: Pneumatic Relays
+41-02: Pneumatic Tube Systems
+42: Portable Equipment
+42-01: In Service Inspection And Testing Of Electrical Equipment (commonly known as Portable Appliance Testing or PAT)
+43: Power Generators
+43-01: Introductory Procedures - Power Generators
+43-02: Power Generation - Stand-by Generator
+43-03: Batteries - Lead Acid - Unsealed
+43-04: Battery Charging Equipment
+43-05: Uninterruptible Power Supplies
+43-06: Solar Panels - Photovoltaic (PV) - Energy Storage
+43-07: Combined Heat and Power (CHP) - Diesel Fuel Engine
+43-08: Combined Heat and Power (CHP) - Gaseous Fuel Engine
+43-09: Power Generation - Stand-by Generator with Life Safety System Duties
+43-10: Wind Turbines
+43-11: Solar Panels - Photovoltaic (PV) - Grid Connected
+44: Power Supplies
+44-01: Introductory Procedures - Power Supplies
+44-02: Main Switch Panel at Supply Intake
+44-03: Maximum Demand and Power Factor Correction
+44-04: Armoured Cables and Conduits
+44-05: Power Distribution Unit (PDU)
+44-06: Earthing
+44-07: Distribution Boards
+44-08: Electrical Installation - Generally
+44-09: Three Phase Circuits
+44-10: Isolators/Starters/Fuse Switches
+44-11: Periodic Inspection and Testing
+44-12: Busbar
+44-13: LV Air Circuit Breakers
+44-14: LV Battery Tripping Units
+44-15: Periodic Inspection and Testing - Liquid Nitrogen and Mixed Gases Compounds
+44-16: Thermal Imaging of Electrical Systems (under 1000 Va.c.)
+44-17: 110V Wall Mounted Transformers
+44-18: Contactors
+44-19: Digital Bus Power Supply
+44-20: Feeder Pillar
+44-21: Neutral Earth Panel
+44-22: Power Filter (LV Active)
+44-23: Trapped Key Interlocks
+44-24: Train Shore Supply
+45: Pumps
+45-01: Pumps - General
+45-02: Circulating Pumps - General
+45-03: Centrifugal Pumps
+45-04: Pressurisation Pumps
+45-05: Rotary Hand Pumps
+45-06: Secondary Hot Water Circulating Pumps
+45-07: Sewage or Drainage Pumps Submersible
+45-08: Sewage and Drainage Pumps: Dry Well
+45-09: Sewage Pumps: Compressed Air
+45-10: Sump Pumps and Extended Shaft Sump Pumps
+45-11: Domestic Hot Water Accelerators
+45-12: Water Booster Pumps
+45-13: Ogden Steam Pump
+45-14: Condensate Pumps
+45-15: Fuel Oil Transfer Pumps
+45-16: Twin Set Pumps
+46: Refrigerant Distribution System
+46-01: Refrigerant Distribution System
+47: Room Air Conditioners
+47-01: Room Air Conditioners
+48: Sanitary and Waste Water Installations
+48-01: Introductory Procedures - Sanitary and Waste Water Plumbing
+48-02: Macerators
+48-03: Separator Systems for Light Oils - Petrol and Oil
+48-04: Interceptors - Blowdown and Sumps
+48-05: Sanitary, Waste Water Plumbing and Drains
+48-06: Air Admittance Valves
+48-07: Rainwater Downpipes and Gutters
+48-08: Water Saving Devices and Meters
+48-09: Baths
+48-10: Bidets
+48-11: Sinks
+48-12: Urinals
+48-13: Wash Basins
+48-14: Water Closets (WC)
+49: Security Systems
+49-01: Intruder Alarms
+49-02: Closed-Circuit Television (CCTV)
+49-03: Door Access Control
+50: Sensors and Switching Devices
+50-01: Pre-Maintenance Procedures - Sensors and Switching Devices
+50-02: Pressure Measurement Sensors - Static and Differential
+50-03: Temperature Measurement Sensors
+50-04: Relative Humidity Sensors
+50-05: Absolute Humidity Sensors
+50-06: Air Quality Sensors
+50-07: Carbon Dioxide Sensors
+50-08: Velocity Sensors
+50-09: Occupancy and Light Sensors
+50-10: Smoke Detectors
+50-11: Gas Detector Sensors/Carbon Monoxide Sensors
+50-12: Wind Speed and Wind Direction Sensors
+50-13: Gas Detection Panel
+50-14: Magnetic Level Sensors/Switch
+51: Showers
+51-01: Showers
+51-02: Showers Booster Pumps
+51-03: Showers - Electric
+51-04: Showers - Non-Thermostatic Mixing Valve - Type 1
+51-05: Showers - Thermostatic Mixing Valve (TMV) - Type 2
+51-06: Showers - Thermostatic Mixing Valve (TMV) - Type 3
+52: Smoke Extract
+52-01: Introductory Procedures - Smoke Extract
+52-02: Smoke Relief - Natural Smoke and Heat Exhaust Ventilators
+52-03: Smoke Relief - Powered Smoke and Heat Exhaust Ventilators
+52-04: Smoke Curtains
+53: Solar Panels
+53-01: Solar Hot Water Panels and Similar Collecting Devices
+54: Split Systems Including Heat Pumps
+54-01: Introductory Procedures - Split Systems Including Heat Pumps
+54-02: DX Split Systems (With Gas, Electric or Hot Water Heaters)
+54-03: Split Systems/Heat Pumps - Air-Cooled with Direct Expansion Evaporator (DX)
+54-04: Data Centre Cooling Plant - Chilled Water
+54-05: Data Centre Cooling Plant - DX
+55: Starters
+55-01: Starters - Drive Elements
+55-02: Starters - Star Delta
+55-03: Starters -Two Speed - Dual Wound
+55-04: Starters - Two Speed - Pole Change
+55-05: Starters - Reversing
+55-06: Starters - Autotransformer
+55-07: Starters - Quick Transition Electric Heater
+55-08: Starters - Electrolyte Type
+55-09: Starters - Air Break and Contactors
+56: Storage Tanks
+56-01: Introductory Procedures - Storage Tanks
+56-02: Cold Water Storage Tanks and Cisterns
+56-03: Ice Storage Systems
+56-04: Storage Tanks - Liquefied Petroleum Gas (LPG)
+56-05: Oil Storage Tanks - Above Ground
+56-06: Oil Storage Tanks - Underground
+56-07: Storage Silo - Wood Chip/Pellets
+56-08: Storage Silo - Coal
+56-09: Break Tank and Pump (Fluid Category 5 Backflow Protection)
+56-10: Hotwell/Boiler Feed Tank
+56-11: Liquid Nitrogen Plant
+56-13: Feed and Expansion (F&E) Tanks
+56-14: Rainwater Harvesting System
+57: Swimming Pools
+57-01: Introductory Procedures - Swimming Pools
+57-02: Swimming Pools
+57-03: Swimming Pools - Filters
+57-04: Swimming Pools - Operating Equipment and Services
+57-05: Swimming Pools - Winterisation
+57-06: Swimming Pool Equipment and Features
+58: Switches
+58-01: On/Off Switching Devices
+58-02: Control Relays
+58-03: Automatic Transfer Switch
+59: Terminal Units
+59-01: Terminal Units Vav - Self Powered
+59-02: Terminal Units Vav - Fan Powered
+59-03: Terminal Units Vav - Pneumatic Powered
+59-04: Terminal Units - Constant Volume including Mixing
+59-05: Terminal Units - Induction Units
+59-06: Terminal Units - Fan Coil
+59-07: Terminal Units - Variable Refrigerant Volume (VRV) Systems
+59-08: Chilled Beams
+60: Vacuum Systems
+60-01: Vacuum Systems - General
+60-02: Vacuum Tubes - Cash Handling
+60-03: Vacuum Leak Detector
+60-04: Vacuum Tube POD System
+61: Valves
+61-01: Valves - In General ???????
+61-02: Stop Cocks and Stop Taps
+61-03: Service Valves
+61-04: Combination Tap Assemblies, Mixing Valves/Taps ???????
+61-05: Push Button Shower Valves
+61-06: Steam Boiler Water Level Control Valves (Mobrey)
+61-07: Ball Valves
+61-09: Butterfly Valves
+61-10: Diaphragm Valves
+61-11: Float Operated Valves
+61-12: Gate Valves
+61-13: Globe Valves
+61-14: Lubricated Plug Valves
+61-15: Multiport Valves
+61-16: Parallel Slide Valves
+61-17: Sluice Valves
+61-18: Steam Pressure Reducing Valves
+61-19: Steam Safety Valves
+61-20: Thermostatic Radiator Valves (TRVs)
+61-21: Non-Thermostatic Mixing Valves - Type 1
+61-22: Thermostatic Mixing Valves (TMVs) - Type 2
+61-23: Thermostatic Mixing Valves (TMVs) - Type 3
+61-24: Automatic Air Vent (AAV)
+61-25: Double Regulating Valve (DRV)
+62: Valves - Automatic Control
+62-01: Pre-Maintenance Procedures - Valves - Automatic Control
+62-02: Rotary Valves - Shoe or Slipper
+62-03: Butterfly and Ball Valves
+62-04: Self Acting and Thermal Circulation Valves (TCV)
+62-05: Solenoid and Motor Operated Valves
+62-06: Pressure Control Valves
+62-07: Seat Valves
+62-08: Reduced Pressure Zone (RPZ) Valves
+62-09: Automatic (Sensor) Taps
+63: Vehicle Access
+63-01: Underfloor Heating Including Vehicle Access Ramps
+63-02: Automatic Vehicle Barrier
+63-03: Car Charging Point
+63-04: Pay Station
+63-05: Automatic Rising Bollards
+63-06: Manual Vehicle Barrier
+64: Ventilation
+64-01: Introductory Procedures - Ventilation Ancillaries
+64-02: Motor Driven Exhaust Hose Reel
+64-03: Spring Recoil Hose Reel
+64-04: Mobile Dust Separator for Spot Extraction
+64-05: Mobile Electronically Controlled Cyclone Separator
+64-06: Vehicle Exhaust Rail System
+64-07: Wood Dust Extraction
+64-08: Laboratory Fume Cupboard
+64-09: Ammonia Leak Detection System
+64-10: Car Park Ventilation System
+64-11: Powered Pressurisation Fan Systems
+64-12: Automatic Air Vents/Louvres
+64-13: Room Pressure Gauges, Magnahelic Gauge Panel and Manometers
+64-14: Local Exhaust Ventilation (LEV) Systems
+65: Water Treatment
+65-01: Introductory Procedures - Water Treatment
+65-02: Ion Exchange Plant - Base Exchange Softening - Commercial
+65-03: Ion Exchange Plant - Base Exchange Softening - Domestic (capacity usually below 50 litres)
+65-04: Special Water Treatment Systems
+65-05: Filtration, Conditioning and pH Correction - Central Plant
+65-06: Filtration and Conditioning - Point of Use
+65-07: Reverse Osmosis
+65-08: Ultraviolet Disinfection Unit
+65-09: Ozonation Plant
+65-10: Chemical Dosing
+65-13: Introductory Procedures - Chlorine Dioxide Dosing for Domestic Low Level Injection
+65-14: Chlorine Dioxide Low Dosing Domestic Water Systems
+65-15: Duplex Water Strainers
+65-16: Water Purification and Demineralisation Equipment
+65-17: Carbon Dioxide Dosing System
+65-18: Chlorine Analyser/Controller System
+65-19: Concentrate Filling Station (Haemodialysis)
+65-20: Magnetic Water Filter
+66: Whirlpools - Hydrotherapy
+66-01: Whirlpool/Spa Baths
+66-02: Hydrotherapy Pools
+66-03: Steam Rooms and Humidifiers
+70: High Voltage Works
+70-01: Introductory Procedures - High Voltage Works
+70-02: HV Packaged Substations
+70-03: Oil Switchgear including Oil Circuit Breakers and Oil Switches
+70-04: Non-Oil Switchgear
+70-05: Vacuum Indoor Switchgear
+70-06: Fluid Filled Transformer
+70-07: Cast Resin Transformer
+70-08: Ring Main Unit
+70-09: HV Switchpanel
+70-10: HV Earthing
+70-11: Air Break Switchgear
+70-12: Sulphur Hexafluoride Switchgear
+70-13: Vacuum Switchgear
+71: Sewage Treatment Works
+71-01: Introductory Procedures - Sewage Treatment Works
+71-02: Package Systems
+71-03: Extended Aeration and Oxidation Ditch Systems
+71-04: Drainage Fields
+71-05: Settlement Tanks
+71-06: Separator Systems
+72: Automated Doors and Gates
+72-01: Automated Sliding Gates (Yard Gates)
+72-02: Automated Swing Gates (Yard Gates)
+72-03: Revolving Doors
+72-04: Roller Shutter Doors
+72-05: Sliding Doors
+72-06: Swing Doors
+72-07: Turnstile - Tripod Type
+72-08: High Security Doors
+73: Permanently Installed Access Equipment
+73-01: Suspended/Facade Access Equipment (SAE)
+73-02: Permanently Installed Suspended Access Systems (SAS) - Pre-Use Checks
+73-03: Permanently Installed Suspended Access Systems (SAS) - Inspections, Maintenance, Load Testing
+73-04: Permanently Installed Suspended Access Systems (SAS) - Thorough Examination
+74: Workplace Safety Equipment
+74-01: Respiratory Protective Equipment (RPE) - Breathing Apparatus
+74-02: Respiratory Protective Equipment (RPE) - Filtering Devices
+74-03: Respiratory Protective Equipment (RPE) - Programme
+74-04: Evacuation Chairs
+75: Mobility
+75-01: Electrically Powered Wheelchair
+75-02: Manually Powered Wheelchair
+75-03: Lifting Slings - for a person
+81: Access Equipment
+81-01: Cable and Track/Rail Based Safety Systems
+81-02: Connectors
+81-03: Fall Arrest Lanyards
+81-04: Eyebolts used for Personal Fall Protection
+81-05: Mobile Man Anchors
+81-06: Retractable Fall Arrester
+81-07: Rope Climbing/Abseiling/Steeplejack - Connectors
+81-08: Rope Climbing/Abseiling/Steeplejack - Eyebolts used for Personal Fall Protection
+81-09: Rope Climbing/Abseiling/Steeplejack - Personal Suspension and Access Systems
+81-10: Fixed Access Ladders and Stairs
+81-11: Fall Restraint Lanyards
+82: Lifts
+82-01 RCH: Vertical Platform Lifts
+82-02: Escalator And Moving Walkways
+82-03 RCH: Hydraulic Lifts
+82-04 RCH: Inclined Platform Lift and Stair Riser
+82-05 RCH: Traction Lifts
+82-06: Escalators and Moving Walkways - Thorough Examinations
+82-07 RCH: Goods and Passenger Lifts - Thorough Examinations
+82-08 RCH: Lifts - Electrical Periodic Examination
+83: Management Tasks
+83-01: Air Conditioning Inspection (ACI) - England, Wales and Northern Ireland
+83-02: Air Conditioning Inspection (ACI) - Scotland
+83-03: Asbestos
+83-04: Building Logbook, O&M Manuals and Building Guides and Manuals
+83-05: Display Energy Certificates (DEC's)
+83-06: Electrical Installation - Management Audit
+83-07: Emergency Lighting - Certificates and Log Book
+83-08: Energy Performance Certificates (EPC's)
+83-09: Evaporative Cooling Systems - Management Audit
+83-10: Fire Risk Assessment
+83-11: Fire Safety Log Book
+83-12: Inventory of Florinated Greenhouse Gases (F-Gases)
+83-13: Lifting Equipment - Management Audit
+83-14: Lifts and Escalators - Management Audit
+83-15: Local Exhaust Ventilation (LEV) - Management Audit
+83-16: Noise Assessment Review and Records
+83-17: Pressure Systems - Management Audit
+83-18: Smoke Control and Pressurisation Systems - Management Audit
+83-19: Waste Disposal
+83-20: Waste Electrical and Electronic Equipment (WEEE) - Management Audit
+83-21: Water Systems - Management Audit
+84: Mechanical Handling Equipment (MHE)
+84-01: Articulated Swivel Truck
+84-04: Baler
+84-05: Battery Change Over (Battery Powered Vehicle)
+84-06: Battery Topping (Battery Powered Vehicle)
+84-07: Chain Block and Anchorage
+84-08: Chain Block and Trolley
+84-09: Cleaning Machines - Sweeper/Scrubber
+84-10: Compactor
+84-11: Construction Hoists - Rack and Pinion and Rope Driven Hoists
+84-12: Dock Leveller
+84-13: Electric Chain Block
+84-14: Electric Counter Balance
+84-15: Electric Tow Truck
+84-17: Fixed Mast Stackers
+84-18: High Level Order Picker
+84-19: High Speed Doors
+84-20: Hydraulic Door Gear and Pump
+84-21: Hydraulic Vehicle Lift
+84-22: Internal Combustion Counter Balance
+84-23: Lifting Beams
+84-24: Low Level Order Picker/Ride on Pallet Truck
+84-25: Metal Mesh Sling
+84-26: Mobile Cranes
+84-27: Mobile Racking
+84-28: Mobile Work Platform - Electric
+84-29: Mobile Work Platform - Internal Combustion
+84-30: Nerak Conveyor Elevator
+84-31: Powered Pallet Truck
+84-32: Rail Dependent Storage and Retrieval Equipment
+84-33: Reach Truck
+84-35: Rigging Hooks
+84-37: Scissor Lift
+84-38: Shackle
+84-40: Steel Chain Sling
+84-43: Synthetic Roundsling
+84-44: Synthetic Web Slings
+84-45: Vehicle Tail Lift
+84-46: Vehicle Turntables
+84-47: Vehicle Wash - Air/Water Tower
+84-48: Vehicle Wash - Bay Cleaning
+84-49: Vehicle Wash - Jetwash
+84-50: Vehicle Wash - Vacuum Equipment
+84-51: Vehicle Wash - Water Reclamation Equipment
+84-52: Vehicle Washing Equipment
+84-53: Very Narrow Aisle (VNA) Combi
+84-54: Wire Rope Sling
+84-55: Rack and Pinion Goods Only Hoists - Permanent Installations
+84-56: Adjustable Pallet Racking and Shelving
+84-57: High Bay Racking and Carpet Racking
+84-58: Various Shelving Types - Retail Stores
+84-59: Construction Hoists - Temporary Installations
+84-61: Pallet Wrapper
+84-62: Pallet Inverter
+85: Security and Survelliance Systems
+85-01: Active Infrared Alarms
+85-02: Alarm Tamper Detection
+85-03: Biometric Identification Systems
+85-04: Door and Window Locks
+85-05: Electric Locking Systems
+85-06: Fasteners and Fixings
+85-07: Fence Topping Systems
+85-08: Fence-Mounted Sensing Cable
+85-09: Fibre Optic Security Mesh
+85-10: Fibre Optic Wall Sensors
+85-11: Hand-Held Metal Detectors
+85-12: Key Safes and Cabinets
+85-13: Laser Alarm Systems
+85-14: Microwave Motion Sensors
+85-15: Mobile Phone Detection
+85-16: Outdoor Lighting (Security)
+85-17: Passive Infrared Alarms
+85-18: Perimeter Monitoring Systems
+85-19: Personal Protective Equipment (PPE)
+85-20: Personal Safety Alarms
+85-21: Power Failure Response
+85-22: Powered Gates and Doors
+85-23: Pre- and Post-Event Recording
+85-24: Radio Communications
+85-25: Searchlights and Floodlights
+85-26: Security Netting
+85-27: Security Patrol Tracking
+85-28: Security Turnstiles
+85-29: Ultraviolet (UV) Scanners
+85-30: Video Door Intercoms
+85-31: Video Motion Detection
+85-32: Walk-Through Metal Detectors
+85-33: X-Ray Scanners
+85-34: Ticket Vending Machines
+86: Workshop Equipment
+86-01: Laser Cutting Machine
+86-02: Machine Tools - General
+86-03: Fixed Position Grinding Machines and Abrasive Wheels
+86-04: Pillar Drill
+86-05: Circular Bench Saw
+86-06: Electric Hacksaw
+86-07: Key Cutting Machine
+86-08: Mortice Cutter
+86-09: Radial Arm Saw
+86-10: Wood Thickness Planer
+86-11: Underfloor Wheel Lathes
+86-12: Hand Held Grinding Machines and Abrasive Wheels
+86-13: Industrial Sewing Machines
+86-14: Wash Station - 3D Print Cleaning
+86-15: Weighing Equipment - Industrial Scales
+86-16: Ultrasonic Cleaning Bath
+87: Operational
+87-01: Asbestos Register
+87-02: Emergency and Panic Escape Doors and Fire Exits
+87-03: Emergency Lighting - Central Powered
+87-04: Emergency Lighting - Self-Contained Fittings
+87-05: Fire Alarm System - Daily and Weekly Inspections
+87-06: Fire Blankets
+87-07: Automatic Door Release Mechanisms - Electronically Secured Escape Doors and Fire Exits
+87-08: Fire Evacuation Drills
+87-09: Fire Exit Signage
+87-10: Fire Hydrant - Weekly Checks
+87-11: Gas Extinguishing Systems - Weekly, Monthly and 3 Monthly Checks
+87-12: Hose Reels - Daily, Monthly and Annual Checks
+87-13: Insurance Periodic Inspections
+87-14: Meter Reading - Electric
+87-15: Meter Reading - Gas
+87-16: Meter Reading - Oil
+87-17: Meter Reading - Water
+87-18: Oil Storage Tanks - Above Ground
+87-19: Plant Room Inspections
+87-20: In Service Inspection and Testing of Electrical Equipment (commonly known as Portable Appliance Testing or PAT) - User Checks
+87-21: Portable Fire Extinguishers - Daily Checks
+87-22: Smoke Control Systems - Weekly, 3 Monthly and Annual Testing
+87-23: Sprinkler Systems - Daily Inspections
+87-24: Steam Boilers - Daily and Weekly Checks and Tests
+87-25: Visual Inspections of Voids, Plenums, Cavities, Undercrofts and Risers
+87-26: Water Risk Assessment (Legionella)
+87-27: Water Sampling and Testing - Closed-Circuit Systems
+87-28: Independent Water Risk Assessment (Legionella)
+87-29: Air Conditioning Inspection (ACI) also known as TM44 Inspection - England, Wales and NI
+87-30: Air Conditioning Inspection (ACI) also known as TM44 Inspection - Scotland
+87-31: Display Energy Certificates (DEC's) - England, Wales and Northern Ireland
+87-32: Energy Performance Certificates (EPC's)
+87-33: Bird Excrement and Associated Material Removal
+87-34: Compressed Gas Cylinders (External Storage)
+87-35: Automatic Door Release Mechanisms - Electrically Held Open Fire Doors
+87-36: Air Compressors and Receivers - Operational Checks
+88: Building Fabric
+88-01: Ancillary Buildings and Other Structures
+88-02: Controlled Entry Gates and Barriers
+88-03: Boundary Vegetation and Landscaping
+88-04: Building Inspections
+88-05: Building Security
+88-06: Car Parks
+88-07: Car Parks - Surface ???????
+88-08: Damp Proofing Inspections
+88-09: Doors General/Automatic/Steel
+88-10: ETFE (Ethylene Tetrafluoroethylene) Roof and Fan System
+88-11: External Ground Surfaces
+88-12: External Walls and Cladding
+88-13: Fences, Railings and Boundary Walls
+88-14: Floors and Floor Finishes
+88-15: Glazed Roof/Glazed Roof Sections/Glass Canopies
+88-16: Goods/Service Yards
+88-17: Grease Traps
+88-18: Internal Painting and Decoration
+88-19: Internal Walls and Ceilings
+88-20: Load Bearing Walls - Internal
+88-21: Motorised Blinds
+88-22: Non-Automated Gates
+88-23: Pitched and Barrel Roofs
+88-24: Public Area Waiting Shelters
+88-25: Rainwater Drainage
+88-26: Ramp Decks and Ramp Supports
+88-27: Winter Road Treatment - Stock Check
+88-28: Roof and Canopy Fall Protection Systems
+88-29: Roof Coverings and Flashings
+88-30: Roof Features and Chimneys
+88-31: Skylights and Openings
+88-32: Service Drainage
+88-33: Steps, Stairs, Ramps, Balustrades and Handrails
+88-34: Timber Maintenance Platform
+88-35: Toilet and Shower Areas
+88-36: Transportable Office and Storage Buildings
+88-37: Vehicle Access and Boundary Control
+88-38: Windows Internal and External
+88-39: Access Panels and Hatches
+88-40: Bird and Vermin Control
+88-41: External Decorations
+88-42: Fire Escape External Staircases
+88-43: Fire Stopping and Passive Fire Protection
+88-44: Fittings, Furnishings and Equipment
+88-45: Flagpoles
+88-46: Green Roofs and Gardens
+88-47: Ground Gas Venting Systems
+88-48: Internal Planting
+88-49: Laundry and Refuse Chutes
+88-50: Movable Wall Dividers
+88-51: Planted Green Walls
+88-52: Siphonic Roof Drainage
+88-53: Suspended Ceilings
+88-54: Accessing Ceiling Voids
+88-55: Cleaning of Roof Walkways
+88-56: Vehicle Washing Plant
+88-57: Mechanical Heritage Clocks
+88-58: Barriers and Safety/Hand Rails
+88-59: Window Restrictors
+88-60: Conservatory Maintenance
+88-61: Cycle Shelters
+88-62: Outdoor Play Equipment
+88-63: Trees - Trimming and Pruning
+88-64: Footbridges, Small Vehicle Bridges and Culverts
+88-65: Internal Window Blinds
+88-66: Soil Moisture Watering System
+88-67: Ground-Mounted Cycle Stands
+90: Cabinets, Counters and Cupboards
+90-01: Bain Marie/Counter - Electric
+90-02: Bain Marie/Counter - Gas
+90-03: Cup Warmer
+90-04: Heat Lamps and Gantry
+90-05: Heated Mobile Trolley
+90-06: Hot Cupboard - Electric
+90-07: Hot Cupboard - Gas
+90-08: Hot Display Counter - Electric
+90-09: Hot Plate - Electric
+90-10: Plate Warmer
+90-11: Servery
+90-12: Tray Conveyors
+90-13: Heated 'Grab & Go' Unit - Electric
+90-14: Hot Chicken Display Counter - Electric
+91: Drinks Machines
+91-01: Coffee Machine (Non Pressurised) - Electric
+91-02: Coffee Machine (Non Pressurised) - Gas
+91-03: Coffee Machine (Pressurised) - Electric
+91-04: Coffee Machine (Pressurised) - Gas
+91-05: Cold Food and Drink Vending Machines
+91-06: Hot Chocolate Machine - Electric
+91-07: Hot Drinks Vending Machine
+92: Cold Rooms and Food Storage
+92-01: Fridges, Freezers and Blast Chillers
+92-02: Refrigerated Milk Dispenser
+93: Fat Fryers
+93-01: Fat Fryer (Open Topped) - Electric
+93-02: Fat Fryer (Open Topped) - Gas
+94: Griddles, Grills and Salamanders
+94-01: Griddle/Grill - Electric
+94-02: Griddle/Grill - Gas
+94-03: Salamander - Electric
+94-04: Salamander - Gas
+94-05: Grill - Electric
+95: Kettles, Pans and Water Boilers
+95-01: Boiling Pan - Electric
+95-02: Bratt Pan - Electric
+95-03: Bratt Pan - Gas
+95-04: Kettle (Non Pressurised) - Electric
+95-05: Kettle (Pressurised) - Electric
+95-06: Tilting Kettle (Non Pressurised) - Electric
+95-07: Tilting Kettle (Non Pressurised) - Gas
+95-08: Tilting Kettle (Pressurised) - Electric
+95-09: Tilting Kettle (Pressurised) - Gas
+95-10: Water Boiler (Non Pressurised) - Electric
+95-11: Water Boiler (Non Pressurised) - Gas
+95-12: Water Boiler (Pressurised) - Electric
+95-13: Water Boiler (Pressurised) - Gas
+95-14: Boiling Pan (Non Pressurised) - Electric
+95-15: Boiling Pan (Pressurised) - Electric
+95-16: Boiling Pan (Non Pressurised) - Gas
+95-17: Boiling Pan (Pressurised) - Gas
+95-18: Kettle (Non Pressurised) - Gas
+95-19: Kettle (Pressurised) - Gas
+95-20: Soup Kettle - Electric
+96: Kitchen Equipment
+96-01: Coffee Grinder
+96-02: Crepe Machine
+96-03: Degreasing Tank - Electrical
+96-04: Dishwashers
+96-05: Dough Kneader - Electric
+96-06: Dough/Pastry Sheeter
+96-07: Food Processor
+96-08: Frozen Yogurt Machine
+96-09: Gas Appliances - Kitchens
+96-10: Glazing Machine
+96-11: Hand Held Stick Blender
+96-12: Ice Cream Machine
+96-13: Insect Killer
+96-14: Juice Dispenser
+96-15: Juice Maker
+96-16: LPG BBQ - Free Standing
+96-17: Mixer - Electric
+96-18: Pasta Maker - Electric
+96-19: Pasta Roller
+96-20: Pot Wash Scrubber
+96-21: Rice Cooker - Electric - Bench Standing
+96-22: Salad Washer
+96-23: Sandwich Toaster
+96-24: Kitchen Scales
+96-25: Slush Machine
+96-26: Toaster - Conveyor/Rotary
+96-27: Toaster - Pop Up
+96-28: Utensil Washer
+96-29: Waste Disposal Unit
+96-30: Dishwashers Glassware
+96-31: Dishwashers Pass Through - Electric
+96-32: Dishwashers Rack and Flight - Electric
+96-33: Dishwashers Undercounter
+96-34: Can Crusher - Electric
+96-35: Can Crusher - Manual
+96-36: Cutlery Polisher
+96-37: Pasta Cooker - Electric
+96-38: Pasta Cooker - Gas
+96-39: Toasted Panini Machine
+96-40: Vacuum Packer
+96-41: Mincing Machine
+96-42: Central Temperature Monitor
+96-43: Dishwasher Heat Exchangers and Dishwasher Condensing Hoods
+96-44: Re-circulation Cooker Hood
+97: Ovens, Hobs and Ranges
+97-01: Bake Off Oven - Electric
+97-02: Bake Off Oven - Gas
+97-03: Baked Potato Oven - Electric
+97-04: Bread Oven - Electric
+97-05: Bread Oven - Gas
+97-06: Bulls Eye Range - Gas
+97-07: Combination Oven - Electric
+97-08: Combination Oven - Gas
+97-09: Convection Oven - Electric
+97-10: Convection Oven - Gas
+97-11: Deck Oven - Electric
+97-12: Deck Oven - Gas
+97-13: Hobs - Electric
+97-14: Hobs - Gas
+97-15: Microwave Combi Oven
+97-16: Microwave Oven
+97-17: Rack Oven - Electric
+97-18: Rack Oven - Gas
+97-19: Range - Solid Top - Electric
+97-20: Range - Solid Top - Gas
+97-21: Rotisserie - Electric
+97-22: Rotisserie - Gas
+97-23: Steaming Oven - Electric
+97-24: Steaming Oven - Gas
+97-25: Steaming Oven (Pressurised) - Electric
+97-26: Steaming Oven (Pressurised) - Gas
+97-27: Induction Hobs
+97-28: Microwave Convection Oven
+97-29: Domestic Style Cooker - Electric
+97-30: Domestic Style Cooker - Gas
+97-31: Regeneration Oven - Electric
+98: Peelers and Slicers
+98-01: Bread Slicer
+98-02: Meat Slicer
+98-03: Potato Chipper
+98-04: Potato Peeler
+98-05: Vegetable Slicer/Prep Machine
+99: Filters
+99-01: Fat Filter
+COV
+COV01 INTRO: COVID - Main Introduction
+COV02 STAT 1: COVID - Statutory
+COV03 CLEAN 1: COVID - Cleaning Equipment/Touch Route
+COV04 SEW 1: COVID - Sewage Systems and Equipment
+COV05 SEW 2: COVID - Sewage Systems and Equipment
+COV06 SEW 3: COVID - Sewage Systems and Equipment
+COV07 VENT 1: COVID - Ventilation Systems and Equipment
+COV08 VENT 2: COVID - Ventilation Systems and Equipment
+COV09 VENT 3: COVID - Ventilation Systems and Equipment
+COV10 VENT 4: COVID - Ventilation Systems and Equipment
+COV11 VENT 5: COVID - Ventilation Systems and Equipment
+COV12 VENT 6: COVID - Ventilation Systems and Equipment
+COV13 VENT 7: COVID - Ventilation Systems and Equipment
+COV14 WATER 1: COVID - Water Systems and Equipment
+FENCING, RAILINGS AND WALLS - PLANNED INSPECTION
+FRW PI: FENCING, RAILINGS AND WALLS - PLANNED INSPECTION
+HTM 01: Decontamination
+HTM 01-01: Steriliser Planned Maintenance Programme Review - Porous Load Types
+HTM 01-02: Test Equipment - Decontamination
+HTM 01-03: Periodic Testing of Steam for use in Decontamination.
+HTM 01-04: Porous Load Sterilisers - Large Load (in excess of 60 litres capacity)
+HTM 01-05: Porous Load Sterilisers (Large Load) - User Checks
+HTM 01-06: Steriliser Planned Maintenance Programme Review - Washer-Disinfector Types
+HTM 01-07: Washer-Disinfectors
+HTM 01-08: Washer-Disinfectors - User Checks
+HTM 01-09: Ultrasonic Cleaners
+HTM 01-10: Dental Practices - Small Sterilisers (Load less than 60L)
+HTM 01-11: Dental Practices - Washer-Disinfectors
+HTM 01-12: Dental Washer-Disinfectors - User Checks
+HTM 01-13: Dental Practices - Ultrasonic Cleaners
+HTM 01-14: Automated Endoscope Reprocessors (AER's) - Decontamination of Flexible Endoscopes
+HTM 01-15: Fluid Sterilisers
+HTM 01-16: Laboratory Sterilisers
+HTM 01-17: Training
+HTM 02: Medical Gases and Dental Supplement
+HTM 02-01: Daily and Weekly - General Tasks on MGPS
+HTM 02-02: Terminal Units - General Areas
+HTM 02-03: Terminal Units - High Acuity Areas
+HTM 02-04: Central Alarm Panels
+HTM 02-05: Local Alarms - High Acuity Areas
+HTM 02-06: Area Valve Service Units (AVSU's)
+HTM 02-07: Pressure Reducing Sets
+HTM 02-08: Medical Gases Piped Distribution System and Line Valves
+HTM 02-09: Automatic Cylinder Manifolds - Including Headers and Tailpipes
+HTM 02-10: Manual Standby Manifolds - Including Headers and Tailpipes
+HTM 02-11: Medical and Surgical Compressed Air Plant
+HTM 02-12: Air Dryer and Regulator Assembly
+HTM 02-13: Medical Vacuum Plant
+HTM 02-14: Anaesthetic Gas Scavenging (AGS) Systems
+HTM 02-15: Medical Gases - Refresher Training and Reassessment
+HTM 02-16: Cylinder Stores
+HTM 02-17: Vacuum Insulated Evaporator (VIE) Plant - Daily and Weekly Tasks
+HTM 02-18: Emergency Supply Kits - Operational Test
+HTM 02-19: Emergency Supply Manifolds/Emergency Reserve Manifolds (ESM/ERM)
+HTM 02-20: Oxygen Systems
+HTM 02-21: Dental Compressed Air Plant
+HTM 02-22: Dental Vacuum System and Amalgam Separators
+HTM 02-23: Pathology Laboratory Gas Systems (PLGS)
+HTM 02-24: Pathology Laboratory Compressed Air Plant
+HTM 02-25: Pathology Laboratory Central Vacuum Plant
+HTM 03: Ventilation
+HTM 03-01: Air Handling Units - General Systems
+HTM 03-02: Air Handling Units - Critical Healthcare Ventilation Systems
+HTM 03-03: Chilled Beams - HTM
+HTM 03-04: Split Systems/Heat Pumps - Air-Cooled with Direct Expansion Evaporator (DX) - HTM
+HTM 03-05: Portable Room Air Conditioning Units
+HTM 03-06: Trace Heating - Electrical
+HTM 03-07: LEV Systems
+HTM 03-08: Self-Contained Mobile Filter and/or UV Light Units
+HTM 03-09: Ventilated Wet Specimen Store (LEV System)
+HTM 03-10: Ventilated Work Station (LEV System)
+HTM 03-11: Terminal Units - Fan Coil
+HTM 04: Water Services
+HTM 04-01: Hot and Cold Water Temperature Monitoring
+HTM 04-02: Outlet Flushing (infrequently used outlets)
+HTM 04-03: Hot and Cold Water Systems Maintenance
+HTM 04-04: Hot and Cold Water Temperature Monitoring ?????????
+HTM 04-04: Thermostatic Mixing Valves (TMV)
+HTM 04-05: Water Hygiene Awareness Training Course
+HTM 04-06: Deluge/Emergency Showers
+HTM 04-07: Ice Making Machines
+HTM 04-08: Ion Exchange Plant - Base Exchange Softening - Commercial
+HTM 04-09: Ion Exchange Plant - Base Exchange Softening - Domestic (capacity usually below 50 litres)
+HTM 04-10: Dialysis Water Storage Tank
+HTM 04-11: Endoscope Water Purification System
+HTM 05: Fire
+HTM 05-00: Management of Maintenance for Fire Safety Services within Healthcare Premises
+HTM 05-01: Fire Risk Assessments in Healthcare Premises
+HTM 05-02: Fire Training and Fire Safety Audits
+HTM 05-03: Fire Drills
+HTM 05-04: Daily, Weekly and Monthly Tasks - Healthcare Premises
+HTM 05-05: Structural Fire Protection and Fire Compartmentation
+HTM 05-06: Fire Alarm System - Healthcare Premises
+HTM 05-07: Fire Alarms - Associated Equipment - Healthcare Premises
+HTM 05-08: Fire Alarm - Voice Alarm Systems - Healthcare Premises
+HTM 05-09: Laundries
+HTM 05-10: Smoke Control Systems Healthcare Premises - Weekly, 3 Monthly and Annual Testing
+HTM 05-11: Fire Strategy Documentation Checks
+HTM 06: Electrical
+HTM 06-01: High Voltage Switchgear and Protection
+HTM 06-02: HV Packaged Substations
+HTM 06-03: Oil Switchgear including Oil Circuit Breakers and Oil Switches
+HTM 06-04: Non-Oil Switchgear
+HTM 06-05: Vacuum Indoor Switchgear
+HTM 06-06: Fluid Filled Transformer
+HTM 06-07: Cast Resin Transformer
+HTM 06-08: Ring Main Unit
+HTM 06-09: Main Switch Panel at Supply Intake
+HTM 06-10: Isolators/Starters/Fuse Switches
+HTM 06-11: Distribution Boards
+HTM 06-12: Power Generation (Stand-by Generator)
+HTM 06-13: Electromagnetic Compatibility
+HTM 06-14: Earthing
+HTM 06-15: Lightning Conductor and Earth
+HTM 06-16: Lightning Conductors in Hazardous Areas
+HTM 06-17: Containment
+HTM 06-18: Busbar System and Cables
+HTM 06-19: Uninterruptible Power Supplies, Inverters and Batteries
+HTM 06-20: Isolated Power Supplies
+HTM 06-21: Harmonic Filters
+HTM 06-22: Maximum Demand and Power Factor Correction Units
+HTM 06-23: Periodic Inspection and Testing
+HTM 06-24: In Service Inspection And Testing Of Electrical Equipment (commonly known as Portable Appliance Testing or PAT)
+HTM 06-25: LV & HV Switch Room and Substation Inspections
+HTM 06-26: Electrical Housekeeping Tasks
+HTM 06-27: Compliance Audits LV Electrical
+HTM 06-28: Compliance Audits HV Electrical
+HTM 06-29: Bedhead Services
+HTM 08: Lifts
+HTM 08-01: Vertical Platform Lifts
+HTM 08-02: Hydraulic Lifts
+HTM 08-03: Inclined Platform Lift and Stair Riser
+HTM 08-04: Traction Lifts
+HTM 08-05: Lift Training
+HTM 08-06: Lift Audits
+HTM 08-07: Bath Hoist
+HTM 08-08: Bed Hoist
+HTM 08-09: Lifting Bath
+NCT - 5.10.1.6: NON CORE TASK - DUMB WAITER
+NCT - 5.10.1.7: NON CORE TASK - COMPLETE HOIST INSTALLATION
+NCT - 5.3.1: NCT - FLOOR CHANNELS / GRATINGS
+NCT - 5.3.1: NCT - PIPE ASSEMBLIES
+NCT - Gas Safe Check: NCT - Gas Safe Check
+NCT: NCT - GULLIES (CHEMICAL, TOXIC WASTE)
+NCT: NCT - PIPELINES AND FITTINGS (CHEMICAL, TOXIC WASTE)
+NCT: NCT - TRAPS (CHEMICAL, TOXIC WASTE)
+NCT: NON CORE TASK
+NCT: NON CORE TASK - CONTROLLER LIFT
+NCT-AD: NON CORE TASK - AUTO DOORS
+NCT-RCS: NON CORE TASK - ROOF CLEANING SYSTEM
+NCT-RSD: ROLLER/SLIDING SHUTTERS
+NMEE PI: NON-MECHANICAL AND ELECTRICAL EQUIPMENT - PLANNED INSPECTION
+SHTM 01: Decontamination
+SHTM 01-01: Steriliser Planned Maintenance Programme Review - Porous Load Types
+SHTM 01-02: Test Equipment - Decontamination
+SHTM 01-03: Periodic Testing of Steam for use in Decontamination
+SHTM 01-04: Porous Load Sterilisers - Large Load (in excess of 60 litres capacity)
+SHTM 01-05: Porous Load Sterilisers (Large Load) - User Checks
+SHTM 01-06: Steriliser Planned Maintenance Programme Review - Washer-Disinfector Types
+SHTM 01-07: Washer-Disinfectors
+SHTM 01-08: Washer-Disinfectors - User Checks
+SHTM 01-09: Ultrasonic Cleaners
+SHTM 01-10: Dental Practices - Small Sterilisers (Load less than 60L)
+SHTM 01-11: Dental Practices - Washer-Disinfectors
+SHTM 01-12: Dental Washer-Disinfectors - User Checks
+SHTM 01-13: Dental Practices - Ultrasonic Cleaners
+SHTM 01-14: Automated Endoscope Reprocessors (AER's) - Decontamination of Flexible Endoscopes
+SHTM 01-15: Fluid Sterilisers
+SHTM 01-16: Laboratory Sterilisers
+SHTM 01-17: Training
+SHTM 02: Medical Gases and Dental Supplement
+SHTM 02-01: Daily and Weekly - General Tasks on MGPS
+SHTM 02-02: Terminal Units - General Areas
+SHTM 02-03: Terminal Units - High Acuity Areas
+SHTM 02-04: Central Alarm Panels
+SHTM 02-05: Local Alarms - High Acuity Areas
+SHTM 02-06: Area Valve Service Units (AVSU's)
+SHTM 02-07: Pressure Reducing Sets
+SHTM 02-08: Medical Gases Piped Distribution System and Line Valves
+SHTM 02-09: Automatic Cylinder Manifolds - Including Headers and Tailpipes
+SHTM 02-10: Manual Standby Manifolds - Including Headers and Tailpipes
+SHTM 02-11: Medical and Surgical Compressed Air Plant
+SHTM 02-12: Air Dryer and Regulator Assembly
+SHTM 02-13: Medical Vacuum Plant
+SHTM 02-14: Anaesthetic Gas Scavenging (AGS) Systems
+SHTM 02-15: Medical Gases - Refresher Training and Reassessment
+SHTM 02-16: Cylinder Stores
+SHTM 02-17: Vacuum Insulated Evaporator (VIE) Plant - Daily and Weekly Tasks
+SHTM 02-18: Emergency Supply Kits - Operational Test
+SHTM 02-19: Emergency Supply Manifolds/Emergency Reserve Manifolds (ESM/ERM)
+SHTM 02-20: Oxygen Systems
+SHTM 02-21: Dental Compressed Air Plant
+SHTM 02-22: Dental Vacuum System and Amalgam Separators
+SHTM 02-23: Pathology Laboratory Gas Systems (PLGS)
+SHTM 02-24: Pathology Laboratory Compressed Air Plant
+SHTM 02-25: Pathology Laboratory Central Vacuum Plant
+SHTM 03: Ventilation
+SHTM 03-01: Air Handling Units - General Systems
+SHTM 03-02: Air Handling Units - Critical Ventilation Systems
+SHTM 03-03: Chilled Beams - SHTM
+SHTM 03-04: Split Systems/Heat Pumps - Air-Cooled with Direct Expansion Evaporator (DX) - SHTM
+SHTM 03-05: Portable Room Air Conditioning Units
+SHTM 03-06: Trace Heating - Electrical
+SHTM 03-07: LEV Systems
+SHTM 03-08: Self-Contained Mobile Filter and/or UV Light Units
+SHTM 03-09: Ventilated Wet Specimen Store (LEV System)
+SHTM 03-10: Ventilated Work Station (LEV System)
+SHTM 04: Water Services
+SHTM 04-01: Hot and Cold Water Temperature Monitoring
+SHTM 04-02: Outlet Flushing (infrequently used outlets)
+SHTM 04-03: Hot and Cold Water Systems Maintenance
+SHTM 04-04: Thermostatic Mixing Valves (TMV)
+SHTM 04-05: Water Hygiene Awareness Training Course
+SHTM 04-06: Deluge/Emergency Showers
+SHTM 04-07: Ice Making Machines
+SHTM 04-08: Ion Exchange Plant - Base Exchange Softening - Commercial
+SHTM 04-09: Ion Exchange Plant - Base Exchange Softening - Domestic (capacity usually below 50 litres)
+SHTM 04-10: Dialysis Water Storage Tank
+SHTM 04-11: Endoscope Water Purification System
+SHTM 05: Fire
+SHTM 05-00: Management of Maintenance for Fire Safety Services within Healthcare Premises
+SHTM 05-01: Fire Risk Assessments in Healthcare Premises
+SHTM 05-02: Fire Training and Fire Safety Audits
+SHTM 05-03: Fire Drills
+SHTM 05-04: Daily, Weekly and Monthly Tasks - Healthcare Premises
+SHTM 05-05: Structural Fire Protection and Fire Compartmentation
+SHTM 05-06: Fire Alarm System - Healthcare Premises
+SHTM 05-07: Fire Alarms - Associated Equipment - Healthcare Premises
+SHTM 05-08: Fire Alarm - Voice Alarm Systems - Healthcare Premises
+SHTM 05-09: Laundries
+SHTM 05-10: Smoke Control Systems Healthcare Premises - Weekly, 3 Monthly and Annual Testing
+SHTM 05-11: Fire Strategy Documentation Checks
+SHTM 05-12: Management and Fire Documentation
+SHTM 06: Electrical
+SHTM 06-01: High Voltage Switchgear and Protection
+SHTM 06-02: HV Packaged Substations
+SHTM 06-03: Oil Switchgear including Oil Circuit Breakers and Oil Switches
+SHTM 06-04: Non-Oil Switchgear
+SHTM 06-05: Vacuum Indoor Switchgear
+SHTM 06-06: Fluid Filled Transformer
+SHTM 06-07: Cast Resin Transformer
+SHTM 06-08: Ring Main Unit
+SHTM 06-09: Main Switch Panel at Supply Intake
+SHTM 06-10: Isolators/Starters/Fuse Switches
+SHTM 06-11: Distribution Boards
+SHTM 06-12: Power Generation (Stand-by Generator)
+SHTM 06-13: Electromagnetic Compatibility
+SHTM 06-14: Earthing
+SHTM 06-15: Lightning Conductor and Earth
+SHTM 06-16: Lightning Conductors in Hazardous Areas
+SHTM 06-17: Containment
+SHTM 06-18: Busbar System and Cables
+SHTM 06-19: Uninterruptible Power Supplies, Inverters and Batteries
+SHTM 06-20: Isolated Power Supplies
+SHTM 06-21: Harmonic Filters
+SHTM 06-22: Maximum Demand and Power Factor Correction Units
+SHTM 06-23: Periodic Inspection and Testing
+SHTM 06-24: In Service Inspection And Testing Of Electrical Equipment (commonly known as Portable Appliance Testing or PAT)
+SHTM 06-25: LV & HV Switch Room and Substation Inspections
+SHTM 06-26: Electrical Housekeeping Tasks
+SHTM 06-27: Compliance Audits LV Electrical
+SHTM 06-28: Compliance Audits HV Electrical
+SHTM 06-29: Bedhead Services
+SHTM 08: Lifts
+SHTM 08-01: Vertical Platform Lifts
+SHTM 08-02: Hydraulic Lifts
+SHTM 08-03: Inclined Platform Lift and Stair Riser
+SHTM 08-04: Traction Lifts
+SHTM 08-05: Lift Training
+SHTM 08-06: Lift Audits
+SHTM 08-07: Patient Bath Hoist
+SHTM 08-08: Patient Bed Hoist
+SHTM 08-09: Lifting Bath

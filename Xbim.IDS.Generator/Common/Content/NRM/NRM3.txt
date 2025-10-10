@@ -1,0 +1,1818 @@
+0: Facilitating works (FW)
+0.1: Toxic or hazardous contaminated material treatment
+0.1.1: Toxic or hazardous material removal
+0.1.1.1: Toxic or hazardous material removal (e.g. control of asbestos materials)
+0.1.1.2: Toxic or hazardous insulations from existing services installations
+0.1.1.3: Control of chemical hazardous materials
+0.1.1.4: Safe disposal (included with items 1 to 3)
+0.1.2: Contaminated land
+0.1.3: Eradication of plant growth
+0.1.3.2: Eradication by chemical treatment
+0.2: Major demolition works
+0.2.1: Demolition works
+0.2.2: Soft strip works
+0.3: Temporary support to adjacent structures
+0.3.1: Temporary support to adjacent structures
+0.4: Specialist groundworks
+0.4.1: Site dewatering and pumping
+0.4.1.1: Site dewatering
+0.4.1.1.1: Forming well points and well point equipment
+0.4.1.1.3: Drain tubes and ring mains
+0.4.1.1.4: Sumps
+0.4.1.1.5: Supplementary list (pumps)
+0.4.2: Soil stabilisation measures
+0.4.3: Ground gas venting measures
+0.4.3.1: Ground gas venting measures
+0.4.3.1.1: Gas venting measures
+0.4.3.1.2: Radon sumps
+0.4.3.1.3: Vent pipes
+0.5: Temporary diversion works
+0.5.1: Temporary diversion works
+0.5.2: Temporary diversion to services
+0.5.3: Temporary diversion of waterways
+0.6: Extraordinary site investigation works
+0.6.1: Archaeological investigation
+0.6.2: Reptile/wildlife mitigation measures
+0.6.3: Other extraordinary site investigation works
+0.6.3.1: Physical site investigation works
+0.6.3.1.1: Extraordinary site investigation measures
+0.6.3.2: Temporary screens, fences, barriers, etc.
+0.6.3.2.2: Temporary screens, fences and barriers
+1: Substructure (SUB)
+1.1: Substructure
+1.1.1: Standard foundations
+1.1.1.1: Strip foundations
+1.1.1.1.15: Filling cavities
+1.1.1.1.16: Thermal insulation to cavities
+1.1.1.1.17: Damp proofing courses
+1.1.2: Specialist foundations
+1.1.2.14: Underpinning works
+1.1.2.14.1: Monitoring subsidence
+1.1.3: Lowest floor construction
+1.1.3.6: Design joints
+1.1.3.6.22: Design joints to floor slabs
+1.1.3.8: Gullies, floor outlets
+1.1.3.8.29: Floor outlets
+1.1.3.8.30: Prefabricated floor channels
+1.1.3.9: Internal manholes
+1.1.3.9.28: Internal manholes
+1.1.4: Basement excavation
+1.1.5: Basement retaining walls
+1.1.5.1: Basement retaining walls
+1.1.5.1.7: Waterproof tanking
+1.1.5.1.8: Protective external tanking
+1.1.5.1.9: Damp proofing and vapour barriers
+1.1.5.1.19: Instrumentation and monitoring
+1.1.5.2: Embedded basement retaining walls
+1.1.5.2.9: Instrumentation and monitoring
+2: Superstructure
+2.1: Frame
+2.1.1: Steel frames
+2.1.1.1: Frame – structural steel
+2.1.1.2: Fire protection to steel frame
+2.1.1.2.6: Fire protective coating
+2.1.2: Space frames / decks
+2.1.2.1: Frame – space deck
+2.1.2.2: Fire protection to steel frame
+2.1.2.2.5: Fire protective coating
+2.1.3: Concrete casings to steel frames
+2.1.3.1: Frames – concrete casings
+2.1.4: Concrete frames
+2.1.4.1: Frames – concrete columns
+2.1.4.2: Frames – concrete beams
+2.1.4.3: Frames – concrete walls
+2.1.4.4: Frames – concrete forming openings
+2.1.4.5: Designed joints
+2.1.4.5.9: Designed joints
+2.1.5: Timber frames
+2.1.5.1: Frame – timber
+2.1.5.1.8: Treatment to timber
+2.1.5.1.9: Site applied fire retarding paint
+2.1.6: Specialist frames
+2.1.6.1: Frame – specialist
+2.1.6.1.8: Protective treatment
+2.2: Upper floors (UF)
+2.2.1: Floors
+2.2.1.1: Concrete suspended floors
+2.2.1.3: Designed joints
+2.2.1.3.6: Design joints
+2.2.1.5: Precast composite decking – concrete
+2.2.1.5.11: Re-grouting joints
+2.2.1.6: Timber floors
+2.2.2: Balconies
+2.2.2.1: Balconies – purpose made
+2.2.3: Drainage to balconies
+2.2.3.1: Rainwater downpipes
+2.2.21.7: Structural screeds
+2.3: Roof
+2.3.1: Roof structure
+2.3.1.1: Roof structure – pitched
+2.3.1.1.1: Roof decks and slabs
+2.3.1.1.2: Pitched roof structure
+2.3.1.1.18: Thermal insulation (laid in roof space)
+2.3.1.4: Roof structure – flat
+2.3.2: Roof coverings
+2.3.2.1: Roof coverings (pitched/flat) – state type
+2.3.2.1.1: Roof cladding/coverings system
+2.3.2.1.2: Mastic asphalt – including underlay, flashings, etc. applicable to the roof covering system
+2.3.2.2: Extra over roof coverings
+2.3.2.2.3: Photovoltaic device
+2.3.2.2.6: Thermal insulation
+2.3.2.2.7: Surface treatment (state type)
+2.3.2.2.8: Roof paving
+2.3.2.2.9: Green roofs and roof gardens
+2.3.2.2.10: Planting to green roofs/roof garden
+2.3.2.3: Eaves and verge treatment to pitched rooves
+2.3.2.3.1: Fascia and soffit
+2.3.2.4: Edge treatment to flat roofs
+2.3.2.5: Flashings
+2.3.3: Specialist roof systems
+2.3.3.1: Specialist roof systems
+2.3.3.1.1: Patent glazing
+2.3.3.1.2: Glazed roofing system
+2.3.3.1.3: Perspex roofing system
+2.3.3.1.4: Roof components flashings, etc.
+2.3.3.2: Floor outlets
+2.3.4: Roof drainage
+"2.3.4.1: Gutters
+"
+2.3.4.1.1: Gutters
+2.3.4.1.3: Symphonic roof drainage
+2.3.4.1.4: Rainwater heads
+2.3.4.1.5: Painting and anti-corrosion treatments
+2.3.4.2: Rainwater pipes
+2.3.4.2.2: Rainwater downpipes
+2.3.5: Roof lights, skylights and openings
+2.3.5.1: Roof lights skylights and openings
+2.3.5.1.1: Roof lights skylights and openings
+2.3.5.1.2: Opening gear and frames, kerbs and glazing
+2.3.5.1.3: Sun pipes and tubes
+2.3.5.1.4: Pavement lights
+2.3.5.1.5: Roof hatches
+2.3.5.1.6: Access hatches
+2.3.5.1.7: Smoke vents
+2.3.5.1.8: Roof vents and roof cowls
+2.3.6: Roof features
+2.3.6.1: Roof features
+2.3.6.1.1: Turrets
+2.3.6.1.2: Wind vanes
+2.3.6.1.3: Spires
+2.3.6.1.4: False chimneys
+2.3.6.1.5: Roof enclosure
+2.3.6.1.6: Fall arrest systems
+2.3.6.1.7: Access systems for cleaning roof
+2.3.6.1.8: Roof edge protection
+2.3.6.1.9: Balustrades, handrails to roof edges
+2.3.6.1.10: Service walkways within roof voids
+2.4: Stairs and ramps
+2.4.1: Stair/ramp structure
+2.4.1.1: Stairs structures
+2.4.1.1.1: Staircases
+2.4.1.2: Ramp structures
+2.4.1.2.2: Access ramps
+2.4.2: Stair/ramp finishes
+2.4.2.1: Stair finishes
+2.4.2.2: Ramp finishes
+2.4.3: Stair/ramp balustrade and handrails
+2.4.3.1: Wall handrails
+2.4.3.1.1: Balustrades and handrails to stairs
+2.4.3.1.2: Balustrades and handrails to landings
+2.4.3.1.3: Balustrades /handrails to landings between floors
+2.4.3.1.4: Applied coating and painting systems
+2.4.4: Ladders/chutes/slides
+2.4.4.1: Ladders
+2.4.4.1.1: Fire escape ladders
+2.4.4.1.2: Access ladders
+2.4.4.1.3: Loft ladders
+2.4.4.1.4: Applied coating and painting systems
+2.4.4.2: Chutes
+2.4.4.2.7: Fire escape chutes
+2.4.4.3: Slides
+2.4.4.3.7: Fire escape slides
+2.5: External walls (EW)
+2.5.1: External enclosing walls above ground floor level
+2.5.1.1: External walls
+2.5.1.1.1: External enclosing walls
+2.5.1.1.3: Parapet walls
+2.5.1.1.5: Chimneys
+2.5.1.1.7: Curtain walling
+2.5.1.1.8: Structural glazing
+2.5.1.1.9: Profiled sheet cladding systems
+2.5.1.1.11: Opening vents
+2.5.1.1.12: Integral blind
+2.5.1.1.25: External decorations
+2.5.1.1.27: Planted 'green' walls
+2.5.2: External enclosing walls below ground floor level
+2.5.2.1: External walls (EW)
+2.5.2.1.4: Parapet walls
+2.5.2.1.6: Chimneys
+2.5.2.1.8: Curtain walling
+2.5.2.1.9: Structural glazing
+2.5.1.6: Extra over for integral photovoltaic panels
+2.5.2.6.10: Photovoltaic part of curtain walling
+2.5.2.6: Finishes to external walls
+2.5.2.6.22: External decorations
+2.5.3: Solar/rain screen cladding
+2.5.3.1: Vertical solar/rain screening
+2.5.3.2: Horizontal solar/rain screening
+2.5.3.2.4: Brise soleil system
+2.5.4: External soffits
+2.5.4.1: External soffits
+2.5.4.2: Cornices, covings, etc.
+2.5.4.2.6: Cornices, etc.
+2.5.4.3: Shadow gaps
+2.5.4.3.7: Shadow gaps
+2.5.4.4: Access hatches
+2.5.4.4.8: Access hatches
+2.5.4.5: Painting and decorating to false ceilings
+2.5.4.5.5: External decorations
+2.5.5: Subsidiary walls, balustrades, handrails, railings and proprietary balconies
+2.5.5.1: Walls
+2.5.5.1.1: Low level or dwarf walls, balustrades, handrails and railing to external walkways
+2.5.5.2: Walls forming planters
+2.5.5.2.2: Wall forming planters
+2.5.5.3: Combined balustrades and handrails
+2.5.5.3.3: Combined balustrades and handrails
+2.5.5.4: Wall mounted handrails
+2.5.5.4.4: Wall handrails
+2.5.5.5: Parapet railings
+2.5.5.5.5: Railings and barriers
+2.5.5.6: Proprietary bolt on balconies (e.g. Juliet balconies)
+2.5.5.6.6: Juliet balconies
+2.5.5.7: Rainwater Downpipes
+2.5.5.7.7: Surface water drainage
+2.5.5.8: Floor outlets
+2.5.5.8.7: Surface water drainage
+2.5.6: Facade access/cleaning systems
+2.5.6.1: Facade cleaning systems
+2.5.6.1.1: Window/facade cleaning cradles
+2.5.6.1.2: Combined facade/roof cleaning system
+2.5.6.1.3: Building maintenance units
+2.5.6.1.4: Other facade access systems
+2.6: Windows and external doors
+2.6.1: External windows
+2.6.1.1: External windows
+2.6.1.1.1: External windows
+2.6.1.1.2: Ironmongery
+2.6.1.1.8: Solar/rain screening over cladding system to windows
+2.6.1.1.9: Photovoltaic glazing (integral to window system)
+2.6.1.1.10: Canopies
+2.6.1.1.11: Protective film applied to windows
+2.6.1.1.14: Painting and decorating
+2.6.1.2: Louvres
+2.6.1.2.3: Louvered windows and panels
+2.6.1.3: Shop fronts
+2.6.1.3.4: External shop front
+2.6.1.4: Roller shutters (RS)
+2.6.1.4.5: Roller shutters, sliding shutters, grilles
+2.6.1.4.6: Fly screens and storm windows
+2.6.1.4.7: Integral blinds to windows
+2.6.1.4.12: External blinds, shutters, etc.
+2.6.2: External doors (ED)
+2.6.2.1: External doors
+2.6.2.1.1: Entrance doors, frames, linings, doorsets
+2.6.2.1.2: Entrance screens and doors, inc frames
+2.6.2.1.4: Patio doors
+2.6.2.1.8: Manual and automatic doors
+2.6.2.1.11: Fanlights and side panels integral to doors
+2.6.2.1.13: Ironmongery
+2.6.2.1.14: Glazed vision panels
+2.6.2.1.15: Painting and decorating
+2.6.2.1.16: Fly screens and storm windows
+2.6.2.1.17: Integral blinds to doors
+2.6.2.1.18: Solar / rain screen over cladding to doors
+2.6.2.2: Revolving doors
+2.6.2.2.3: Revolving doors
+2.6.2.3: Shop front doors
+2.6.2.3.7: External shop front doors
+2.6.2.4: Roller shutters
+2.6.2.4.6: Roller shutters, sliding shutters in doors
+2.6.2.5: Garage doors
+2.6.2.5.5: Garage doors
+2.6.2.6: Canopies
+2.6.2.6.9: Canopies, etc. providing protection
+2.6.2.7: Grilles
+2.6.2.7.10: Grilles (fixed and folding)
+2.6.2.8: Architraves
+2.6.2.8.12: Architraves
+2.7: Internal walls and partitions (IW)
+2.7.1: Walls and partitions
+2.7.1.1: Walls and partitions
+2.7.1.1.3: Internal shop fronts
+2.7.1.1.9: Borrowed lights/screens, etc.
+2.7.1.1.17: Integral blinds in partitions
+2.7.1.3: Fixed partitions
+2.7.1.3.22: Fixed partitions
+2.7.2: Balustrades and handrails
+2.7.2.1: Combined Balustrades and handrails
+2.7.2.1.1: Balustrades and handrails
+2.7.3: Movable room dividers
+2.7.3.1: Moveable room dividers
+2.7.3.1.1: Moveable room dividers
+2.7.4: Cubicles
+2.7.4.1: Cubicles
+2.7.4.1.1: Proprietary pre finished panel cubicles
+2.8: Internal doors (ID)
+2.8.1: Internal doors (ID)
+2.8.1.1: Internal doors – standard or purpose made
+2.8.1.1.1: Doors (including standard doors or purpose made doors
+2.8.1.1.5: Glazed vision panels, etc.
+2.8.1.1.6: Sliding and folding doors in fixed partitions
+2.8.1.1.7: Hatches
+2.8.1.1.8: Ironmongery
+2.8.1.1.10: Painting and decorating
+2.8.1.2: Fire resisting doors
+2.8.1.2.1.A: Fire resisting doors
+2.8.1.3: Door sets
+2.8.1.3.3: Door sets
+2.8.1.4: Composite door and sidelights/over panels
+2.8.1.4.4: Composite door and fanlight
+2.8.1.5: Roller /sliding shutters, etc.
+2.8.1.5.8: Roller/sliding door
+2.8.1.6: Architraves
+2.8.1.6.9: Architraves
+3: Internal finishes
+3.1: Wall finishes (WF)
+3.1.1: Finishes to walls
+3.1.1.1: Wall finishes
+3.1.1.1.1: In-situ coatings applied to walls
+3.1.1.1.3: Plasterboard or other sheet linings
+3.1.1.1.4: Ceramic wall tiling
+3.1.1.1.12: Specialist wall finishes
+3.1.1.2: Picture /dado rails
+3.1.1.2.7: Picture and dado rail
+3.1.1.3: Proprietary impact and bumper guards
+3.1.1.3.8: Wall protection
+3.2: Floor finishes (FF)
+3.2.1: Finishes to floors
+3.2.1.1: Floor finishes – state type
+3.2.1.1.1: Non structural screeds
+3.2.1.1.2: Latex screeds
+3.2.1.1.3: Chemical surface hardeners
+3.2.1.1.4: Floating floors
+3.2.1.1.5: Resin boned resilient layers
+3.2.1.1.6: Insitu floor finishes
+3.2.1.1.7: Hard tiled floor finishes
+3.2.1.1.8: Wood block
+3.2.1.1.9: Proprietary thin tiled and strip flooring
+3.2.1.1.10: Floor painting and sealing
+3.2.1.1.11: Carpets (edge fixed including underlay)
+3.2.1.1.12: Tile/sheet floors
+3.2.1.2: Specialist flooring systems
+3.2.1.2.13: Timber sprung floor
+3.2.1.3: Skirtings
+3.2.1.3.17: Skirtings
+3.2.1.4: Mat wells
+3.2.1.4.18: Matwells
+3.2.1.5: Finishes to swimming pools tanks
+3.2.1.5.15: Finishes to swimming pools
+3.2.1.6: Line markings
+3.2.1.6.19: Line markings
+3.2.1.7: Numeral and symbols
+3.2.1.7.19: Numerals and symbols
+3.2.2: Raised access floors
+3.2.2.1: Raised access floor systems
+3.2.2.1.1: Proprietary access floor system
+3.2.2.2: Skirtings
+3.3: Ceiling finishes (CF)
+3.3.1: Finishes to ceilings
+3.3.1.1: Ceiling finishes
+3.3.1.1.1: Linings to ceilings
+3.3.1.1.3: In-situ coatings applied to ceilings
+3.3.1.1.4: Sprayed monolithic coatings
+3.3.1.1.5: Painting and decorating to ceilings
+3.3.1.1.7: Specialist ceiling finishes
+3.3.1.2: Cornices, covings, etc.
+3.3.1.2.6: Cornices and covings
+3.3.2: False ceilings
+3.3.2.1: False ceilings – state type
+3.3.2.1.1: Proprietary suspended ceiling systems, including suspension systems
+3.3.2.1.3: Insitu coatings
+3.3.2.1.4: Painting and decorating to false ceilings
+3.3.2.2: Cornices and covings
+3.3.2.2.5: Cornices and covings
+3.3.2.3: Access hatches
+3.3.2.3.7: Access hatches
+3.3.3: Demountable suspended ceilings
+3.3.3.1: Demountable suspended ceilings
+3.3.3.2: Shadow gaps, etc.
+3.3.3.2.6: Shadow gaps
+3.3.3.3: Access hatches
+3.3.3.3.7: Access hatches
+4: Fittings, furnishings and equipment
+4.1: Fittings, furnishings and equipment (FFE)
+4.1.1: General fittings, furnishings and equipment
+4.1.1.1: Fittings
+4.1.1.1.1: Counters, desks & benches and worktops
+4.1.1.1.2: Mirrors
+4.1.1.1.3: Curtains, tracks, etc.
+4.1.1.1.5: Fireplace surrounds and hearths
+4.1.1.1.8: Storage racks, shelving, etc.
+4.1.1.1.10: Fitted seating upholstery
+4.1.1.2: Furnishings
+4.1.1.2.4: Blinds
+4.1.1.2.6: Wall hangings
+4.1.1.2.7: Loose carpets
+4.1.1.2.9: Tables and chairs
+4.1.1.2.11: Bedroom furniture
+4.1.1.2.13: Lockers, hat and coat rails
+4.1.1.3: Equipment – state type
+4.1.1.3.14: Hand held firefighting equipment
+4.1.1.3.15: Bins, etc.
+4.1.1.3.16: Safes
+4.1.1.3.17: Vacuum cleaners and cleaning equipment
+4.1.1.3.18: Televisions, hi-fi and computers
+4.1.1.3.19: Vending machines
+4.1.1.3.20: Telephone booths and enclosure
+4.1.2: Domestic kitchen fittings and equipment
+4.1.2.1: Kitchen units
+4.1.2.1.1: Domestic kitchen units
+4.1.2.1.2: Sinks and taps etc, part of kitchen units
+4.1.2.1.8: Kitchen equipment (taken in 4.1.2.3 to 7)
+4.1.2.1.9: Other kitchen fittings and equipment
+4.1.2.2: Kitchen appliances
+4.1.2.2.3: Catering equipment (ovens, hobs, etc.)
+4.1.2.2.4: Refrigerators/ freezers
+4.1.2.2.5: Dishwashers
+4.1.2.2.6: White goods (washing machine, dryers)
+4.1.2.3: Waste bins, towel ranks, etc. (Not maintained)
+4.1.2.3.7: Waste bins, towel racks
+4.1.3: Special-purpose fittings, furnishings & equipment
+4.1.3.1: Fittings
+4.1.3.1.1: Special purpose fittings (type for particular buildings such as educational; hospitals, factories, defence, farming, fishing etc)
+4.1.3.2: Furnishings
+4.1.3.2.1: Special purpose furnishings(type for particular buildings such as educational; hospitals and other by function usage)
+4.1.3.3: Equipment
+4.1.3.3.1: Special purpose equipment (type for particular buildings such as educational; hospitals and others by function usage)
+4.1.3.3.2: Other special purpose fittings, furnishings and equipment (state type)
+4.1.4: Signs/notices
+4.1.4.1: Components
+4.1.4.1.1: Directional signboards
+4.1.4.1.2: Notice boards, white boards, etc.
+4.1.4.1.3: Sign writing
+4.1.4.1.4: Shop front lettering, emblems and symbols
+4.1.4.1.5: Door or floor numbering or lettering
+4.1.4.1.6: Nameplates, plaques and ID symbols
+4.1.4.1.7: Lettering emblems and directional symbols
+4.1.5: Works of art
+4.1.5.2: Decorative features and panels
+4.1.5.2.2: Decorative features – including panels
+4.1.6: Non mechanical and non electrical equipment
+4.1.6.1: Equipment
+4.1.6.1.1: Disabled access equipment
+4.1.6.1.2: Other non-mechanical/electrical equipment
+4.1.6.2: Removable ladders
+4.1.6.2.2: Ladders
+4.1.7: Internal planting
+4.1.7.1: Plants and shrub beds
+4.1.7.1.2: Planting container grown plants
+4.1.7.1: Plants and shrub beds
+4.1.7.1.3: Planting shrubs
+4.1.7.1.5: Planting to containers
+4.1.7.1.7: Watering feeding and maintenance
+4.1.7.2: Plant containers
+4.1.7.2.1: Internal prefabricated plant containers
+4.1.7.3: Trees
+4.1.7.3.4: Planting trees
+4.1.7.4: Tree planters
+4.1.7.4.6: Planting containers
+4.1.7.4: Tree planters
+4.1.7.4.8: Replacement plants
+4.1.7.4.9: Artificial plants
+4.1.8: Bird and vermin control
+4.1.8.1: Wires, nets, traps, etc.
+4.1.8.2: Electronic and sonic systems
+4.1.8.2.2: Electronic and sonic systems
+4.1.8.3: Bird repellent coatings
+4.1.8.3.3: Bird repellent coatings
+5: Services
+5.1: Sanitary appliances (SA)
+5.1.1: Sanitary appliances
+5.1.1.1: Sanitary appliances
+5.1.1.1.1: WC, slop hoppers, urinals/cisterns
+5.1.1.1.2: Sinks
+5.1.1.1.3: Wash basins
+5.1.1.1.4: Bidets
+5.1.1.1.5: Baths
+5.1.1.1.6: Shower trays
+5.1.1.1.7: Shower unit including head/hose
+5.1.1.1.8: Supplementary list (pumps)
+5.1.1.1.9: Supplementary list (valves)
+5.1.1.1.10: Drinking fountains
+5.1.1.1.11: Taps and waste fittings
+5.1.1.1.12: Water saving devices
+5.1.1.1.13: Automated controls and sensors
+5.1.2: Sanitary ancillaries
+5.1.2.1: Fittings
+5.1.2.1.1: Shower cubicles
+5.1.2.1.2: Bath/shower curtain and rails
+5.1.2.1.3: Grab/support rail
+5.1.2.1.4: Towel rails and holders
+5.1.2.1.5: Hand dryers
+5.1.2.1.6: Paper towel dispensers
+5.1.2.1.7: Sanitary incinerators (towel disposal)
+5.1.2.1.8: Macerators
+5.1.2.1.9: Other sanitary fittings (state type)
+5.2: Services equipment (SE)
+5.2.1: Services equipment
+5.2.1.1: Services equipment
+5.2.1.1.1: Catering equipment – state type
+5.2.1.1.2: Sinks – supplied with catering equipment
+5.2.1.1.3: Food storage equipment
+5.2.1.1.4: Other free standing/fixed equipment
+5.3: Disposal installations (DI)
+5.3.1: Foul drainage above ground
+5.3.1.1: Drainage to sanitary appliances
+5.3.1.1.1: Waste pipes and fittings
+5.3.1.2: Drainage to services equipment
+5.3.1.2.2: Discharge stacks and waste pipes
+5.3.1.2.3: Ventilation stacks and pipes
+5.3.1.2.4: Traps access points and rodding eyes
+5.3.1.2.5: Pipeline assemblies
+5.3.1.2.6: Floor channels and gratings
+5.3.1.2.7: Sump pumps
+5.3.2: Chemical, toxic and industrial liquid waste drainage
+5.3.2.1: Drainage to appliance or equipment
+5.3.2.1.1: Pipe work systems
+5.3.2.1.2: Traps access points and rodding eyes
+5.3.2.1.3: Gullies
+5.3.2.1.5: Storage tanks and vessels
+5.3.2.1.6: Settlement tanks
+5.3.2.1.7: Effluent treatment plant
+5.3.2.1.8: Dosing equipment
+5.3.2.1.9: Sterilisation equipment
+5.3.2.1.11: Thermal insulation
+5.3.2.1.13: Control components
+5.3.2.1.14: Monitoring equipment
+5.3.2.1.15: Painting anti-corrosion treatments
+5.3.3: Refuse disposal
+5.3.3.1: Refuse disposal installations
+5.3.3.1.1: Refuse input devices
+5.3.3.1.2: Refuse chutes and ducts
+5.3.3.1.3: Plant for compacting/macerating refuse
+5.3.3.1.4: Refuse collection equipment
+5.3.3.1.5: Incineration plant
+5.3.3.1.6: Paper shredders
+5.3.3.1.7: Safety devices
+5.4: Water installations (WI)
+5.4.1: Mains water supply
+5.4.1.1: Mains water supply
+5.4.1.1.1: Pipe work systems
+5.4.1.1: Mains water supply
+5.4.1.1.2: Supplementary list (valves)
+5.4.1.1.3: Water meters
+5.4.1.1.4: Rising main to storage tanks
+5.4.1.1.5: Trace heating
+5.4.1.1.7: Thermal insulation
+5.4.2: Cold water distribution
+5.4.2.1: Cold water distribution
+5.4.2.1.1: CW Pipe work systems
+5.4.2.1.2: Supplementary list (valves)
+5.4.2.1.3: Water saving devices
+5.4.2.1.4: Supplementary list (taps and outlet fittings)
+5.4.2.1.5: Supplementary list (pumps)
+5.4.2.1.6: Pressurisation units
+5.4.2.1.7: Pressure booster sets
+5.4.2.1.8: Cold water storage tanks and cisterns
+5.4.2.1.9: Trace heating
+5.4.2.1.10: Instrumentation and controls
+5.4.2.1.11: Thermal insulation
+5.4.2.2: Storage tanks
+5.4.2.2.2: Storage tanks
+5.4.2.3: Rainwater harvesting
+5.4.2.3.12: Rainwater harvesting
+5.4.2.6: Sundry items
+5.4.2.6.1: Train water points
+5.4.2.6.2: Vehicle washing points
+5.4.2.3A: Grey water collection pipe systems
+5.4.2.3A.13: Grey water collection pipe systems
+5.4.3: Hot water distribution
+5.4.3.1: Hot water distribution
+5.4.3.1.1: Hot water systems (vented or unvented)
+5.4.3.1.2: Supplementary list (valves)
+5.4.3.1.3: Water saving devices
+5.4.3.1.4: Supplementary list (taps and outlet fittings)
+5.4.3.1.5: Supplementary list (pumps)
+5.4.3.1.6: Heat exchangers
+5.4.3.1.7: Storage cylinders and calorifiers
+5.4.3.1.8: Trace heating
+5.4.3.1.9: Hot water storage tanks
+5.4.3.1.10: Immersion heaters
+5.4.3.1.11: Insulation combination units
+5.4.3.1.12: Water softeners
+5.4.3.1.13: Instrumentation and controls
+5.4.3.1.14: Thermal insulation
+5.4.4: Local hot water distribution
+5.4.4.1: Water heaters
+5.4.4.1.1: Instant water heaters
+5.4.4.1.2: Under-sink, multipoint and over sink units
+5.4.5: Steam and condensate distribution
+5.4.5.1: Steam and condensate distribution
+5.4.5.1.1: Steam services pipe work systems
+5.4.5.1.2: Supplementary list (valves)
+5.4.5.1.3: Steam reduction stations
+5.4.5.1.4: Condensate receivers
+5.4.5.1.5: Condensate pump sets
+5.4.5.1.6: Steam connection units
+5.4.5.1.7: Supplementary list (taps and outlet fittings)
+5.4.5.1.8: Heat exchangers
+5.4.5.1.9: Storage cylinders and calorifiers
+5.4.5.1.10: Instrumentation and controls
+5.4.5.1.11: Thermal insulation
+5.5: Heat source (HS)
+5.5.1: Heat source
+5.5.1.1: Heat source
+5.5.1.1.1: Boilers – biomass
+5.5.1.1.2: Boiler – gas/oil
+5.5.1.1.2.A: Boiler – steam
+5.5.1.1.3: Coal-fired boiler plant and ancillary items
+5.5.1.1.4: Boiler – electric
+5.5.1.1.5: Packaged steam generators
+5.5.1.1.6: Boiler – wood pellet
+5.5.1.1.7: Central combined heat and power plant
+5.5.1.1.8: Heat pumps
+5.5.1.1.9: Ground source heating
+5.5.1.1.10: Supplementary list (pumps)
+5.5.1.1.10.A: Supplementary list (valves)
+5.5.1.1.11: Step down/non storage cylinders
+5.5.1.1.12: Solar thermal panels
+5.5.1.1.13: Other heat sources (air source heating)
+5.5.1.1.14: Water tanks (header tanks)
+5.5.1.1.15: Vibration isolation mountings
+5.5.1.1.16: Instrumentation and controls
+5.5.1.1.17: Forced draft fans
+5.5.1.1.18: Gantries
+5.5.1.1.19: Chimneys and flues
+5.5.1.1.20: Forced draft extract
+5.6: Space heating and air conditioning (SHAC)
+5.6.1: Central heating
+5.6.1.1: Central heating systems
+5.6.1.1.1: Central heating system
+5.6.1.1.2: Heat distribution pipework systems
+5.6.1.1.3: Heat emission units (e.g. radiators, etc.)
+5.6.1.1.4: Under floor heating
+5.6.1.1.5: Heating ceiling panels
+5.6.1.1.6: Warm air heating
+5.6.1.1.7: Convection systems
+5.6.1.1.8: Fan assisted convection systems
+5.6.1.1.9: Cable heating systems
+5.6.1.1.10: Plenum air-heating systems
+5.6.1.1.11: Off peak heating system
+5.6.1.1.12: Distribution pipelines
+5.6.1.1.13: Heated towel rails
+5.6.1.1.14: Supplementary list (valves)
+5.6.1.1.15: Supplementary list (ductwork)
+5.6.1.1.16: Air handling equipment
+5.6.1.1.17: Grilles and diffusers
+5.6.1.1.18: Plate recuperator
+5.6.1.1.19: Thermal wheel
+5.6.1.1.20: Duct heat recovery – electric
+5.6.1.1.21: Cables
+5.6.1.1.22: Instrumentation and controls
+5.6.1.1.23: Thermal insulation
+5.6.2: Local heating
+5.6.2.1: Heaters
+5.6.2.1.1: Heat emitters
+5.6.2.1.2: Chimneys and flues
+5.6.2.1.3: Instrumentation and controls
+5.6.3: Central cooling
+5.6.3.1: Central cooling systems
+5.6.3.1.1: Chilled beams
+5.6.3.1.2: Terminal units – fan coils
+5.6.3.1.3: Terminal units – VAV
+5.6.3.1.4: Terminal units – VRV
+5.6.3.1.5: Chillers
+5.6.3.1.6: Central refrigeration plant
+5.6.3.1.7: Cooling towers
+5.6.3.1.8: Pipework systems
+5.6.3.1.9: Cold and treated water feeds
+5.6.3.1.10: Supplementary list (valves)
+5.6.3.1.11: Supplementary list (pumps)
+5.6.3.1.12: Distribution ductwork and fittings
+5.6.3.1.13: Grilles and diffusers
+5.6.3.1.13.A: Supplementary list (fans)
+5.6.3.1.14: Air handling units
+5.6.3.1.14.A: Supplementary list (filters)
+5.6.3.1.15: Emission units
+5.6.3.1.16: Instrumentation and controls
+5.6.3.1.17: Thermal insulation
+5.6.4: Local cooling
+5.6.4.1: Cooling units
+5.6.4.1.1: Air conditioning units
+5.6.4.1.2: Pipe work systems
+5.6.4.1.3: Supplementary list (valves)
+5.6.4.1.4: Ductwork system
+5.6.4.1.5: Grilles and diffusers
+5.6.4.1.5.A: Supplementary list (fans)
+5.6.4.1.6: Instrumentation and controls
+5.6.4.1.7: Thermal insulation
+5.6.5: Central heating and cooling
+5.6.5.1: Combined central heating and cooling systems
+5.6.5.1.1: Terminal units – fan coils
+5.6.5.1.2: Terminal units – VAV
+5.6.5.1.3: Reverse cycle heat pump systems
+5.6.5.1.4: Chillers
+5.6.5.1.5: Pipe work systems
+5.6.5.1.6: Supplementary list (valves)
+5.6.5.1.7: Supplementary list (pumps)
+5.6.5.1.8: Ductwork systems
+5.6.5.1.9: Grilles and diffusers
+5.6.5.1.9.A: Supplementary list (fans)
+5.6.5.1.10: Air handling units
+5.6.5.1.10.A: Supplementary list (filters)
+5.6.5.1.11: Emission units
+5.6.5.1.12: Vibration isolation mountings
+5.6.5.1.13: Instrumentation and controls
+5.6.5.1.14: Thermal insulation
+5.6.6: Local heating and cooling
+5.6.6.1: Local heating and cooling units
+5.6.6.1.1: Split systems / DX systems
+5.6.6.1.2: Pipework systems
+5.6.6.1.3: Supplementary list (Valves)
+5.6.6.1.4: Supplementary list (Pumps)
+5.6.6.1.5: Ductwork system
+5.6.6.1.6: Grilles and diffusers
+5.6.6.1.6.A: Supplementary list (Fans)
+5.6.6.1.7: Vibration isolation mountings
+5.6.6.1.8: Instrumentation and controls
+5.6.6.1.9: Thermal insulation
+5.6.7: Central air conditioning
+5.6.7.1: Central air conditioning systems
+5.6.7.1.1: Plenum air – heating systems
+5.6.7.1.2: Central air conditioning systems – VAV
+5.6.7.1.3: Supplementary list (Humidifiers/dehumidifiers)
+5.6.7.1.4: Multi-zone air conditioning systems
+5.6.7.1.5: Induction air conditioning systems
+5.6.7.1.6: Hybrid air conditioning systems
+5.6.7.1.7: Chillers
+5.6.7.1.8: Air handling units
+5.6.7.1.8.A: Supplementary list (Filters)
+5.6.7.1.9: Terminal units / emitters
+5.6.7.1.10: Distribution pipelines systems
+5.6.7.1.11: Supplementary list (Valves)
+5.6.7.1.12: Supplementary list (Pumps)
+5.6.7.1.13: Ductwork system
+5.6.7.1.14: Grilles and diffusers
+5.6.7.1.14.A: Supplementary list (Fans)
+5.6.7.1.15: Instrumentation and controls
+5.6.7.1.16: Thermal insulation
+5.6.8: Local air conditioning
+5.6.8.1: Self contained air conditioning units
+5.6.8.1.1: Room air conditioning units
+5.6.8.1.2: Clean room air conditioning units
+5.6.8.1.3: Pipework systems
+5.6.8.1.4: Supplementary list (valves)
+5.6.8.1.5: Supplementary list (pumps)
+5.6.8.1.6: Ductwork system
+5.6.8.1.7: Grilles and diffusers
+5.6.8.1.8: Vibration isolation mountings
+5.6.8.1.9: Instrumentation and controls
+5.6.8.1.10: Thermal insulation
+5.6.8.1.11: Air curtains
+5.6.8.1.7A: Supplementary list (fans)
+5.7: Ventilation systems (VS)
+5.7.1: Central ventilation
+5.7.1.1: Central ventilation systems
+5.7.1.1.1: Fans
+5.7.1.1.2: Air supply and extract
+5.7.1.1.2.A: Supplementary list (fans)
+5.7.1.1.3: Extract units/terminal units
+5.7.1.1.4: Fan units
+5.7.1.1.5: Ductwork systems
+5.7.1.1.6: Grilles and diffusers
+5.7.1.1.7: Distribution pipelines system
+5.7.1.1.8: Supplementary list (valves)
+5.7.1.1.9: Supplementary list (pumps)
+5.7.1.1.10: Vibration isolation mountings
+5.7.1.1.11: Instrumentation and controls
+5.7.2: Local and special ventilation
+5.7.2.1: Toilets/bathroom ventilation units
+5.7.2.1.1: Toilet extract system
+5.7.2.1.1.A: Supplementary list (fans)
+5.7.2.2: Kitchen ventilation units
+5.7.2.2.2: Kitchen ventilation units
+5.7.2.3: Safety cabinet and fume cupboards
+5.7.2.3.3: Safety cabinet and fume cupboards
+5.7.2.4: Fume extracts
+5.7.2.4.4: Fume extracts
+5.7.2.5: Dust collection units
+5.7.2.5.5: Dust collection units
+5.7.2.6: Anaesthetic gas extracts
+5.7.2.6.6: Anaesthetic gas extracts
+5.7.2.7: Cyclone systems
+5.7.2.7.7: Cyclone systems
+5.7.2.8: Unit extract fans
+5.7.2.8.8: Unit extract fans
+5.7.2.9: Rotating ventilators
+5.7.2.9.9: Rotating ventilators
+5.7.2.9.9.A: Supplementary list (fans)
+5.7.2.10: Roof-mounted ventilation
+5.7.2.10.10: Roof-mounted ventilation units
+5.7.2.11: Car parking ventilation
+5.7.2.11.11: Car parking ventilation
+5.7.2.11.11.A: Supplementary list (fans)
+5.7.2.12: Other local and special ventilation units
+5.7.2.12.12: Ductwork system
+5.7.2.12.13: Grilles and diffusers
+5.7.2.12.13.A: Supplementary list (fans)
+5.7.2.12.14: Vibration isolation mountings
+5.7.2.12.15: Instrumentation and controls
+5.7.3: Smoke extract/control
+5.7.3.1: Smoke extract/control systems
+5.7.3.1.1: Smoke extract
+5.7.3.1.2: Automatic smoke compartmentalisation
+5.7.3.1.3: Supplementary list (fans)
+5.7.3.1.4: Ductwork systems
+5.7.3.1.5: Grilles and diffusers
+5.7.3.1.6: Vibration isolation mountings
+5.7.3.1.7: Instrumentation and controls
+5.8: Electrical installations (EI)
+5.8.1: Electrical mains and sub mains distribution
+5.8.1.1: Electrical mains and sub mains LV distribution
+5.8.1.1.1: LV distribution
+5.8.1.1.2: HV switch gear
+5.8.1.1.3: LV switchgear and distribution boards
+5.8.1.1.4: HV and LV cables and wiring
+5.8.1.1.5: Conduits and cable trunking
+5.8.1.1.6: Busbar trunking
+5.8.1.1.7: Earthing and bonding
+5.8.1.1.8: Transformers
+5.8.1.1.9: Fuse pillars, base units, etc.
+5.8.1.1.10: Surge protection
+5.8.1.1.11: Electricity monitoring system
+5.8.2: Power installations
+5.8.2.1: Power installations
+5.8.2.1.1: General LV power installations
+5.8.2.1.2: Extra LV supply installations
+5.8.2.1.3: DC installations
+5.8.2.1.4: Distribution boards (PDUs)
+5.8.2.1.5: UPS system
+5.8.2.1.6: Cables and wiring
+5.8.2.1.7: Conduits and cable trunking
+5.8.2.1.8: Earthing and bonding
+5.8.2.1.9: Socket outlets
+5.8.2.1.11: Specialist power installations
+5.8.2.1: Testing of installations
+5.8.2.2.14.A: Portable Appliance Testing (PAT)
+5.8.2.2.14.B: Fixed electrical wire testing
+5.8.3: Lighting installations
+5.8.3.1: Lighting installations
+5.8.3.1.1: Light fittings – general
+5.8.3.1.2: Emergency lighting
+5.8.3.1.3: External lighting
+5.8.3.1.4: LV switchgear and distribution boards
+5.8.3.1.5: Cables and wiring
+5.8.3.1.6: Conduits and cable trunking
+5.8.3.1.7: Earthing and bonding
+5.8.3.1.8: Fittings to lighting points
+5.8.3.1.9: Lighting switches
+5.8.3.1.10: Luminaries/lamps
+5.8.3.1.11: Lighting control equipment
+5.8.4: Specialist lighting installations
+5.8.4.1: Specialist lighting installations
+5.8.4.1.1: Illuminated display units
+5.8.4.1.2: Studio lighting
+5.8.4.1.3: Auditorium lighting
+5.8.4.1.4: Arena lighting
+5.8.4.1.5: Operating theatre lighting
+5.8.4.1.6: LV switchgear and distribution boards
+5.8.4.1.7: Cables and wiring
+5.8.4.1.8: Conduits and cable trunking
+5.8.4.1.9: Earthing and bonding
+5.8.4.1.10: Fittings to lighting points
+5.8.4.1.11: Switches
+5.8.4.1.12: Luminaries/lamps
+5.8.4.1.13: Lighting gantries
+5.8.4.1.14: Lighting control equipment
+5.8.5: Local electricity generation systems
+5.8.5.1: Electricity generation systems
+5.8.5.1.1: Standby generator
+5.8.5.1.2: Ancillary cables and wiring
+5.8.5.4: Wind turbines
+5.8.5.4.1: Wind turbines
+5.8.5.6: Other transformation devices
+5.8.5.4.5: Generators
+5.8.5.4.6: Ancillary cables and wiring, etc.
+5.8.5.1: Photovoltaic devices
+5.8.5.5.2: Photovoltaic devices
+5.8.5.5.3: Solar collectors
+5.8.5.6.4: Other transformation devices
+5.8.6: Earthling and bonding systems
+5.8.6.1: Earthling and bonding systems
+5.8.6.1.1: Earthing and bonding cables
+5.8.6.1.2: Protective conductor earthing
+5.8.6.1.3.A: Hazardous areas (electrics) earthing
+5.9: Fuel installations
+5.9.1: Fuel storage
+5.9.1.1: Fuel storage
+5.9.1.1.1: Fuel systems – oil, petrol, diesel and liquified petroleum gas, biomass and others
+5.9.1.1.2: Storage tanks and vessels
+5.9.1.1.5: Thermal insulation
+5.9.2: Fuel distribution systems
+5.9.2.1: Piped distribution systems
+5.9.2.1.1: Fuel systems – oil, petrol, diesel and liquified petroleum gas, biomass and others
+5.9.2.1.2: Pipework systems
+5.9.2.1.3: Supplementary list (pumps)
+5.9.2.1.3.A: Supplementary list (valves)
+5.9.2.1.4: Bracketry
+5.9.2.1.5: Gas distribution components
+5.9.2.1.6: Terminal control equipment
+5.9.2.1.7: Thermal insulation
+5.9.2.1.8: Monitoring equipment
+5.10: Lift and conveyor installations
+5.10.1: Lifts
+5.10.1.1: Passenger lifts
+5.10.1.1.1: Complete lift installations (state type)
+5.10.1.1.2: Fire fighting lifts
+5.10.1.2: Wall climbing lifts
+5.10.1.2.3: Wall climbing lifts
+5.10.1.2.4: Gantries, trolley and blocks, etc.
+5.10.1.2.5: Lift controls and electrical works
+5.10.1.3: Goods lift
+5.10.1.3.1: Complete lift installations (state type)
+5.10.1.6: Enclosed hoists
+5.10.1.6.1: Hoists, kitchen service and dumb waiters
+5.10.1.6.2: Complete hoist installations
+5.10.1.6.3: Supplementary list (controllers and sensors)
+5.10.2: Escalators
+5.10.2.1: Escalators
+5.10.2.1.1: Escalators
+5.10.2.1.2: Ancillary components
+5.10.2.1.3: Supplementary list (controllers and sensors)
+5.10.3: Moving pavements
+5.10.3.1: Moving pavements
+5.10.3.1.1: Moving platforms
+5.10.3.1.2: Travelators
+5.10.3.1.3: Stair lifts
+5.10.3.1.4: Supplementary list (controllers and sensors)
+5.10.4: Powered stair lifts
+5.10.4.1: Powered stair lifts
+5.10.4.1.1: Complete powered stair life installations
+5.10.4.1.2: Supplementary list (controllers and sensors)
+5.10.5: Conveyors
+5.10.5.1: People conveyors
+5.10.5.1.1: Complete conveyor systems
+5.10.5.1.2: Specialist system (baggage handling)
+5.10.5.1.3: Supplementary list (controllers and sensors)
+5.10.5.2: Goods conveyor
+5.10.5.2.1: Complete conveyor systems
+5.10.5.2.3: Supplementary list (controllers and sensors)
+5.10.6: Dock levellers and scissor lifts
+5.10.6.1: Dock levellers
+5.10.6.1.1: Dock levellers, including canopy
+5.10.6.1.3: Supplementary list (controllers and sensors)
+5.10.6.2: Scissor lifts
+5.10.6.2.2: Scissor lifts
+5.10.6.2.3: Supplementary list (controllers and sensors)
+5.10.7: Cranes and unenclosed hoists
+5.10.7.1: Cranes
+5.10.7.1.1: Cranes
+5.10.7.1: Cranes
+5.10.7.1.4: Supplementary list (controllers and sensors)
+5.10.7.2: Travelling cranes
+5.10.7.2.2: Travelling cranes
+5.10.7.2.4: Supplementary list (controllers and sensors)
+5.10.7.3: Unenclosed hoists
+5.10.7.3.3: Unenclosed hoists and other lifting systems
+5.10.7.3.4: Supplementary list (controllers and sensors)
+5.10.8: Car lifts, car stacking systems, turntables, etc.
+5.10.8.1: Car lifts
+5.10.8.1.1: Car lifts
+5.10.8.1.3: Supplementary list (controllers and sensors)
+5.10.8.2: Car stacking
+5.10.8.2.2: Car stacking
+5.10.8.2.3: Supplementary list (controllers and sensors)
+5.10.8.3: Vehicle turntables
+5.10.8.3.3: Vehicle turntables
+5.10.8.3.3B: Supplementary list (controllers and sensors)
+5.10.9: Document handling/delivery systems
+5.10.9.1: Document handling/delivery systems
+5.10.9.1.1.A: Document handling/delivery systems
+5.10.9.1: Document handling/delivery systems
+5.10.9.1.2: Supplementary list (controllers and sensors)
+5.10.9.2: Warehouse picking systems
+5.10.9.2.1.B: Warehouse picking systems
+5.10.9.2.2: Supplementary list (controllers and sensors)
+5.10.9.3: Other systems (state type)
+5.10.9.3.1.C: Other systems (state type)
+5.10.9.3.2: Supplementary list (controllers and sensors)
+5.10.10: Other transport systems
+5.10.10.1: Other lift and conveyor installations
+5.10.10.1.1: Paternoster lifts
+5.10.10.1.2: Hoist for moving people with disability
+5.10.10.1.3: Other transport systems
+5.10.10.1.4: Supplementary list (controllers and sensors)
+5.11: Fire and lightning protection
+5.11.1: Fire fighting systems
+5.11.1.1: Fire hose reels
+5.11.1.1.1: Fire hose reels – inc. pressure booster sets
+5.11.1.1.4: Distribution pipeline systems
+5.11.1.1.5: Thermal insulation
+5.11.1.1.6: Control components
+5.11.1.2: Dry risers – valves. Pressure vessels, etc.
+5.11.1.2.2: Dry risers
+5.11.1.2.4: Distribution pipeline systems
+5.11.1.2.5: Thermal insulation
+5.11.1.3: Wet risers
+5.11.1.3.3: Wet risers
+5.11.1.3.4: Distribution pipeline systems
+5.11.1.3.5: Thermal insulation
+5.11.1.4: Fire and oxide protection curtains
+5.11.1.4.6: Control components
+5.11.1.4.7: Fire and smoke protection curtains
+5.11.1.5: Other fire fighting systems (state type)
+5.11.1.5.4: Distribution pipeline systems
+5.11.1.5.5: Thermal insulation
+5.11.1.5.6: Control components
+5.11.2: Fire suppression systems
+5.11.2.1: Sprinklers – inc. control devices and sprinkler heads
+5.11.2.1.1: Sprinklers – inc. control devices and sprinkler heads
+5.11.2.2: Deluge systems
+5.11.2.2.2: Deluge systems
+5.11.2.3: Gas fire fighting systems
+5.11.2.3.3: Gas fire fighting systems
+5.11.2.4: Foam fighting systems
+5.11.2.4.4: Foam fighting systems
+5.11.2.5: Other fire suppression systems
+5.11.2.5.5: Distribution pipelines system
+5.11.2.5.6: Water tanks and cisterns for firefighting
+5.11.2.5.7: Thermal insulation
+5.11.2.5.8: Control components
+5.11.3: Lightning protection
+5.11.3.1: Lightning protection
+5.11.3.1.1: Bonded steel frame/tape based systems
+5.11.3.1.2: Finials
+5.11.3.1.3: Conductor tapes
+5.11.3.1.4: Grounding/earthing
+5.12: Communication, security and control systems
+5.12.1: Communication systems
+5.12.1.1: Telecommunication
+5.12.1.1.1: General communications and PA systems
+5.12.1.2: Data transmission
+5.12.1.2.1: Computer networking, modems, etc.
+5.12.1.2.2: Multiplexes data terminals
+5.12.1.3: Paging and emergency
+5.12.1.3.1: Aerials, radio and paging equipment
+5.12.1.3.2: Emergency call buttons, pull cords etc.
+5.12.1.3.3: Paging and emergency call systems
+5.12.1.3.4: Hospital patients call points
+5.12.1.3.5: Cell call systems
+5.12.1.3.6: Personal receivers
+5.12.1.4: Public address and conference audio
+5.12.1.4.1: Public address system
+5.12.1.4.2: Conference audio facilities
+5.12.1.4.3: Induction loop systems
+5.12.1.4.4: Hospital radio facilities
+5.12.1.4.5: Background noise systems
+5.12.1.4.6: Microphones, amplifiers and speakers
+5.12.1.4.7: Indicator boards
+5.12.1.5: Radio systems
+5.12.1.5.1: Cable and satellite systems
+5.12.1.5.2: Receivers and other ancillaries
+5.12.1.6: Projection systems
+5.12.1.6.1: Cinematographic equipment
+5.12.1.6.2: Fixed and portable projectors
+5.12.1.6.3: Screens and back projection equipment
+5.12.1.6.4: Sound equipment
+5.12.1.7: Fire detection and alarm systems
+5.12.1.7.1: Carbon dioxide sensor
+5.12.1.7.2: Heat detector
+5.12.1.7.7: Call points automatic detection equipment
+5.12.1.8: Smoke detection and alarm systems
+5.12.1.8.1: Smoke detectors
+5.12.1.8.2: IT smoke detection system
+5.12.1.8.3: Gas detector sensors
+5.12.1.8.4: Batteries – lead acid – unsealed
+5.12.1.8.5: Batteries – sealed
+5.12.1.8.6: Battery charging equipment
+5.12.1.9: Liquid detection systems
+5.12.1.10: Clocks, card clocks and flexitime installations
+5.12.1.11: Door entry systems
+5.12.1.12:Radio and televisions
+5.12.1.13: Television systems
+5.12.1.14: TV monitors
+5.12.1.15: Pneumatic message systems
+5.12.1.16: Other comms systems
+5.12.2: Security systems
+5.12.2.1: Surveillance equipment
+5.12.2.1.1: Surveillance systems
+5.12.2.2: Security detection
+5.12.2.2.2: Security detection
+5.12.2.3: Security alarm equipment
+5.12.2.3.3: Security alarm equipment
+5.12.2.4: Access control systems
+5.12.2.4.4: Access control systems
+5.12.2.5: Burglar and security alarms
+5.12.2.5.5: Burglar and security alarms
+5.12.2.6: Door entry systems
+5.12.2.6.6: Door entry systems (audio and visual)
+5.12.2.7: Security lights and lighting systems
+5.12.2.7.7: Security lights and lighting systems
+5.12.2.8: Other security systems
+5.12.2.8.8: Other security systems
+5.12.3: Central control/building management systems
+5.12.3.1: Central control/building management systems
+5.12.3.1.1: Control panels for mechanical and electrical equipment
+5.12.3.1.2: BMS and operating station systems
+5.12.3.1.4: Controlling terminal units and switches
+5.12.3.1.5: Control cabling and containment
+5.12.3.1.6: Compressed air and vacuum operating controls
+5.12.3.2: Computer aided facilities management (CAFM) system
+5.12.3.2.3: CAFM systems
+5.13: Specialist installations
+5.13.4: Specialist electrical installations
+5.13.4.1: Specialist electrical and electronic installations
+5.12.4.1.2: Recoding studio equipment
+5.13.1: Specialist piped supply systems
+5.13.1.1: Medical and laboratory gas supply systems
+5.13.1.1.1: Medical and laboratory gas supply systems – including ancillary components (e.g. storage vessels, controls and alarms, etc.)
+5.13.1.2: Centralised vacuum cleaning systems
+5.13.1.2.2: Centralised vacuum cleaning systems – including vacuum pumps, blowers, etc.
+5.13.1.3: Treated water systems
+5.13.1.3.3: Treated water systems – including ancillary components (e.g. raw sewage storage tanks, chemical storage and vessels)
+5.13.1.4: Swimming pools water treatment systems
+5.13.1.4.4: Swimming pools water treatment systems – including ancillary components (e.g. filters vessels, chemical storage vessels, chemical dosing equipment storage vessels, etc.)
+5.13.1.5: Compressed air systems
+5.13.1.5.5: Compressed air systems – including compressors and other ancillary components
+5.13.1.6: Vacuum installations
+5.13.1.6.6: Vacuum installations – including ancillary components
+5.13.1.7: Other specialist piped supply systems
+5.13.1.7.7: Other specialist piped supply systems
+5.13.1.7.8: Pipework systems
+5.13.1.7.9: Air duct lines and ancillaries and fittings
+5.13.1.7.10: Thermal insulation
+5.13.1.7.11: Silencers and acoustic treatment
+5.13.1.7.12: Control components
+5.13.2: Specialist refrigeration systems
+5.13.2.1: Cold rooms
+5.13.2.1.1: Cold rooms
+5.13.2.2: Ice pads
+5.13.2.2.2: Ice pads
+5.13.2.3: Other specialist refrigeration systems
+5.13.2.3.3: Other specialist refrigeration systems
+5.13.3: Specialist mechanical installations
+5.13.3.1: Other specialist installations
+5.13.3.1.1: Wave machines
+5.13.3.1.2: Saunas
+5.13.3.1.3: Jacuzzis
+5.13.3.1.4: Swimming pools
+5.13.3.1.5: Other specialist installations (state type)
+5.13.4.1.1: Radio and television studio equipment
+5.13.4.1.3: Television aerial and satellite systems
+5.13.4.1.4: Home cinemas
+5.13.4.1.5: Multi-room audio and video
+5.13.4.1.6: Automated curtains and blinds
+5.13.4.1.7: Other specialist electrical/electronic system
+5.13.5: Water features
+5.13.5.1: Water features
+5.13.5.1.1: Water features – inc. ornamental fountains and waterfalls
+5.13.5.1.2: Water filtration equipment
+5.13.5.1.3: Nutrient treatment and equipment
+5.13.5.1.4: Final electrical components – NA
+5.13.5.1.5: Control components
+5.14: Builders' work in connection with services
+5.14.1: Builders' work in connection with services
+5.14.1.1: Builder's work in general areas
+5.14.1.1.1: General builders works with services
+5.14.1.2: Builder's work in landlord areas
+5.14.1.2.2: Builder's work in landlord areas
+5.14.1.3: Builder's work to plant rooms
+5.14.1.3.3: Builder's work to plant rooms
+5.14.1.4: Large plant and equipment bases
+5.14.1.4.4: Large plant and equipment bases
+5.14.1.5: Fuel bunds
+5.14.1.5.5: BWIC to fuel bunds
+6: Complete buildings and building units
+6.1: Prefabricated buildings
+6.1.1: Complete buildings
+6.1.2: Building units
+7: Works to existing buildings
+7.1: Minor demolition works and alteration works
+7.1.1: Minor demolition and alteration works
+7.1.1.1: Spot items
+7.1.1.1.1.A: Repair items
+7.1.1.2: Minor demolition works
+7.1.1.2.2.A: Removal items
+7.1.1.3: Removals
+7.1.1.3.4: Kitchen fittings and appliances
+7.1.1.4: Alteration works
+7.1.1.4.4.A: Alteration works
+7.2: Repairs to existing services
+7.2.1: Existing services
+7.2.1.1: Equipment/plant repairs
+7.2.1.1.1.A: Repair items
+7.2.1.2: Overhaul services installations
+7.3: Damp proof courses/fungus and beetle eradication
+7.3.1: Damp proof courses
+7.3.1.1: Damp-proof courses
+7.3.1.1.1: Chemical damp proof course
+7.3.1.1.2: Injection of mortar damp proof course
+7.3.1.1.3: Inserting mechanical damp proof course
+7.3.1.1.4: Local making good to finishes
+7.3.2: Fungus/beetle eradication
+7.3.2.1: Eradication treatment
+7.3.2.1.1.A: Fungus/beetle eradication
+7.4: Facade retention
+7.4.1: Facade retention
+7.4.1.1: Support structures
+7.5: Cleaning existing surfaces
+7.5.1: Cleaning existing surfaces
+7.5.1.1: Cleaning existing surfaces
+7.5.1.1.1: Remove efflorescence stains, spot graffiti, algae, bird droppings, etc.
+7.5.1.1.2: Cleaning surfaces
+7.5.1.1.3: Artificial weathering
+7.5.2: Protective coatings to existing surfaces
+7.5.2.1: Proactive coatings to existing surfaces
+7.5.2.1.1.A: Protective coatings
+7.6: Renovation works
+7.6.1: Masonry repairs
+7.6.1.1: Masonry repairs
+7.6.2: Concrete repairs
+7.6.2.1: Concrete repairs
+7.6.3: Metal repairs
+7.6.3.1: Metal repairs
+7.6.4: Timber repairs
+7.6.4.1: Timber repairs
+7.6.5: Plastics repairs
+7.6.5.1: Plastic repairs
+8: External works
+8.1: Site preparation works
+8.1.1: Site clearance
+8.1.2: Preparatory ground works
+8.2: Roads, paths and paving
+8.2.1: Roads, paths and paving
+8.2.1.1: Roads
+8.2.1.1.1.A: Maintenance of roads
+8.2.1.2: Paths
+8.2.1.2.1.A: Maintenance of paths
+8.2.1.3: Paved areas
+8.2.1.3.12: Paved areas
+8.2.1.4: Roundabouts
+8.2.1.4.1.A: Maintenance of roundabouts
+8.2.1.5: Road crossings
+8.2.1.5.22: Road crossings
+8.2.1.6: Steps
+8.2.1.6.27: Steps
+8.2.1.7: Ramps
+8.2.1.7.28: Ramps
+8.2.1.8: Traffic calming accessories
+8.2.1.8.25: Traffic calming accessories
+8.2.1.9: Tree grilles
+8.2.1.9.25: Tree grilles
+8.2.1.10: Vehicle protection barriers
+8.2.1.10.23: Vehicle protection barriers
+8.2.1.11: Bumpers
+8.2.1.11.24: Bumpers
+8.2.1.12: Pavement markings
+8.2.1.12.26: Pavement
+8.2.2: Special surfaces and paving
+8.2.2.1: Surfacing and paving
+8.3: Soft landscaping, planting and irrigation systems
+8.3.1: Seeding and turfing
+8.3.1.1: Grassed areas
+8.3.1.1.1.A: Seeding and turfing (part of ground maintenance)
+8.3.1.2: Reinforced grass proprietary systems
+8.3.1.2.9: Reinforced grass proprietary systems
+8.3.1.3: Marking out grass sports pitches
+8.3.1.3.12: Initial marking out grass sports pitches
+8.3.1.4: Work to existing grass areas
+8.3.1.4.4: Work to existing grass areas
+8.3.1.5: Maintenance of grassed areas
+8.3.1.5.5: Maintenance of grassed areas
+8.3.2: External planting
+8.3.2.1: Planting
+8.3.2.2: Planting reed beds
+8.3.2.3: Hedges
+8.3.2.4: Trees
+8.3.2.5: Woodland planting
+8.3.2.6: Tree surgery
+8.3.2.7: Maintenance works to plants
+8.3.2.8: Maintenance works to trees
+8.3.2.9: Maintenance works to hedges
+8.3.3: Irrigation systems
+8.3.3.1: Irrigation systems
+8.3.3.1.1: Irrigation pipework system
+8.3.3.1.2: Storage tanks and vessels
+8.3.3.1.3: Chemical storage vessels
+8.3.3.1.4: Chemical dosing equipment
+8.3.3.1.5: Nutrient treatment and equipment
+8.3.3.1.6: Outlet pipes and nozzles
+8.3.3.1.7: Painting anti-corrosion treatments
+8.4: Fencing, railing and walls
+8.4.1: Fencing and railings
+8.4.1.1: Fencing
+8.4.1.1.1: Fencing systems (types)
+8.4.1.1.3: Noise/light screening applied to fencing
+8.4.1.1.9: Fixing railings to concrete and masonry
+8.4.1.1.10: Painting coating and preservative treatments
+8.4.1.2: Railings
+8.4.1.2.2: Railings
+8.4.1.3: Gates
+8.4.1.3.4: Gates and posts
+8.4.1.3.5: Security gates and posts
+8.4.1.3.6: Ironmongery
+8.4.2: Walls and screens
+8.4.2.1: Walls
+8.4.2.1.1: Masonry walls and screens
+8.4.2.1.9: Pier caps
+8.4.2.1.10: Copings, etc.
+8.4.2.3: Screens
+8.4.2.2.2: Masonry walls with timber infill panels
+8.4.2.3: Gates
+8.4.3: Retaining walls
+8.4.3.1: Retaining walls
+8.4.4: Barriers and guardrails
+8.4.4.1: Vehicle restraint systems
+8.4.4.1.1.A: Fixing barriers and guardrails
+8.4.4.1.1.B: Redecorations
+8.4.4.2: Pedestrian restraint systems
+8.4.4.2.2: Pedestrian restraint systems
+8.4.4.3: Vehicle and pedestrian control barriers and gates
+8.4.4.3.3: Vehicle and pedestrian control barriers and gates
+8.5: Site/street furniture and equipment
+8.5.1: Site/street furniture and equipment
+8.5.1.1: Components
+8.5.1.1.1: Gates
+8.5.1.1.2: Turnstiles
+8.5.1.1.3: Bollards
+8.5.1.1.4: Seats, benches and tables
+8.5.1.1.5: Litter bins, grit bins and dustbins
+8.5.1.1.6: Poster display units and notice boards
+8.5.1.1.7: Cycle stands
+8.5.1.1.8: Directional signs
+8.5.1.1.9: Flagpoles
+8.5.1.1.10: Sports and playground equipment
+8.5.1.1.11: Other furniture and equipment
+8.5.1.1.12: Minor footbridges
+8.5.1.1.13: Clothes drying fittings
+8.5.1.1.14: Bus stops, bus shelters, telephone boxes
+8.5.1.1.15: Sculptures
+8.5.1.1.16: Site/street furniture and equipment
+8.5.1.1.17: Other site and street furniture and equipment
+8.5.1.1.19: Painting and preservation treatments
+8.5.2: Ornamental features
+8.5.2.1: Ornamental features
+8.5.2.1.1: Water features
+8.5.2.2:
+8.5.2.2.2: Other features
+8.6: External drainage
+8.6.1: Surface water and foul drainage
+8.6.1.1: Connection to statutory undertakings sewers
+8.6.1.1.1: Gullies and gratings
+8.6.1.2: Drainage runs below ground
+8.6.1.2.2: Drainage runs below ground
+8.6.1.3: Drainage runs above ground
+8.6.1.3.3: Drainage runs above ground
+8.6.1.4: Prefabricated channels
+8.6.1.4.11: Prefabricated channels
+8.6.1.5: Manholes
+8.6.1.5.12: Interceptor traps
+8.6.1.5.13: Inspection chambers
+8.6.1.5.14: Soakaways
+8.6.1.5.15: Retention/storage tanks and vessels
+8.6.1.5.16: Cesspools and septic tanks
+8.6.1.5.17: Petrol interceptor units
+8.6.1.6: Alterations to existing external drainage systems
+8.6.1.6.24: Alterations to existing external drainage systems
+8.6.1.7: Works to existing manholes
+8.6.1.7.25: Works to existing manholes
+8.6.1.8: Cleaning existing drains
+8.6.1.8.26: Cleaning existing drains
+8.6.1.9: Sealing redundant drains
+8.6.1.9.27: Sealing redundant drains
+8.6.1.10: Filling disused manholes
+8.6.1.10.28: Filling disused manholes
+8.6.2: Ancillary drainage systems
+8.6.2.1: Pumping stations
+8.6.2.1.1: Pipework systems
+8.6.2.1.7: Controls components
+8.6.2.1.8: Monitoring equipment located externally
+8.6.2.1.9: Painting anti-corrosion treatments
+8.6.2.2: Ejector stations
+8.6.2.3: Storage/retention tanks and vessels
+8.6.2.4: Sewage treatment
+8.6.2.5: Enzyme systems
+8.6.2.6: Sustainable urban drainage systems
+8.6.3: External laboratory and industrial liquid waste drainage
+8.6.3.1: Drainage runs below ground
+8.6.3.1.1: External chemical toxic and industrial liquid waste drainage
+8.6.3.2: Drainage runs above ground
+8.6.3.2.4: Drainage runs above ground
+8.6.3.3: Equipment and plant
+8.6.3.3.6: Storage tanks and vessels
+8.6.3.3.7: Settlement tanks
+8.6.3.3.8: Effluent treatment plant
+8.6.3.3.9: Dosing equipment
+8.6.3.3.10: Sterilisation equipment
+8.6.3.3.12: Controls components
+8.6.3.3.13: Monitoring equipment
+8.6.4: Land drainage
+8.6.4.1: Drainage runs below ground
+8.6.4.2: Manholes
+8.6.4.2.12: Soakaways
+8.6.4.2.13: Storage tanks and vessels
+8.6.4.3: Drainage blankets
+8.6.4.3.6: Drainage blankets
+8.6.4.4: Land drainage to parkland
+8.7: External services
+8.7.1: Water mains supply
+8.7.1.1: Connections
+8.7.1.1.1: Water mains supply connection
+8.7.1.1.5: Water meters
+8.7.1.1.6: Fire hydrants
+8.7.1.1.7: Trace heating – pipework
+8.7.1.1.8: Thermal insulation
+8.7.1.2: Connections to external plant
+8.7.1.2.2: Connections to external plant
+8.7.1.3: Service runs
+8.7.1.3.2: Service runs
+8.7.1.3.4: Mains supply and distribution
+8.7.1.4: Rainwater harvesting systems
+8.7.1.4.10: Rainwater harvesting systems
+8.7.1.5: Grey water systems
+8.7.1.5.11: Grey water systems
+8.7.2: Electricity mains supply
+8.7.2.1: Connection to statutory undertakings
+8.7.2.1.1: Electrical mains supply
+8.7.2.2: Service runs
+8.7.2.3: Transformer substations
+8.7.2.3.3: Transformer substations
+8.7.2.4: External electricity generation installation/plant
+8.7.2.4.7: External electricity generation installation/plant
+8.7.3: External mains transformation devices
+8.7.3.1: Wind turbines
+8.7.3.1.1: Wind turbines (external transformation devices)
+8.7.3.1.2: Distribution of LV electricity to main switch gear panel within buildings
+8.7.3.2: Photovoltaic devices
+8.7.3.2.2: Photovoltaic devices
+8.7.3.3: Other transformation devices
+8.7.3.3.3: Other transformation devices
+8.7.4: Electricity distribution to external plant and equipment
+8.7.4.1: Connections to external plant or equipment
+8.7.4.1.1: Electrical distribution systems
+8.7.4.1.2: LV switchgear and distribution boards
+8.7.4.1.3: UPS
+8.7.4.1.4: Cables and wiring
+8.7.4.1.5: Conduits and cable trunking
+8.7.4.1.6: Earthing and bonding
+8.7.5: Gas mains supply
+8.7.5.1: Connections to statutory undertakings
+8.7.5.1.1: Gas mains supply
+8.7.5.2: Service runs
+8.7.5.2.2: Gas mains
+8.7.5.3: Governing stations
+8.7.5.3.4: Distribution pipelines
+8.7.5.3.5: Governing stations
+8.7.5.3.6: LPG installations
+8.7.6: Telecommunications and other communication system connections
+8.7.6.1: Telecommunications systems
+8.7.6.1.1: Telecommunications systems
+8.7.6.1.2: Telecomm distribution systems
+8.7.6.2: Cables television connections
+8.7.6.2.7: Cables television connections
+8.7.6.3: Other communication systems
+8.7.6.3.8: Other communication systems
+8.7.6.4: Service runs
+8.7.6.4.9: Service runs
+8.7.7: External fuel storage and piped distribution systems
+8.7.7.1: Fuel storage and piped distribution systems
+8.7.7.1.1: Oil, petrol and diesel
+8.7.7.1.2: Storage tanks and vessels
+8.7.7.1.3: Proprietary supports
+8.7.7.1.6: Distribution pipelines
+8.7.7.1.7: Pipeline ancillaries
+8.7.7.1.8: Thermal insulation
+8.7.7.1.10: Meters
+8.7.7.1.11: Monitoring equipment
+8.7.7.2: Service runs
+8.7.8: External security systems
+8.7.8.1: Surveillance equipment
+8.7.8.1.1: Surveillance equipment (e.g. CCTV)
+8.7.8.1.9: Camera poles, etc.
+8.7.8.1.10: General power installations
+8.7.8.2: Security detection equipment
+8.7.8.2.2: Security detection equipment
+8.7.8.3: Security alarm equipment
+8.7.8.3.3: Security alarm equipment
+8.7.8.4: Gate access control systems
+8.7.8.4.4: Gate access control systems
+8.7.8.5: Gate entry systems
+8.7.8.5.5: Gate entry systems
+8.7.8.6: Security lights and lighting systems
+8.7.8.6.6: Security lights and lighting systems
+8.7.8.7: Other security systems
+8.7.8.7.7: Other security systems
+8.7.8.8: Service runs
+8.7.8.8.8: Cables and wiring
+8.7.9: Site/street lighting systems
+8.7.9.1: External lighting to pedestrian areas
+8.7.9.1.1: External lighting columns and poles, bollards and masts
+8.7.9.1.2: Luminaries/lamps
+8.7.9.1.4: General power installations
+8.7.9.1.7: Luminaries/lamps
+8.7.9.1.8: Lighting control points
+8.7.9.1.9: Painting and anti-corrosion treatments
+8.7.9.2: External lighting to paths
+8.7.9.3: External lighting to roads
+8.7.9.4: Illuminated traffic signs
+8.7.9.4.3: Illuminated traffic signs
+8.7.10: Local/district heating installations
+8.7.10.1: Heat source
+8.7.10.1.1: External located heat source (e.g. boiler plant)
+8.7.10.1.2: Instrumentation and controls to heat source
+8.7.10.1.5: Instrumentation and controls to heating systems
+8.7.10.1.6: Thermal insulation
+8.7.10.2: Service runs
+8.7.10.2.3: Service runs
+8.7.10.3: External heating, ducts and duct access covers
+8.7.10.3.4: External heating, ducts and duct access covers
+8.7.11: Builders work in connection with external services
+8.7.11.1: Ducts, etc.
+8.7.11.1.1: Ducts
+8.7.11.2: Supports to external storage tanks etc
+8.7.11.2.2: Supports to external storage tanks etc
+8.7.11.3: Fuel bunds, etc.
+8.7.11.3.3: Fuel bunds, etc.
+8.7.11.4: Protective compounds, fencing etc for LPG installations, etc.
+8.7.11.4.4: Protective compounds, fencing etc for LPG installations, etc.
+8.7.11.5: Protective compounds connected with transformer substations, etc.
+8.7.11.5.5: Protective compounds connected with transformer substations, etc.
+8.7.11.6: Bases for service equipment
+8.7.11.6.6: Bases for service equipment
+8.7.11.7: Other builder's work in connection with external services
+8.7.11.7.7: Other builder's work in connection with external services
+8.8: Minor building works and ancillary buildings
+8.8.1: Minor building works
+8.8.1.1: Refurbishment of existing ancillary buildings
+8.8.1.2: Overhaul existing mechanical and electrical plant ad equipment
+8.8.1.2.2: Overhaul existing mechanical and electrical plant ad equipment
+8.8.1.3: Repairs to existing fences, railings, walls and screen walls
+8.8.1.3.3: Repairs to existing fences, railings, walls and screen walls
+8.8.2: Ancillary buildings and structures
+8.8.3: Underpinning to external site boundary walls
+8.8.3.1: Underpinning to external site boundary walls, etc.
+8.8.3.1.1: Underpinning
+9: Maintenance contractor's management and administration costs
+9.1: Employer's requirements
+9.1.1: Site accommodation
+9.1.1.1: Site accommodation
+9.1.1.2: Furniture and equipment
+9.1.1.3: Telecommunications and IT systems
+9.1.2: Site records
+9.1.2.1: Site records
+9.1.2.1.3: Web based facilities management systems – including updating data as well as implementation and training on BMS
+9.1.3: Completion and post-completion requirements
+9.1.3.1: Handover requirements
+9.1.3.1.2: Provision of spare parts for maintenance
+9.1.3.1: Handover requirements
+9.1.3.1.3: Provision of tools and potable instruments
+9.1.3.2: Operation and maintenance services
+9.1.4: Management tasks – specific types
+9.1.4.1: Air conditioning inspections
+9.1.4.2: Building logbooks and O&M Manuals
+9.1.4.3: Display energy certificates (DEC)
+9.1.4.4: Electrical installations – management audits
+9.1.4.5: Electrical lighting certificates logbook
+9.1.4.6: Energy performance certificates (EPC)
+9.1.4.7: Evaporating cooling systems – management audit
+9.1.4.8: Fire risk assessments
+9.1.4.9: Fire safety logbook
+9.1.4.10: Inventory of Greenhouses Gases (F-Gases)
+9.1.4.11: Lifting equipment – management audit
+9.1.4.12: Lifts and escalators – management audit
+9.1.4.13: Local extract ventilation – management audit
+9.1.4.14: Noise assessment and records
+9.1.4.15: Pressure systems – management audits
+9.1.4.16: Smoke control and pressurisation – management audits
+9.1.4.17: Tree reports
+9.1.4.18: Waste disposal
+9.1.4.19: Waste electrical and electronic equipment (WEEE) – management audit
+9.1.4.20: Water systems – management audit
+9.1.4.21: Other management tasks – state type
+9.2: Maintenance contractor's cost items
+9.2.1: Management and staff
+9.2.1.1: Contract specific management and staff
+9.2.1.2: Visiting management and staff
+9.2.1.3: Extraordinary support costs
+9.2.1.4: Staff travel (not part of labour rates)
+9.2.2: Site establishment
+9.2.2.1: Site accommodation
+9.2.2.2: Temporary works
+9.2.2.3: Furniture and equipment
+9.2.2.4: IT systems
+9.2.2.5: Consumables and services
+9.2.2.6: Brought on services
+9.2.3: Temporary services
+9.2.4: Security
+9.2.4.1: Security staff
+9.2.4.2: Security equipment
+9.2.4.3: Hoardings fences and gates
+9.2.5: Safety and environmental protection
+9.2.5.1: Safety performance
+9.2.5.2: Barriers and safety scaffolding
+9.2.5.3: Environmental protection measures
+9.2.6: Control and protection
+9.2.6.1: Surveys inspections and monitoring
+9.2.6.2: Setting out
+9.2.6.3: Protection of works
+9.2.6.4: Samples
+9.2.6.5: Environmental control of building
+9.2.7: Mechanical plant
+9.2.7.1: Generally
+9.2.7.2: Tower cranes
+9.2.7.3: Mobile cranes
+9.2.7.4: Hoists
+9.2.7.5: Access plant
+9.2.7.6: Concrete plant
+9.2.7.7: Other plant
+9.2.8: Temporary works
+9.2.8.2: Temporary works
+9.2.9: Site records
+9.2.9.1: Maintenance works
+9.2.9.22: Web based facilities management systems
+9.2.10: Transition and exit requirements
+9.2.10.1: Testing and commissioning plan
+9.2.10.2: Handover
+9.2.10.3: Post completion services (hand back)
+9.2.11: Cleaning
+9.2.11.1: Site tidy
+9.2.11.2: Maintenance of roads, paths and paving
+9.2.12: Fees and charges
+9.2.12.1: Fees
+9.2.12.2: Charges
+9.2.13: Site services
+9.2.13.1: Temporary works
+9.2.13.2: Multi service gang
+9.2.14: Insurance, bonds, guarantees and warranties
+9.2.14.1: Works insurances
+9.2.14.1.1: Contractor’s all risks (CAR) insurance
+9.2.14.1.2: Contractor’s plant and equipment insurance
+9.2.14.1.3: Temporary buildings insurance
+9.2.14.1.4: Terrorism insurance
+9.2.14.1.5: Other insurances in connection with the works
+9.2.14.1.6: Insurance premium tax (IPT)
+9.2.14.1.7: Allowance for recovery of all or part of insurance premium excess
+9.2.14.2: Public liability insurances
+9.2.14.2.1: Non-negligence insurance
+9.2.14.2.2: Professional indemnity insurance
+9.2.14.2.3: Insurance premium tax (IPT)
+9.2.14.2.4: Allowance for recovery of all or part of insurance premium excess
+9.2.14.3: Inspections
+9.2.14.3.1: Statutory compliance inspections
+9.2.14.3.2: Air conditioning inspections (COVID-19)
+9.2.14.3.3: Other forms of inspections (state types)
+9.2.14.4: Client’s (main contractor’s) liability insurances
+9.2.14.4.1: Management and staff, including administrative staff
+9.2.14.4.2: Works operatives
+9.2.14.4.3: Insurance premium tax (IPT)
+9.2.14.4.4: Allowance for recovery of all or part of insurance premium excess
+9.2.14.5: Other insurances
+9.2.14.5.1: Client’s loss of liquidated damages
+9.2.14.5.2: Latent defects cover
+9.2.14.5.3: Motor vehicles
+9.2.14.5.4: Other insurances
+9.2.14.5.5: Insurance premium tax (IPT)
+9.2.14.5.6: Allowance for recovery of all or part of insurance premium excess
+9.2.14.7: Guarantees
+9.2.14.7.1: Parent company guarantees
+9.2.14.7.2: Product guarantees (insurance backed)
+9.2.14.8: Warranties
+9.2.14.8.1: Collateral warranties
+9.2.14.8.2: Funder’s warranties
+9.2.14.8.3: Purchaser’s and tenant’s warranties
+9.2.14.8.4: Other warranties
+9.2.15: Operational Tasks
+9.2.15.1: Operational tasks specific to maintenance
+9.2.15.1.1: Asbestos register
+9.2.15.1.2: Emergency and panic escape doors and fire exits
+9.2.15.1.3: Emergency lighting – power supply and maintained fittings inspections
+9.2.15.1.4: Fire alarm system – daily /weekly inspections
+9.2.15.1.5: Automatic doors release mechanisms – electronic secure escape doors and fire exits
+9.2.15.1.6: Fire evacuation drill
+9.2.15.1.7: Fire exit signage
+9.2.15.1.8: Fire hydrant – weekly checks
+9.2.15.1.9: Hose reels – daily, monthly and annual checks
+9.2.15.1.10: Insurance periodic inspections
+9.2.15.1.11: Independent water risk assessment (legionella)
+9.2.15.1.12: Meter reading (electric, gas, oil and water)
+9.2.15.1.13: Oil storage tanks – above ground
+9.2.15.1.14: Plant room checks
+9.2.15.1.15: Portable appliance testing . PAT user checks
+9.2.15.1.16: Portable fire extinguishers – weekly checks
+9.2.15.1.17: Smoke control systems – daily 3 monthly and annual checks
+9.2.15.1.18: Sprinkler systems – inspections
+9.2.15.1.19: Visual inspections of voids, cavities & the like
+9.2.15.1.20: Water risk assessment (legionella)
+9.2.15.1.21: Water sampling and testing – closed systems
+9.2.15.1.22: Other operational tasks (type to be stated)
+9.2.16: Periodic maintenance
+9.2.16.1: Periodic maintenance tasks
+9.2.16.1.1: Ducting – volume control dampers (5 yearly)
+9.2.16.1.2: Electrical Fixed wiring testing (2 to 5 yearly)
+9.2.16.1.3: Hose reels – static and swinging (5 yearly)
+9.2.16.1.4: Main switch panel at supply intake (2 yearly)
+9.2.16.1.5: Portable appliance testing – (2 yearly)
+9.2.16.1.6: Sprinkler systems (3 yearly, 5 yearly etc)
+9.2.16.1.7: Suspended façade access equipment (10 yearly)
+9.2.16.1.8: Insurance periodic inspections (2 yearly)
+9.2.16.1.9: Vertical platform lifts (2 yearly)
+9.2.16.1.10: Other periodic maintenance tasks (to be stated)
+9.2.16.2: Redecorations programme
+9.2.16.2.1: External walls – depending on finishes type
+9.2.16.2.2: External windows and doors – timber or like
+9.2.16.2.3: Internal walls, including skirtings
+9.2.16.2.4: Internal ceilings
+9.2.16.2.5: Internal windows and doors
+10: Maintenance contractor's overhead and profit
+10.1: Maintenance contractor's overhead
+10.1.1: Maintenance contractor's overhead
+10.2: Maintenance contractor's profit
+10.2.2: Maintenance contractor's profit
+10.2.2.1: Maintenance contractor's profit
+11: Consultant and specialist fees
+11.1: Consultant's and specialist fees
+11.1.1: Consultant's and specialist fees
+11.1.1.1: Consultant's and specialist fees
+11.1.2: Other consultant's fees
+11.1.2.1: Other consultant's fees
+11.1.3: Site investigation fees
+11.1.3.1: Site investigation fees
+11.1.4: Specialist support consultant's fees
+11.1.4.1: Specialist support consultants fees
+11.2: Maintenance contractor's tender / pre-contract fees
+11.2.1: Management and staff
+11.2.1.1: Management and staff
+11.2.2: Specialist support services fees
+11.2.2.1: Specialist support services fees
+11.2.3: Temporary accommodation, services and facilities charges
+11.2.3.1: Temporary accommodation, services and facilities charges
+11.2.4: Main contractor's overhead and profit
+11.2.4.1: Maintenance contractors overhead and profit
+11.3: Maintenance contractor's design fees
+11.3.1: Main contractor's design consultant's fees
+11.3.1.1: Maintenance contractors design consultant's fees
+12: Employer definable maintenance related costs
+12.1: Employer definable maintenance related costs
+12.1.1: Land acquisition costs
+12.1.1.1: Land acquisition costs
+12.1.2: Employer finance costs
+12.1.2.1: Employer finance costs
+12.1.3: Fees
+12.1.3.1: Fees
+12.1.4: Charges
+12.1.4.1: Charges
+12.1.5: Planning contributions
+12.1.6: Insurances
+12.1.6.1: Insurances
+12.1.7: Archaeological field work
+12.1.7.1: Archaeological field work
+12.1.8: Other specialist fieldwork
+12.1.8.1: Other specialist fieldwork
+12.1.9: Decanting and relocation costs
+12.1.9.1: Decanting and relocation costs
+12.1.10: Fittings, furnishings and equipment
+12.1.10.1: Fittings, furnishings and equipment
+12.1.11: Tenant's costs/contributions
+12.1.11.1: Tenant's costs/ contributions
+12.1.12: Marketing costs
+12.1.12.1: Marketing costs
+12.1.13: Other employer costs
+12.1.13.1: Other employer costs
+12.1.14: Allowances
+12.1.14.1: Allowances
+12.1.15: Energy efficiency
+12.1.15.1: Energy efficiency
+12.1.16: Office churn
+12.1.17: Soft services – operations
+12.1.18: End of life
+12.1.19: Third party income
+12.1.20: Loss of income
+13: Risks
+13.1: Design and installation risks
+13.1.1:
+13.1.1.1: Design development and standards
+13.1.1.2: Construction installation legacy risks
+13.1.1.3: Handover
+13.1.1.4: Legislation and changing future regulations, e.g. Health & Safety at work
+13.2: Maintenance risks
+13.2.2:
+13.2.2.1: Procurement
+13.2.2.2: Maintenance delivery
+13.2.2.3: Life cycle replacement works
+13.3: Employer change risks
+13.3.3:
+13.3.3.1: Project brief
+13.3.3.2: Scope creep
+13.3.3.3: System redundancy
+13.3.3.4: Timescales
+13.4: Employer other risks
+13.4.4:
+13.4.4.1: Maintenance brief
+13.4.4.2: Timescales
+13.4.4.3: Third party
+13.4.4.4: Management
+14: Inflation
+14.1: Tender inflation
+14.2: Construction inflation
+14.3: Life cycle renewal inflation
+14.4: Life cycle discount rate

@@ -1,0 +1,492 @@
+ACT01: Dance studios: SL_25_10_21
+ACT05: Activity studios: SL_25_10_01
+ACT06: Activity studios (10 x 12): SL_25_10_01
+ACT07: Activity studios (10 x 15): SL_25_10_01
+ACT10: Activity studios, 1-court: SL_25_10_01
+ACT11: Activity studios, 1-court (restrictive, extg): SL_25_10_01
+ACT13: Gymnasiums (existing): SL_42_40_35
+ACT15: Squash courts (existing): SL_42_40_83
+ACT17: Indoor activity spaces, other (existing): SL_42_40
+ACT21: Climbing wall spaces (indoor): SL_42_40_14
+ACT22: Fitness rooms (exercise studio): SL_42_40_30
+ACT25: Indoor swimming pools (existing): SL_42_85_41
+ACT50: Activity studios (ambulant): SL_25_10_01
+ACT55: Activity studios, non-ambulant: SL_25_10_01
+ACT60: Fitness rooms (ambulant): SL_42_40_30
+ACT65: Fitness rooms, non-ambulant: SL_42_40_30
+ADM02: Confidential meetings rooms (interview): SL_20_15_15
+ADM03: First aid posts (sick bay): SL_35_10_30
+ADM04: First aid rooms (sick room): SL_35_10_31
+ADM05: Enclosed offices, with recep desk (only): SL_20_15_27
+ADM06: Enclosed offices, with recep window: SL_20_15_27
+ADM07: Enclosed offices, with recep desk (and window): SL_20_15_27
+ADM08: Reprographics rooms: SL_20_15_73
+ADM11: Enclosed offices, admin (head/ principal): SL_20_15_27
+ADM13: Enclosed offices, admin (PA): SL_20_15_27
+ADM21: Kitchenettes, room: SL_35_60_45
+ADM22: Kitchenettes, bay: SL_35_60_45
+ADM23: Medical treatment rooms (nurse): SL_35_10_53
+ADM31: Reception areas, entrance (50% circulation): SL_20_15_71
+ADM32: Reception areas, community (50% circulation): SL_20_15_71
+CIR00: Circulation spaces (horizontal): SL_90_10
+CIR01: Corridors: SL_90_10_15
+CIR03: Lobbies (main entrance): SL_90_10_51
+CIR04: Lobbies (alternative entrance): SL_90_10_51
+CIR05: Corridors (with art display): SL_90_10_15
+CIR06: Equipment stores, appliance bay: SL_90_50_27
+CIR07: Work booths, phone: SL_90_10_15
+CIR09: Work booths, MFD: SL_90_20_98
+CIR11: Stairways, AP: SL_90_10_87
+CIR12: Stairways: SL_90_10_87
+CIR13: Lifts: SL_90_10_47
+CIR50: Circulation spaces (horizontal ambulant): SL_90_10
+CIR51: Corridors (ambulant): SL_90_10
+CIR53: Lifts (special): SL_90_10_47
+CIR55: Corridors, non-ambulant: SL_90_10_15
+CIR56: Equipment stores, appliance bay (special): SL_90_50_27
+CIR60: Lobbies (ambulant): SL_90_10_51
+CIR65: Lobbies (non-ambulant): SL_90_10_51
+CLA01: Seminar rooms (restrictive, extg): SL_25_10_78
+CLA02: Seminar rooms: SL_25_10_78
+CLA03: Seminar rooms (extensive, extg): SL_25_10_78
+CLA11: Classrooms (restrictive, extg): SL_25_10_14
+CLA12: Classrooms (general): SL_25_10_14
+CLA12: Classrooms (PE): SL_25_10_14
+CLA13: Classrooms (extensive): SL_25_10_14
+CLA14: Classrooms, double (restrictive, extg): SL_25_10_14
+CLA15: Classrooms, double: SL_25_10_14
+CLA16: Classrooms, double (extensive, extg): SL_25_10_14
+CLA18: Classrooms (smaller group): SL_25_10_14
+CLA19: Classrooms (larger group): SL_25_10_14
+CLA21: Semi-open classbases, home base (restrictive): SL_25_10_77
+CLA22: Semi-open classbases, home base: SL_25_10_77
+CLA23: Semi-open classbases, home base (extensive): SL_25_10_77
+CLA31: ICT-rich classrooms (restrictive, extg): SL_25_10_41
+CLA32: ICT-rich classrooms: SL_25_10_41
+CLA33: ICT-rich classrooms (extensive): SL_25_10_41
+CLA34: ICT-rich classrooms, semi-open (restrictive, extg): SL_25_10_41
+CLA35: ICT-rich classrooms, semi-open: SL_25_10_41
+CLA36: ICT-rich classrooms, semi-open (extensive): SL_25_10_41
+CLA41: Classrooms (temporarily ICT-rich) : SL_25_10_14
+CLA42: ICT-rich classrooms (business studies): SL_25_10_41
+CLA43: ICT-rich classrooms (business studies, extensive): SL_25_10_41
+CLA50: Sixth form SEN classrooms (ambulant): SL_25_10_81
+CLA51: Sixth form SEN classrooms (AP health): SL_25_10_81
+CLA52: Sixth form SEN classrooms (AP behaviour): SL_25_10_81
+CLA53: Sixth form SEN classrooms (with quiet space): SL_25_10_81
+CLA54: Sixth form SEN classrooms (severe suite): SL_25_10_81
+CLA55: Sixth form SEN classrooms, non-ambulant: SL_25_10_81
+CLA58: Sixth form SEN classrooms, PMLD suite: SL_25_10_81
+CLA60: Secondary SEN classrooms (ambulant): SL_25_10_76
+CLA61: Secondary SEN classrooms (AP health): SL_25_10_76
+CLA62: Secondary SEN classrooms (AP behaviour): SL_25_10_76
+CLA63: Secondary SEN classrooms (with quiet space): SL_25_10_76
+CLA64: Secondary SEN classrooms (severe suite): SL_25_10_76
+CLA65: Secondary SEN classrooms, non-ambulant: SL_25_10_76
+CLA66: Semi-open classbases, home base (ambulant): SL_25_10_77
+CLA68: Secondary SEN classrooms, PMLD suite: SL_25_10_76
+CLA70: ICT-rich classrooms (ambulant): SL_25_10_41
+CLA71: ICT-rich classrooms (AP): SL_25_10_41
+CLA75: ICT-rich classrooms, non-ambulant: SL_25_10_41
+DAT00: Art rooms: SL_25_10_04
+DAT01: Art rooms (restrictive, extg): SL_25_10_04
+DAT02: Art rooms (general): SL_25_10_04
+DAT03: Art rooms (3D): SL_25_10_04
+DAT04: Art rooms (ceramics): SL_25_10_04
+DAT05: Art rooms (textiles): SL_25_10_04
+DAT12: Hair and beauty training salons: SL_25_40_36
+DAT15: Photography studios: SL_25_40_65
+DAT20: DT studios: SL_25_40_22
+DAT21: DT studios (graphic products, restrictive, extg): SL_25_40_22
+DAT22: DT studios (graphic products): SL_25_40_22
+DAT24: DT studios (textiles, restrictive, extg): SL_25_40_22
+DAT25: DT studios (textiles): SL_25_40_22
+DAT27: DT studios (electronics & control, restrictive, extg): SL_25_40_22
+DAT28: DT studios (electronics & control): SL_25_40_22
+DAT31: Food rooms (demonstration, restrictive, extg): SL_25_10_30
+DAT32: Food rooms (demonstration): SL_25_10_30
+DAT34: Food rooms (restrictive, extg): SL_25_10_30
+DAT35: Food rooms: SL_25_10_30
+DAT36: Food rooms (existing for 20): SL_25_10_30
+DAT37: Food rooms (2 of 2): SL_25_10_30
+DAT39: Catering training kitchens: SL_25_40_11
+DAT41: DT workshops (existing for 20): SL_25_40_23
+DAT42: DT workshops (restrictive, extg): SL_25_40_23
+DAT43: DT workshops: SL_25_40_23
+DAT44: DT workshops (2 of 2): SL_25_40_23
+DAT46: DT workshops (with heat bay): SL_25_40_23
+DAT47: Engineering workshops: SL_25_40_27
+DAT49: Construction workshops: SL_25_40_15
+DAT50: Art rooms (ambulant): SL_25_10_04
+DAT51: Art rooms (AP): SL_25_10_04
+DAT55: Art rooms, non-ambulant: SL_25_10_04
+DAT60: DT studios (ambulant art and design): SL_25_40_22
+DAT61: DT studios (AP art and design): SL_25_40_22
+DAT65: DT studios, non-ambulant (art and design): SL_25_40_22
+DAT70: Hair and beauty training salons (ambulant): SL_25_40_36
+DAT75: Hair and beauty training salons, non-ambulant: SL_25_40_36
+DAT80: Food rooms (ambulant): SL_25_10_30
+DAT83: Food rooms (ambulant up to 8): SL_25_10_30
+DAT84: Food rooms (ambulant up to 12): SL_25_10_30
+DAT85: Food rooms, non-ambulant: SL_25_10_30
+DAT87: Catering training kitchens (ambulant): SL_25_40_11
+DAT90: DT workshops (ambulant): SL_25_40_23
+DAT96: Construction workshops (ambulant): SL_25_40_15
+DAT97: Vehicle workshops: SL_25_40_94
+DIN01: Dining halls: SL_40_20_22
+DIN02: Informal dining spaces: SL_40_20_43
+DIN04: Social spaces: SL_90_20_80
+DIN05: Social spaces (sixth form): SL_90_20_80
+DIN11: Servery areas, meal collection: SL_35_60_78
+DIN12: Servery areas, satellite: SL_35_60_78
+DIN50: Dining halls (ambulant): SL_40_20_22
+DIN55: Dining halls, non-ambulant: SL_40_20_22
+DIN60: Informal dining spaces (ambulant): SL_40_20_43
+DIN63: Informal dining spaces (independent living): SL_40_20_43
+DIN65: Informal dining spaces, non-ambulant: SL_40_20_43
+DIN70: Social spaces (ambulant): SL_90_20_80
+DIN75: Social spaces, non-ambulant: SL_90_20_80
+DIN80: Social spaces (ambulant sixth form): SL_90_20_80
+DIN85: Social spaces, non-ambulant (sixth form): SL_90_20_80
+HAL02: Assembly halls, secondary (including stage): SL_25_10_05
+HAL03: Assembly halls, secondary (with bleachers): SL_25_10_05
+HAL12: Activity studios (small hall): SL_25_10_01
+HAL13: Assembly halls, primary: SL_25_10_05
+HAL21: Assembly halls, existing: SL_25_10_05
+HAL22: Lecture theatres, existing: SL_25_10_47
+HAL50: Assembly halls, ambulant: SL_25_10_05
+HAL55: Assembly halls, non-ambulant: SL_25_10_05
+KIT00: Food prep areas, kitchen: SL_35_60_30
+KIT01: Food prep areas, kitchen (servery & wash-up): SL_35_60_30
+KIT02: Food prep areas, kitchen (prep/ servery suite): SL_35_60_30
+KIT11: Offices, kitchen : SL_20_15_59
+KIT20: Food stores, kitchen: SL_90_50_29
+KIT21: Food stores, kitchen (dry): SL_90_50_29
+KIT25: Cold stores, kitchen: SL_90_50_15
+KIT26: Cold stores, kitchen (freezer): SL_90_50_15
+KIT40: Toilets, kitchen (with changing area): SL_35_80_89
+LIB01: School libraries (primary): SL_25_75_76
+LIB02: School libraries (infant): SL_25_75_76
+LIB03: School libraries (junior): SL_25_75_76
+LIB05: Library resource centres (LRC): SL_25_75_45
+LIB06: Study spaces, rooms (sixth form): SL_25_10_84
+LIB07: Study spaces, rooms: SL_25_10_84
+LIB50: School libraries (ambulant): SL_25_75_76
+LIB51: School libraries (ambulant, primary): SL_25_75_76
+LIB52: School libraries (ambulant, secondary): SL_25_75_76
+LIB55: School libraries, non-ambulant: SL_25_75_76
+LIB56: School libraries, non-ambulant (primary): SL_25_75_76
+LIB57: School libraries, non-ambulant (secondary): SL_25_75_76
+OFF00: Offices: SL_20_15_59
+OFF01: Offices (1-person): SL_20_15_59
+OFF02: Offices (2-person): SL_20_15_59
+OFF03: Offices (3-person): SL_20_15_59
+OFF04: Offices (4-person): SL_20_15_59
+OFF06: Offices (exams): SL_20_15_59
+OFF10: Offices (with meeting area): SL_20_15_59
+OFF11: Offices (with meeting area, 1-person): SL_20_15_59
+OFF12: Offices (with meeting area, 2-person): SL_20_15_59
+OFF13: Offices (with meeting area, 3-person): SL_20_15_59
+OFF20: Offices (pastoral): SL_20_15_59
+OFF21: Offices (pastoral, 1-person): SL_20_15_59
+OFF22: Offices (pastoral, 2-person): SL_20_15_59
+OFF23: Offices (SENco, learning support): SL_20_15_59
+OFF24: Offices (visiting professionals): SL_20_15_59
+OFF32: Staff workrooms (smaller teaching team): SL_90_20_86
+OFF33: Staff workrooms (teaching staff): SL_90_20_86
+OFF34: Staff workrooms (specially resourced): SL_90_20_86
+OFF36: Staff workrooms (technical support staff): SL_90_20_86
+OFF37: Staff workrooms (ICT technicians): SL_90_20_86
+OFF38: Staff workrooms (premises): SL_90_20_86
+OFF40: Meeting rooms (conference): SL_20_15_50
+OFF42: Laundries: SL_30_60_47
+OFF45: Meeting rooms (training): SL_20_15_50
+OFF50: Staff rooms: SL_90_20_85
+OFF51: Staff rooms (prep and social): SL_90_20_85
+OFF52: Staff rooms (social): SL_90_20_85
+OFF53: Staff rooms (parents) : SL_90_20_85
+PER01: Music rooms (fitted, restrictive, extg): SL_25_10_55
+PER02: Music rooms (fitted): SL_25_10_55
+PER03: Music rooms (fitted, extensive): SL_25_10_55
+PER05: Music and drama classrooms: SL_25_10_54
+PER08: Music and drama classrooms (recital): SL_25_10_54
+PER11: Music and drama classrooms, studio: SL_25_10_54
+PER15: Drama studios: SL_25_10_24
+PER50: Music rooms (fitted, ambulant): SL_25_10_55
+PER51: Music rooms (fitted, AP): SL_25_10_55
+PER55: Music rooms (fitted), non-ambulant: SL_25_10_55
+PER60: Music and drama classrooms (ambulant): SL_25_10_54
+PER61: Music and drama classrooms (AP): SL_25_10_54
+PER65: Music and drama classrooms, non-ambulant: SL_25_10_54
+PLA02: Plant and control spaces: SL_90_90
+PLA05: Switch rooms, distribution boards: SL_90_90_85
+PLA07: Stairways, plant: SL_90_10_87
+PLA08: Stairways, plant (to roof): SL_90_10_87
+PLA09: Stairways, plant (escape): SL_90_10_87
+PLA10: Server rooms: SL_90_90_77
+PLA11: Server rooms (1-cabinet): SL_90_90_77
+PLA12: Server rooms (2-cabinet): SL_90_90_77
+PLA13: Server rooms (3-cabinet): SL_90_90_77
+PLA14: Server rooms (4-cabinet): SL_90_90_77
+PLA15: Server rooms (5-cabinet): SL_90_90_77
+PLA18: Server rooms (ICT hub): SL_90_90_77
+PLA20: Plant rooms: SL_90_90_64
+PLA21: Plant rooms (heat source): SL_90_90_64
+PLA22: Plant rooms (ventilation): SL_90_90_64
+PLA23: Plant rooms (cold water tanks): SL_90_90_64
+PLA24: Plant rooms (sprinkler pumps): SL_90_90_64
+PLA25: Plant rooms (electrical intake): SL_90_90_64
+PLA30: Light wells (open): SL_90_60_51
+PLA31: Light wells (open ventilation): SL_90_90_78
+PLA32: Light wells (open daylit ventilation): SL_90_90_78
+PLA40: Services shafts (enclosed risers, flues and ducts): SL_90_90_78
+PLA41: Services shaft (enclosed ventilation): SL_90_90_78
+PLA42: Services shafts (enclosed daylit ventilation): SL_90_90_78
+PLA43: Services shafts (enclosed electrical): SL_90_90_78
+PLA44: Services shafts (enclosed other): SL_90_90_78
+PLA50: Plant rooms, pool: SL_90_90_64
+PRA01: ICT-rich classrooms (extg primary): SL_25_10_41
+PRA02: Primary practical, temporarily ICT-rich: SL_25_10_67
+PRA10: Primary practical rooms: SL_25_10_67
+PRA12: Primary practical (food/ science/ DT): SL_25_10_67
+PRA13: Primary practical (infant food/ science/ DT): SL_25_10_67
+PRA14: Primary practical (junior food/ science/ DT): SL_25_10_67
+PRA15: Primary practical (food/ science): SL_25_10_67
+PRA16: Primary practical (art/ DT): SL_25_10_67
+PRA17: Primary practical (nurture): SL_25_10_67
+PRA31: Kitchenettes, food bay: SL_35_60_45
+PRA41: Shared teaching areas, primary: SL_25_10_79
+PRA50: Shared teaching areas (ambulant): SL_25_10_79
+PRA70: Primary practical rooms (ambulant, food): SL_25_10_67
+PRA75: Primary practical rooms, non-ambulant (food): SL_25_10_67
+PRA80: Primary practical rooms (ambulant): SL_25_10_67
+PRA83: Primary practical rooms (ambulant up to 6): SL_25_10_67
+PRA84: Primary practical rooms (ambulant up to 12): SL_25_10_67
+PRA85: Primary practical rooms, non-ambulant: SL_25_10_67
+PRI01: Nursery playrooms (restrictive, extg): SL_25_10_57
+PRI03: Nursery playrooms: SL_25_10_57
+PRI04: Nursery playrooms (2 to 3 year olds): SL_25_10_57
+PRI05: Nursery playrooms (extensive): SL_25_10_57
+PRI11: Reception classrooms (restrictive, extg): SL_25_10_72
+PRI13: Reception classrooms: SL_25_10_72
+PRI15: Reception classrooms (extensive): SL_25_10_72
+PRI21: Infant classrooms (restrictive, extg): SL_25_10_39
+PRI23: Infant classrooms: SL_25_10_39
+PRI25: Infant classrooms (extensive): SL_25_10_39
+PRI31: Junior classrooms (restrictive, extg): SL_25_10_44
+PRI33: Junior classrooms: SL_25_10_44
+PRI35: Junior classrooms (extensive): SL_25_10_44
+PRI37: Junior classrooms (group rooms): SL_25_10_44
+PRI38: Junior classrooms (without sink): SL_25_10_44
+PRI41: Semi-open classbases, infant: SL_25_10_77
+PRI43: Semi-open classbases (junior, extg): SL_25_10_77
+PRI50: Nursery playrooms (ambulant): SL_25_10_57
+PRI55: Nursery playrooms, non-ambulant: SL_25_10_57
+PRI60: Reception classrooms (ambulant): SL_25_10_72
+PRI65: Reception classrooms, non-ambulant: SL_25_10_72
+PRI70: Primary SEN classrooms (ambulant): SL_25_10_68
+PRI71: Primary SEN classrooms (AP health): SL_25_10_68
+PRI72: Primary SEN classrooms (AP behaviour): SL_25_10_68
+PRI73: Primary SEN classrooms (with quiet space): SL_25_10_68
+PRI74: Primary SEN classrooms (severe suite): SL_25_10_68
+PRI75: Primary SEN classrooms, non-ambulant: SL_25_10_68
+PRI78: Primary SEN classrooms, PMLD suite: SL_25_10_68
+PRI80: Semi-open classbases, ambulant: SL_25_10_77
+PRI85: Semi-open classbases, non-ambulant: SL_25_10_77
+RES00: Small group rooms: SL_25_75_80
+RES01: Small group rooms (nursery): SL_25_75_80
+RES03: Small group rooms (medium): SL_25_75_80
+RES04: Small group rooms (large SEN etc.): SL_25_75_80
+RES05: Shared teaching areas, secondary: SL_25_10_79
+RES06: Small group room (inclusion/ withdrawal): SL_25_75_80
+RES12: Music practice rooms: SL_25_75_55
+RES13: Music practice rooms (extensive): SL_25_75_55
+RES14: Recording control spaces: SL_40_65_70
+RES15: Music practice rooms (recording): SL_25_75_55
+RES16: Lighting and audio control spaces: SL_40_65_47
+RES21: Heavy practical resource (kiln): SL_25_75_37
+RES22: Darkrooms: SL_25_30_21
+RES23: Light practical resource (art/ design): SL_25_75_47
+RES31: ICT resource spaces, open: SL_25_75_40
+RES32: Heavy practical resource (heat treatment, extg): SL_25_75_37
+RES33: Heavy practical resource (CAD CAM, extg): SL_25_75_37
+RES50: Small group rooms (ambulant): SL_25_75_80
+RES55: Small group rooms (non-ambulant): SL_25_75_80
+RES56: Shared teaching areas, secondary (ambulant): SL_25_10_79
+RES60: Independent life skills rooms (ambulant): SL_25_40_42
+RES65: Independent life skills rooms, non-ambulant: SL_25_40_42
+RES80: SEN resource spaces, role play: SL_25_75_82
+SCI01: Science studios (restrictive, extg): SL_25_10_74
+SCI02: Science studios: SL_25_10_74
+SCI03: Science studios (extensive): SL_25_10_74
+SCI04: Science laboratories (restrictive, extg): SL_25_10_75
+SCI05: Science laboratories: SL_25_10_75
+SCI11: science laboratories (specialist): SL_25_10_75
+SCI12: science laboratories (chemistry): SL_25_10_75
+SCI13: science laboratories (biology): SL_25_10_75
+SCI14: science laboratories (physics): SL_25_10_75
+SCI21: Science studios (large group/ demo): SL_25_10_74
+SCI50: Science laboratories (ambulant): SL_25_10_75
+SCI53: Science laboratories (ambulant, fixed): SL_25_10_75
+SCI54: Science laboratories (ambulant, flexible): SL_25_10_75
+SCI55: Science studios, non-ambulant: SL_25_10_74
+SCI60: Multi-purpose practical rooms (ambulant): SL_25_10_53
+SCI65: Multi-purpose practical rooms, non-ambulant: SL_25_10_53
+SEN02: Medical treatment (MI) rooms: SL_35_10_53
+SEN05: Medical treatment rooms, non-ambulant: SL_35_10_53
+SEN12: Therapy rooms: SL_35_10_88
+SEN13: Therapy rooms (speech & language): SL_35_10_88
+SEN14: Therapy rooms (ambulant, physio): SL_35_10_88
+SEN15: Therapy rooms, non-ambulant (physio): SL_35_10_88
+SEN16: Therapy rooms, rebound: SL_35_10_88
+SEN20: SEN resource spaces: SL_25_75_82
+SEN21: SEN resource spaces (ambulant support): SL_25_75_82
+SEN22: SEN resource spaces (SLCN support): SL_25_75_82
+SEN23: SEN resource spaces (behaviour support): SL_25_75_82
+SEN24: SEN resource spaces (autism support): SL_25_75_82
+SEN25: SEN resource spaces (PD support): SL_25_75_82
+SEN26: SEN resource spaces (HI support): SL_25_75_82
+SEN27: SEN resource spaces (VI support): SL_25_75_82
+SEN30: Quiet calming spaces, room: SL_35_50_69
+SEN31: Quiet calming spaces, bay (off classroom): SL_35_50_69
+SEN32: Quiet calming spaces, room (off classroom): SL_35_50_69
+SEN33: Quiet calming spaces, bay (near classroom): SL_35_50_69
+SEN34: Quiet calming spaces, room (near classroom): SL_35_50_69
+SEN38: Quiet calming spaces (calming): SL_35_50_69
+SEN40: Sensory rooms (ambulant): SL_35_50_78
+SEN45: Sensory rooms, non-ambulant: SL_35_50_78
+SEN50: Sensory rooms (ambulant, immersion): SL_35_50_78
+SEN55: Sensory rooms, non-ambulant (immersion): SL_35_50_78
+SEN60: Soft play rooms (ambulant): SL_40_05_81
+SEN65: Soft play rooms, non-ambulant: SL_40_05_81
+SEN70: Sensory rooms (ambulant, with soft play): SL_35_50_78
+SEN75: Sensory rooms, non-ambulant (with soft play): SL_35_50_78
+SEN80: Warm water pools: SL_35_10_97
+SEN85: Hydrotherapy pools: SL_35_10_39
+SPH01: Sports halls, school (1-court): SL_42_40_82
+SPH02: Sports halls, school (2-court): SL_42_40_82
+SPH03: Sports halls, school (3-court): SL_42_40_82
+SPH04: Sports halls, school (4-court): SL_42_40_82
+SPH20: Sports halls, community (multi-court): SL_42_40_82
+SPH24: Sports halls, community (4-court): SL_42_40_82
+SPH25: Sports halls, community (5-court): SL_42_40_82
+SPH27: Sports halls, community (8-court): SL_42_40_82
+SPH28: Sports halls, community (12-court): SL_42_40_82
+SPH31: Sports halls, school (multi-court, extg): SL_42_40_82
+SPH32: Sports halls, community (multi-court, extg): SL_42_40_82
+STH00: Sports equipment stores, internal: SL_90_50_82
+STH01: Sports equipment stores, internal (sports hall): SL_90_50_82
+STH02: Sports equipment stores, internal (community): SL_90_50_82
+STH03: Sports equipment stores, internal (activity studio): SL_90_50_82
+STH04: Sports equipment stores, internal (off hall): SL_90_50_82
+STH05: Sports equipment stores, external: SL_90_50_82
+STH10: Furniture stores: SL_90_50_32
+STH11: Furniture stores (chair/ table, off hall): SL_90_50_32
+STH12: Furniture stores (chair, off hall): SL_90_50_32
+STH15: Dining furniture stores, and servery: SL_90_50_22
+STH20: Retractable seating storage (off hall): SL_90_50_73
+STN00: Coats and bags stores: SL_90_50_19
+STN01: Coats and bags stores (coat hooks): SL_90_50_19
+STN02: Coats and bags stores (lockers): SL_90_50_19
+STN03: Coats and bags stores (community lockers): SL_90_50_19
+STN05: Equipment stores, room (nursery mobility/ buggies): SL_90_50_27
+STN06: Equipment stores, room (physiotherapy): SL_90_50_27
+STN11: Cloakrooms, early years (50% circ): SL_90_20_14
+STN12: Cloakrooms, SEN (50% circ): SL_90_20_14
+STN15: Cloakrooms, secure room: SL_90_20_14
+STN20: General storerooms (off corridor): SL_90_50_35
+STN22: General storerooms (central stock): SL_90_50_35
+STN23: General storerooms (linen): SL_90_50_35
+STN25: General storerooms (community): SL_90_50_35
+STN31: Cleaners' stores: SL_90_50_16
+STN32: Equipment stores, maintenance: SL_90_50_27
+STN50: Secure storerooms: SL_90_50_77
+STN51: Secure storerooms (medical): SL_90_50_77
+STN52: Gas storage spaces (oxygen cylinders): SL_55_20_34
+STN53: Chemicals stores, pool: SL_90_50_13
+STN55: Equipment stores, room (appliances/ wheelchairs): SL_90_50_27
+STT00: Classroom stores, room (off classroom): SL_90_50_18
+STT01: Classroom stores, room (off nursery): SL_90_50_18
+STT02: Classroom stores, room (off reception): SL_90_50_18
+STT03: Classroom stores, room (off infants and juniors): SL_90_50_18
+STT08: Equipment stores, drama: SL_90_50_27
+STT09: Classroom stores, bay (off classroom): SL_90_50_18
+STT10: Teaching resources stores: SL_90_50_87
+STT13: Teaching resources stores (IT/ GT off corridor): SL_90_50_87
+STT15: Teaching resources stores (specialist): SL_90_50_87
+STT16: Teaching resources stores (off art room): SL_90_50_87
+STT17: Teaching resources stores (music): SL_90_50_87
+STT18: Teaching resources stores (off DT studio): SL_90_50_87
+STT21: Science prep rooms (central): SL_25_80_75
+STT22: Science prep rooms (satellite): SL_25_80_75
+STT23: Chemicals stores, science: SL_90_50_13
+STT25: Teaching resources stores, science: SL_90_50_87
+STT26: Teaching resources stores, pool: SL_90_50_87
+STT32: DT prep rooms: SL_25_80_85
+STT33: Teaching resources stores (off DT workshop): SL_90_50_87
+STT34: Food prep rooms: SL_25_80_30
+STT35: Food stores, off food room: SL_90_50_29
+STT41: Teaching resources stores (off LRC): SL_90_50_87
+STT42: Classroom stores, room (off SEN room): SL_90_50_18
+SUP01: Faith spaces (chapel): SL_25_90_30
+SUP02: Faith spaces (prayer room): SL_25_90_30
+SUP05: Staff workrooms (sacristy): SL_90_20_86
+TOC01: Changing rooms, with showers (pupils): SL_90_20_13
+TOC02: Accessible (and staff) changing rooms: SL_35_80_01
+TOC03: Changing rooms, ablutions and shoe space: SL_90_20_13
+TOC04: Hygiene rooms: SL_35_80_39
+TOC05: Hygiene rooms (small 1 door): SL_35_80_39
+TOC06: Hygiene rooms, small (2 doors): SL_35_80_39
+TOC10: Toilets, suite: SL_35_80_89
+TOC12: Toilets, suite (staff): SL_35_80_89
+TOC13: Toilets, suite (pupils): SL_35_80_89
+TOC14: Toilets, suite (pupils, other): SL_35_80_89
+TOC15: Toilets, individual (pupil): SL_35_80_89
+TOC16: Toilets, individual (staff): SL_35_80_89
+TOC21: Accessible (and staff) toilets: SL_35_80_03
+TOC22: Accessible toilets (pupils): SL_35_80_03
+TOC30: Supervisable toilets: SL_35_80_85
+TOC31: Supervisable toilets (early years): SL_35_80_85
+TOC32: Supervisable toilets (SEN): SL_35_80_85
+TOC51: Changing rooms, with showers (ambulant): SL_90_20_13
+TOC52: Changing cubicles, with showers (ambulant): SL_90_20_13
+TOC53: Hygiene rooms, non-ambulant: SL_35_80_39
+TOC54: Hygiene rooms, non-ambulant (peninsular): SL_35_80_39
+TOC60: Changing rooms, ambulant for pool (pupils): SL_90_20_13
+TOC65: Changing rooms, non-ambulant for pool (pupils): SL_90_20_13
+BED01: Bedrooms (staff): SL_45_10_09
+BED05: First aid posts, overnight sick room: SL_35_10_30
+BED10: Bedrooms (pupil): SL_45_10_09
+BED11: Bedrooms (1-bed, pupil): SL_45_10_09
+BED12: Bedrooms (2-bed, pupil): SL_45_10_09
+BED13: Bedrooms (3-bed, pupil): SL_45_10_09
+BED14: Bedrooms (4-bed, pupil): SL_45_10_09
+BED20: Bedrooms (accessible): SL_45_10_09
+BED60: Bedrooms (ambulant pupil): SL_45_10_09
+BED61: Bedrooms (1-bed, ambulant pupil): SL_45_10_09
+BED62: Bedrooms (2-bed, ambulant pupil): SL_45_10_09
+BED63: Bedrooms (3-bed, ambulant pupil): SL_45_10_09
+BED64: Bedrooms (4-bed, ambulant pupil): SL_45_10_09
+BED65: Bedrooms (non-ambulant pupil): SL_45_10_09
+TOC41: Bathrooms, ensuite (staff): SL_35_80_08
+TOC40: Bathrooms: SL_35_80_08
+TOC42: Bathrooms (with shower, pupil): SL_35_80_08
+TOC43: Bathrooms (with bath, pupil): SL_35_80_08
+TOC44: Bathrooms (ensuite, pupil): SL_35_80_08
+TOC45: Bathrooms, accessible (ensuite, pupil): SL_35_80_08
+TOC71: Bathrooms (toilet, ambulant pupil): SL_35_80_08
+TOC72: Bathrooms (with shower, ambulant pupil): SL_35_80_08
+TOC73: Bathrooms (with bath, ambulant pupil): SL_35_80_08
+TOC74: Bathrooms, ensuite (ambulant pupil): SL_35_80_08
+TOC75: Bathrooms (non-ambulant, ensuite): SL_35_80_08
+LIV00: Kitchen-dining rooms (staff): SL_45_10_44
+LIV01: Kitchen-dining rooms (pupil): SL_45_10_44
+LIV70: Kitchen-dining rooms (special): SL_45_10_44
+LIV10: Communal living (and dining) rooms: SL_45_10_14
+LIV12: Communal living rooms (pupil dining): SL_45_10_14
+LIV13: Communal living (and games) rooms: SL_45_10_14
+LIV14: Communal living (and study) rooms: SL_45_10_14
+LIV61: Communal living (and dining) rooms (special): SL_45_10_14
+LIV62: Communal living rooms (pupil dining, special): SL_45_10_14
+LIV63: Communal living (and games) rooms (special): SL_45_10_14
+LIV64: Communal living (and study) rooms (special): SL_45_10_14

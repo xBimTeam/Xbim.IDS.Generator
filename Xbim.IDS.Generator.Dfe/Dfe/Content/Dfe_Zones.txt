@@ -1,0 +1,13 @@
+Basic teaching:Net:		Classrooms, playrooms, ICT, light practical spaces and heavy practical spaces
+Halls and dining:Net:	Halls, activity studios, sports halls, dining and social areas
+Learning resources:Net:	Libraries and study areas, arts & DT learning resources and SEN and support spaces
+Non-net:Non-net:		School kitchen spaces, changing rooms, toilets and hygiene rooms, plant areas and circulation areas
+Residential:Net:		Residential accommodation
+Staff and admin:Net:	Administration and entrances, administration offices, offices, staff work rooms and other staff spaces
+Storage:Net:	Storage spaces for teaching, personal, admin, and maintenance items
+Hard informal and social area:External:	Hard informal and social areas
+Hard outdoor PE:External:	Hard outdoor physical education areas
+Habitat:External:	Habitat supervised areas
+Soft informal and social area:External:	Soft informal and social areas
+Soft outdoor PE:External:	Soft outdoor physical education areas
+Non-net site area:External:	Non-net site areas

@@ -1,0 +1,626 @@
+Actuator: ELECTRICACTUATOR: ElectricActuator: A device that electrically actuates a control element.
+Actuator: HANDOPERATEDACTUATOR: HandOperatedActuator: A device that manually actuates a control element.
+Actuator: HYDRAULICACTUATOR: HydraulicActuator: A device that hydraulically actuates a control element.
+Actuator: NOTDEFINED: NotDefined: Undefined actuator.
+Actuator: PNEUMATICACTUATOR: PneumaticActuator: A device that electrically actuates a control element.
+Actuator: THERMOSTATICACTUATOR: ThermostaticActuator: A device that thermostatically actuates a control element.
+Actuator: USERDEFINED: UserDefined: User-defined type.
+Air Terminal: DIFFUSER: Diffuser: An outlet discharging supply air in various directions and planes.
+Air Terminal: EYEBALL: Eyeball: "A small, circular diffuser."
+Air Terminal: GRILLE: Grille: A covering for any area through which air passes.
+Air Terminal: IRIS: Iris: An iris-shaped diffuser.
+Air Terminal: LINEARDIFFUSER: LinearDiffuser: A rectilinear diffuser.
+Air Terminal: LINEARGRILLE: LinearGrille: A rectilinear grille.
+Air Terminal: NOTDEFINED: NotDefined: Undefined air terminal.
+Air Terminal: REGISTER: Register: A grille typically equipped with a damper or control valve.
+Air Terminal: USERDEFINED: UserDefined: User-defined air terminal type.
+Air Terminal Box: CONSTANTFLOW: ConstantFlow: Terminal box does not include a means to reset the volume automatically to an outside signal such as thermostat.
+Air Terminal Box: NOTDEFINED: NotDefined: Undefined air termina box.
+Air Terminal Box: USERDEFINED: UserDefined: User-defined terminal box.
+Air Terminal Box: VARIABLEFLOWPRESSUREDEPENDANT: VariableFlowPressureDependant: Terminal box includes a means to reset the volume automatically to a different control point in response to an outside signal such as thermostat: air-flow rate depends on supply pressure.
+Air Terminal Box: VARIABLEFLOWPRESSUREINDEPENDANT: VariableFlowPressureIndependant: Terminal box includes a means to reset the volume automatically to a different control point in response to an outside signal such as thermostat: air-flow rate is independant of supply pressure.
+Air To Air Heat Recovery: FIXEDPLATECOUNTERFLOWEXCHANGER: FixedPlateCounterflowExchanger: "Heat exchanger with moving parts and alternate layers of plates, separated and sealed from the exhaust and supply air stream passages with primary air entering at secondary air outlet location and exiting at secondary air inlet location."
+Air To Air Heat Recovery: FIXEDPLATECROSSFLOWEXCHANGER: FixedPlateCrossflowExchanger: "Heat exchanger with moving parts and alternate layers of plates, separated and sealed from the exhaust and supply air stream passages with secondary air flow in the direction perpendicular to primary air flow."
+Air To Air Heat Recovery: FIXEDPLATEPARALLELFLOWEXCHANGER: FixedPlateParallelFlowExchanger: "Heat exchanger with moving parts and alternate layers of plates, separated and sealed from the exhaust and supply air stream passages with primary air entering at secondary air inlet location and exiting at secondary air outlet location."
+Air To Air Heat Recovery: HEATPIPE: HeatPipe: "Heat exchanger with moving parts and alternate layers of plates, separated and sealed from the exhaust and supply air stream passages with primary air entering at secondary air inlet location and exiting at secondary air outlet location."
+Air To Air Heat Recovery: NOTDEFINED: NotDefined: Undefined air to air heat recovery entity.
+Air To Air Heat Recovery: ROTARYWHEEL: RotaryWheel: A heat wheel with a revolving cylinder filled with an air-permeable medium having a large internal surface area.
+Air To Air Heat Recovery: RUNAROUNDCOILLOOP: RunaroundCoilLoop: "A typical coil energy recovery loop places extended surface, finned tube water coils in the supply and exhaust airstreams of a building."
+Air To Air Heat Recovery: THERMOSIPHONSEALEDTUBEHEATEXCHANGERS: ThermosiphonSealedTubeHeatExchangers: "Sealed systems that consist of an evaporator, a condenser, interconnecting piping, and an intermediate working fluid that is present in both liquid and vapor phases where the evaporator and the condenser are usually at opposite ends of a bundle of straight, individual thermosiphon tubes and the exhaust and supply ducts are adjacent to each other."
+Air To Air Heat Recovery: THERMOSIPHONCOILTYPEHEATEXCHANGERS: ThermosiphonCoilTypeHeatExchangers: "Sealed systems that consist of an evaporator, a condenser, interconnecting piping, and an intermediate working fluid that is present in both liquid and vapor phases where the evaporator and condensor coils are installed independently in the ducts and are interconnected by the working fluid piping."
+Air To Air Heat Recovery: TWINTOWERENTHALPYRECOVERYLOOPS: TwinTowerEnthalpyRecoveryLoops: "An air-to-liquid, liquid-to-air enthalpy recovery system with a sorbent liquid circulates continuously between supply and exhaust airstreams, alternately contacting both airstreams directly in contactor towers."
+Air To Air Heat Recovery: USERDEFINED: UserDefined: User-defined air to air heat recovery type.
+Alarm: BELL: Bell: An audible alarm.
+Alarm: BREAKGLASSBUTTON: BreakGlassButton: An alarm activation mechanism in which a protective glass has to be broken to enable a button to be pressed.
+Alarm: LIGHT: Light: A visual alarm.
+Alarm: MANUALPULLBOX: ManualPullBox: An alarm activation mechanism in which activation is achieved by a pulling action.
+Alarm: NOTDEFINED: NotDefined: Undefined alarm.
+Alarm: SIREN: Siren: An audible alarm.
+Alarm: USERDEFINED: UserDefined: User-defined type.
+Alarm: WHISTLE: Whistle: An audible alarm.
+Beam: BEAM: Beam: A standard beam usually used horizontally.
+Beam: JOIST: Joist: A beam used to support a floor or ceiling.
+Beam: LINTEL: Lintel: "A beam or horizontal piece of material over an opening (e.g. door, window)."
+Beam: NOTDEFINED: NotDefined: Undefined beam.
+Beam: T_BEAM: TBeam: "A beam that forms part of a slab construction and acts together with the slab which its carries. Such beams are often of T-shape (therefore the English name), but may have other shapes as well, e.g. an L-Shape or an Inverted-T-Shape."
+Beam: USERDEFINED: UserDefined: User-defined linear beam element.
+Boiler: NOTDEFINED: NotDefined: Undefined boiler.
+Boiler: STEAM: Steam: Steam boiler.
+Boiler: USERDEFINED: UserDefined: Water boiler.
+Boiler: WATER: Water: User-defined boiler type.
+Cable Carrier Fitting: BEND: Bend: A fitting that changes the route of the cable carrier.
+Cable Carrier Fitting: CROSS: Cross: A fitting at which two branches are taken from the main route of the cable carrier simultaneously.
+Cable Carrier Fitting: NOTDEFINED: NotDefined: Undefined cable carrier fitting.
+Cable Carrier Fitting: REDUCER: Reducer: A fitting that changes the physical size of the main route of the cable carrier.
+Cable Carrier Fitting: TEE: Tee: A fitting at which a branch is taken from the main route of the cable carrier.
+Cable Carrier Fitting: USERDEFINED: UserDefined: User-defined type.
+Cable Carrier Segment: CABLELADDERSEGMENT: CableLadderSegment: An open carrier segment on which cables are carried on a ladder structure.
+Cable Carrier Segment: CABLETRAYSEGMENT: CableTraySegment: A (typically) open carrier segment onto which cables are laid.
+Cable Carrier Segment: CABLETRUNKINGSEGMENT: CableTrunkingSegment: An enclosed carrier segment with one or more compartments into which cables are placed.
+Cable Carrier Segment: CONDUITSEGMENT: ConduitSegment: An enclosed tubular carrier segment through which cables are pulled.
+Cable Carrier Segment: NOTDEFINED: NotDefined: Undefined cable carrier segment.
+Cable Carrier Segment: USERDEFINED: UserDefined: User-defined type.
+Cable Segment: CABLESEGMENT: CableSegment: "Cable with a specific purpose to lead electric current within a circuit or any other electric construction. Includes all types of electric cables, mainly several core segments or conductor segments wrapped together."
+Cable Segment: CONDUCTORSEGMENT: ConductorSegment: "A single linear element within a cable or an exposed wire (such as for grounding) with the specific purpose to lead electric current, data, or a telecommunications signal."
+Cable Segment: NOTDEFINED: NotDefined: Undefined cable segment.
+Cable Segment: USERDEFINED: UserDefined: User-defined type.
+Chiller: AIRCOOLED: AirCooled: Air cooled chiller.
+Chiller: HEATRECOVERY: HeatRecovery: Heat recovery chiller.
+Chiller: NOTDEFINED: NotDefined: 
+Chiller: USERDEFINED: UserDefined: User-defined chiller type.
+Chiller: WATERCOOLED: WaterCooled: Water cooled chiller.
+Coil: DXCOOLINGCOIL: DxcoolingCoil: Cooling coil using a refrigerant to cool the air stream directly.
+Coil: ELECTRICHEATINGCOIL: ElectricHeatingCoil: Heating coil using electricity as a heating source.
+Coil: GASHEATINGCOIL: GasHeatingCoil: Heating coil using gas as a heating source.
+Coil: NOTDEFINED: NotDefined: Undefined coil.
+Coil: STEAMHEATINGCOIL: SteamHeatingCoil: Heating coil using steam as heating source.
+Coil: USERDEFINED: UserDefined: User-defined coil type.
+Coil: WATERCOOLINGCOIL: WaterCoolingCoil: Cooling coil using chilled water. HYDRONICCOIL supercedes this enumerator.
+Coil: WATERHEATINGCOIL: WaterHeatingCoil: Heating coil using hot water as a heating source. HYDRONICCOIL supercedes this enumerator.
+Column: COLUMN: Column: A standard member usually vertical and requiring resistance to vertical forces by compression but also sometimes to lateral forces.
+Column: NOTDEFINED: NotDefined: Undefined column.
+Column: USERDEFINED: UserDefined: User-defined linear element.
+Compressor: BOOSTER: Booster: Positive-displacement reciprocating compressor where pressure is increased by a booster.
+Compressor: DYNAMIC: Dynamic: The pressure of refrigerant vapor is increased by a continuous transfer of angular momentum from a rotating member to the vapor followed by conversion of this momentum into static pressure.
+Compressor: HERMETIC: Hermetic: "Positive-displacement reciprocating compressor where the motor and compressor are contained within the same housing, with the motor shaft integral with the compressor crankshaft and the motor in contact with refrigerant."
+Compressor: NOTDEFINED: NotDefined: Undefined compressor.
+Compressor: OPENTYPE: OpenType: Positive-displacement reciprocating compressor where the shaft extends through a seal in the crankcase for an external drive.
+Compressor: RECIPROCATING: Reciprocating: Positive-displacement compressor using a piston driven by a connecting rod from a crankshaft.
+Compressor: ROLLINGPISTON: RollingPiston: Positive-displacement rotary compressor using a roller mounted on the eccentric of a shaft with a single vane in the nonrotating cylindrical housing.
+Compressor: ROTARY: Rotary: Positive-displacement compressor using a roller or rotor device.
+Compressor: ROTARYVANE: RotaryVane: Positive-displacement rotary compressor using a roller mounted on the eccentric of a shaft with multiple vanes in the nontotating cylindrical housing.
+Compressor: SCROLL: Scroll: "Positive-displacement compressor using two inter-fitting, spiral-shaped scroll members."
+Compressor: SEMIHERMETIC: SemiHermetic: Positive-displacement reciprocating compressor where the hermetic compressors use bolted construction amenable to field repair.
+Compressor: SINGLESCREW: SingleScrew: Positive-displacement rotary compressor using a single cylindrical main rotor that works with a pair of gate rotors.
+Compressor: SINGLESTAGE: SingleStage: Positive-displacement reciprocating compressor where vapor is compressed in a single stage.
+Compressor: TROCHOIDAL: Trochoidal: Positive-displacement compressor using a rolling motion of one circle outside or inside the circumference of a basic circle and produce either epitrochoids or hypotrochoids.
+Compressor: TWINSCREW: TwinScrew: "Positive-displacement rotary compressor using two mating helically grooved rotors, male (lobes) and female (flutes) in a stationary housing with inlet and outlet gas ports."
+Compressor: USERDEFINED: UserDefined: User-defined compressor type.
+Compressor: WELDEDSHELLHERMETIC: WeldedShellHermetic: "Positive-displacement reciprocating compressor where the motor compressor is mounted inside a steel shell, which, in turn is sealed by welding."
+Condenser: AIRCOOLED: AirCooled: A condenser in which heat is transferred to an air-stream.
+Condenser: EVAPORATIVECOOLED: EvaporativeCooled: A condenser that is cooled evaporatively.
+Condenser: NOTDEFINED: NotDefined: Undefined condenser.
+Condenser: USERDEFINED: UserDefined: User-defined condenser type.
+Condenser: WATERCOOLEDBRAZEDPLATE: WaterCooledBrazedPlate: Water-cooled condenser with plates brazed together to form an assembly of separate channels.
+Condenser: WATERCOOLEDSHELLCOIL: WaterCooledShellCoil: Water-cooled condenser with cooling water circulated through one or more continuous or assembled coils contained within the shell.
+Condenser: WATERCOOLEDSHELLTUBE: WaterCooledShellTube: Water-cooled condenser with cooling water circulated through one or more tubes contained within the shell.
+Condenser: WATERCOOLEDTUBEINTUBE: WaterCooledTubeInTube: "Water-cooled condenser consisting of one or more assemblies of two tubes, one within the other."
+Controller: FLOATING: Floating: Output increases or decreases at a constant or accelerating rate.
+Controller: NOTDEFINED: NotDefined: Undefined controller.
+Controller: PROPORTIONAL: Proportional: Output is proportional to the control error and optionally time integral and derivative.
+Controller: PROPORTIONALINTEGRAL: ProportionalIntegral: Part of the output is proportional to the control error and part is proportional to the time integral of the control error.
+Controller: PROPORTIONALINTEGRALDERIVATIVE: ProportionalIntegralDerivative: "Part of the output is proportional to the control error, part is proportional to the time integral of the control error and part is proportional to the time derivative of the control error."
+Controller: TWOPOSITION: TwoPosition: Output can be either on or off.
+Controller: USERDEFINED: UserDefined: User-defined type.
+Controller: TIMEDTWOPOSITION: TimedTwoPosition: Output changes state for a time interval proportional to the deviation from setpoint.
+Cooled Beam: ACTIVE: Active: An active or ventilated cooled beam provides cooling (and heating) but can also function as an air terminal in a ventilation system.
+Cooled Beam: NOTDEFINED: NotDefined: Undefined cooled beam.
+Cooled Beam: PASSIVE: Passive: A passive or static cooled beam provides cooling (and heating) to a room or zone.
+Cooled Beam: USERDEFINED: UserDefined: User-defined cooled beam type.
+Cooling Tower: MECHANICALFORCEDDRAFT: MechanicalForcedDraft: "Air flow is produced by a mechanical device, typically one or more fans, located on the inlet air side of the cooling tower."
+Cooling Tower: MECHANICALINDUCEDDRAFT: MechanicalInducedDraft: "Air flow is produced by a mechanical device, typically one or more fans, located on the air outlet side of the cooling tower."
+Cooling Tower: NATURALDRAFT: NaturalDraft: Air flow is produced naturally.
+Cooling Tower: NOTDEFINED: NotDefined: Undefined cooling tower.
+Cooling Tower: USERDEFINED: UserDefined: User-defined cooling tower type.
+Covering: CEILING: Ceiling: The covering is used to represent a ceiling.
+Covering: CLADDING: Cladding: The covering is used to represent a cladding.
+Covering: FLOORING: Flooring: The covering is used to represent a flooring.
+Covering: INSULATION: Insulation: The covering is used to insulate an element for thermal or acoustic purposes.
+Covering: MEMBRANE: Membrane: An impervious layer that could be used for e.g. roof covering (below tiling - that may be known as sarking etc.) or as a damp proof course membrane.
+Covering: NOTDEFINED: NotDefined: Undefined covering.
+Covering: ROOFING: Roofing: The covering is used to represent a roof covering.
+Covering: SLEEVING: Sleeving: The covering is used to isolate a distribution element from a space in which it is contained.
+Covering: USERDEFINED: UserDefined: User defined type of covering.
+Covering: WRAPPING: Wrapping: The covering is used for wrapping particularly of distribution elements using tape.
+Curtain Wall: NOTDEFINED: NotDefined: Undefined curtain wall.
+Curtain Wall: USERDEFINED: UserDefined: User defined type of curtain wall.
+Damper: BACKDRAFTDAMPER: BackdraftDamper: Backdraft damper used to restrict the movement of air in one direction. Commonly operated by mechanical spring.
+Damper: BALANCINGDAMPER: BalancingDamper: Damper used for purposes of manually balancing pressure differences. Commonly operated by mechanical adjustment.
+Damper: BLASTDAMPER: BlastDamper: Blast damper used to prevent protect occupants and equipment against overpressures resultant of an explosion. Commonly operated by mechanical spring.
+Damper: CONTROLDAMPER: ControlDamper: Control damper used to modulate the flow of air by adjusting the position of the blades. Commonly operated by an actuator of a building automation system.
+Damper: FIREDAMPER: FireDamper: Fire damper used to prevent the spread of fire for a specified duration. Commonly operated by fusable link that melts above a certain temperature.
+Damper: FIRESMOKEDAMPER: FireSmokeDamper: Combination fire and smoke damper used to preven the spread of fire and smoke. Commonly operated by a fusable link and a smoke detector.
+Damper: FUMEHOODEXHAUST: FumeHoodExhaust: Fume hood exhaust damper. Commonly operated by actuator.
+Damper: GRAVITYDAMPER: GravityDamper: Gravity damper closes from the force of gravity. Commonly operated by gravitational weight.
+Damper: GRAVITYRELIEFDAMPER: GravityReliefDamper: Gravity-relief damper used to allow air to move upon a buildup of enough pressure to overcome the gravitational force exerted upon the damper blades. Commonly operated by gravitational weight.
+Damper: NOTDEFINED: NotDefined: 
+Damper: RELIEFDAMPER: ReliefDamper: Relief damper used to allow air to move upon a buildup of a specified pressure differential. Commonly operated by mechanical spring.
+Damper: SMOKEDAMPER: SmokeDamper: Smoke damper used to prevent the spread of smoke. Commonly operated by a smoke detector of a building automation system.
+Damper: USERDEFINED: UserDefined: User-defined damper.
+Discrete Accessory: n/a: : A discrete accessory is a representation of different kinds of accessories included in or added to elements.
+Distribution Chamber Element: FORMEDDUCT: FormedDuct: "Space formed in the ground for the passage of pipes, cables, ducts."
+Distribution Chamber Element: INSPECTIONCHAMBER: InspectionChamber: "Chamber constructed on a drain, sewer or pipeline with a removable cover that permits visble inspection."
+Distribution Chamber Element: INSPECTIONPIT: InspectionPit: Recess or chamber formed to permit access for inspection of substructure and services.
+Distribution Chamber Element: MANHOLE: Manhole: "Chamber constructed on a drain, sewer or pipeline with a removable cover that permits the entry of a person."
+Distribution Chamber Element: METERCHAMBER: MeterChamber: Chamber that houses a meter(s).
+Distribution Chamber Element: NOTDEFINED: NotDefined: 
+Distribution Chamber Element: SUMP: Sump: Recessed or small chamber into which liquid is drained to facilitate its collection for removal.
+Distribution Chamber Element: TRENCH: Trench: "Excavated chamber, the length of which typically exceeds the width."
+Distribution Chamber Element: USERDEFINED: UserDefined: User-defined chamber type.
+Distribution Chamber Element: VALVECHAMBER: ValveChamber: Chamber that houses a valve(s).
+Door: n/a: : "The door is a building element that is predominately used to provide controlled access for people and goods. It includes constructions with hinged, pivoted, sliding, and additionally revolving and folding operations. A door consists of a lining and one or several panels."
+Duct Fitting: BEND: Bend: A fitting with typically two ports used to change the direction of flow between connected elements.
+Duct Fitting: CONNECTOR: Connector: "Connector fitting, typically used to join two ports together within a flow distribution system (e.g., a coupling used to join two duct segments)."
+Duct Fitting: ENTRY: Entry: "Entry fitting, typically unconnected at one port and connected to a flow distribution system at the other (e.g., an outside air duct system intake opening)."
+Duct Fitting: EXIT: Exit: "Exit fitting, typically unconnected at one port and connected to a flow distribution system at the other (e.g., an exhaust air discharge opening)."
+Duct Fitting: JUNCTION: Junction: "A fitting with typically more than two ports used to redistribute flow among the ports and/or to change the direction of flow between connected elements (e.g, tee, cross, wye, etc.)."
+Duct Fitting: NOTDEFINED: NotDefined: 
+Duct Fitting: OBSTRUCTION: Obstruction: "A fitting with typically two ports used to obstruct or restrict flow between the connected elements (e.g., screen, perforated plate, etc.)."
+Duct Fitting: TRANSITION: Transition: A fitting with typically two ports having different shapes or sizes. Can also be used to change the direction of flow between connected elements.
+Duct Fitting: USERDEFINED: UserDefined: User-defined fitting.
+Duct Segment: FLEXIBLESEGMENT: FlexibleSegment: A flexible segment is a continuous non-linear segment of duct that can be deformed and change the direction of flow.
+Duct Segment: NOTDEFINED: NotDefined: 
+Duct Segment: RIGIDSEGMENT: RigidSegment: A rigid segment is a continuous linear segment of duct that cannot be deformed.
+Duct Segment: USERDEFINED: UserDefined: User-defined segment.
+Duct Silencer: FLATOVAL: FlatOval: Flat-oval shaped duct silencer type.
+Duct Silencer: NOTDEFINED: NotDefined: 
+Duct Silencer: RECTANGULAR: Rectangular: Rectangular shaped duct silencer type.
+Duct Silencer: ROUND: Round: Round duct silencer type.
+Duct Silencer: USERDEFINED: UserDefined: User-defined duct silencer type.
+Electric Appliance: COMPUTER: Computer: "A desktop, laptop, PDA or other type of computer that can be moved from one place to another and connected to an electrical supply via a plugged outlet."
+Electric Appliance: DIRECTWATERHEATER: DirectWaterHeater: A small electrical appliance for heating water.
+Electric Appliance: DISHWASHER: Dishwasher: An appliance that has the primary function of washing dishes.
+Electric Appliance: ELECTRICCOOKER: ElectricCooker: "An electrical appliance that has the primary function of cooking food (including oven, hob, grill)."
+Electric Appliance: ELECTRICHEATER: ElectricHeater: An electrical appliance that provides heat.
+Electric Appliance: FACSIMILE: Facsimile: A machine that has the primary function of transmitting a facsimile copy of printed matter using a telephone line.
+Electric Appliance: FREESTANDINGFAN: FreestandingFan: An electrical appliance that is used occasionally to provide ventilation. A freestanding fan is a 'plugged' appliance whose load may be removed from an electric circuit.
+Electric Appliance: FREEZER: Freezer: An electrical appliance that has the primary function of storing food at temperatures below the freezing point of water.
+Electric Appliance: FRIDGE_FREEZER: FridgeFreezer: An electrical appliance that combines the functions of a freezer and a refrigerator through the provision of separate compartments.
+Electric Appliance: HANDDRYER: HandDryer: An electrical appliance that has the primary function of drying hands.
+Electric Appliance: INDIRECTWATERHEATER: IndirectWaterHeater: A small electrical appliance for heating water.
+Electric Appliance: MICROWAVE: Microwave: An electrical appliance that has the primary function of cooking food using microwaves.
+Electric Appliance: NOTDEFINED: NotDefined: 
+Electric Appliance: PHOTOCOPIER: Photocopier: A machine that has the primary function of reproduction of printed matter.
+Electric Appliance: PRINTER: Printer: A machine that has the primary function of printing a stream of characters onto paper or other media.
+Electric Appliance: RADIANTHEATER: RadiantHeater: 
+Electric Appliance: REFRIGERATOR: Refrigerator: An electrical appliance that has the primary function of storing food at low temperature but above the freezing point of water.
+Electric Appliance: SCANNER: Scanner: A machine that has the primary function of scanning the content of printed matter and converting it to electronically interpretable characters that can be stored in a computer.
+Electric Appliance: TELEPHONE: Telephone: A device for voice communication.
+Electric Appliance: TUMBLEDRYER: TumbleDryer: An electrical appliance that has the primary function of drying clothes.
+Electric Appliance: TV: Tv: A device for receiving and displaying television signals.
+Electric Appliance: USERDEFINED: UserDefined: User-defined type.
+Electric Appliance: VENDINGMACHINE: VendingMachine: "An appliance that stores and vends goods including food, drink and goods of various types."
+Electric Appliance: WASHINGMACHINE: WashingMachine: An appliance that has the primary function of washing clothes.
+Electric Appliance: WATERCOOLER: WaterCooler: A small electrical appliance for cooling water.
+Electric Appliance: WATERHEATER: WaterHeater: A small electrical appliance for heating water.
+Electric Distribution Point: ALARMPANEL: AlarmPanel: A distribution point at which alarms are annunciated.
+Electric Distribution Point: CONSUMERUNIT: ConsumerUnit: "A distribution point on the incoming electrical supply, typically in domestic premises, at which protective devices are located."
+Electric Distribution Point: CONTROLPANEL: ControlPanel: "A distribution point at which devices that control or monitor the operation of a site, building or part of a building are located."
+Electric Distribution Point: DISTRIBUTIONBOARD: DistributionBoard: A distribution point at which connections are made for distribution of electrical circuits usually through protective devices.
+Electric Distribution Point: GASDETECTORPANEL: GasDetectorPanel: A distribution point at which the detection of gas is annunciated.
+Electric Distribution Point: MIMICPANEL: MimicPanel: A distribution point at which information that is available elsewhere is repeated or 'mimicked'.
+Electric Distribution Point: MOTORCONTROLCENTRE: MotorControlCentre: A distribution point at which starting and control devices for major plant items are located.
+Electric Distribution Point: NOTDEFINED: NotDefined: 
+Electric Distribution Point: SWITCHBOARD: Switchboard: A distribution point at which switching devices are located.
+Electric Distribution Point: USERDEFINED: UserDefined: User-defined type.
+Electric Flow Storage Device: BATTERY: Battery: A device for storing energy in chemical form so that it can be released as electrical energy.
+Electric Flow Storage Device: CAPACITORBANK: CapacitorBank: A device that stores electrical energy when an external power supply is present using the electrical property of capacitance.
+Electric Flow Storage Device: HARMONICFILTER: HarmonicFilter: A device that constantly injects currents that precisely correspond to the harmonic components drawn by the load.
+Electric Flow Storage Device: NOTDEFINED: NotDefined: 
+Electric Flow Storage Device: INDUCTORBANK: InductorBank: A device that stores electrical energy in a magnetic field using electrical property of inductance.
+Electric Flow Storage Device: UPS: Ups: A device that provides a time limited alternative source of power supply in the event of failure of the main supply.
+Electric Flow Storage Device: USERDEFINED: UserDefined: User-defined type.
+Electric Generator: NOTDEFINED: NotDefined: 
+Electric Generator: USERDEFINED: UserDefined: User-defined type.
+Electric Heater: ELECTRICCABLEHEATER: ElectricCableHeater: An electrical device that outputs heat uniformly along its path.
+Electric Heater: ELECTRICMATHEATER: ElectricMatHeater: An electrical device that outputs heat uniformly across its surface area.
+Electric Heater: ELECTRICPOINTHEATER: ElectricPointHeater: An electrical device that outputs heat as a total quantity from a point or restricted area that can be considered as a point.
+Electric Heater: NOTDEFINED: NotDefined: 
+Electric Heater: USERDEFINED: UserDefined: User-defined type.
+Electric Motor: DC: Dc: A motor using either generated or rectified Direct Current (DC) power.
+Electric Motor: INDUCTION: Induction: "An alternating current motor in which the primary winding on one member (usually the stator) is connected to the power source and a secondary winding or a squirrel-cage secondary winding on the other member (usually the rotor) carries the induced current. There is no physical electrical connection to the secondary winding, its current is induced."
+Electric Motor: NOTDEFINED: NotDefined: 
+Electric Motor: POLYPHASE: Polyphase: "A two or three-phase induction motor in which the windings, one for each phase, are evenly divided by the same number of electrical degrees."
+Electric Motor: RELUCTANCESYNCHRONOUS: ReluctanceSynchronous: "A synchronous motor with a special rotor design which directly lines the rotor up with the rotating magnetic field of the stator, allowing for no slip under load."
+Electric Motor: SYNCHRONOUS: Synchronous: A motor that operates at a constant speed up to full load. The rotor speed is equal to the speed of the rotating magnetic field of the stator; there is no slip.
+Electric Motor: USERDEFINED: UserDefined: User-defined type.
+Electric Time Control: NOTDEFINED: NotDefined: 
+Electric Time Control: RELAY: Relay: Electromagnetically operated contactor for making or breaking a control circuit.
+Electric Time Control: TIMECLOCK: TimeClock: A control that causes action to occur at set times.
+Electric Time Control: TIMEDELAY: TimeDelay: A control that causes action to occur following a set duration.
+Electric Time Control: USERDEFINED: UserDefined: User-defined type.
+Element Assembly: ACCESSORY_ASSEMBLY: AccessoryAssembly: Assembled accessories or components.
+Element Assembly: ARCH: Arch: A curved structure.
+Element Assembly: BEAM_GRID: BeamGrid: "Interconnected beams, located in one (typically horizontal) plane."
+Element Assembly: BRACED_FRAME: BracedFrame: A rigid frame with additional bracing members.
+Element Assembly: GIRDER: Girder: A beam-like superstructure.
+Element Assembly: NOTDEFINED: NotDefined: 
+Element Assembly: REINFORCEMENT_UNIT: ReinforcementUnit: Assembled reinforcement elements.
+Element Assembly: RIGID_FRAME: RigidFrame: "A structure built up of beams, columns, etc. with moment-resisting joints."
+Element Assembly: SLAB_FIELD: SlabField: "Slabs, laid out in one plane."
+Element Assembly: TRUSS: Truss: A structure built up of members with (quasi) pinned joints.
+Element Assembly: USERDEFINED: UserDefined: User-defined element assembly.
+Evaporative Cooler: DIRECTEVAPORATIVEAIRWASHER: DirectEvaporativeAirWasher: "Direct evaporative air washer: Cools the air stream by evaporating water dircectly into the air stream using coolers with spray-type air washer consist of a chamber or casing containing spray nozzles, and tank for collecting spray water, and an eliminator section for removing entrained drops of water from the air."
+Evaporative Cooler: DIRECTEVAPORATIVEPACKAGEDROTARYAIRCOOLER: DirectEvaporativePackagedRotaryAirCooler: Direct evaporative packaged rotary air cooler: Cools the air stream by evaporating water dircectly into the air stream using coolers that wet and wash the evaporative pad by rotating it through a water bath.
+Evaporative Cooler: DIRECTEVAPORATIVERANDOMMEDIAAIRCOOLER: DirectEvaporativeRandomMediaAirCooler: "Direct evaporative random media air cooler: Cools the air stream by evaporating water dircectly into the air stream using coolers with evaporative pads, usually of aspen wood or plastic fiber/foam."
+Evaporative Cooler: DIRECTEVAPORATIVERIGIDMEDIAAIRCOOLER: DirectEvaporativeRigidMediaAirCooler: "Direct evaporative rigid media air cooler: Cools the air stream by evaporating water dircectly into the air stream using coolers with sheets of rigid, corrugated material as the wetted surface."
+Evaporative Cooler: DIRECTEVAPORATIVESLINGERSPACKAGEDAIRCOOLER: DirectEvaporativeSlingersPackagedAirCooler: Direct evaporative slingers packaged air cooler: Cools the air stream by evaporating water dircectly into the air stream using coolers with a water slinger in an evaporative cooling section and a fan section.
+Evaporative Cooler: INDIRECTDIRECTCOMBINATION: IndirectDirectCombination: Indirect/Direct combination: Cools the air stream by evaporating water indirectly and without adding moisture into the air stream using a two-stage cooler with a first-stage indirect evaporative cooler and second-stage direct evaporative cooler.
+Evaporative Cooler: INDIRECTEVAPORATIVECOOLINGTOWERORCOILCOOLER: IndirectEvaporativeCoolingTowerOrCoilCooler: Indirect evaporative cooling tower or coil cooler: Cools the air stream by evaporating water indirectly and without adding moisture into the air stream using a combination of a cooling tower or other evaporative water cooler with a water-to-air heat exchanger coil and water circulating pump.
+Evaporative Cooler: INDIRECTEVAPORATIVEPACKAGEAIRCOOLER: IndirectEvaporativePackageAirCooler: "Indirect evaporative package air cooler: Cools the air stream by evaporating water indirectly and without adding moisture into the air stream. On one side of the heat exchanger, the secondary air stream is cooled by evaporation, while on the other side of heat exchanger, the primary air stream (conditioned air to be supplied to the room) is sensibly cooled by the heat exchanger surfaces."
+Evaporative Cooler: INDIRECTEVAPORATIVEWETCOIL: IndirectEvaporativeWetCoil: Indirect evaporative wet coil: Cools the air stream by evaporating water indirectly and without adding moisture into the air stream. Water is sprayed directly on the tubes of the heat exchanger where latent cooling takes place and the vaporization of the water on the outside of the heat exchanger tubes allows the simultaneous heat and mass transfer which removes heat from the supply air on the tube side.
+Evaporative Cooler: NOTDEFINED: NotDefined: 
+Evaporative Cooler: USERDEFINED: UserDefined: User-defined evaporative cooler type.
+Evaporator: DIRECTEXPANSIONBRAZEDPLATE: DirectExpansionBrazedPlate: Direct-expansion evaporator where a refrigerant evaporates inside plates brazed or welded together to make up an assembly of separate channels.
+Evaporator: DIRECTEXPANSION: DirectExpansion: Direct-expansion evaporator where a refrigerant evaporates inside a series of baffles that channel the fluid throughout the shell side.
+Evaporator: DIRECTEXPANSIONTUBEINTUBE: DirectExpansionTubeInTube: Direct-expansion evaporator where a refrigerant evaporates inside one or more pairs of coaxial tubes.
+Evaporator: DIRECTEXPANSIONSHELLANDTUBE: DirectExpansionShellAndTube: Direct-expansion evaporator where a refrigerant evaporates inside a series of baffles that channel the fluid throughout the shell side.
+Evaporator: FLOODEDSHELLANDTUBE: FloodedShellAndTube: Evaporator in which refrigerant evaporates outside tubes.
+Evaporator: NOTDEFINED: NotDefined: Undefined evaporator type.
+Evaporator: SHELLANDCOIL: ShellAndCoil: Evaporator in which refrigerant evaporates inside a simple coiled tube immersed in the fluid to be cooled.
+Evaporator: USERDEFINED: UserDefined: User-defined evaporator type.
+Fan: CENTRIFUGALAIRFOIL: CentrifugalAirFoil: Air flows through the impeller radially using blades that are airfoil shaped.
+Fan: CENTRIFUGALBACKWARDINCLINEDCURVED: CentrifugalBackwardInclinedCurved: Air flows through the impeller radially using blades that are backward curved.
+Fan: CENTRIFUGALFORWARDCURVED: CentrifugalForwardCurved: Air flows through the impeller radially using blades that are forward curved.
+Fan: CENTRIFUGALRADIAL: CentrifugalRadial: Air flows through the impeller radially using blades that are uncurved or slightly forward curved.
+Fan: NOTDEFINED: NotDefined: 
+Fan: PROPELLORAXIAL: PropellorAxial: Air flows through the impeller axially and small hub-to-tip ratio impeller mounted in an orifice plate or inlet ring.
+Fan: TUBEAXIAL: TubeAxial: Air flows through the impeller axially with reduced tip clearance and operating at higher tip speeds.
+Fan: USERDEFINED: UserDefined: User-defined fan type.
+Fan: VANEAXIAL: VaneAxial: Air flows through the impeller axially with guide vanes and reduced running blade tip clearance.
+Fastener: n/a: : Representations of fixing parts which are used as fasteners to connect or join elements with other elements. Excluded are mechanical fasteners which are modeled by a separate entity (IfcMechanicalFastener).
+Filter: AIRPARTICLEFILTER: AirParticleFilter: A filter used to remove particulates from air.
+Filter: NOTDEFINED: NotDefined: 
+Filter: ODORFILTER: OdorFilter: A filter used to remove odors from air.
+Filter: OILFILTER: OilFilter: A filter used to remove particulates from oil.
+Filter: STRAINER: Strainer: A filter used to remove particulates from a fluid.
+Filter: USERDEFINED: UserDefined: User-defined filter type.
+Filter: WATERFILTER: WaterFilter: A filter used to remove particulates from water.
+Fire Suppression Terminal: BREECHINGINLET: BreechingInlet: Symmetrical pipe fitting that unites two or more inlets into a single pipe. A breeching inlet may be used on either a wet or dry riser. Used by fire services personnel for fast connection of fire appliance hose reels. May also be used for foam.
+Fire Suppression Terminal: FIREHYDRANT: FireHydrant: "Device, fitted to a pipe, through which a temporary supply of water may be provided. May also be termed a stand pipe."
+Fire Suppression Terminal: HOSEREEL: HoseReel: A supporting framework on which a hose may be wound.
+Fire Suppression Terminal: NOTDEFINED: NotDefined: 
+Fire Suppression Terminal: SPRINKLER: Sprinkler: Device for sprinkling water from a pipe under pressure over an area.
+Fire Suppression Terminal: SPRINKLERDEFLECTOR: SprinklerDeflector: Device attached to a sprinkler to deflect the water flow into a spread pattern to cover the required area.
+Fire Suppression Terminal: USERDEFINED: UserDefined: User-defined type.
+Flow Instrument: AMMETER: Ammeter: A device that reads and displays the current flow in a circuit.
+Flow Instrument: FREQUENCYMETER: FrequencyMeter: A device that reads and displays the electrical frequency of an alternating current circuit.
+Flow Instrument: NOTDEFINED: NotDefined: 
+Flow Instrument: PHASEANGLEMETER: PhaseAngleMeter: A device that reads and displays the phase angle of a phase in a polyphase electrical circuit.
+Flow Instrument: POWERFACTORMETER: PowerFactorMeter: A device that reads and displays the power factor of an electrical circuit.
+Flow Instrument: PRESSUREGAUGE: PressureGauge: A device that reads and displays a pressure value at a point or the pressure difference between two points.
+Flow Instrument: THERMOMETER: Thermometer: A device that reads and displays a temperature value at a point.
+Flow Instrument: USERDEFINED: UserDefined: User-defined type.
+Flow Instrument: VOLTMETER_PEAK: VoltmeterPeak: A device that reads and displays the peak voltage in an electrical circuit.
+Flow Instrument: VOLTMETER_RMS: VoltmeterRms: A device that reads and displays the RMS (mean) voltage in an electrical circuit.
+Flow Meter: ELECTRICMETER: ElectricMeter: Electric meter.
+Flow Meter: ENERGYMETER: EnergyMeter: "An electric meter or energy meter is a device that measures the amount of electrical energy supplied to or produced by a residence, business or machine."
+Flow Meter: FLOWMETER: FlowMeter: Flow meter.
+Flow Meter: GASMETER: GasMeter: A device that measures the quantity of a gas or fuel.
+Flow Meter: NOTDEFINED: NotDefined: 
+Flow Meter: OILMETER: OilMeter: A device that measures the quantity of oil.
+Flow Meter: USERDEFINED: UserDefined: User-defined meter type.
+Flow Meter: WATERMETER: WaterMeter: A device that measures the quantity of water.
+Footing: FOOTING_BEAM: FootingBeam: "Footing elements that are in bending and are supported clear of the ground. They will normally span between piers, piles or pile caps. They are distinguished from beams in the building superstructure since they will normally require a lower grade of finish. They are distinguished from STRIP_FOOTING since they are clear of the ground surface and hence require support to the lower face while the concrete is curing."
+Footing: NOTDEFINED: NotDefined: 
+Footing: PAD_FOOTING: PadFooting: An element that transfers the load of a single column (possibly two) to the ground.
+Footing: PILE_CAP: PileCap: An element that transfers the load from a column or group of columns to a pier or pile or group of piers or piles.
+Footing: STRIP_FOOTING: StripFooting: "A linear element that transfers loads into the ground from either a continuous element, such as a wall, or from a series of elements, such as columns."
+Footing: USERDEFINED: UserDefined: Special types of footings which meet specific local requirements.
+Furniture: n/a: : "Furniture defines complete furnishings such as a table, desk, chair, or cabinet, which may or may not be permanently attached to a building structure."
+Gas Terminal: GASAPPLIANCE: GasAppliance: Gas appliance gas terminal type.
+Gas Terminal: GASBOOSTER: GasBooster: Gas booster gas terminal type.
+Gas Terminal: GASBURNER: GasBurner: Gas burner gas terminal type.
+Gas Terminal: GASTERMINAL: GasTerminal: Gas terminal gas terminal type.
+Gas Terminal: NOTDEFINED: NotDefined: 
+Gas Terminal: USERDEFINED: UserDefined: User-defined type.
+Grid: n/a: : 
+Heat Exchanger: NOTDEFINED: NotDefined: 
+Heat Exchanger: PLATE: Plate: Plate heat exchanger.
+Heat Exchanger: SHELLANDTUBE: ShellAndTube: Shell and Tube heat exchanger.
+Heat Exchanger: USERDEFINED: UserDefined: User-defined heat exchanger type.
+Humidifier: ADIABATICAIRWASHER: AdiabaticAirWasher: Water vapor is added into the airstream through adiabatic evaporation using an air washing element.
+Humidifier: ADIABATICATOMIZING: AdiabaticAtomizing: Water vapor is added into the airstream through adiabatic evaporation using an atomizing element.
+Humidifier: ADIABATICCOMPRESSEDAIRNOZZLE: AdiabaticCompressedAirNozzle: Water vapor is added into the airstream through adiabatic evaporation using a compressed air nozzle.
+Humidifier: ADIABATICPAN: AdiabaticPan: Water vapor is added into the airstream through adiabatic evaporation using a pan.
+Humidifier: ADIABATICRIGIDMEDIA: AdiabaticRigidMedia: Water vapor is added into the airstream through adiabatic evaporation using a rigid media.
+Humidifier: ADIABATICULTRASONIC: AdiabaticUltrasonic: Water vapor is added into the airstream through adiabatic evaporation using an ultrasonic element.
+Humidifier: ADIABATICWETTEDELEMENT: AdiabaticWettedElement: Water vapor is added into the airstream through adiabatic evaporation using a wetted element.
+Humidifier: ASSISTEDBUTANE: AssistedButane: Water vapor is added into the airstream through water heated evaporation using a butane heater.
+Humidifier: ASSISTEDELECTRIC: AssistedElectric: Water vapor is added into the airstream through water heated evaporation using an electric heater.
+Humidifier: ASSISTEDNATURALGAS: AssistedNaturalGas: Water vapor is added into the airstream through water heated evaporation using a natural gas heater.
+Humidifier: ASSISTEDPROPANE: AssistedPropane: Water vapor is added into the airstream through water heated evaporation using a propane heater.
+Humidifier: ASSISTEDSTEAM: AssistedSteam: Water vapor is added into the airstream through water heated evaporation using a steam heater.
+Humidifier: NOTDEFINED: NotDefined: 
+Humidifier: STEAMINJECTION: SteamInjection: Water vapor is added into the airstream through direct steam injection.
+Humidifier: USERDEFINED: UserDefined: User-defined humidifier type.
+Junction Box: NOTDEFINED: NotDefined: 
+Junction Box: USERDEFINED: UserDefined: User-defined type.
+Lamp: COMPACTFLUORESCENT: CompactFluorescent: A fluorescent lamp having a compact form factor produced by shaping the tube.
+Lamp: FLUORESCENT: Fluorescent: A typically tubular discharge lamp in which most of the light is emitted by one or several layers of phosphors excited by ultraviolet radiation from the discharge.
+Lamp: HIGHPRESSUREMERCURY: HighPressureMercury: A discharge lamp in which most of the light is emitted by exciting mercury at high pressure.
+Lamp: HIGHPRESSURESODIUM: HighPressureSodium: A discharge lamp in which most of the light is emitted by exciting sodium at high pressure.
+Lamp: METALHALIDE: MetalHalide: A discharge lamp in which most of the light is emitted by exciting a metal halide.
+Lamp: NOTDEFINED: NotDefined: 
+Lamp: TUNGSTENFILAMENT: TungstenFilament: A lamp that emits light by passing an electrical current through a tungsten wire filament in a near vacuum.
+Lamp: USERDEFINED: UserDefined: User-defined type.
+Light Fixture: DIRECTIONSOURCE: DirectionSource: A light fixture that is considered to have a length or surface area from which it emits light in a direction. A light fixture containing one or more fluorescent lamps is an example of a direction source.
+Light Fixture: NOTDEFINED: NotDefined: 
+Light Fixture: POINTSOURCE: PointSource: "A light fixture that is considered to have negligible area and that emit light with approximately equal intensity in all directions. A light fixture containing a tungsten, halogen or similar bulb is an example of a point source."
+Light Fixture: USERDEFINED: UserDefined: User-defined type.
+Mechanical Fastener: n/a: : "A mechanical fasteners connecting building elements mechanically. A single instance of this class may represent one or many of actual mechanical fasteners, for example an array of bolts or a row of nails."
+Member: BRACE: Brace: "A linear element (usually sloped) often used for bracing of a girder or truss. NOTE  Term according to ISO6707-1 vocabulary ""structural member, usually diagonal, which acts in compression or tension and stiffens a structure""."
+Member: CHORD: Chord: "Upper or lower longitudinal member of a truss, used horizontally or sloped."
+Member: COLLAR: Collar: A linear element (usually used horizontally) within a roof structure to connect rafters and posts.
+Member: MEMBER: Member: A linear element within a girder or truss with no further meaning.
+Member: MULLION: Mullion: A linear element within a curtain wall system to connect two (or more) panels.
+Member: NOTDEFINED: NotDefined: 
+Member: PLATE: Plate: "A linear continuous horizontal element in wall framing, such as a head piece or a sole plate."
+Member: POST: Post: "A linear member (usually used vertically) within a roof structure to support purlins. NOTE  Term according to ISO6707-1 vocabulary ""light vertical member providing support""."
+Member: PURLIN: Purlin: "A linear element (usually used horizontally) within a roof structure to support rafters. NOTE  Term according to ISO6707-1 vocabulary ""beam parallel to the eaves that gives intermediate support to rafters or roofing""."
+Member: RAFTER: Rafter: "A linear elements used to support roof slabs or roof covering, usually used with slope. NOTE  Term according to ISO6707-1 vocabulary ""inclined structural member, usually arranged in series, that supports roofing in a pitched roof""."
+Member: STRINGER: Stringer: "A linear element used to support stair or ramp flights, usually used with slope."
+Member: STRUT: Strut: "A linear element often used within a girder or truss. NOTE  Term according to ISO6707-1 vocabulary ""structural member intended to resist axial force(s) acting in compression""."
+Member: STUD: Stud: "Vertical element in wall framing. NOTE  Term according to ISO6707-1 vocabulary ""one of a series of vertical members in a partition or vertical structural members in a load bearing wall""."
+Member: USERDEFINED: UserDefined: User-defined linear element.
+Motor Connection: BELTDRIVE: BeltDrive: "An indirect connection made through the medium of a shaped, flexible continuous loop."
+Motor Connection: COUPLING: Coupling: An indirect connection made through the medium of the viscosity of a fluid.
+Motor Connection: DIRECTDRIVE: DirectDrive: "A direct, physical connection made between the motor and the driven device."
+Motor Connection: NOTDEFINED: NotDefined: 
+Motor Connection: USERDEFINED: UserDefined: User-defined type.
+Other: NOTDEFINED: NotDefined: 
+Other: USERDEFINED: UserDefined: User-defined building element proxy.
+Outlet: AUDIOVISUALOUTLET: AudioVisualOutlet: An outlet used for an audio or visual device.
+Outlet: COMMUNICATIONSOUTLET: CommunicationsOutlet: An outlet used for connecting communications equipment.
+Outlet: NOTDEFINED: NotDefined: 
+Outlet: POWEROUTLET: PowerOutlet: An outlet used for connecting electrical devices requiring power.
+Outlet: USERDEFINED: UserDefined: User-defined type.
+Pile: COHESION: Cohesion: A cohesion pile.
+Pile: FRICTION: Friction: A friction pile.
+Pile: NOTDEFINED: NotDefined: 
+Pile: SUPPORT: Support: A support pile.
+Pile: USERDEFINED: UserDefined: The type of pile function is user defined.
+Pipe Fitting: BEND: Bend: A fitting with typically two ports used to change the direction of flow between connected elements.
+Pipe Fitting: CONNECTOR: Connector: "Connector fitting, typically used to join two ports together within a flow distribution system (e.g., a coupling used to join two pipe segments)."
+Pipe Fitting: ENTRY: Entry: "Entry fitting, typically unconnected at one port and connected to a flow distribution system at the other (e.g., a breeching inlet)."
+Pipe Fitting: EXIT: Exit: "Exit fitting, typically unconnected at one port and connected to a flow distribution system at the other (e.g., a hose bibb)."
+Pipe Fitting: JUNCTION: Junction: "A fitting with typically more than two ports used to redistribute flow among the ports and/or to change the direction of flow between connected elements (e.g, tee, cross, wye, etc.)."
+Pipe Fitting: NOTDEFINED: NotDefined: 
+Pipe Fitting: OBSTRUCTION: Obstruction: "A fitting with typically two ports used to obstruct or restrict flow between the connected elements (e.g., screen, perforated plate, etc.)."
+Pipe Fitting: TRANSITION: Transition: A fitting with typically two ports having different shapes or sizes. Can also be used to change the direction of flow between connected elements.
+Pipe Fitting: USERDEFINED: UserDefined: User-defined fitting.
+Pipe Segment: FLEXIBLESEGMENT: FlexibleSegment: A flexible segment is a continuous non-linear segment of pipe that can be deformed to change the direction of flow. 
+Pipe Segment: GUTTER: Gutter: A gutter segment is a continuous open-channel segment of pipe. 
+Pipe Segment: NOTDEFINED: NotDefined: 
+Pipe Segment: RIGIDSEGMENT: RigidSegment: A rigid segment is a continuous linear segment of pipe that cannot be deformed. 
+Pipe Segment: SPOOL: Spool: A type of rigid segment that is typically shorter and used for providing connectivity within a piping network. 
+Pipe Segment: USERDEFINED: UserDefined: User-defined segment.
+Plate: CURTAIN_PANEL: CurtainPanel: "A planar element within a curtain wall, often consisting of a frame with fixed glazing. "
+Plate: NOTDEFINED: NotDefined: 
+Plate: SHEET: Sheet: "A planar, flat and thin element; comes usually as a metal sheet and is often used as an additional part within an assembly. "
+Plate: USERDEFINED: UserDefined: User-defined linear element.
+Protective Device: CIRCUITBREAKER: CircuitBreaker: "A mechanical switching device capable of making, carrying and breaking current under normal circuit conditions, and also making, carrying for a specified time and breaking current under specified abnormal circuit conditions such as those of short circuit. "
+Protective Device: FUSEDISCONNECTOR: FuseDisconnector: An earth failure device acts to protect people and equipment from the effects of current leakage.
+Protective Device: NOTDEFINED: NotDefined: 
+Protective Device: RESIDUALCURRENTCIRCUITBREAKER: ResidualCurrentCircuitBreaker: "A device that electrically opens the circuit after a period of prolonged, abnormal current flow. "
+Protective Device: RESIDUALCURRENTSWITCH: ResidualCurrentSwitch: "A device that opens, closes, or isolates a circuit and has short circuit and overload protection. It attempts to break the circuit when there is a difference in current between any two phases. May also be referred to as 'Ground Fault Interupter (GFI)' or 'Ground Fault Circuit Interuptor (GFCI)'."
+Protective Device: USERDEFINED: UserDefined: "A device that opens, closes or isolates a circuit and has no short circuit or overload protection. May also be identified as a 'ground fault switch'."
+Protective Device: VARISTOR: Varistor: User-defined type.
+Protective Device: EARTHFAILUREDEVICE: EarthFailureDevice: A high voltage surge protection device.
+Pump: CIRCULATOR: Circulator: "A Circulator pump is a generic low-pressure, low-capacity pump. It may have a wet rotor and may be driven by a flexible-coupled motor."
+Pump: ENDSUCTION: EndSuction: "An End Suction pump, when mounted horizontally, has a single horizontal inlet on the impeller suction side and a vertical discharge. It may have a direct or close-coupled motor."
+Pump: NOTDEFINED: NotDefined: 
+Pump: SPLITCASE: SplitCase: "A Split Case pump, when mounted horizontally, has an inlet and outlet on each side of the impeller. The impeller can be easily accessed by removing the front of the impeller casing. It may have a direct or close-coupled motor."
+Pump: USERDEFINED: UserDefined: User-defined pump type.
+Pump: VERTICALINLINE: VerticalInline: "A vertical inline pump has the pump and motor close-coupled on the pump casing. The pump depends on the connected, horizontal piping for support, with the suction and discharge along the piping axis. "
+Pump: VERTICALTURBINE: VerticalTurbine: A vertical turbine pump has a motor mounted vertically on the pump casing for either wet-pit sump mounting or dry-well mounting. 
+Railing: BALUSTRADE: Balustrade: "Similar to the definitions of a guardrail except the location is at the edge of a floor, rather then a stair or ramp, e.g. balustrades at roof-tops or balconies. "
+Railing: GUARDRAIL: Guardrail: "A type of railing designed to guard human occupants from falling off a stair, ramp or landing where there is a vertical drop at the edge, e.g. floors, landings. "
+Railing: HANDRAIL: HandRail: A type of railing designed to serve as an optional structural support for loads applied by human occupants (at hand height). Generally located adjacent to ramps and stairs. Generally floor or wall mounted.
+Railing: NOTDEFINED: NotDefined: 
+Railing: USERDEFINED: UserDefined: "User-defined railing element, a term to identify the user type is given by the attribute IfcRailing.ObjectType."
+Ramp: HALF_TURN_RAMP: HalfTurnRamp: "A ramp making a 180  turn, consisting of two straight flights connected by a halfspace landing. The orientation of the turn is determined by the walking line."
+Ramp: NOTDEFINED: NotDefined: 
+Ramp: QUARTER_TURN_RAMP: QuarterTurnRamp: "A ramp making a 90  turn, consisting of two straight flights connected by a quarterspace landing. The direction of the turn is determined by the walking line."
+Ramp: SPIRAL_RAMP: SpiralRamp: A ramp constructed around a circular or elliptical well without newels and landings. 
+Ramp: STRAIGHT_RUN_RAMP: StraightRunRamp: "A ramp, which is a sloping floor, walk, or roadway, connecting two levels, consisting of one straight flight without turns or winders. "
+Ramp: TWO_QUARTER_TURN_RAMP: TwoQuarterTurnRamp: "A ramp making a 180  turn, consisting of three straight flights connected by two quarterspace landings. The direction of the turn is determined by the walking line."
+Ramp: TWO_STRAIGHT_RUN_RAMP: TwoStraightRunRamp: A straight ramp consisting of two straight flights without turns but with one landing. 
+Ramp: USERDEFINED: UserDefined: Free form ramp (user defined operation type).
+Ramp Flight: NOTDEFINED: NotDefined: 
+Ramp Flight: SPIRAL: Spiral: A ramp flight with a circular or elliptic walking line.
+Ramp Flight: STRAIGHT: Straight: A ramp flight with a straight walking line.
+Ramp Flight: USERDEFINED: UserDefined: User-defined ramp flight.
+Reinforcing Bar: EDGE: Edge: Edge reinforcement.
+Reinforcing Bar: LIGATURE: Ligature: "The reinforcing bar is a ligature (link, stirrup)."
+Reinforcing Bar: MAIN: Main: The reinforcing bar is a main bar.
+Reinforcing Bar: NOTDEFINED: NotDefined: 
+Reinforcing Bar: PUNCHING: Punching: Punching reinforcement.
+Reinforcing Bar: RING: Ring: Ring reinforcement.
+Reinforcing Bar: SHEAR: Shear: The reinforcing bar is a shear bar.
+Reinforcing Bar: STUD: Stud: The reinforcing bar is a stud.
+Reinforcing Bar: USERDEFINED: UserDefined: The type of reinforcement is user defined.
+Reinforcing Mesh: n/a: : "A reinforcing mesh is a series of longitudinal and transverse wires or bars of various gauges, arranged at right angles to each other and welded at all points of intersection; usually used for concrete slab reinforcement. It is also known as welded wire fabric. In scope are plane meshes as well as bent meshes."
+Roof: BARREL_ROOF: BarrelRoof: A roof or ceiling with a semi-cylindrical form.
+Roof: BUTTERFLY_ROOF: ButterflyRoof: "A roof having two slopes, each descending inward from the eaves. "
+Roof: DOME_ROOF: DomeRoof: A hemispherical hip roof. 
+Roof: FLAT_ROOF: FlatRoof: "A roof having no slope, or one with a slight pitch for draining rainwater. "
+Roof: FREEFORM: Freeform: Free form roof. 
+Roof: GABLE_ROOF: GableRoof: "A roof sloping downward in two parts from a central ridge, so as to form a gable at each end."
+Roof: GAMBREL_ROOF: GambrelRoof: A ridged roof divided on each side into a shallower slope above a steeper one.
+Roof: HIP_ROOF: HipRoof: A roof having sloping ends and sides meeting at an inclined projecting angle.
+Roof: HIPPED_GABLE_ROOF: HippedGableRoof: A roof having a hipped end truncating a gable.
+Roof: MANSARD_ROOF: MansardRoof: A roof having on each side a steeper lower part and a shallower upper part.
+Roof: NOTDEFINED: NotDefined: 
+Roof: PAVILION_ROOF: PavilionRoof: A pyramidal hip roof.
+Roof: RAINBOW_ROOF: RainbowRoof: "A gable roof in the form of a broad Gothic arch, with gently sloping convex surfaces."
+Roof: SHED_ROOF: ShedRoof: A roof having a single slope.
+Roof: USERDEFINED: UserDefined: Other type.
+Sanitary Terminal: BATH: Bath: Sanitary appliance for immersion of the human body or parts of it. 
+Sanitary Terminal: BIDET: Bidet: Waste water appliance for washing the excretory organs while sitting astride the bowl.
+Sanitary Terminal: CISTERN: Cistern: "A water storage appliance attached to a sanitary terminal that is fitted with a device, operated automatically or by the user, that discharges water to cleanse a water closet (toilet) pan, urinal or slop hopper. "
+Sanitary Terminal: NOTDEFINED: NotDefined: 
+Sanitary Terminal: SANITARYFOUNTAIN: SanitaryFountain: A sanitary terminal that provides a low pressure jet of water for a specific purpose. 
+Sanitary Terminal: SHOWER: Shower: Installation or waste water appliance that emits a spray of water to wash the human body. 
+Sanitary Terminal: SINK: Sink: "Waste water appliance for receiving, retaining or disposing of domestic, culinary, laboratory or industrial process liquids."
+Sanitary Terminal: TOILETPAN: Toiletpan: Soil appliance for the disposal of excrement.
+Sanitary Terminal: URINAL: Urinal: Soil appliance that receives urine and directs it to a waste outlet [BS 6100 (all parts)].
+Sanitary Terminal: USERDEFINED: UserDefined: User-defined type.
+Sanitary Terminal: WASHHANDBASIN: WashHandBasin: Waste water appliance for washing the upper parts of the body.
+Sanitary Terminal: WCSEAT: WcSeat: Hinged seat that fits on the top of a water closet (WC) pan. 
+Sensor: CO2SENSOR: Co2Sensor: A device that senses or detects carbon dioxide.
+Sensor: FIRESENSOR: FireSensor: A device that senses or detects fire. 
+Sensor: FLOWSENSOR: FlowSensor: A device that senses or detects flow in a fluid.
+Sensor: GASSENSOR: GasSensor: A device that senses or detects gas concentration (other than CO2).
+Sensor: HEATSENSOR: HeatSensor: A device that senses or detects heat.
+Sensor: HUMIDITYSENSOR: HumiditySensor: A device that senses or detects humidity. 
+Sensor: LIGHTSENSOR: LightSensor: A device that senses or detects light. 
+Sensor: MOISTURESENSOR: MoistureSensor: A device that senses or detects moisture. 
+Sensor: MOVEMENTSENSOR: MovementSensor: A device that senses or detects movement. 
+Sensor: NOTDEFINED: NotDefined: 
+Sensor: PRESSURESENSOR: PressureSensor: A device that senses or detects pressure. 
+Sensor: SMOKESENSOR: SmokeSensor: A device that senses or detects smoke. 
+Sensor: SOUNDSENSOR: SoundSensor: A device that senses or detects sound. 
+Sensor: TEMPERATURESENSOR: TemperatureSensor: A device that senses or detects temperature.
+Sensor: USERDEFINED: UserDefined: User-defined type.
+Slab: BASESLAB: BaseSlab: The slab is used to represent a floor slab against the ground (and thereby being a part of the foundation). Another name is mat foundation.
+Slab: FLOOR: Floor: The slab is used to represent a floor slab.
+Slab: LANDING: Landing: The slab is used to represent a landing within a stair or ramp.
+Slab: NOTDEFINED: NotDefined: 
+Slab: ROOF: Roof: The slab is used to represent a roof slab (either flat or sloped).
+Slab: USERDEFINED: UserDefined: Other type.
+Space: n/a: : 
+Space Heater: CONVECTOR: Convector: Baseboard heater designed for installation along the bottom of walls in place of the conventional baseboard.
+Space Heater: NOTDEFINED: NotDefined: 
+Space Heater: USERDEFINED: UserDefined: A heat-distributing unit that operates with gravity-circulated air. 
+Space Heater: BASEBOARDHEATER: BaseboardHeater: "Fin-tube heater typically fabricated from metallic tubing, with metallic fins bonded to the tube."
+Space Heater: FINNEDTUBEUNIT: FinnedTubeUnit: "Panel type radiator typically fabricated with flat panels, with or without an exposed extended fin surface attached to the rear for increased output."
+Space Heater: PANELRADIATOR: PanelRadiator: Sectional type radiator typically fabricated from welded sheet metal sections and resembling free standing cast-iron radiators.
+Space Heater: SECTIONALRADIATOR: SectionalRadiator: Tubular type radiator consisting of supply and return headers with interconnecting parallel tubes in a wide variety of lengths and heights.
+Space Heater: TUBULARRADIATOR: TubularRadiator: "An assembly typically consisting of a fan, a motor, and a heating element."
+Space Heater: UNITHEATER: UnitHeater: User-defined space heater type.
+Stack Terminal: BIRDCAGE: Birdcage: "Guard cage, typically wire mesh, at the top of the stack preventing access by birds. "
+Stack Terminal: COWL: Cowl: A cowling placed at the top of a stack to prevent downdraft.
+Stack Terminal: NOTDEFINED: NotDefined: 
+Stack Terminal: RAINWATERHOPPER: RainwaterHopper: A box placed at the top of a rainwater downpipe to catch rainwater from guttering. 
+Stack Terminal: USERDEFINED: UserDefined: User-defined type.
+Stair: CURVED_RUN_STAIR: CurvedRunStair: "A stair extending from one level to another without turns or winders, consisting of one curved flight. "
+Stair: DOUBLE_RETURN_STAIR: DoubleReturnStair: "A stair having one straight flight to a wide quarterspace landing, and two side flights from that landing into opposite directions. The stair is making a 90  turn. The direction of traffic is determined by the walking line."
+Stair: HALF_TURN_STAIR: HalfTurnStair: "A stair making a 180  turn, consisting of two straight flights connected by a halfspace landing. The orientation of the turn is determined by the walking line."
+Stair: HALF_WINDING_STAIR: HalfWindingStair: "A stair consisting of one flight with one half winder, which makes a 180  turn. The orientation of the turn is determined by the walking line."
+Stair: NOTDEFINED: NotDefined: 
+Stair: QUARTER_TURN_STAIR: QuarterTurnStair: "A stair making a 90  turn, consisting of two straight flights connected by a quarterspace landing. The direction of the turn is determined by the walking line."
+Stair: QUARTER_WINDING_STAIR: QuarterWindingStair: "A stair consisting of one flight with a quarter winder, which is making a 90  turn. The direction of the turn is determined by the walking line."
+Stair: SPIRAL_STAIR: SpiralStair: "A stair constructed with winders around a circular newel often without landings. Depending on outer boundary it can be either a circular, elliptical or rectangular spiral stair. The orientation of the winding stairs is determined by the walking line."
+Stair: STRAIGHT_RUN_STAIR: StraightRunStair: A stair extending from one level to another without turns or winders. The stair consists of one straight flight.
+Stair: THREE_QUARTER_TURN_STAIR: ThreeQuarterTurnStair: "A stair making a 270  turn, consisting of four straight flights connected by three quarterspace landings. The direction of the turns is determined by the walking line."
+Stair: THREE_QUARTER_WINDING_STAIR: ThreeQuarterWindingStair: "A stair consisting of one flight with three quarter winders, which make a 90  turn. The stair makes a 270  turn. The direction of the turns is determined by the walking line."
+Stair: TWO_CURVED_RUN_STAIR: TwoCurvedRunStair: A curved stair consisting of two curved flights without turns but with one landing.
+Stair: TWO_QUARTER_TURN_STAIR: TwoQuarterTurnStair: "A stair making a 180  turn, consisting of three straight flights connected by two quarterspace landings. The direction of the turns is determined by the walking line."
+Stair: TWO_QUARTER_WINDING_STAIR: TwoQuarterWindingStair: "A stair consisting of one flight with two quarter winders, which make a 90  turn. The stair makes a 180  turn. The direction of the turns is determined by the walking line."
+Stair: TWO_STRAIGHT_RUN_STAIR: TwoStraightRunStair: A straight stair consisting of two straight flights without turns but with one landing.
+Stair: USERDEFINED: UserDefined: Free form stair (user defined operation type).
+Stair Flight: CURVED: Curved: A stair flight with a curved walking line.
+Stair Flight: FREEFORM: Freeform: A stair flight with a free form walking line (and outer boundaries).
+Stair Flight: NOTDEFINED: NotDefined: 
+Stair Flight: SPIRAL: Spiral: A stair flight with a circular or elliptical walking line.
+Stair Flight: STRAIGHT: Straight: A stair flight with a straight walking line.
+Stair Flight: USERDEFINED: UserDefined: User-defined stair flight.
+Stair Flight: WINDER: Winder: A stair flight with a straight walking line.
+Switching Device: CONTACTOR: Contactor: An electrical device used to control the flow of power in a circuit on or off.
+Switching Device: EMERGENCYSTOP: EmergencyStop: An emergency stop device acts to remove as quickly as possible any danger that might have arisen unexpectedly.
+Switching Device: NOTDEFINED: NotDefined: 
+Switching Device: STARTER: Starter: "A starter is a switch which, in the closed position, controls the application of power to an electrical device."
+Switching Device: SWITCHDISCONNECTOR: SwitchDisconnector: "A switch disconnector is a switch which, in the open position, satisfies the isolating requirements specified for a disconnector."
+Switching Device: TOGGLESWITCH: ToggleSwitch: A toggle switch has two positions and can enable or isolate electrical power or other setting (according to the switched port type).
+Switching Device: USERDEFINED: UserDefined: User-defined type.
+System Furniture Element: n/a: : Defines a particular type of component or element of systems or modular furniture.
+Tank: EXPANSION: Expansion: "A closed container used in a closed fluid distribution system to mitigate the effects of thermal expansion or water hammer. The tank is typically constructed with a diaphragm dividing the tank into two sections, with fluid on one side of the diaphragm and air on the other. One example application is when connected to the primary circuit of a hot water system to accommodate the increase in volume of the water when it is heated."
+Tank: NOTDEFINED: NotDefined: 
+Tank: PREFORMED: Preformed: Tank is preformed.
+Tank: PRESSUREVESSEL: PressureVessel: A closed container used for storing fluids or gases at a pressure different from the ambient pressure. A pressure vessel is typically rated by an authority having jurisdiction for the operational pressure.
+Tank: SECTIONAL: Sectional: Tank is sectional.
+Tank: USERDEFINED: UserDefined: User-defined tank type.
+Tendon: BAR: Bar: The tendon is configured as a bar.
+Tendon: COATED: Coated: The tendon is coated.
+Tendon: NOTDEFINED: NotDefined: 
+Tendon: STRAND: Strand: The tendon is a strand.
+Tendon: USERDEFINED: UserDefined: The type of tendon is user defined.
+Tendon: WIRE: Wire: The tendon is a wire.
+Tendon Anchor: n/a: : A tendon anchor is the end connection for tendons in prestressed or posttensioned concrete.
+Transformer: CURRENT: Current: A transformer that changes the current between circuits.
+Transformer: FREQUENCY: Frequency: A transformer that changes the frequency between circuits.
+Transformer: NOTDEFINED: NotDefined: 
+Transformer: USERDEFINED: UserDefined: User-defined type.
+Transformer: VOLTAGE: Voltage: A transformer that changes the voltage between circuits.
+Transport Element: ELEVATOR: Elevator: Elevator or lift being a transport device to move people of good vertically.
+Transport Element: ESCALATOR: Escalator: Escalator being a transport device to move people. It consists of individual linked steps that move up and down on tracks while keeping the threads horizontal.
+Transport Element: MOVINGWALKWAY: MovingWalkway: Moving walkway being a transport device to move people horizontally or on an incline. It is a slow conveyor belt that transports people.
+Transport Element: NOTDEFINED: NotDefined: 
+Transport Element: USERDEFINED: UserDefined: User-defined type.
+Tube Bundle: FINNED: Finned: Finned tube bundle type.
+Tube Bundle: NOTDEFINED: NotDefined: 
+Tube Bundle: USERDEFINED: UserDefined: User-defined tube bundle type.
+Unitary Equipment: AIRCONDITIONINGUNIT: AirConditioningUnit: A unitary packaged air-conditioning unit typically used in residential or light commercial applications.
+Unitary Equipment: AIRHANDLER: AirHandler: "A unitary air handling unit typically containing a fan, economizer, and coils."
+Unitary Equipment: NOTDEFINED: NotDefined: 
+Unitary Equipment: ROOFTOPUNIT: RooftopUnit: A packaged assembly that is either field-erected or manufactured atop the roof of a large residential or commercial building and acts as a unitary component.
+Unitary Equipment: SPLITSYSTEM: SplitSystem: "A system which separates the compressor from the evaporator, but acts as a unitary component typically within residential or light commercial applications."
+Unitary Equipment: USERDEFINED: UserDefined: User-defined unitary equipment type.
+Valve: AIRRELEASE: AirRelease: Valve used to release air from a pipe or fitting.
+Valve: ANTIVACUUM: AntiVacuum: Valve that opens to admit air if the pressure falls below atmospheric pressure.
+Valve: CHANGEOVER: Changeover: Valve that enables flow to be switched between pipelines (3 or 4 port).
+Valve: CHECK: Check: Valve that permits water to flow in one direction only and is enclosed when there is no flow (2 port).
+Valve: COMMISSIONING: Commissioning: Valve used to facilitate commissioning of a system (2 port).
+Valve: DIVERTING: Diverting: Valve that enables flow to be diverted from one branch of a pipeline to another (3 port).
+Valve: DOUBLECHECK: DoubleCheck: An assembly that incorporates two valves used to prevent backflow.
+Valve: DOUBLEREGULATING: DoubleRegulating: Valve used to facilitate regulation of fluid flow in a system.
+Valve: DRAWOFFCOCK: DrawOffCock: A valve used to remove fluid from a piping system.
+Valve: FAUCET: Faucet: Faucet valve typically used as a flow discharge.
+Valve: FLUSHING: Flushing: "Valve that flushes a predetermined quantity of water to cleanse a toilet, urinal, etc."
+Valve: GASCOCK: GasCock: Valve that is used for controlling the flow of gas.
+Valve: GASTAP: GasTap: Gas tap typically used for venting or discharging gas from a system.
+Valve: ISOLATING: Isolating: Valve that closes off flow in a pipeline.
+Valve: MIXING: Mixing: Valve that enables flow from two branches of a pipeline to be mixed together (3 port).
+Valve: NOTDEFINED: NotDefined: 
+Valve: PRESSUREREDUCING: PressureReducing: Valve that reduces the pressure of a fluid immediately downstream of its position in a pipeline to a preselected value or by a predetermined ratio.
+Valve: PRESSURERELIEF: PressureRelief: Spring or weight loaded valve that automatically discharges to a safe place fluid that has built up to excessive pressure in pipes or fittings.
+Valve: REGULATING: Regulating: Valve used to facilitate regulation of fluid flow in a system.
+Valve: SAFETYCUTOFF: SafetyCutoff: "Valve that closes under the action of a safety mechanism such as a drop weight, solenoid etc."
+Valve: STEAMTRAP: SteamTrap: Valve that restricts flow of steam while allowing condensate to pass through.
+Valve: STOPCOCK: StopCock: An isolating valve used on a domestic water service.
+Valve: USERDEFINED: UserDefined: User-defined valve type.
+Vibration Isolator: COMPRESSION: Compression: Compression type vibration isolator.
+Vibration Isolator: NOTDEFINED: NotDefined: 
+Vibration Isolator: SPRING: Spring: Spring type vibration isolator.
+Vibration Isolator: USERDEFINED: UserDefined: User-defined vibration isolator type.
+Wall: ELEMENTEDWALL: ElementedWall: "A stud wall framed with studs and faced with sheetings, sidings, wallboard, or plasterwork."
+Wall: NOTDEFINED: NotDefined: 
+Wall: PLUMBINGWALL: PlumbingWall: "A pier, or enclosure, or encasement, normally used to enclose plumbing in sanitary rooms. Such walls often do not extent to the ceiling."
+Wall: POLYGONAL: Polygonal: "A polygonal wall, extruded vertically, where the wall thickness varies along the wall path."
+Wall: SHEAR: Shear: A wall designed to withstand shear loads. Such shear walls are often designed having a non-rectangular cross section along the wall path. Also called retaining walls or supporting walls they are used to protect against soil layers behind.
+Wall: STANDARD: Standard: "A standard wall, extruded vertically with a constant thickness along the wall path."
+Wall: USERDEFINED: UserDefined: User-defined wall element.
+Waste Terminal: FLOORTRAP: FloorTrap: "Pipe fitting, set into the floor, that retains liquid to prevent the passage of foul air."
+Waste Terminal: FLOORWASTE: FloorWaste: "Pipe fitting, set into the floor, that collects waste water and discharges it to a separate trap."
+Waste Terminal: GREASEINTERCEPTOR: GreaseInterceptor: "Chamber, on the line of a drain or discharge pipe, that prevents grease passing into a drainage system (BS6100 330 6205)."
+Waste Terminal: GULLYSUMP: GullySump: "Pipe fitting or assembly of fittings to receive surface water or waste water, fitted with a grating or sealed cover."
+Waste Terminal: GULLYTRAP: GullyTrap: Pipe fitting or assembly of fittings that receives surface water or waste water; fitted with a grating or sealed cover that discharges water through a trap.
+Waste Terminal: NOTDEFINED: NotDefined: 
+Waste Terminal: OILINTERCEPTOR: OilInterceptor: "One or more chambers arranged to prevent the ingress of oil to a drain or sewer, that retain the oil for later removal (BS6100 330 67316)."
+Waste Terminal: PETROLINTERCEPTOR: PetrolInterceptor: Two or more chambers with inlet and outlet pipes arranged to allow petrol/gasoline collected on the surface of water drained into them to evaporate through ventilating pipes.
+Waste Terminal: ROOFDRAIN: RoofDrain: "Pipe fitting, set into the roof, that collects rainwater for discharge into the rainwater system."
+Waste Terminal: USERDEFINED: UserDefined: User-defined type.
+Waste Terminal: WASTEDISPOSALUNIT: WasteDisposalUnit: Electrically operated device that reduces kitchen or other waste into fragments small enough to be flushed into a drainage system.
+Waste Terminal: WASTETRAP: WasteTrap: "Pipe fitting, set adjacent to a sanitary terminal, that retains liquid to prevent the passage of foul air."
+Window: n/a: : "The window is a building element that is predominately used to provide natural light and fresh air. It includes vertical opening but also horizontal opening such as skylights or light domes. It includes constructions with swinging, pivoting, sliding, or revolving panels and fixed panels. A window consists of a lining and one or several panels."
