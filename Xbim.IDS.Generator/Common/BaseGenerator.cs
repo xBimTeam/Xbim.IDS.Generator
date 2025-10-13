@@ -271,7 +271,7 @@ namespace Xbim.IDS.Generator.Common
                 var thisAssembly = global::System.Reflection.Assembly.GetExecutingAssembly();
                 using (var inputStream = thisAssembly.GetManifestResourceStream(fileOrResourceName))
                 {
-                    if (inputStream != null)
+                    if (inputStream == null)
                     {
                         throw new NotImplementedException($"File not found: {filename}");
                     }
