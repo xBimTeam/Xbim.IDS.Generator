@@ -1,7 +1,9 @@
 ﻿using IdsLib.IfcSchema;
 using System.Collections;
 using System.Reflection;
-using Xbim.IDS.Validator.Core.Helpers;
+using Xbim.Common;
+using Xbim.Common.Metadata;
+
 
 namespace Xbim.IDS.Generator.Common.Internal
 {
@@ -124,5 +126,105 @@ namespace Xbim.IDS.Generator.Common.Internal
             return GetEnumerator();
         }
 
+    }
+
+
+    // Copied from Xbim.IDS.Validator to avoid taking dependency on the validator
+    internal class SchemaTypeMap
+    {
+        private static Lazy<IDictionary<string, SchemaInference>> lazySchemaMap = new Lazy<IDictionary<string, SchemaInference>>(() => BuildSchemaInferenceMappings());
+
+        static IDictionary<string, SchemaInference> _ifc2x3Inferences => lazySchemaMap.Value;
+
+
+        /// <summary>
+        /// Infers the IFC2x3 equivalent of a new type in IFC 4, where one exists
+        /// </summary>
+        /// <remarks>Supports the implementation of the 'AirTerminal' issue in IFC2x3: https://github.com/buildingSMART/IDS/issues/116</remarks>
+        /// <param name="model"></param>
+        /// <param name="entityType"></param>
+        /// <returns></returns>
+        public static SchemaInference? InferSchemaForEntity(IModel model, string entityType)
+        {
+            if (_ifc2x3Inferences.TryGetValue(entityType, out var result))
+            {
+                return result;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// A map of IFC4 types to IFC2x3 equivalents using a qualifying DefiningType
+        /// </summary>
+        public static IEnumerable<KeyValuePair<string, SchemaInference>> Ifc2x3TypeMap { get => _ifc2x3Inferences; }
+
+
+        // Inferences: New types in later schemas that can be inferred in older schemas using Type information
+        static IDictionary<string, SchemaInference> BuildSchemaInferenceMappings()
+        {
+            var baseSchema = ExpressMetaData.GetMetadata(new Ifc2x3.EntityFactoryIfc2x3());
+            var targetSchema = ExpressMetaData.GetMetadata(new Ifc4.EntityFactoryIfc4());
+
+            var implicitlyMapped = GetMappings(baseSchema, targetSchema);
+
+            var dict = new Dictionary<string, SchemaInference>();
+
+            foreach (var mapping in implicitlyMapped)
+            {
+
+                string ifc2x3Element = mapping.NewType.SuperType.Type.IsAbstract ?
+                    "IFCDISCRETEACCESSORY" :    // Special case for IfcVibrationIsolatorType which moved to abstract IfcElementComponent[Type] in IFC4
+                    mapping.NewType.SuperType.ExpressName;
+
+                var inference = new SchemaInference(SchemaInfo.SchemaIfc2x3[ifc2x3Element], SchemaInfo.SchemaIfc2x3[mapping.DefinedBy.ExpressName]);
+                dict.Add(mapping.NewType.ExpressNameUpper, inference);
+            }
+            return dict;
+
+        }
+
+        private static IEnumerable<(ExpressType NewType, ExpressType DefinedBy)> GetMappings(ExpressMetaData baseSchema, ExpressMetaData targetSchema)
+        {
+            var products = targetSchema.ExpressType("IFCPRODUCT");
+
+            foreach (var type in products.AllSubTypes)
+            {
+                if (baseSchema.ExpressType(type.ExpressNameUpper) == null)
+                {
+                    // New in the target (newer) schema. Check if a Type exists by convention we can use in the base schema
+                    var baseSchemaType = baseSchema.ExpressType(type.ExpressNameUpper + "TYPE");
+                    if (baseSchemaType != null)
+                    {
+                        // New but with Type we can use to discriminate in base schema
+                        yield return (type, baseSchemaType);
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    /// <summary>
+    /// Defines a combination of IfcElement and IfcType that can be used to infer an IFC4+ type in IFC2x3
+    /// </summary>
+    /// <remarks>e.g. IFC2x3's IFCAIRTERMINAL = IFCFlOWTERMINAL defined by an IFCAIRTERMINALTYPE</remarks>
+    internal class SchemaInference
+    {
+
+        internal SchemaInference(ClassInfo elementType, ClassInfo definingType)
+        {
+            DefiningType = definingType ?? throw new ArgumentNullException(nameof(definingType));
+            ElementType = elementType ?? throw new ArgumentNullException(nameof(elementType));
+        }
+        /// <summary>
+        /// The IfcTypeObject that defines the IFC2x3 element
+        /// </summary>
+        public ClassInfo DefiningType { get; private set; }
+
+        /// <summary>
+        /// The IfcProduct appropriate to the IFC2x3 element
+        /// </summary>
+        public ClassInfo ElementType { get; private set; }
     }
 }

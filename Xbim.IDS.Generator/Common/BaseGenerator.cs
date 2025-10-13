@@ -1,11 +1,13 @@
 ﻿using IdsLib.IfcSchema;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using Xbim.Common.Step21;
 using Xbim.InformationSpecifications;
 using Xbim.InformationSpecifications.Cardinality;
 using static Xbim.InformationSpecifications.PartOfFacet;
 using static Xbim.InformationSpecifications.RequirementCardinalityOptions;
 
+[assembly: InternalsVisibleTo("Xbim.IDS.Generator.Dfe")]
 namespace Xbim.IDS.Generator.Common
 {
     public abstract class BaseGenerator : IIdsSchemaGenerator

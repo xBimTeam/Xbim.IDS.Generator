@@ -23,7 +23,8 @@
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="9.0.9" />
-    <PackageReference Include="Xbim.IDS.Validator.Core" Version="1.0.177" />
+    <PackageReference Include="Xbim.Essentials" Version="6.0.555-develop" />
+    <PackageReference Include="Xbim.InformationSpecifications" Version="1.0.14" />
   </ItemGroup>
 
   <ItemGroup>
