@@ -453,9 +453,9 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Space Should Have RoomTag(Final Room Signage) Of 'n/a'
             var original = subContext.ApplicableToStages;
-            CreatePropertyWithValueSpecification(specs, applicability, ids, "RoomTag", "COBie_Space", "n/a", subContext.SetApplicableStages(RibaStages.Stage3 | RibaStages.Stage4), "IFCTEXT");
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", "n/a", subContext.SetApplicableStages(RibaStages.Stage3 | RibaStages.Stage4), "IFCTEXT");
             // TODO: Space Should Have RoomTag(Final Room Signage) Of Final Agreed Signage
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "RoomTag", "COBie_Space", subContext.SetApplicableStages(RibaStages.Stage5Plus));
+            CreatePropertyDefinedSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", subContext.SetApplicableStages(RibaStages.Stage5Plus));
             subContext.SetApplicableStages(original);   // reset default
 
             // Space Should Have Category(DfE ADS Classification) Defined

@@ -353,7 +353,7 @@ namespace Xbim.IDS.Generator.Sample
             CreatePropertyDefinedSpecification(specs, applicability, ids, "NetFloorArea", "Qto_SpaceBaseQuantities", subContext);
 
             // Space Should Have RoomTag(Final Room Signage) Of Final Agreed Signage (Stage 4+)
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "RoomTag", "COBie_Space",
+            CreatePropertyDefinedSpecification(specs, applicability, ids, "Roomtag", "COBie_Space",
                 subContext.SetApplicableStages(RibaStages.Stage4Plus));     // Stage 4+
 
             // Space Should Have UniclassClassification From Uniclass table
