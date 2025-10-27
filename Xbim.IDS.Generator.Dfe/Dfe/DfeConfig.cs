@@ -1,5 +1,7 @@
 ﻿using System.Text.Json.Serialization;
+#if AirTable
 using Xbim.Flex.Services.Abstractions;
+#endif 
 
 namespace Xbim.IDS.Generator.Dfe
 {
@@ -43,6 +45,7 @@ namespace Xbim.IDS.Generator.Dfe
         [JsonPropertyName("Number of Storeys")]
         public int NumberOfStoreys { get; set; } = 3;
 
+#if AirTable
         public static async Task<DfeConfig> Read(IAirTableService airtable, string table)
         {
             var configs = airtable.ListRecordsAsync<DfeConfig>(table);
@@ -50,5 +53,6 @@ namespace Xbim.IDS.Generator.Dfe
 
             return null;
         }
+#endif
     }
 }

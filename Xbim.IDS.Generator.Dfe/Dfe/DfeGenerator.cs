@@ -1,15 +1,15 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System.IO.Compression;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using static Xbim.InformationSpecifications.RequirementCardinalityOptions;
+using Xbim.Common.Step21;
+using Xbim.IDS.Generator.Common;
+using Xbim.IDS.Generator.Common.Internal;
+using Xbim.IDS.Validator.Core.Interfaces;
 using Xbim.Ifc4.Interfaces;
 using Xbim.InformationSpecifications;
-using Xbim.IDS.Generator.Common;
-using Xbim.Common.Step21;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Xbim.IDS.Validator.Core.Interfaces;
-using Xbim.IDS.Generator.Common.Internal;
-using System.IO.Compression;
+using static Xbim.InformationSpecifications.RequirementCardinalityOptions;
 
 
 [assembly: InternalsVisibleTo("Xbim.IDS.Generator.Tests")]

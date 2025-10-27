@@ -3,6 +3,7 @@ using Xbim.Common.Geometry;
 using Xbim.Ifc;
 using Xbim.Ifc.Fluent;
 using Xbim.Ifc4.Interfaces;
+using Xbim.Ifc4.MeasureResource;
 
 namespace Xbim.IDS.Generator.Common
 {
@@ -416,5 +417,27 @@ namespace Xbim.IDS.Generator.Common
             }
             return "";
         }
+
+        public static string? Name(this IIfcClassificationReferenceSelect classSel)
+        {
+            if (classSel is IIfcClassificationReference)
+            {
+                IfcLabel? name = ((IIfcClassificationReference)classSel).Name;
+                if (!name.HasValue)
+                {
+                    return null;
+                }
+
+                return name.GetValueOrDefault();
+            }
+
+            if (classSel is IIfcClassification)
+            {
+                return ((IIfcClassification)classSel).Name;
+            }
+
+            throw new ArgumentException("Invalid IIfcClassificationReferenceSelect type");
+        }
+
     }
 }

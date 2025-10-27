@@ -1,14 +1,11 @@
 ﻿using IdsLib.IfcSchema;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Concurrent;
 using Xbim.Common;
 using Xbim.Common.Geometry;
 using Xbim.Common.Step21;
-using Xbim.Flex.IO.Db.IfcExtensions;
 using Xbim.IDS.Generator.Common;
 using Xbim.IDS.Generator.Common.Internal;
-using Xbim.IDS.Validator.Core.Helpers;
 using Xbim.Ifc;
 using Xbim.Ifc.Fluent;
 using Xbim.Ifc4.Interfaces;
