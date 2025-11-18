@@ -10,6 +10,7 @@ namespace Xbim.IDS.Generator.Common
     /// </summary>
     public class SpecContext : IDisposable
     {
+        const CardinalityEnum DefaultCardinality = CardinalityEnum.Required;
         /// <summary>
         /// The parent Context's Prefix
         /// </summary>
@@ -48,10 +49,17 @@ namespace Xbim.IDS.Generator.Common
         /// <remarks>Should be a single stage</remarks>
         public RibaStages TargetStage { get; private set; }
 
+        public GenerationPass TargetGenerationPass { get; private set; } 
+
         /// <summary>
         /// Set of Stages the scope specifications are applicable to
         /// </summary>
         public RibaStages ApplicableToStages { get; private set; } = RibaStages.All;
+
+        /// <summary>
+        /// Set of Generation the scope specifications are applicable to
+        /// </summary>
+        public GenerationPass ApplicableToGeneration { get; private set; } = GenerationPass.All;
 
         private IList<SpecContext> SubScopes { get; } = new List<SpecContext>();
 
@@ -62,7 +70,7 @@ namespace Xbim.IDS.Generator.Common
         /// <param name="targetStage">The stage the IDS is being produced for</param>
         /// <param name="ids"></param>
         /// <param name="logger"></param>
-        public SpecContext(RibaStages targetStage, Xids ids, ILogger<SpecContext>? logger = null)
+        public SpecContext(RibaStages targetStage, Xids ids, GenerationPass targetGeneration = GenerationPass.All,  ILogger<SpecContext>? logger = null)
         {
             logger ??= new Microsoft.Extensions.Logging.Abstractions.NullLogger<SpecContext>();
             switch (targetStage)
@@ -81,6 +89,8 @@ namespace Xbim.IDS.Generator.Common
 
             Ids = ids;
             Logger = logger;
+            TargetGenerationPass = targetGeneration;
+
         }
 
         /// <summary>
@@ -124,7 +134,11 @@ namespace Xbim.IDS.Generator.Common
         private void Clone(SpecContext parent)
         {
             TargetStage = parent.TargetStage;
+            TargetGenerationPass = parent.TargetGenerationPass;
             ApplicableToStages = parent.ApplicableToStages;
+            ApplicableToGeneration = parent.ApplicableToGeneration;
+            ApplicabilityCardinality = parent.ApplicabilityCardinality;
+            RequirementCardinality = parent.RequirementCardinality;
             PrefixSpecNameWithId = parent.PrefixSpecNameWithId;
             Ids = parent.Ids;
             BasePath = parent.BasePath;
@@ -143,7 +157,7 @@ namespace Xbim.IDS.Generator.Common
         /// Indicates whether applicable matches are Required, Optional or Prohibited.
         /// </summary>
         /// <remarks>E.g. Walls are typically Required in a model, Sensors may be opttional, and Proxies may be prohibited</remarks>
-        public CardinalityEnum ApplicabilityCardinality { get; set; } = CardinalityEnum.Optional;
+        public CardinalityEnum ApplicabilityCardinality { get; set; } = DefaultCardinality;
 
         /// <summary>
         /// Indicates whether a Requirement is Expected, Prohibited (or Optional)
@@ -154,7 +168,7 @@ namespace Xbim.IDS.Generator.Common
         /// <summary>
         /// Indicates whether this spec is applicable to the target stage
         /// </summary>
-        public bool IsStageApplicable { get => ApplicableToStages.HasFlag(TargetStage); }
+        public bool IsStageApplicable { get => ApplicableToStages.HasFlag(TargetStage) && (TargetGenerationPass == GenerationPass.All || ApplicableToGeneration.HasFlag(TargetGenerationPass)); }
         public Xids Ids { get; private set; }
         public ILogger<SpecContext> Logger { get; }
 
@@ -209,7 +223,7 @@ namespace Xbim.IDS.Generator.Common
 
         public SpecContext ResetMatches()
         {
-            ApplicabilityCardinality = CardinalityEnum.Optional;
+            ApplicabilityCardinality = DefaultCardinality;
             return this;
         }
 
@@ -218,6 +232,14 @@ namespace Xbim.IDS.Generator.Common
             ApplicableToStages = stages;
             return this;
         }
+
+        public SpecContext SetApplicableToGeneration(GenerationPass generation)
+        {
+            ApplicableToGeneration = generation;
+            return this;
+        }
+
+
 
         /// <summary>
         /// Create a new Sub Scoped Context

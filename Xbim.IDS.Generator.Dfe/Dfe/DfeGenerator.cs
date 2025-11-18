@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.IO.Compression;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.RegularExpressions;
 using Xbim.Common.Step21;
 using Xbim.IDS.Generator.Common;
@@ -9,6 +10,7 @@ using Xbim.IDS.Generator.Common.Internal;
 using Xbim.IDS.Validator.Core.Interfaces;
 using Xbim.Ifc4.Interfaces;
 using Xbim.InformationSpecifications;
+using Xbim.InformationSpecifications.Cardinality;
 using static Xbim.InformationSpecifications.RequirementCardinalityOptions;
 
 
@@ -33,6 +35,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             UseIfc4TypesIn2x3 = true;   // Set true to extend entity types to IFC4 inferable entities. e.g. Enforce naming conventions on things like IfcAirTerminals that are not in 2x3 at the occurrence level
             ValidateIDSOutputs = false; // Set true to run ids-audit over the outputs 
+            GroupCommonApplicableRequirements = true;  // Set true to group spec requirements that have a common applicability
         }
 
         internal const string spaceNameRegex = "((EX|00|01|02|03|RF|R2|ZZ|M0|M1|B1|B2)-)?[0-9]+[A-Za-z]?";
@@ -97,8 +100,9 @@ namespace Xbim.IDS.Generator.Dfe
             ["CooledBeam"] = new TypeMap("CBM"),
             ["CoolingTower"] = new TypeMap("CTR"),
             ["Damper"] = new TypeMap("DMP"),
+            ["DiscreteAccessory"] = new TypeMap("DAC"),
+            ["DistributionChamberElement"] = new TypeMap("DCE"),
             ["Door"] = new TypeMap("D").SpaceNaming(),
-            ["DiscreteAccessory"] = new TypeMap("DCE"),
             ["ElectricAppliance"] = new TypeMap("EAP"),
             ["ElectricDistributionPoint"] = new TypeMap("EDP"),
             ["ElectricFlowStorageDevice"] = new TypeMap("EFS"),
@@ -109,16 +113,17 @@ namespace Xbim.IDS.Generator.Dfe
             ["EvaporativeCooler"] = new TypeMap("ECL"),
             ["Evaporator"] = new TypeMap("EVP"),
             ["Fan"] = new TypeMap("FAN"),
-            ["Filter"] = new TypeMap("FILT"),
+            ["Filter"] = new TypeMap("FLT"),
             ["FireSuppressionTerminal"] = new TypeMap("FST"),
             ["FlowInstrument"] = new TypeMap("FIN"),
+            ["FlowMeter"] = new TypeMap("FMT"),
             ["Furniture"] = new TypeMap("FRN"),
             ["FurnishingElement"] = new TypeMap("FRN"),// Added
             ["GasTerminal"] = new TypeMap("GTM"),
             ["HeatExchanger"] = new TypeMap("HEX"),
             ["Humidifier"] = new TypeMap("HUM"),
             ["LightFixture"] = new TypeMap("LFT"),
-            ["Lamp"] = new TypeMap("LFT"),  // Added
+            //["Lamp"] = new TypeMap("LFT"),  // Added
             ["MotorConnection"] = new TypeMap("MCN"),
             ["Outlet"] = new TypeMap("OUT"),
             ["ProtectiveDevice"] = new TypeMap("PDV"),
@@ -191,99 +196,181 @@ namespace Xbim.IDS.Generator.Dfe
         public override Task PublishIDS()
         {
             var config = new DfeConfig();       // initialise project specific config / or tokens
-            var version = 44;
+            var version = 45;
 
+            var generations = new[] { GenerationPass.Core, GenerationPass.Complex, GenerationPass.All };
 
-            var stages = new[] { RibaStages.Stage3, RibaStages.Stage4, RibaStages.Stage5 }; //  RibaStages.Stage6
-            foreach (var targetStage in stages)
+            foreach (var targetGeneration in generations)
             {
-                config.ProjectPhase = ribaStagesDict[targetStage];
-                var status = "S2";
-                var revision = "P01";
 
-                var ids = new Xids
+                var stages = new[] { RibaStages.Stage3, RibaStages.Stage4, RibaStages.Stage5 }; //  RibaStages.Stage6
+                foreach (var targetStage in stages)
                 {
-                    Guid = Guid.NewGuid().ToString(),
-                    Name = $"DfE EIR model checks for {config.ProjectName} at {targetStage}",
-                    Project = new Project   // Note: not part of IDS standard - only in json export
+                    config.ProjectPhase = ribaStagesDict[targetStage];
+                    var status = "S2";
+                    var revision = "P01";
+
+                    var ids = new Xids
                     {
+                        // Note: not part of IDS standard - only in json export. Main public meta data on SpecificationGroup items
                         Guid = Guid.NewGuid().ToString(),
-                        Name = config.ProjectName,
-                        Description = config.ProjectDescription
-                    },
-                    Stages = new List<string> { config.ProjectPhase },
-                    SpecificationsGroups = new List<SpecificationsGroup>()
-                };
+                        Name = $"{targetGeneration} DfE EIR model checks for {config.ProjectName} at {targetStage}",
+                        Project = new Project   
+                        {
+                            Guid = Guid.NewGuid().ToString(),
+                            Name = config.ProjectName,
+                            Description = config.ProjectDescription
+                        },
+                        Stages = new List<string> { config.ProjectPhase },
+                        SpecificationsGroups = new List<SpecificationsGroup>()
+                    };
 
 
-                var specLogger = provider.GetRequiredService<ILogger<SpecContext>>();
-                using var ctx = specLogger.BeginScope(targetStage.ToString());
-                // Initialise a Spec context to help organise / number specs.
-                using var context = new SpecContext(targetStage, ids, specLogger);
-                context.SetApplicableStages(RibaStages.All);
-                context.BasePath = "DFE-ER";
-                context.SaveOneFilePerSpec = true;        // Output individual files
-                context.SaveOneFilePerScope = true;       // Use Context structure to group into smaller Spec Groups (produces IDS zip)
-
-                CleanPriorFiles(context, targetStage);
-
-                SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision);
-                context.InitialiseSpecGroup(rootGroup);
-
-                CreateProjectSpecifications(context, config);
-                CreateSiteSpecifications(context, config);
-                CreateBuildingSpecifications(context, config);
-                CreateBuildingStoreySpecifications(context, config);
-                CreateSpaceSpecifications(context);
-                CreateZoneSpecifications(context);
-
-                context.SetApplicableStages(RibaStages.Stage4Plus);
-                CreateObjectTypeSpecifications(context);
-                CreateObjectOccurrenceSpecifications(context);
-                CreateSystemSpecifications(context);
-
-                context.CloseScope();   // Closing will clearout any unused rootScope group we didn't use
+                    var specLogger = provider.GetRequiredService<ILogger<SpecContext>>();
+                    using var ctx = specLogger.BeginScope(targetStage.ToString());
+                    using var ctx2 = specLogger.BeginScope(targetGeneration.ToString());
+                    // Initialise a Spec context to help organise / number specs.
+                    using var context = new SpecContext(targetStage, ids, targetGeneration, specLogger);
+                    context.SetApplicableStages(RibaStages.All);
+                    context.SetApplicableToGeneration(GenerationPass.Core);      // Determines whether to separate complex (e.g. naming) rules out from 'core' vs a single file ('All')
+                    context.BasePath = "DFE-ER";
+                    context.SaveOneFilePerSpec = true;        // Output individual files
+                    context.SaveOneFilePerScope = true;       // Use Context structure to group into smaller Spec Groups (produces IDS zip)
 
 
+                    CleanPriorFiles(context, targetStage);
 
-                Directory.CreateDirectory(context.BasePath);
-                var fileName = $"{context.BasePath}/ER-DFE-XX-XX-L-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}.ids";
-               
-                var totalSpecs = ids.AllSpecifications().Count();
-                if(context.SaveOneFilePerScope)
-                {
-                    if (ids.SpecificationsGroups.Count > 1)
+                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision);
+                    context.InitialiseSpecGroup(rootGroup);
+
+                    CreateProjectSpecifications(context, config);
+                    CreateSiteSpecifications(context, config);
+                    CreateBuildingSpecifications(context, config);
+                    CreateBuildingStoreySpecifications(context, config);
+                    CreateSpaceSpecifications(context);
+                    CreateZoneSpecifications(context);
+
+                    context.SetApplicableStages(RibaStages.Stage4Plus);
+                    CreateObjectTypeSpecifications(context);
+                    CreateObjectOccurrenceSpecifications(context);
+                    CreateSystemSpecifications(context);
+
+                    context.CloseScope();   // Closing will clear out any empty SpecificationGroup we didn't use - including any rootScope
+
+
+                    Directory.CreateDirectory(context.BasePath);
+                    var suffix = context.TargetGenerationPass switch
                     {
-                        var zipFileName = Path.ChangeExtension(fileName, "zip");
-                        ids.ExportBuildingSmartIDS(zipFileName, specLogger);
-                        specLogger.LogInformation("Created group IDS file {fileName} with {specs} specifications in {groups} groups", zipFileName, totalSpecs, ids.SpecificationsGroups.Count);
-                        // Unpack the grouped files
-                        var unpackFolder = Path.Combine(context.BasePath, Path.Combine("Group", context.TargetStage.ToString()));
-                        if(Directory.Exists(unpackFolder))
-                            Directory.Delete(unpackFolder, true);
-                        Directory.CreateDirectory(unpackFolder);
-                        ZipFile.ExtractToDirectory(zipFileName, unpackFolder);
-                    }
-                    else
-                    {
-                        specLogger.LogWarning("Only a single spec group found. Producing single ids file only");
-                    }
-                    // Flatten spec groups so we can save a single file
-                    foreach (var spec in ids.AllSpecifications().OrderBy(s => s.Guid))
-                    {
-                        rootGroup.Specifications.Add(spec);
-                    }
-                    ids.SpecificationsGroups.Clear();
-                    ids.SpecificationsGroups.Add(rootGroup);
-                }
-               
-                ids.ExportBuildingSmartIDS(fileName, specLogger);
-                specLogger.LogInformation("Created single IDS file {fileName} with {specs} specifications",  fileName, totalSpecs);
+                        GenerationPass.Core => "-Core",
+                        GenerationPass.Complex => "-Naming",
+                        GenerationPass.All => "",
+                        _ => throw new NotImplementedException(),
+                    };
+                    var grouped = GroupCommonApplicableRequirements ? " Grouped" : ""; 
                     
-                if(ValidateIDSOutputs)
-                    ValidateStage(context);
+                    var fileName = $"{context.BasePath}/ER-DFE-XX-XX-L-X-{version:D4}-Information Model {targetStage} Assurance{grouped}-{status}-{revision}{suffix}.ids";
+
+                    var totalSpecs = ids.AllSpecifications().Count();
+                    if (context.SaveOneFilePerScope)
+                    {
+                        if (ids.SpecificationsGroups.Count > 1)
+                        {
+                            if (GroupCommonApplicableRequirements)
+                            {
+                                GroupRequirementsByApplicability(ids);
+                            }
+
+                            var zipFileName = Path.ChangeExtension(fileName, "zip");
+                            ids.ExportBuildingSmartIDS(zipFileName, specLogger);
+                            specLogger.LogInformation("Created group IDS file {fileName} with {specs} specifications in {groups} groups", zipFileName, totalSpecs, ids.SpecificationsGroups.Count);
+                            // Unpack the grouped files
+                            var unpackFolder = Path.Combine(context.BasePath, Path.Combine("Group", context.TargetStage.ToString()));
+                            if (Directory.Exists(unpackFolder))
+                                Directory.Delete(unpackFolder, true);
+                            Directory.CreateDirectory(unpackFolder);
+                            ZipFile.ExtractToDirectory(zipFileName, unpackFolder);
+                            File.Delete(zipFileName);   // Redundant
+                        }
+                        else
+                        {
+                            specLogger.LogWarning("Only a single spec group found. Producing single ids file only");
+                        }
+                        // Consolidate spec groups to single group so we can save a single file
+                        foreach (var spec in ids.AllSpecifications().OrderBy(s => s.Guid))
+                        {
+                            rootGroup.Specifications.Add(spec);
+                        }
+                        ids.SpecificationsGroups.Clear();
+                        ids.SpecificationsGroups.Add(rootGroup);
+                    }
+
+                    ids.ExportBuildingSmartIDS(fileName, specLogger);
+                    specLogger.LogInformation("Created single IDS file {fileName} with {specs} specifications", fileName, totalSpecs);
+
+                    if (ValidateIDSOutputs)
+                        ValidateStage(context);
+                }
             }
             return Task.CompletedTask;
+        }
+
+
+        private void GroupRequirementsByApplicability(Xids ids)
+        {
+            
+            foreach(var specGroup in ids.SpecificationsGroups)
+            {
+                var groupedApplicability = specGroup.Specifications
+                    .GroupBy(sp => sp.Applicability.Decode())
+                    .OrderBy(sp => sp.First().Guid).ThenBy(sp => sp.Key)
+                    .ToList();// TODO Consider all facets and equality
+
+                foreach (var groupedSpecs in groupedApplicability)
+                {
+                    if(groupedSpecs.Count() == 1)
+                    {
+                        continue;   // don't re-write single groups of specs
+                    }
+                    var firstSpec = groupedSpecs.First();
+                    var lastSpec = groupedSpecs.Last();
+                    var applicable = firstSpec.Applicability;
+                    var spec = ids.PrepareSpecification(specGroup, firstSpec.IfcVersion!, applicable);
+                    spec.Cardinality = firstSpec.Cardinality;
+                    
+                    //spec.Applicability.RequirementOptions = new System.Collections.ObjectModel.ObservableCollection<RequirementCardinalityOptions>();
+                    spec.Requirement!.RequirementOptions = new System.Collections.ObjectModel.ObservableCollection<RequirementCardinalityOptions>();
+                    foreach (var groupedSpec in groupedSpecs)
+                    {
+                        if (groupedSpec.Requirement?.Facets.Any() != true)
+                            continue;   // 
+                        
+                        // Add the requirements to the single spec
+                        foreach(var req in groupedSpec.Requirement.Facets)
+                        {
+                            spec.Requirement!.Facets.Add(req);
+                        }
+
+                        // remove single version
+                        specGroup.Specifications.Remove(groupedSpec);
+
+                    }
+                    foreach (var cardinality in groupedSpecs.SelectMany(a => a.Requirement!.RequirementOptions!))
+                    {
+                        // Copy cardinalities over
+                        spec.Requirement!.RequirementOptions.Add(cardinality);
+                    }
+                    var groupName = firstSpec.Applicability.Name;
+                    spec.Name = $"{firstSpec.Guid}-{lastSpec.Guid}: {groupName} ({groupedSpecs.Count()} requirements)";
+                    spec.Guid = groupedSpecs.Aggregate(new StringBuilder(),
+                        (curr, next) => curr.Append(curr.Length == 0 ? "" : ",").Append(next.Guid)).ToString();
+                    spec.Description = groupedSpecs.Aggregate(new StringBuilder(), 
+                        (curr, next) => curr.Append(curr.Length == 0 ? $"{groupName} " : ", and ").Append(next.Description?.Replace($"{groupName} ", ""))).ToString();
+                    spec.Instructions = groupedSpecs.Aggregate(new StringBuilder(),
+                        (curr, next) => string.IsNullOrEmpty(next.Instructions) ? curr : curr.Append(curr.Length == 0 ? "" : ". ").Append(next.Guid).Append(": ").Append(next.Instructions)).ToString();
+                        
+
+                }
+            }
         }
 
         private void CleanPriorFiles(SpecContext context, RibaStages stage)
@@ -331,6 +418,7 @@ namespace Xbim.IDS.Generator.Dfe
         {
             var now = DateTime.UtcNow;
             var targetStage = context.TargetStage;
+            var targetGeneration = context.TargetGenerationPass;
 
             var specGroup = new SpecificationsGroup(context.Ids)
             {
@@ -340,7 +428,7 @@ namespace Xbim.IDS.Generator.Dfe
                 Specifications = new List<Specification>(),
                 Milestone = ribaStagesDict[targetStage],
                 Author = "DfE.BIM@Education.gov.uk",
-                Description = $"Assurance of IFC-SPF deliverables against DfE's information requirements",
+                Description = $"Assurance of IFC-SPF deliverables against {targetGeneration} DfE's information requirements",
                 Version = $"{revision}.{now.Year}.{now.DayOfYear}",
                 Purpose = "Information Model Assurance",
                 Copyright = "CC BY 4.0",
@@ -361,8 +449,6 @@ namespace Xbim.IDS.Generator.Dfe
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), subContext);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), ribaStagesDict.Values, subContext);
             CreateAttributeValueSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), config.ProjectPhase, subContext, "Project Should Have Phase Correct For Project Stage");
-
-            MarkAsRequired(applicability, specs);
         }
 
 
@@ -374,7 +460,6 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Site", "IfcSite");
             CreateCommonRequirements(ids, applicability, config.SiteName, config.SiteDescription, subContext);
-            MarkAsRequired(applicability, specs);
         }
 
         // 03
@@ -386,7 +471,7 @@ namespace Xbim.IDS.Generator.Dfe
             var applicability = GetEntityApplicability(ids, "Building", "IfcBuilding");
             CreateCommonRequirements(ids, applicability, config.BuildingName, config.BuildingDescription, subContext);
             CreateClassificationPatternSpecification(group, applicability, ids, uniclassExpression.ToString(), "En.*", subContext);
-            CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(uniclassExpression.ToString()), config.BuildingCategory, subContext);
+            CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass En", ValueConstraint.CreatePattern(uniclassExpression.ToString()), config.BuildingCategory, subContext);
             // If testing the value
             // CreatePropertyWithValueSpecification(group, entity, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", config.BuildingBlockConstructionType, subContext);
             CreatePropertyDefinedSpecification(group, applicability, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", subContext);
@@ -394,13 +479,12 @@ namespace Xbim.IDS.Generator.Dfe
             CreatePropertyDefinedSpecification(group, applicability, ids, "NumberOfStoreys", "Pset_BuildingCommon", subContext);
             CreatePropertyDefinedSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", subContext);
             CreatePropertyWithValueSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", config.BuildingUPRN, subContext, "IFCTEXT");
-            MarkAsRequired(applicability, group);
         }
 
         // 04
         private void CreateBuildingStoreySpecifications(SpecContext context, DfeConfig config)
         {
-            using var subContext = context.BeginSubscope().AddTag("BuildingStorey"); ;
+            using var subContext = context.BeginSubscope().AddTag("BuildingStorey");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Building Storey", "IfcBuildingStorey");
@@ -479,14 +563,17 @@ namespace Xbim.IDS.Generator.Dfe
             // Creates 100+ specs due to permutations
             CreateADSToUniclassSpecifications(subContext);
 
-            CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcZone", subContext.SetName("ZoneRequired"));
+            // todo: 
+            //CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcZone", subContext.SetName("ZoneRequired"));
 
         }
 
         // 05.15
         private void CreateADSToUniclassSpecifications(SpecContext subContext)
         {
-            using (var adsScope = subContext.BeginSubscope())
+            using (var adsScope = subContext.BeginSubscope()
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional))
             {
                 var specs = adsScope.CurrentSpecGroup;
                 var ids = subContext.Ids;
@@ -525,7 +612,9 @@ namespace Xbim.IDS.Generator.Dfe
         // 06
         private void CreateZoneSpecifications(SpecContext context)
         {
-            using var subContext = context.BeginSubscope().AddTag("Zone");
+            using var subContext = context.BeginSubscope()
+                .AddTag("Zone")
+                .SetMatches(CardinalityEnum.Optional);
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Zone", "IfcZone");
@@ -550,7 +639,8 @@ namespace Xbim.IDS.Generator.Dfe
         // 07
         private void CreateObjectTypeSpecifications(SpecContext context)
         {
-            using var subContext = context.BeginSubscope().AddTag("Type"); ;
+            using var subContext = context.BeginSubscope()
+                .AddTag("Type");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             //var applicability = GetEntityApplicability(ids, "Object Type", "IfcTypeObject");
@@ -566,11 +656,13 @@ namespace Xbim.IDS.Generator.Dfe
                     .Where(c => c.EndsWith("TYPE"))
                 .Where(c=> !c.StartsWith("IFCSPACE")).ToArray();
             var pdtApplicablity = GetEntityApplicability(ids, "Object Type", pdtTypes);
-            CreateAttributeDefinedSpecification(specs, pdtApplicablity, ids, nameof(IIfcWallType.PredefinedType), subContext);
+            CreateAttributeDefinedSpecification(specs, pdtApplicablity, ids, nameof(IIfcWallType.PredefinedType), subContext.SetMatches(CardinalityEnum.Optional));
             // Object Type Should Have Enumeration(PredefinedType) That Is Not NOTDEFINED
             // TODO: see above re DoorStyle etc
             CreateAttributeValueSpecification(specs, pdtApplicablity, ids, "PredefinedType", "NOTDEFINED", subContext.SetRule(Cardinality.Prohibited));
-            subContext.ResetRule();
+            subContext
+                .ResetRule()
+                .ResetMatches();
             // Object Type Should Have Name Defined
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
 
@@ -688,7 +780,8 @@ namespace Xbim.IDS.Generator.Dfe
         // 08
         private void CreateObjectOccurrenceSpecifications(SpecContext context)
         {
-            using var subContext = context.BeginSubscope().AddTag("Object"); ;
+            using var subContext = context.BeginSubscope()
+                .AddTag("Object");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
 
@@ -719,11 +812,13 @@ namespace Xbim.IDS.Generator.Dfe
             // Object Occurrence(COBie Component) Should Have AssetIdentifier That Is 'n/a'
             CreatePropertyWithValueSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", "n/a", subContext);
 
-            // Door Should Have FireRating That Is Defined
+            // Any Door Should Have FireRating That Is Defined
+            subContext.SetMatches(CardinalityEnum.Optional);
             var doorApplicability = GetEntityApplicability(ids, "Door", "IfcDoor");
             CreatePropertyDefinedSpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", subContext);
             // Door Should Have FireRating That Is From PickList Provided In The Projects Information Standard
             CreatePropertyFromListSpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", new[] { "Undefined", "n/a", "20", "30", "60", "90", "120" }, subContext);
+            subContext.ResetMatches();
             // TODO: Object Occurrences Must Not Contain Duplicate Entities
             subContext.Skip("08:13: Duplicates not supported");
             // TODO: Object Occurrence Should Have Layer Correctly Defined
@@ -765,7 +860,9 @@ namespace Xbim.IDS.Generator.Dfe
             var dfeDict = GetDfeTypes();    // Maps Uppercase PredefinedTypes to Proper-case
 
             // Start new context as we build at least one spec per applicable type as part of a single Rule. e.g. 5.7.BeamType
-            using var subContext = context.BeginSubscope();
+            using var subContext = context.BeginSubscope()
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional);
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
 
@@ -847,7 +944,9 @@ namespace Xbim.IDS.Generator.Dfe
             var dfeDict = GetDfeTypes();    // Maps Uppercase PredefinedTypes to Proper-case
 
             // Start new context as we build at least one spec per applicable type as part of a single Rule. e.g. 5.7.BeamType
-            using var subContext = context.BeginSubscope();
+            using var subContext = context.BeginSubscope()
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional);
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
 

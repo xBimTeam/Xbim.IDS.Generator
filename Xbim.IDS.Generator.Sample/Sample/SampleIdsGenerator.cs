@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using Xbim.IDS.Generator.Common;
 using Xbim.Ifc4.Interfaces;
 using Xbim.InformationSpecifications;
+using Xbim.InformationSpecifications.Cardinality;
 
 namespace Xbim.IDS.Generator.Sample
 {
@@ -173,8 +174,6 @@ namespace Xbim.IDS.Generator.Sample
                 ValueConstraint.CreatePattern(".*Uniclass.*"), GetUniclassEnCodes(), myContext.SetApplicableStages(RibaStages.Stage3Plus));
 
             
-            MarkAsRequired(applicability, header);
-
             newIds.ExportBuildingSmartIDS("test.ids");
 
 
@@ -262,7 +261,6 @@ namespace Xbim.IDS.Generator.Sample
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), stageDescriptions.Values, subContext);
             CreateAttributeValueSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), config.ProjectPhase, subContext);
 
-            MarkAsRequired(applicability, specs);
         }
 
 
@@ -271,7 +269,6 @@ namespace Xbim.IDS.Generator.Sample
             using var subContext = context.BeginSubscope();
             var applicability = GetEntityApplicability(ids, "Site", "IfcSite");
             CreateCommonRequirements(ids, spec, applicability, config.SiteName, config.SiteDescription, subContext);
-            MarkAsRequired(applicability, spec);
         }
 
         private static void CreateBuildingSpecifications(Xids ids, SpecificationsGroup group, SampleConfig config, SpecContext context)
@@ -283,7 +280,6 @@ namespace Xbim.IDS.Generator.Sample
             CreateClassificationFromListSpecification(group, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(".*Uniclass.*"), GetCustomUniclassEnCodes(), subContext);
             CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(".*Uniclass.*"), config.BuildingCategory, subContext);
             CreatePropertyDefinedSpecification(group, applicability, ids, "NumberOfStoreys", "Pset_BuildingCommon", subContext);
-            MarkAsRequired(applicability, group);
         }
 
         protected static void ForFloor(FacetGroup applicability, Floor floor)
@@ -365,7 +361,7 @@ namespace Xbim.IDS.Generator.Sample
 
         private static void CreateObjectOccurrenceSpecifications(Xids ids, SpecificationsGroup specs, SpecContext context)
         {
-            using var subContext = context.BeginSubscope();
+            using var subContext = context.BeginSubscope().SetMatches(CardinalityEnum.Optional);
 
             var applicability = GetEntityApplicability(ids, "COBie Component", CobieComponents);
 

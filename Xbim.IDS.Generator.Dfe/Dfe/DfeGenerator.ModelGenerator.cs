@@ -1,5 +1,6 @@
 ﻿using IdsLib.IfcSchema;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 using Xbim.Common;
 using Xbim.Common.Geometry;
@@ -21,7 +22,7 @@ namespace Xbim.IDS.Generator.Dfe
 
         static readonly Guid BaseGuidStage5 = new Guid("066916CA-0E25-49E5-B461-3E737BE3FF99");
 
-        public GeometryData GeometryDefaults { get; set; }
+        public GeometryData GeometryDefaults { get; set; } = default;
 
         /// <summary>
         /// Generates Test Ifc Models based on DfE conventions
@@ -40,15 +41,25 @@ namespace Xbim.IDS.Generator.Dfe
             var version = 44;
             _typeSeqenceDict.Clear();
 
+
             var fileName = @$"DFE-ER\ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-Spatial.ifc";
+            var specLogger = provider.GetRequiredService<ILogger<SpecContext>>();
+            using (var ctx = specLogger.BeginScope(targetStage.ToString()))
+            {
+                specLogger.LogInformation("Creating {stage} test model {file}", targetStage.ToDescription(), fileName);
+                BuildSpatialModel(config, fileName);
+            }
 
-            BuildSpatialModel(config, fileName);
+            using (var ctx = specLogger.BeginScope(targetStage.ToString()))
+            {
 
-            targetStage = RibaStages.Stage5;
-            config.ProjectPhase = ribaStagesDict[targetStage];
+                targetStage = RibaStages.Stage5;
+                config.ProjectPhase = ribaStagesDict[targetStage];
 
-            fileName = @$"DFE-ER\ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-MetaData.ifc";
-            BuildTypeModel(config, fileName);
+                fileName = @$"DFE-ER\ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-MetaData.ifc";
+                specLogger.LogInformation("Creating {stage} test model {file}", targetStage.ToDescription(), fileName);
+                BuildTypeModel(config, fileName);
+            }
 
             return Task.CompletedTask;
         }
@@ -689,6 +700,7 @@ namespace Xbim.IDS.Generator.Dfe
                                 .AddDfeTypeData(IsCOBieType);
 
                             // Invalid TypeName
+                            objectName = BuildObjectName(logicalInstanceType, type.Name.ToString(), space, out var _, pdt);
                             BuildObject(builder, instanceType, typeNo, badVariantNo++, failedTypes, objectName, $"{enumerationName} {entityName}", "07.05 Invalid TypeName Occurrence", 1).AddDefiningType(type);
                         }
                     }
@@ -1147,7 +1159,7 @@ namespace Xbim.IDS.Generator.Dfe
             if (ifcType.Name.EndsWith("GasTerminalType"))
                 element = "IfcFlowTerminal";
             if (ifcType.Name.EndsWith("ElectricHeaterType"))
-                element = "IfcFlowTerminal";
+                element = "IfcSpaceHeater";
 
             if (!string.IsNullOrEmpty(element))
             {

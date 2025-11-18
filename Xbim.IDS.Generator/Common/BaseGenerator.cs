@@ -39,6 +39,11 @@ namespace Xbim.IDS.Generator.Common
         /// </summary>
         public static bool ValidateIDSOutputs { get; set; } = false;
 
+        /// <summary>
+        /// Determines if multiple requirements will be grouped under a single common applicability
+        /// </summary>
+        public static bool GroupCommonApplicableRequirements { get; set; } = false;
+
         public abstract Task PublishIDS();
 
         /// <summary>
@@ -105,6 +110,7 @@ namespace Xbim.IDS.Generator.Common
                 spec.Name = $"{title}";
             }
             spec.Description = title;
+            ((SimpleCardinality)spec.Cardinality)!.ApplicabilityCardinality = context.ApplicabilityCardinality;
             SetRequirementCardinality(spec.Requirement!, context.RequirementCardinality);
             var schemas = GetApplicableSchemas(spec.Applicability);
             spec.IfcVersion = schemas;
@@ -457,16 +463,6 @@ namespace Xbim.IDS.Generator.Common
             FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have predefinedType '{predefinedType}'.");
         }
 
-
-        public static void CreateMandatoryCardinalitySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, SpecContext context)
-        {
-            if (context.ShouldSkipSpecForStage()) return;
-
-            var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, null);
-            FinaliseSpec(spec, context, $"Must have {selector.Name}s");
-            MarkAsRequired(selector, projectSpecs);
-        }
-
         public static void CreatePartOfSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, PartOfRelation? relationship, string entityType, SpecContext context)
         {
             if (context.ShouldSkipSpecForStage()) return;
@@ -511,53 +507,6 @@ namespace Xbim.IDS.Generator.Common
                     }
                 }
             };
-        }
-
-        /// <summary>
-        /// Indicates the applicablity is required.
-        /// </summary>
-        /// <param name="applicability"></param>
-        /// <param name="group"></param>
-        public static void MarkAsRequired(FacetGroup applicability, SpecificationsGroup group)
-        {
-            MarkApplicability(applicability, group, CardinalityEnum.Required);
-        }
-
-        /// <summary>
-        /// Indicates the applicability is prohibited
-        /// </summary>
-        /// <param name="applicability"></param>
-        /// <param name="group"></param>
-        public static void MarkAsProhibited(FacetGroup applicability, SpecificationsGroup group)
-        {
-            MarkApplicability(applicability, group, CardinalityEnum.Prohibited);
-        }
-
-        /// <summary>
-        /// Indicates the applicability is optional (default)
-        /// </summary>
-        /// <param name="applicability"></param>
-        /// <param name="group"></param>
-        public static void MarkAsOptional(FacetGroup applicability, SpecificationsGroup group)
-        {
-            MarkApplicability(applicability, group, CardinalityEnum.Optional);
-        }
-
-        public static void MarkApplicability(FacetGroup applicability, SpecificationsGroup group, SpecContext context)
-        {
-            MarkApplicability(applicability, group, context.ApplicabilityCardinality);
-        }
-
-        public static void MarkApplicability(FacetGroup applicability, SpecificationsGroup group, CardinalityEnum expectation)
-        {
-            // Find each spec with this applicability and mark the cardinality we expect. E.g. Are Space required, optional or prohibited
-            foreach (var cardinality in group.Specifications
-                .Where(s => s.Applicability == applicability)
-                .Select(s => s.Cardinality)
-                .OfType<SimpleCardinality>())
-            {
-                cardinality.ApplicabilityCardinality = expectation;
-            }
         }
 
         public static string RemoveSuffix(string suffix, string targetName)
