@@ -257,9 +257,15 @@ namespace Xbim.IDS.Generator.Common
         /// <returns></returns>
         public static IEnumerable<string> GetSfg20Codes() => GetClassificationFile("Common", "SFG20.txt", 0);
 
-        public static IEnumerable<string> GetClassificationFile(string area, string filename, int index)
+        /// <summary>
+        /// Helper method to load classification file lines from either physical file or embedded resources
+        /// </summary>
+        /// <param name="area">Area folder (e.g., "Common", "Dfe")</param>
+        /// <param name="filename">Filename within the Content folder</param>
+        /// <returns>Array of lines from the file</returns>
+        private static string[] GetClassificationFileLines(string area, string filename)
         {
-            var localFile = @$"{area}\Content\{filename}";
+            var localFile = Path.Combine(area, "Content", filename);
             string[] lines = [];
             if (File.Exists(localFile))
             {
@@ -282,24 +288,29 @@ namespace Xbim.IDS.Generator.Common
                 }
             }
 
+            return lines;
+        }
+
+        public static IEnumerable<string> GetClassificationFile(string area, string filename, int index)
+        {
+            var lines = GetClassificationFileLines(area, filename);
             return lines.Where(l => !string.IsNullOrWhiteSpace(l))
                     .Select(l => l.Split(":")[index].Trim());
         }
 
         public static IEnumerable<KeyValuePair<string, string>> GetClassificationFilePairs(string area, string filename)
         {
-            return File.ReadAllLines(@$"{area}\Content\{filename}")
-                .Where(l => !string.IsNullOrWhiteSpace(l))
+            var lines = GetClassificationFileLines(area, filename);
+            return lines.Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":"))
                 .Select(v => new KeyValuePair<string, string>(v[1].Trim(), v[0].Trim()));
         }
 
         public static IEnumerable<string[]> GetClassificationFileStrings(string area, string filename)
         {
-            return File.ReadAllLines(@$"{area}\Content\{filename}")
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":"))
-                ;
+            var lines = GetClassificationFileLines(area, filename);
+            return lines.Where(l => !string.IsNullOrWhiteSpace(l))
+                .Select(l => l.Split(":"));
         }
 
         /// <summary>
