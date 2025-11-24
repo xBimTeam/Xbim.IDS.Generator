@@ -1031,7 +1031,7 @@ namespace Xbim.IDS.Generator.Dfe
 
         private static IEnumerable<string> GetADSCodes()
         {
-            return File.ReadAllLines(@"Dfe\Content\ADS_Codes.txt")
+            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "ADS_Codes.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":")[0]);
         }
@@ -1042,7 +1042,7 @@ namespace Xbim.IDS.Generator.Dfe
         /// <returns></returns>
         public static IDictionary<string, IEnumerable<string>> GetUniclassADSMap()
         {
-            var res = File.ReadAllLines(@"Dfe\Content\ADS_Codes.txt")
+            var res = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "ADS_Codes.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":"))
                 .Select(r => new { Uniclass = r[2], ADS = r[0] })
@@ -1055,14 +1055,14 @@ namespace Xbim.IDS.Generator.Dfe
 
         private static IEnumerable<string> GetZoneCodes()
         {
-            return File.ReadAllLines(@"Dfe\Content\Dfe_Zones.txt")
+            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":")[0]);
         }
 
         private static IEnumerable<string> GetZoneCategories()
         {
-            return File.ReadAllLines(@"Dfe\Content\Dfe_Zones.txt")
+            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":")[1])
                 .Distinct();
@@ -1070,21 +1070,21 @@ namespace Xbim.IDS.Generator.Dfe
 
         private static IEnumerable<string> GetZoneDescriptions()
         {
-            return File.ReadAllLines(@"Dfe\Content\Dfe_Zones.txt")
+            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":")[2]);
         }
 
         private static IEnumerable<string[]> GetZoneData()
         {
-            return File.ReadAllLines(@"Dfe\Content\Dfe_Zones.txt")
+            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":"));
         }
 
         private static IDictionary<string, string> GetDfeTypes()
         {
-            var results = File.ReadAllLines(@"Dfe\Content\Dfe_Naming.txt")
+            var results = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Naming.txt"))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
                 .Select(l => l.Split(":"))
                 .Select(l => new

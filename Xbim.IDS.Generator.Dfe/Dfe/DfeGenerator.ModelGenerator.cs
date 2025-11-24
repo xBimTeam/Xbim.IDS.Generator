@@ -1270,7 +1270,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             var adsClasses = adsClassification.Select(a => a.Uniclass).Distinct();
 
-            var slClassification = GetClassificationFileStrings("Common", "Uniclass\\SL_Codes.txt")
+            var slClassification = GetClassificationFileStrings("Common", "Uniclass/SL_Codes.txt")
                 .Select(s => new { Description = s[1].Trim(), Code = s[0].Trim() })
                 .Where(c => adsClasses.Contains(c.Code))
                 .ToArray();
