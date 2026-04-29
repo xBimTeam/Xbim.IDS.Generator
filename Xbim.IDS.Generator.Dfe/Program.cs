@@ -11,8 +11,12 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
+        var imrVersion = args.Contains("--s21", StringComparer.OrdinalIgnoreCase)
+            ? ImrVersion.S21
+            : ImrVersion.S25;
+
         // bootstrap an app
-        var host = CreateHostBuilder().Build();
+        var host = CreateHostBuilder(imrVersion).Build();
 
         var generator = host.Services.GetRequiredService<IIdsSchemaGenerator>();
         var modelGenerator = host.Services.GetRequiredService<IModelGenerator>();
@@ -21,7 +25,7 @@ internal class Program
         await modelGenerator.GenerateTestModels();
     }
 
-    static HostApplicationBuilder CreateHostBuilder()
+    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion)
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(outputTemplate:
@@ -35,6 +39,7 @@ internal class Program
         hostBuilder.Services
             .AddXbimToolkit()
             .AddLogging(o => o.AddSerilog(Log.Logger).SetMinimumLevel(LogLevel.Debug))
+            .AddSingleton(new DfeOptions { Version = imrVersion })
             .AddTransient<IIdsSchemaGenerator, DfeGenerator>()
             .AddTransient<IModelGenerator, DfeGenerator>()
             .AddIdsValidation()

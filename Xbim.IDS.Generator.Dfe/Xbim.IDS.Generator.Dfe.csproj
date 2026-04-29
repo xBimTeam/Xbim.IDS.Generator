@@ -25,13 +25,22 @@
 	</ItemGroup>
   
   <ItemGroup>
-    <None Update="Dfe\Content\ADS_Codes.txt">
+    <None Update="Dfe\Content\S21_TypeCodes.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Dfe\Content\Dfe_Naming.txt">
+    <None Update="Dfe\Content\S21_Naming.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Dfe\Content\Dfe_Zones.txt">
+    <None Update="Dfe\Content\S21_Zones.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dfe\Content\S25_TypeCodes.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dfe\Content\S25_Naming.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dfe\Content\S25_Zones.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

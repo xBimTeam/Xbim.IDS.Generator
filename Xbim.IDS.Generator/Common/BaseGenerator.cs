@@ -99,6 +99,7 @@ namespace Xbim.IDS.Generator.Common
         public static void FinaliseSpec(Specification spec, SpecContext context, string title)
         {
             var id = context.GenerateIdentifier();
+            title = ApplyModalVerbs(title, context);
             if (SetIdsIdentifier)
                 spec.Guid = id;
             if (context.PrefixSpecNameWithId)
@@ -320,19 +321,34 @@ namespace Xbim.IDS.Generator.Common
         }
 
         /// <summary>
-        /// Returns word "should" or "shouldn't" or "can" based on the requirement cardinality
+        /// Returns the modal verb for this spec's title based on cardinality.
+        /// Prohibited → SHALL NOT, Expected → SHALL (required) / SHOULD (optional spec), Optional → SHOULD.
         /// </summary>
-        /// <param name="context">Validation context</param>
-        /// <returns>Returns word "should" or "shouldn't" or "can"</returns>
         private static string ShouldOrShouldnt(SpecContext context)
         {
+            bool isOptional = context.ApplicabilityCardinality == CardinalityEnum.Optional;
             return context.RequirementCardinality switch
             {
-                Cardinality.Prohibited => "Should not",
-                Cardinality.Expected => "Should",
-                Cardinality.Optional => "Can",
+                Cardinality.Prohibited => isOptional ? "SHOULD NOT" : "SHALL NOT",
+                Cardinality.Expected   => isOptional ? "SHOULD" : "SHALL",
+                Cardinality.Optional   => "SHOULD",
                 _ => throw new ArgumentOutOfRangeException(nameof(context), "Unexpected requirement cardinality")
             };
+        }
+
+        /// <summary>
+        /// Replaces legacy "Should"/"Should not"/"Can" wording in explicitly-passed title strings with
+        /// the correct modal verb. Auto-generated titles already use the right verb via
+        /// <see cref="ShouldOrShouldnt"/>; this covers any hardcoded title arguments.
+        /// </summary>
+        private static string ApplyModalVerbs(string title, SpecContext context)
+        {
+            bool isOptional = context.ApplicabilityCardinality == CardinalityEnum.Optional;
+            // Replace longer pattern first to avoid partial matches ("Should not" before "Should")
+            return title
+                .Replace("Should not", isOptional ? "SHOULD NOT" : "SHALL NOT")
+                .Replace("Should", isOptional ? "SHOULD" : "SHALL")
+                .Replace("Can", "SHOULD");
         }
 
         public static void CreateAttributeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string value, SpecContext context, string? title = null)

@@ -26,6 +26,7 @@ namespace Xbim.IDS.Generator.Dfe
         public DfeGenerator(IServiceProvider provider)
         {
             this.provider = provider;   // Stopgap until fix up DI
+            _version = provider.GetRequiredService<DfeOptions>().Version;
 
             Xids.Settings.ApplyPrefixToSpecGroupFileNames = false;
 
@@ -41,6 +42,7 @@ namespace Xbim.IDS.Generator.Dfe
         internal const string spaceNameRegex = "((EX|00|01|02|03|RF|R2|ZZ|M0|M1|B1|B2)-)?[0-9]+[A-Za-z]?";
         internal static readonly Regex spaceNameExpression = new($"{spaceNameRegex}");
         internal static readonly Regex adsNameExpression = new(@".*(DfE ADS|dfe ads|DFE ADS).*");
+        internal static readonly Regex spaceClassExpression = new(@".*(DfE Space|dfe space|DFE SPACE).*");
         internal static readonly Regex uniclassExpression = new(@".*[Uu]niclass.*");
         // Not perfect but likely good enough for our purposes: https://www.regular-expressions.info/email.html
         internal const string emailRegex = @"([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})";
@@ -53,6 +55,7 @@ namespace Xbim.IDS.Generator.Dfe
         internal static readonly Regex numberOrNaExpression = new($@"n\/a|(\d|-| |_)+");
         internal static readonly Regex dateOrDefaultExpression = new(@"1900-12-31T23:59:59|20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
         private readonly IServiceProvider provider;
+        private readonly ImrVersion _version;
 
         static readonly IDictionary<RibaStages, string> ribaStagesDict = new Dictionary<RibaStages, string>()
         {
@@ -214,7 +217,7 @@ namespace Xbim.IDS.Generator.Dfe
                     {
                         // Note: not part of IDS standard - only in json export. Main public meta data on SpecificationGroup items
                         Guid = Guid.NewGuid().ToString(),
-                        Name = $"{targetGeneration} DfE EIR model checks for {config.ProjectName} at {targetStage}",
+                        Name = $"{targetGeneration} DfE {_version} EIR model checks for {config.ProjectName} at {targetStage}",
                         Project = new Project   
                         {
                             Guid = Guid.NewGuid().ToString(),
@@ -240,7 +243,7 @@ namespace Xbim.IDS.Generator.Dfe
 
                     CleanPriorFiles(context, targetStage);
 
-                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision);
+                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision, _version);
                     context.InitialiseSpecGroup(rootGroup);
 
                     CreateProjectSpecifications(context, config);
@@ -266,9 +269,9 @@ namespace Xbim.IDS.Generator.Dfe
                         GenerationPass.All => "",
                         _ => throw new NotImplementedException(),
                     };
-                    var grouped = GroupCommonApplicableRequirements ? " Grouped" : ""; 
-                    
-                    var fileName = $"{context.BasePath}/ER-DFE-XX-XX-L-X-{version:D4}-Information Model {targetStage} Assurance{grouped}-{status}-{revision}{suffix}.ids";
+                    var grouped = GroupCommonApplicableRequirements ? " Grouped" : "";
+
+                    var fileName = $"{context.BasePath}/ER-DFE-XX-XX-L-X-{version:D4}-Information Model {targetStage} {_version} Assurance{grouped}-{status}-{revision}{suffix}.ids";
 
                     var totalSpecs = ids.AllSpecifications().Count();
                     if (context.SaveOneFilePerScope)
@@ -414,7 +417,7 @@ namespace Xbim.IDS.Generator.Dfe
 
         }
 
-        private static SpecificationsGroup InitialiseSpecGroup(SpecContext context, DfeConfig config, string revision)
+        private static SpecificationsGroup InitialiseSpecGroup(SpecContext context, DfeConfig config, string revision, ImrVersion version)
         {
             var now = DateTime.UtcNow;
             var targetStage = context.TargetStage;
@@ -424,11 +427,11 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 Date = now,
                 Guid = Guid.NewGuid().ToString(),
-                Name = $"Information Model RIBA {targetStage} Assurance for {config.ProjectName}",
+                Name = $"Information Model RIBA {targetStage} {version} Assurance for {config.ProjectName}",
                 Specifications = new List<Specification>(),
                 Milestone = ribaStagesDict[targetStage],
                 Author = "DfE.BIM@Education.gov.uk",
-                Description = $"Assurance of IFC-SPF deliverables against {targetGeneration} DfE's information requirements",
+                Description = $"Assurance of IFC-SPF deliverables against {targetGeneration} DfE's {version} information requirements",
                 Version = $"{revision}.{now.Year}.{now.DayOfYear}",
                 Purpose = "Information Model Assurance",
                 Copyright = "CC BY 4.0",
@@ -507,8 +510,9 @@ namespace Xbim.IDS.Generator.Dfe
             var elevations = Enumerable.Range(0, config.NumberOfStoreys).Select(i => $@"{{{{IfcBuildingStorey.Level {i:00}.Elevation}}}}");
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Elevation), elevations, subContext, NetTypeName.Double);
 
-            // TODO: Review with BenS what his version intends (NetHeight)
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", subContext, 0, false, null, false, "IfcLengthMeasure");
+            // S21: Height, S25: NominalHeight (04.09)
+            var storeyHeightProp = _version == ImrVersion.S21 ? "NetHeight" : "NominalHeight";
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, storeyHeightProp, "Additional_Pset_BuildingStoreyCommon", subContext, 0, false, null, false, "IfcLengthMeasure");
             
         }
 
@@ -542,18 +546,21 @@ namespace Xbim.IDS.Generator.Dfe
             CreatePropertyDefinedSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", subContext.SetApplicableStages(RibaStages.Stage5Plus));
             subContext.SetApplicableStages(original);   // reset default
 
-            // Space Should Have Category(DfE ADS Classification) Defined
-            var adsSystemConstraint = ValueConstraint.CreatePattern(adsNameExpression.ToString());
-            CreateClassificationDefinedSpecification(specs, applicability, ids, "ADS Classification", adsSystemConstraint, subContext);
-            // Space Should Have Category(DfE ADS Classification) From Value List
-            CreateClassificationFromListSpecification(specs, applicability, ids, "ADS Classification", adsSystemConstraint, GetADSCodes(), subContext);
+            // Space Should Have Category Defined — label and code list differ between S21 (ADS) and S25 (Space)
+            var spaceClassConstraint = _version == ImrVersion.S21
+                ? ValueConstraint.CreatePattern(adsNameExpression.ToString())
+                : ValueConstraint.CreatePattern(spaceClassExpression.ToString());
+            var spaceClassLabel = _version == ImrVersion.S21 ? "ADS Classification" : "Space Classification";
+            CreateClassificationDefinedSpecification(specs, applicability, ids, spaceClassLabel, spaceClassConstraint, subContext);
+            CreateClassificationFromListSpecification(specs, applicability, ids, spaceClassLabel, spaceClassConstraint, GetSpaceCodes(), subContext);
 
-            // Space Should Have Height Defined
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE");
-            // Space Should Have GrossArea Defined
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "GrossFloorArea", "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE");
-            // Space Should Have NetArea Defined
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NetFloorArea", "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE");
+            // S21: Height/GrossArea/NetArea  |  S25: ClearHeight/GrossFloorArea/NetFloorArea  (05.11-05.13)
+            var spaceHeightProp  = _version == ImrVersion.S21 ? "Height"        : "ClearHeight";
+            var grossAreaProp    = _version == ImrVersion.S21 ? "GrossArea"     : "GrossFloorArea";
+            var netAreaProp      = _version == ImrVersion.S21 ? "NetArea"       : "NetFloorArea";
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, spaceHeightProp, "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE");
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, grossAreaProp,   "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE");
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, netAreaProp,     "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE");
 
 
             // Space Should Have UniclassClassification From Agreed Value List
@@ -577,19 +584,20 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 var specs = adsScope.CurrentSpecGroup;
                 var ids = subContext.Ids;
-                var adsMap = GetUniclassADSMap();
+                var spaceMap = GetUniclassSpaceMap();
+                var classFilter = _version == ImrVersion.S21 ? ".*ADS.*" : ".*Space.*";
                 const int trimAt = 3;
-                foreach (var item in adsMap)
+                foreach (var item in spaceMap)
                 {
                     var label = String.Join(", ", item.Value.Take(trimAt));
                     if(item.Value.Count() > trimAt)
                     {
                         label += $",+{item.Value.Count()- trimAt} more";
                     }
-                    var name = $"Spaces with ADS '{label}'";
+                    var name = $"Spaces with classification '{label}'";
                     adsScope.SetName(item.Key);
 
-                    var applicab = GetEntityApplicabilityWithClassifications(ids, name, "IfcSpace", ".*ADS.*", item.Value, false);
+                    var applicab = GetEntityApplicabilityWithClassifications(ids, name, "IfcSpace", classFilter, item.Value, false);
 
                     CreateClassificationCodeValueSpecification(specs, applicab, ids, "Uniclass", ValueConstraint.CreatePattern(uniclassExpression.ToString()), item.Key, adsScope);
                 }
@@ -679,6 +687,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             //  !! Applicable to COBie Types only here on!!
             applicability = GetEntityApplicability(ids, "COBie Object Type", DomainExtensions.CobieTypes);
+            subContext.SetMatches(CardinalityEnum.Optional);
 
             // Object Type Should Have AssetType Defined
             CreatePropertyDefinedSpecification(specs, applicability, ids, "AssetType", "COBie_Asset", subContext);
@@ -707,9 +716,12 @@ namespace Xbim.IDS.Generator.Dfe
             CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyDurationParts That Is '0.0' Or Is A Valid Duration
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", numericExpression.ToString(),"Valid duration", subContext, "IFCTEXT");
-            // TODO: Object Type Should Have WarrantyDurationParts That Is An Email Address /// > 0
-            subContext.SetApplicableStages(RibaStages.Stage5Plus);
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", subContext, 0, minInclusive: false, null, default, "IFCTEXT");
+            // S21 only: WarrantyDurationParts must be > 0 at Stage 5+ (07.19 removed in S25)
+            if (_version == ImrVersion.S21)
+            {
+                subContext.SetApplicableStages(RibaStages.Stage5Plus);
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", subContext, 0, minInclusive: false, null, default, "IFCTEXT");
+            }
 
             // Object Type Should Have WarrantyGuarantorLabor That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
@@ -726,9 +738,12 @@ namespace Xbim.IDS.Generator.Dfe
             CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyDurationLabor That Is '0.0' Or Is A Valid Duration
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", numericExpression.ToString(), "Valid duration", subContext, "IFCTEXT");
-            // TODO: Object Type Should Have WarrantyDurationLabor That Is Email Address
-            subContext.SetApplicableStages(RibaStages.Stage5Plus);
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", subContext, 0, minInclusive: false, null, default, "IFCTEXT");
+            // S21 only: WarrantyDurationLabor must be > 0 at Stage 5+ (07.25 removed in S25)
+            if (_version == ImrVersion.S21)
+            {
+                subContext.SetApplicableStages(RibaStages.Stage5Plus);
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", subContext, 0, minInclusive: false, null, default, "IFCTEXT");
+            }
 
             subContext.SetApplicableStages(RibaStages.Stage4Plus); // For remainder of specs
 
@@ -781,7 +796,8 @@ namespace Xbim.IDS.Generator.Dfe
         private void CreateObjectOccurrenceSpecifications(SpecContext context)
         {
             using var subContext = context.BeginSubscope()
-                .AddTag("Object");
+                .AddTag("Object")
+                .SetMatches(CardinalityEnum.Optional);
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
 
@@ -830,7 +846,9 @@ namespace Xbim.IDS.Generator.Dfe
         // 09
         private void CreateSystemSpecifications(SpecContext context)
         {
-            using var subContext = context.BeginSubscope().AddTag("System");
+            using var subContext = context.BeginSubscope()
+                .AddTag("System")
+                .SetMatches(CardinalityEnum.Optional);
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Ifc System", "IfcSystem", false);
@@ -1029,77 +1047,48 @@ namespace Xbim.IDS.Generator.Dfe
             }
         }
 
-        private static IEnumerable<string> GetADSCodes()
-        {
-            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "ADS_Codes.txt"))
+        private string VersionedContentPath(string name) =>
+            Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", $"{_version}_{name}.txt");
+
+        private IEnumerable<string[]> ReadVersionedContent(string name) =>
+            File.ReadAllLines(VersionedContentPath(name))
                 .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":")[0]);
-        }
+                .Select(l => l.Split(':').Select(p => p.Trim()).ToArray());
+
+        /// <summary>Returns valid space classification codes for the active IMR version (ADS for S21, Space codes for S25).</summary>
+        private IEnumerable<string> GetSpaceCodes() =>
+            ReadVersionedContent("TypeCodes").Select(r => r[0]);
+
+        /// <summary>Groups space classification codes by their Uniclass SL code.</summary>
+        public IDictionary<string, IEnumerable<string>> GetUniclassSpaceMap() =>
+            ReadVersionedContent("TypeCodes")
+                .GroupBy(r => r[2])
+                .ToDictionary(g => g.Key, g => g.Select(r => r[0]));
 
         /// <summary>
-        /// Groups ADS classification codes by their appropriate Uniclass classification
+        /// Returns the valid Uniclass SL codes for the active IMR version, derived from the TypeCodes file.
+        /// Update the S21_TypeCodes.txt / S25_TypeCodes.txt file when Uniclass tables are revised.
         /// </summary>
-        /// <returns></returns>
-        public static IDictionary<string, IEnumerable<string>> GetUniclassADSMap()
-        {
-            var res = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "ADS_Codes.txt"))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":"))
-                .Select(r => new { Uniclass = r[2], ADS = r[0] })
-                .GroupBy(r=> r.Uniclass)
-                .ToDictionary(g => g.Key.Trim(), g => g.ToList().Select(v => v.ADS.Trim()))
-                ;
+        private new IEnumerable<string> GetUniclassSLCodes() =>
+            ReadVersionedContent("TypeCodes").Select(r => r[2]).Distinct();
 
-            return res;
-        }
+        private IEnumerable<string> GetZoneCodes() =>
+            ReadVersionedContent("Zones").Select(r => r[0]);
 
-        private static IEnumerable<string> GetZoneCodes()
-        {
-            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":")[0]);
-        }
+        private IEnumerable<string> GetZoneCategories() =>
+            ReadVersionedContent("Zones").Select(r => r[1]).Distinct();
 
-        private static IEnumerable<string> GetZoneCategories()
-        {
-            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":")[1])
-                .Distinct();
-        }
+        private IEnumerable<string> GetZoneDescriptions() =>
+            ReadVersionedContent("Zones").Select(r => r[2]);
 
-        private static IEnumerable<string> GetZoneDescriptions()
-        {
-            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":")[2]);
-        }
+        private IEnumerable<string[]> GetZoneData() =>
+            ReadVersionedContent("Zones");
 
-        private static IEnumerable<string[]> GetZoneData()
-        {
-            return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Zones.txt"))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":"));
-        }
-
-        private static IDictionary<string, string> GetDfeTypes()
-        {
-            var results = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "Dfe", "Content", "Dfe_Naming.txt"))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
-                .Select(l => l.Split(":"))
-                .Select(l => new
-                {
-                    IfcType = l[0],
-                    Key = l[1],
-                    ProperCase = l[2],
-                    Description = l[3]
-                })
-                .DistinctBy(l => l.Key)
-                .ToDictionary(v => v.Key.Trim(), v => v.ProperCase.Trim())
-                ;
-            return results;
-
-        }
+        private IDictionary<string, string> GetDfeTypes() =>
+            ReadVersionedContent("Naming")
+                .Select(r => new { Key = r[1], ProperCase = r[2] })
+                .DistinctBy(r => r.Key)
+                .ToDictionary(r => r.Key, r => r.ProperCase);
 
         
 

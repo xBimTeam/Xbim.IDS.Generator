@@ -1,10 +1,21 @@
 ﻿using System.Text.Json.Serialization;
 #if AirTable
 using Xbim.Flex.Services.Abstractions;
-#endif 
+#endif
 
 namespace Xbim.IDS.Generator.Dfe
 {
+    public enum ImrVersion { S25, S21 }
+
+    /// <summary>
+    /// Runtime options for the DfE generator (resolved from CLI args / DI).
+    /// Kept separate from DfeConfig so template-token configs stay clean.
+    /// </summary>
+    internal class DfeOptions
+    {
+        public ImrVersion Version { get; set; } = ImrVersion.S25;
+    }
+
     /// <summary>
     /// Dfe Project Config
     /// </summary>

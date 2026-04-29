@@ -1041,8 +1041,7 @@ namespace Xbim.IDS.Generator.Dfe
             return _typeSeqenceDict.AddOrUpdate(reference, 1, (_, i) => ++i);
         }
 
-        private static Lazy<IDictionary<string, string>> LazyDfeDict = new Lazy<IDictionary<string, string>>(GetDfeTypes);
-        private IDictionary<string, string> DfeTypeDict { get => LazyDfeDict.Value; }
+        private IDictionary<string, string> DfeTypeDict => GetDfeTypes();
 
         private string BuildObjectName(ClassInfo ifcObjectType, string defaultTypeName, IIfcSpace space, string predefinedType = "")
         {
@@ -1264,7 +1263,7 @@ namespace Xbim.IDS.Generator.Dfe
         {
             var spaces = new List<IIfcSpace>();
 
-            var adsClassification = GetClassificationFileStrings("Dfe", "ADS_Codes.txt")
+            var adsClassification = GetClassificationFileStrings("Dfe", $"Content/{_version}_TypeCodes.txt")
                .Select(s => new { Description = s[1].Trim(), Code = s[0].Trim(), Uniclass = s[2].Trim() })
                .ToArray();
 
