@@ -216,7 +216,8 @@ Electric Distribution Point: USERDEFINED: User-defined type.
 Electric Flow Storage Device: BATTERY: A device for storing energy in chemical form so that it can be released as electrical energy.
 Electric Flow Storage Device: CAPACITORBANK: A device that stores electrical energy when an external power supply is present using the electrical property of capacitance.
 Electric Flow Storage Device: HARMONICFILTER: A device that constantly injects currents that precisely correspond to the harmonic components drawn by the load.
-Electric Flow Storage Device: NOTDEFINED: 
+Electric Flow Storage Device: INDUCTORBANK: A collection of inductors used for power factor correction or harmonic filtering.
+Electric Flow Storage Device: NOTDEFINED:
 Electric Flow Storage Device: UPS: A device that provides a time limited alternative source of power supply in the event of failure of the main supply.
 Electric Flow Storage Device: USERDEFINED: User-defined type.
 Electric Generator: NOTDEFINED: 
@@ -261,7 +262,7 @@ Evaporative Cooler: INDIRECTEVAPORATIVEWETCOIL: Indirect evaporative wet coil: C
 Evaporative Cooler: NOTDEFINED: 
 Evaporative Cooler: USERDEFINED: User-defined evaporative cooler type.
 Evaporator: DIRECTEXPANSIONBRAZEDPLATE: Direct-expansion evaporator where a refrigerant evaporates inside plates brazed or welded together to make up an assembly of separate channels.
-Evaporator: DIRECEXPANSIONSHELLANDTUBE: Direct-expansion evaporator where a refrigerant evaporates inside a series of baffles that channel the fluid throughout the shell side.
+Evaporator: DIRECTEXPANSIONSHELLANDTUBE: Direct-expansion evaporator where a refrigerant evaporates inside a series of baffles that channel the fluid throughout the shell side.
 Evaporator: DIRECTEXPANSIONTUBEINTUBE: Direct-expansion evaporator where a refrigerant evaporates inside one or more pairs of coaxial tubes.
 Evaporator: FLOODEDSHELLANDTUBE: Evaporator in which refrigerant evaporates outside tubes.
 Evaporator: NOTDEFINED: Undefined evaporator type.
@@ -296,7 +297,7 @@ Flow Instrument: FREQUENCYMETER: A device that reads and displays the electrical
 Flow Instrument: NOTDEFINED: 
 Flow Instrument: PHASEANGLEMETER: A device that reads and displays the phase angle of a phase in a polyphase electrical circuit.
 Flow Instrument: POWERFACTORMETER: A device that reads and displays the power factor of an electrical circuit.
-Flow Instrument: PRESSUREGUAGE: A device that reads and displays a pressure value at a point or the pressure difference between two points.
+Flow Instrument: PRESSUREGAUGE: A device that reads and displays a pressure value at a point or the pressure difference between two points.
 Flow Instrument: THERMOMETER: A device that reads and displays a temperature value at a point.
 Flow Instrument: USERDEFINED: User-defined type.
 Flow Instrument: VOLTMETER_PEAK: A device that reads and displays the peak voltage in an electrical circuit.
