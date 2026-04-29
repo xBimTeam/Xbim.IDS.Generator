@@ -361,7 +361,7 @@ namespace Xbim.IDS.Generator.Common
             var specGroup = new SpecificationsGroup(Ids)
             {
                 Guid = Guid.NewGuid().ToString(),
-                Name = $"{stage}_{Prefix} {Tag} - {BaseName}",
+                Name = $"{stage}_{Prefix} : Grouped {Tag}",
                 Specifications = new List<Specification>(),
 
                 Date = toCopy.Date,
