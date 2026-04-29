@@ -14,6 +14,8 @@ namespace Xbim.IDS.Generator.Dfe
     internal class DfeOptions
     {
         public ImrVersion Version { get; set; } = ImrVersion.S25;
+        public string Status { get; set; } = "Sn";
+        public string Revision { get; set; } = "Pnn";
     }
 
     /// <summary>

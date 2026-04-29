@@ -36,13 +36,15 @@ namespace Xbim.IDS.Generator.Dfe
 
             var targetStage = RibaStages.Stage3;
             config.ProjectPhase = ribaStagesDict[targetStage];
-            var status = "S2";
-            var revision = "P01";
+            var status = _status;
+            var revision = _revision;
             var version = 44;
             _typeSeqenceDict.Clear();
 
+            var ifcBase = Path.Combine("Outputs", _version.ToString(), "IFC");
+            Directory.CreateDirectory(ifcBase);
 
-            var fileName = @$"DFE-ER\ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-Spatial.ifc";
+            var fileName = Path.Combine(ifcBase, $"ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-Spatial.ifc");
             var specLogger = provider.GetRequiredService<ILogger<SpecContext>>();
             using (var ctx = specLogger.BeginScope(targetStage.ToString()))
             {
@@ -56,7 +58,7 @@ namespace Xbim.IDS.Generator.Dfe
                 targetStage = RibaStages.Stage5;
                 config.ProjectPhase = ribaStagesDict[targetStage];
 
-                fileName = @$"DFE-ER\ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-MetaData.ifc";
+                fileName = Path.Combine(ifcBase, $"ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-MetaData.ifc");
                 specLogger.LogInformation("Creating {stage} test model {file}", targetStage.ToDescription(), fileName);
                 BuildTypeModel(config, fileName);
             }
@@ -103,7 +105,7 @@ namespace Xbim.IDS.Generator.Dfe
                     var spaces = CreateSpaces(instanceBuilder, storeys.Take(4), ["00", "01", "02a", "02b", "03", "B4D"]);
                     var roofSpaces = CreateSpaces(instanceBuilder, storeys.Skip(4), ["04", "05", "06"]);
 
-                    IEnumerable<IIfcZone> zones = CreateZones(instanceBuilder, ["Basic teaching", "Learning resources", "Halls and dining", "Non-net", "Staff and admin"]);
+                    IEnumerable<IIfcZone> zones = CreateZones(instanceBuilder, ["Basic teaching", "Learning resources", "Halls and dining", "Non-net", "Staff and administration"]);
 
                     int i = 0;
                     foreach(var sp in spaces.Union(roofSpaces))
@@ -1263,7 +1265,7 @@ namespace Xbim.IDS.Generator.Dfe
         {
             var spaces = new List<IIfcSpace>();
 
-            var adsClassification = GetClassificationFileStrings("Dfe", $"Content/{_version}_TypeCodes.txt")
+            var adsClassification = GetClassificationFileStrings("Dfe", $"{_version}_TypeCodes.txt")
                .Select(s => new { Description = s[1].Trim(), Code = s[0].Trim(), Uniclass = s[2].Trim() })
                .ToArray();
 

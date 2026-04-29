@@ -148,7 +148,8 @@ namespace Xbim.IDS.Generator.Common
             };
             singleFileHeader.Specifications.Add(spec);
             singleSpecIds.SpecificationsGroups.Add(singleFileHeader);
-            var folder = Path.Combine(Path.Combine(context.BasePath, context.TargetStage.ToString()), context.FullPrefix);
+            var stageFolderName = context.TargetStage.ToDescription().Replace(" ", "_");   // e.g. "Stage_3"
+            var folder = Path.Combine(context.BasePath, "Individual", stageFolderName, context.FullPrefix);
 
 
             Directory.CreateDirectory(folder);

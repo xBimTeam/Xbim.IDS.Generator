@@ -15,8 +15,11 @@ internal class Program
             ? ImrVersion.S21
             : ImrVersion.S25;
 
+        var status = args.FirstOrDefault(a => a.StartsWith("--status=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1] ?? "Sn";
+        var revision = args.FirstOrDefault(a => a.StartsWith("--revision=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1] ?? "Pnn";
+
         // bootstrap an app
-        var host = CreateHostBuilder(imrVersion).Build();
+        var host = CreateHostBuilder(imrVersion, status, revision).Build();
 
         var generator = host.Services.GetRequiredService<IIdsSchemaGenerator>();
         var modelGenerator = host.Services.GetRequiredService<IModelGenerator>();
@@ -25,7 +28,7 @@ internal class Program
         await modelGenerator.GenerateTestModels();
     }
 
-    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion)
+    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision)
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(outputTemplate:
@@ -39,7 +42,7 @@ internal class Program
         hostBuilder.Services
             .AddXbimToolkit()
             .AddLogging(o => o.AddSerilog(Log.Logger).SetMinimumLevel(LogLevel.Debug))
-            .AddSingleton(new DfeOptions { Version = imrVersion })
+            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision })
             .AddTransient<IIdsSchemaGenerator, DfeGenerator>()
             .AddTransient<IModelGenerator, DfeGenerator>()
             .AddIdsValidation()

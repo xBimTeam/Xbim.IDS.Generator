@@ -26,7 +26,10 @@ namespace Xbim.IDS.Generator.Dfe
         public DfeGenerator(IServiceProvider provider)
         {
             this.provider = provider;   // Stopgap until fix up DI
-            _version = provider.GetRequiredService<DfeOptions>().Version;
+            var options = provider.GetRequiredService<DfeOptions>();
+            _version = options.Version;
+            _status = options.Status;
+            _revision = options.Revision;
 
             Xids.Settings.ApplyPrefixToSpecGroupFileNames = false;
 
@@ -56,6 +59,8 @@ namespace Xbim.IDS.Generator.Dfe
         internal static readonly Regex dateOrDefaultExpression = new(@"1900-12-31T23:59:59|20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
         private readonly IServiceProvider provider;
         private readonly ImrVersion _version;
+        private readonly string _status;
+        private readonly string _revision;
 
         static readonly IDictionary<RibaStages, string> ribaStagesDict = new Dictionary<RibaStages, string>()
         {
@@ -199,7 +204,6 @@ namespace Xbim.IDS.Generator.Dfe
         public override Task PublishIDS()
         {
             var config = new DfeConfig();       // initialise project specific config / or tokens
-            var version = 45;
 
             var generations = new[] { GenerationPass.Core, GenerationPass.Complex, GenerationPass.All };
 
@@ -210,8 +214,24 @@ namespace Xbim.IDS.Generator.Dfe
                 foreach (var targetStage in stages)
                 {
                     config.ProjectPhase = ribaStagesDict[targetStage];
-                    var status = "S2";
-                    var revision = "P01";
+                    var status = _status;
+                    var revision = _revision;
+
+                    int stageNum = targetStage switch
+                    {
+                        RibaStages.Stage3 => 3,
+                        RibaStages.Stage4 => 4,
+                        RibaStages.Stage5 => 5,
+                        _ => throw new NotImplementedException($"Stage {targetStage} not mapped to a version number")
+                    };
+                    int passOffset = targetGeneration switch
+                    {
+                        GenerationPass.All => 0,
+                        GenerationPass.Core => 1,
+                        GenerationPass.Complex => 2,
+                        _ => throw new NotImplementedException()
+                    };
+                    var version = stageNum * 10 + passOffset;
 
                     var ids = new Xids
                     {
@@ -236,7 +256,7 @@ namespace Xbim.IDS.Generator.Dfe
                     using var context = new SpecContext(targetStage, ids, targetGeneration, specLogger);
                     context.SetApplicableStages(RibaStages.All);
                     context.SetApplicableToGeneration(GenerationPass.Core);      // Determines whether to separate complex (e.g. naming) rules out from 'core' vs a single file ('All')
-                    context.BasePath = "DFE-ER";
+                    context.BasePath = Path.Combine("Outputs", _version.ToString(), "IDS");
                     context.SaveOneFilePerSpec = true;        // Output individual files
                     context.SaveOneFilePerScope = true;       // Use Context structure to group into smaller Spec Groups (produces IDS zip)
 
@@ -262,16 +282,16 @@ namespace Xbim.IDS.Generator.Dfe
 
 
                     Directory.CreateDirectory(context.BasePath);
-                    var suffix = context.TargetGenerationPass switch
+                    var passSuffix = context.TargetGenerationPass switch
                     {
-                        GenerationPass.Core => "-Core",
-                        GenerationPass.Complex => "-Naming",
+                        GenerationPass.Core => " Core",
+                        GenerationPass.Complex => " Naming",
                         GenerationPass.All => "",
                         _ => throw new NotImplementedException(),
                     };
-                    var grouped = GroupCommonApplicableRequirements ? " Grouped" : "";
+                    var stageDesc = targetStage.ToDescription();   // e.g. "Stage 3"
 
-                    var fileName = $"{context.BasePath}/ER-DFE-XX-XX-L-X-{version:D4}-Information Model {targetStage} {_version} Assurance{grouped}-{status}-{revision}{suffix}.ids";
+                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-L-X-{version:D4}-Information Model Assurance {stageDesc}{passSuffix}-{status}-{revision}.ids");
 
                     var totalSpecs = ids.AllSpecifications().Count();
                     if (context.SaveOneFilePerScope)
@@ -287,7 +307,8 @@ namespace Xbim.IDS.Generator.Dfe
                             ids.ExportBuildingSmartIDS(zipFileName, specLogger);
                             specLogger.LogInformation("Created group IDS file {fileName} with {specs} specifications in {groups} groups", zipFileName, totalSpecs, ids.SpecificationsGroups.Count);
                             // Unpack the grouped files
-                            var unpackFolder = Path.Combine(context.BasePath, Path.Combine("Group", context.TargetStage.ToString()));
+                            var stageFolderName = stageDesc.Replace(" ", "_");   // e.g. "Stage_3"
+                            var unpackFolder = Path.Combine(context.BasePath, "Grouped", stageFolderName);
                             if (Directory.Exists(unpackFolder))
                                 Directory.Delete(unpackFolder, true);
                             Directory.CreateDirectory(unpackFolder);
@@ -379,14 +400,16 @@ namespace Xbim.IDS.Generator.Dfe
         private void CleanPriorFiles(SpecContext context, RibaStages stage)
         {
             // Clean folders in case we renamed / deleted files
-            var path = Path.Combine(context.BasePath, stage.ToString());
+            var stageFolderName = stage.ToDescription().Replace(" ", "_");   // e.g. "Stage_3"
+            var path = Path.Combine(context.BasePath, "Individual", stageFolderName);
             if (Directory.Exists(path))
                 Directory.Delete(path, true);
         }
 
         private void ValidateStage(SpecContext context)
         {
-            var path = Path.Combine(context.BasePath, context.TargetStage.ToString());
+            var stageFolderName = context.TargetStage.ToDescription().Replace(" ", "_");
+            var path = Path.Combine(context.BasePath, "Individual", stageFolderName);
             ValidateFolder(path);
         }
 
