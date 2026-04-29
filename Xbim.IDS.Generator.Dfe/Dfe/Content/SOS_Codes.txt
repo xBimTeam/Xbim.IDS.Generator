@@ -1,0 +1,399 @@
+S1001 : Nursery Playroom : SL_25_10_57 : Nursery playrooms
+S1002 : Nursery Playroom : SL_25_10_57 : Nursery playrooms
+S1003 : Reception Classroom : SL_25_10_72 : Reception classrooms
+S1004 : Primary Classroom : SL_25_10_14 : Classrooms
+S1005 : Primary Classroom : SL_25_10_14 : Classrooms
+S1006 : Primary Classroom : SL_25_10_14 : Classrooms
+S1007 : Primary Classroom : SL_25_10_14 : Classrooms
+S1008 : Practical Classroom : SL_25_10_67 : Primary practical rooms
+S1009 : Practical Classroom : SL_25_10_67 : Primary practical rooms
+S1010 : Practical Classroom : SL_25_10_67 : Primary practical rooms
+S1011 : Practical Classroom : SL_25_10_67 : Primary practical rooms
+S1012 : Secondary and FE Classroom : SL_25_10_14 : Classrooms
+S1013 : Secondary and FE Classroom : SL_25_10_14 : Classrooms
+S1014 : Seminar Room : SL_25_10_78 : Seminar rooms
+S1015 : Reception Classroom : SL_25_10_72 : Reception classrooms
+S1016 : Primary Classroom : SL_25_10_14 : Classrooms
+S1017 : Practical Classroom : SL_25_10_67 : Primary practical rooms
+S1018 : D&T Food Room : SL_25_10_30 : Food rooms
+S1019 : SEN Music Room : SL_25_10_55 : Music rooms
+S1020 : SEN Music Room : SL_25_10_55 : Music rooms
+S1021 : D&T Studio : SL_25_40_22 : Design technology studios
+S1022 : D&T Studio, Art and Design : SL_25_40_22 : Design technology studios
+S1023 : D&T Workshop : SL_25_40_23 : Design technology workshops
+S1024 : Art Room : SL_25_10_04 : Art rooms
+S1025 : Secondary and FE Classroom - ICT : SL_25_10_41 : Information and communications technology (ICT)-rich classrooms
+S1026 : Science Laboratory : SL_25_10_75 : Science laboratories
+S1027 : D&T Multi-purpose Studio : SL_25_40_22 : Design technology studios
+S1028 : D&T Studio : SL_25_40_22 : Design technology studios
+S1029 : D&T Studio : SL_25_40_22 : Design technology studios
+S1030 : D&T Workshop : SL_25_40_23 : Design technology workshops
+S1031 : D&T Food Room : SL_25_10_30 : Food rooms
+S1032 : 3D Art Room : SL_25_10_04 : Art rooms
+S1033 : Multi-purpose Art Room : SL_25_10_04 : Art rooms
+S1034 : Textiles Art Room : SL_25_10_04 : Art rooms
+S1035 : Graphics Art Room : SL_25_10_04 : Art rooms
+S1036 : Photography Art room : SL_25_40_65 : Photography studios
+S1037 : Science Studio : SL_25_10_74 : Science studios
+S1038 : Science Laboratory : SL_25_10_75 : Science laboratories
+S1039 : Specialist Science Laboratory : SL_25_10_75 : Science laboratories
+S1040 : Fitness Room : SL_42_40_30 : Fitness rooms
+S1041 : Fitness Room : SL_42_40_30 : Fitness rooms
+S1042 : Fitness Room : SL_42_40_30 : Fitness rooms
+S1043 : Music room : SL_25_10_55 : Music rooms
+S1044 : Music and Drama Classroom : SL_25_10_54 : Music and drama classrooms
+S1045 : Drama Studio : SL_25_10_24 : Drama studios
+S1046 : Drama Studio : SL_25_10_24 : Drama studios
+S1047 : Music and Drama Classroom : SL_25_10_54 : Music and drama classrooms
+S1048 : Nursery Playroom : SL_25_10_57 : Nursery playrooms
+S1049 : Nursery Playroom : SL_25_10_57 : Nursery playrooms
+S2001 : Social Space : SL_90_20_80 : Social spaces
+S2002 : Social Space : SL_90_20_80 : Social spaces
+S2003 : Social Space : SL_90_20_80 : Social spaces
+S2004 : Social Space : SL_90_20_80 : Social spaces
+S2005 : Dining and Life Skills Room : SL_25_40_42 : Independent life skills rooms
+S2006 : Sports Hall : SL_42_40_82 : Sports halls
+S2007 : Sports Hall - Gymnasium : SL_42_40_35 : Gymnasiums
+S2008 : Sports Hall : SL_42_40_82 : Sports halls
+S2009 : Sports Hall - 4 court : SL_42_40_82 : Sports halls
+S2010 : Activity Studio : SL_25_10_01 : Activity studios
+S2011 : Activity Studio : SL_25_10_01 : Activity studios
+S2012 : Activity Studio : SL_25_10_01 : Activity studios
+S2013 : Activity Studio : SL_25_10_01 : Activity studios
+S2014 : Dance Studio : SL_25_10_21 : Dance studios
+S2015 : Dance Studio : SL_25_10_21 : Dance studios
+S2016 : Primary Dining : SL_40_20_22 : Dining halls
+S2017 : Primary Dining : SL_40_20_22 : Dining halls
+S2018 : Primary Dining : SL_40_20_22 : Dining halls
+S2019 : Primary Dining : SL_40_20_22 : Dining halls
+S2020 : Primary Dining : SL_40_20_22 : Dining halls
+S2021 : Primary Dining : SL_40_20_22 : Dining halls
+S2022 : Primary Dining : SL_40_20_22 : Dining halls
+S2023 : Primary Dining : SL_40_20_22 : Dining halls
+S2024 : Primary Dining : SL_40_20_22 : Dining halls
+S2025 : Primary Dining : SL_40_20_22 : Dining halls
+S2026 : Secondary Dining : SL_40_20_22 : Dining halls
+S2027 : Secondary Dining : SL_40_20_22 : Dining halls
+S2028 : Secondary Dining : SL_40_20_22 : Dining halls
+S2029 : Secondary Dining : SL_40_20_22 : Dining halls
+S2030 : Secondary Dining : SL_40_20_22 : Dining halls
+S2031 : Secondary Dining : SL_40_20_22 : Dining halls
+S2032 : Secondary Dining : SL_40_20_22 : Dining halls
+S2033 : Secondary Dining : SL_40_20_22 : Dining halls
+S2034 : Secondary Dining : SL_40_20_22 : Dining halls
+S2035 : Secondary Dining : SL_40_20_22 : Dining halls
+S2036 : Informal Dining : SL_40_20_43 : Informal dining spaces
+S2037 : Informal Dining : SL_40_20_43 : Informal dining spaces
+S2038 : Informal Dining : SL_40_20_43 : Informal dining spaces
+S2039 : Informal Dining : SL_40_20_43 : Informal dining spaces
+S2040 : SEND Dining : SL_40_20_22 : Dining halls
+S2041 : SEND Dining : SL_40_20_22 : Dining halls
+S2042 : SEND Dining : SL_40_20_22 : Dining halls
+S2043 : SEND Dining : SL_40_20_22 : Dining halls
+S2044 : Primary Main Hall : SL_25_10_05 : Assembly halls
+S2045 : Primary Main Hall : SL_25_10_05 : Assembly halls
+S2046 : Multi-purpose Hall : SL_25_10_05 : Assembly halls
+S2047 : Multi-purpose Hall : SL_25_10_05 : Assembly halls
+S2048 : Multi-purpose Hall : SL_25_10_05 : Assembly halls
+S2049 : Multi-purpose Hall : SL_25_10_05 : Assembly halls
+S2050 : Multi-purpose Hall : SL_25_10_05 : Assembly halls
+S2051 : Multi-purpose Hall : SL_25_10_05 : Assembly halls
+S2052 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2053 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2054 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2055 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2056 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2057 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2058 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2059 : Secondary Main Hall : SL_25_10_05 : Assembly halls
+S2060 : Multi-purpose Studio : SL_25_10_01 : Activity studios
+S2061 : Multi-purpose Studio : SL_25_10_01 : Activity studios
+S2062 : Dining and Life Skills Room : SL_25_40_42 : Independent life skills rooms
+S2063 : Activity Studio : SL_25_10_01 : Activity studios
+S2064 : Dining and Life Skills Room : SL_25_40_42 : Independent life skills rooms
+S3001 : Group Room : SL_25_75_80 : Small group rooms
+S3002 : Group Room : SL_25_75_80 : Small group rooms
+S3003 : Study Room : SL_25_10_84 : Study spaces
+S3004 : Study Room : SL_25_10_84 : Study spaces
+S3005 : Study Room : SL_25_10_84 : Study spaces
+S3006 : Study Room : SL_25_10_84 : Study spaces
+S3007 : Study Room : SL_25_10_84 : Study spaces
+S3008 : Group Room : SL_25_75_80 : Small group rooms
+S3009 : Kiln : SL_30_50_40 : Kiln rooms
+S3010 : Medical Inspection Room : SL_35_10_15 : Consulting rooms
+S3011 : One to One Room : SL_25_75_80 : Small group rooms
+S3012 : One to One Room : SL_25_75_80 : Small group rooms
+S3013 : One to One Room : SL_25_75_80 : Small group rooms
+S3014 : Group Room : SL_25_75_80 : Small group rooms
+S3015 : Group Room : SL_25_75_80 : Small group rooms
+S3016 : Group Room : SL_25_75_80 : Small group rooms
+S3017 : Group Room : SL_25_75_80 : Small group rooms
+S3018 : Group Room : SL_25_75_80 : Small group rooms
+S3019 : Therapy Room : SL_35_10_88 : Therapy rooms
+S3020 : Therapy Room : SL_35_10_88 : Therapy rooms
+S3021 : Soft Play Room : SL_40_05_81 : Soft play rooms
+S3022 : Sensory Group Room : SL_35_50_78 : Sensory rooms
+S3023 : Physiotherapy Room : SL_35_10_66 : Physiotherapy rooms
+S3024 : Occupational Therapy Room : SL_35_10_58 : Occupational therapy rooms
+S3025 : Nurture Room : SL_35_50_69 : Quiet calming spaces
+S3026 : Nurture Room : SL_35_50_69 : Quiet calming spaces
+S3027 : Nurture Room : SL_35_50_69 : Quiet calming spaces
+S3028 : Rebound Therapy Room : SL_35_10_88 : Therapy rooms
+S3029 : Life Skills Room : SL_25_40_42 : Independent life skills rooms
+S3030 : Practice Room : SL_25_75_55 : Music practice rooms
+S3031 : Practice Room : SL_25_75_55 : Music practice rooms
+S3032 : Practice Room : SL_25_75_55 : Music practice rooms
+S3033 : Practice Room : SL_25_75_55 : Music practice rooms
+S3034 : Practice Room : SL_25_75_55 : Music practice rooms
+S3035 : Recording Room : SL_40_60_78 : Sound recording studios
+S3036 : Primary / SEND Library : SL_25_75_76 : School libraries
+S3037 : Primary / SEND Library : SL_25_75_76 : School libraries
+S3038 : Primary / SEND Library : SL_25_75_76 : School libraries
+S3039 : Primary / SEND Library : SL_25_75_76 : School libraries
+S3040 : Secondary Library : SL_25_75_76 : School libraries
+S3041 : Secondary Library : SL_25_75_76 : School libraries
+S3042 : Secondary Library : SL_25_75_76 : School libraries
+S3043 : Secondary Library : SL_25_75_76 : School libraries
+S3044 : Secondary Library : SL_25_75_76 : School libraries
+S3045 : Secondary Library : SL_25_75_76 : School libraries
+S3046 : Secondary Library : SL_25_75_76 : School libraries
+S3047 : Secondary Library : SL_25_75_76 : School libraries
+S3048 : Learning Resource Centre : SL_25_75_45 : Learning resource centres
+S3049 : Learning Resource Centre : SL_25_75_45 : Learning resource centres
+S3050 : Carrel : SL_25_10_84 : Study spaces
+S3051 : Learning Resource Centre : SL_25_75_45 : Learning resource centres
+S3052 : Satellite Library / LRC : SL_25_75_45 : Learning resource centres
+S3053 : Satellite Library / LRC : SL_25_75_45 : Learning resource centres
+S3054 : Satellite Library / LRC : SL_25_75_45 : Learning resource centres
+S3055 : Satellite Library / LRC : SL_25_75_45 : Learning resource centres
+S3056 : Satellite Library / LRC : SL_25_75_45 : Learning resource centres
+S3057 : Satellite Library / LRC : SL_25_75_45 : Learning resource centres
+S3058 : Group Room : SL_25_75_80 : Small group rooms
+S3059 : SEN Resource : SL_25_75_82 : Special educational needs (SEN) resource spaces
+S3060 : Group Room : SL_25_75_80 : Small group rooms
+S4001 : Interview Room : SL_20_65_42 : Interview rooms
+S4002 : Admin Office : SL_20_15_59 : Offices
+S4003 : Sick Bay : SL_35_10_31 : First aid rooms
+S4004 : Admin Office : SL_20_15_59 : Offices
+S4005 : Interview Room : SL_20_65_42 : Interview rooms
+S4006 : Reprographics Room : SL_20_15_73 : Reprographics rooms
+S4007 : Admin Office : SL_20_15_59 : Offices
+S4008 : Sick Room : SL_35_10_31 : First aid rooms
+S4009 : Reprographics Room : SL_20_15_73 : Reprographics rooms
+S4010 : Admin Office : SL_20_15_59 : Offices
+S4011 : Reprographics Room : SL_20_15_73 : Reprographics rooms
+S4012 : Sick Room : SL_35_10_31 : First aid rooms
+S4013 : Admin Office : SL_20_15_59 : Offices
+S4014 : Parent Room : SL_20_15_59 : Offices
+S4015 : Staff Office : SL_20_15_59 : Offices
+S4016 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4017 : SENCo Office : SL_90_20_86 : Staff workrooms
+S4018 : Staff Kitchenette : SL_35_60_45 : Kitchenettes
+S4019 : Community Kitchenette : SL_35_60_45 : Kitchenettes
+S4020 : Staff Office : SL_20_15_59 : Offices
+S4021 : Staff Office : SL_20_15_59 : Offices
+S4022 : Staff Office : SL_20_15_59 : Offices
+S4023 : Staff Office : SL_20_15_59 : Offices
+S4024 : SENCo Office : SL_20_15_59 : Offices
+S4025 : Head's Office : SL_20_15_59 : Offices
+S4026 : Staff Office : SL_20_15_59 : Offices
+S4027 : Exam Office : SL_20_15_59 : Offices
+S4028 : Staff Social Room : SL_90_20_85 : Staff rooms
+S4029 : Conference Room : SL_25_70_13 : Conference rooms
+S4030 : Conference Room : SL_25_70_13 : Conference rooms
+S4031 : Staff Social Room : SL_90_20_85 : Staff rooms
+S4032 : Conference Room : SL_25_70_13 : Conference rooms
+S4033 : Staff Social Room : SL_90_20_85 : Staff rooms
+S4034 : Head's Office : SL_20_15_59 : Offices
+S4035 : Conference Room : SL_25_70_13 : Conference rooms
+S4036 : Staff Social Room : SL_90_20_85 : Staff rooms
+S4037 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4038 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4039 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4040 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4041 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4042 : Staff Workroom : SL_90_20_86 : Staff workrooms
+S4043 : Family Room : SL_35_50_60 : Parent and baby rooms
+S4044 : Staff Workroom - ICT : SL_90_20_86 : Staff workrooms
+S6001 : Store : SL_90_50_35 : General storerooms
+S6002 : Store : SL_90_50_35 : General storerooms
+S6003 : Store : SL_90_50_35 : General storerooms
+S6004 : Store : SL_90_50_87 : Teaching resources stores
+S6005 : Entrance and Cloaks : SL_90_20_14 : Cloakrooms
+S6006 : Store : SL_90_50_87 : Teaching resources stores
+S6007 : Store : SL_90_50_87 : Teaching resources stores
+S6008 : Entrance and Cloaks : SL_90_20_14 : Cloakrooms
+S6009 : Store : SL_90_50_87 : Teaching resources stores
+S6010 : Cloakroom : SL_90_20_14 : Cloakrooms
+S6011 : Store : SL_90_50_87 : Teaching resources stores
+S6012 : Store : SL_90_50_87 : Teaching resources stores
+S6013 : Store : SL_90_50_87 : Teaching resources stores
+S6014 : Store : SL_90_50_87 : Teaching resources stores
+S6015 : D&T Preparation Room : SL_25_80_22 : Design technology preparation rooms
+S6016 : Store : SL_90_50_87 : Teaching resources stores
+S6017 : Science Preparation Room : SL_25_80_75 : Science preparation rooms
+S6018 : Chemical Store : SL_90_50_13 : Chemicals stores
+S6019 : Science Preparation Room : SL_25_80_75 : Science preparation rooms
+S6020 : Science Preparation Room : SL_25_80_75 : Science preparation rooms
+S6021 : Chemical Store : SL_90_50_13 : Chemicals stores
+S6022 : Science Preparation Room : SL_25_80_75 : Science preparation rooms
+S6023 : Store : SL_90_50_87 : Teaching resources stores
+S6024 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6025 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6026 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6027 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6028 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6029 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6030 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6031 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6032 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6033 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6034 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6035 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6036 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6037 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6038 : Retractable Seating : SL_90_50_73 : Retractable seating storage
+S6039 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6040 : Retractable Seating : SL_90_50_73 : Retractable seating storage
+S6041 : Retractable Seating : SL_90_50_73 : Retractable seating storage
+S6042 : Servery and Store : SL_35_60_78 : Servery areas
+S6043 : Servery and Store : SL_35_60_78 : Servery areas
+S6044 : Dining Store : SL_90_50_22 : Dining furniture stores
+S6045 : Satellite Servery : SL_35_60_78 : Servery areas
+S6046 : Satellite Servery : SL_35_60_78 : Servery areas
+S6047 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6048 : Servery and Furniture Store : SL_35_60_78 : Servery areas
+S6049 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6050 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6051 : Store : SL_90_50_87 : Teaching resources stores
+S6052 : Library / LRC Storage : SL_90_50_35 : General storerooms
+S6053 : Library / LRC Storage : SL_90_50_35 : General storerooms
+S6054 : Activity Store : SL_90_50_82 : Sports equipment stores
+S6055 : Store : SL_90_50_35 : General storerooms
+S6056 : Store : SL_90_50_35 : General storerooms
+S6057 : Store : SL_90_50_35 : General storerooms
+S6058 : Store : SL_90_50_87 : Teaching resources stores
+S6059 : Store : SL_90_50_87 : Teaching resources stores
+S6060 : Secure Store : SL_90_50_77 : Secure storerooms
+S6061 : Store : SL_90_50_87 : Teaching resources stores
+S6062 : Cloakroom : SL_90_20_14 : Cloakrooms
+S6063 : Cleaners Room : SL_90_50_16 : Cleaners' stores
+S6064 : Store : SL_90_50_10 : Building services stores
+S6065 : Store : SL_90_50_10 : Building services stores
+S6066 : Store : SL_90_50_10 : Building services stores
+S6067 : Servery and Store : SL_35_60_78 : Servery areas
+S6068 : Store : SL_90_50_87 : Teaching resources stores
+S6069 : Store : SL_90_50_87 : Teaching resources stores
+S7001 : Reception : SL_20_15_71 : Reception areas
+S7002 : 1.65m Corridor : SL_90_10_15 : Corridors
+S7003 : Entrance Lobby : SL_90_10_51 : Lobbies
+S7004 : Reception : SL_20_15_71 : Reception areas
+S7005 : 1.65m Corridor : SL_90_10_15 : Corridors
+S7006 : Toilet : SL_35_80_89 : Toilets
+S7007 : Entrance Lobby : SL_90_10_51 : Lobbies
+S7008 : Changing and Hygiene Room : SL_35_80_39 : Hygiene rooms
+S7009 : Early Years Toilets : SL_35_80_89 : Toilets
+S7010 : 1.4m Corridor : SL_90_10_15 : Corridors
+S7011 : Toilet : SL_35_80_89 : Toilets
+S7012 : Hygiene Room : SL_35_80_39 : Hygiene rooms
+S7013 : Nursery Toilets : SL_35_80_89 : Toilets
+S7014 : Early Years Toilets : SL_35_80_89 : Toilets
+S7015 : Toilet : SL_35_80_89 : Toilets
+S7016 : Infant toilets : SL_35_80_89 : Toilets
+S7017 : Toilet : SL_35_80_89 : Toilets
+S7018 : 1.65m Corridor : SL_90_10_15 : Corridors
+S7019 : 3.45m Corridor : SL_90_10_15 : Corridors
+S7020 : 8.25m Corridor : SL_90_10_15 : Corridors
+S7021 : Plant : SL_90_90_64 : Plant rooms
+S7022 : Primary Kitchen : SL_35_60_14 : Commercial kitchens
+S7023 : Primary Kitchen : SL_35_60_14 : Commercial kitchens
+S7024 : Primary Kitchen : SL_35_60_14 : Commercial kitchens
+S7025 : Plant : SL_90_90_64 : Plant rooms
+S7026 : General Kitchen : SL_35_60_14 : Commercial kitchens
+S7027 : General Kitchen : SL_35_60_14 : Commercial kitchens
+S7028 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7029 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7030 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7031 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7032 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7033 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7034 : Secondary Kitchen : SL_35_60_14 : Commercial kitchens
+S7035 : 1.4m Corridor : SL_90_10_15 : Corridors
+S7036 : 1.65m Corridor : SL_90_10_15 : Corridors
+S7037 : Stair : SL_90_10_87 : Stairways
+S7038 : Stair : SL_90_10_87 : Stairways
+S7039 : Stair : SL_90_10_87 : Stairways
+S7040 : Stair : SL_90_10_87 : Stairways
+S7041 : Stair - Roof : SL_90_10_87 : Stairways
+S7042 : Roof Access Emergency Escape : SL_20_90_25 : Escape stairs
+S7043 : Stair : SL_90_10_87 : Stairways
+S7044 : Lift and Protected Lobby : SL_90_10_47 : Lifts
+S7045 : Lift and Protected Lobby : SL_90_10_47 : Lifts
+S7046 : Lift and Protected Lobby : SL_90_10_47 : Lifts
+S7047 : Lift and Protected Lobby : SL_90_10_47 : Lifts
+S7048 : Lift and Protected Lobby : SL_90_10_47 : Lifts
+S7049 : Stair : SL_90_10_87 : Stairways
+S7050 : Lift and Protected Lobby : SL_90_10_47 : Lifts
+S7051 : 2m Corridor : SL_90_10_15 : Corridors
+S7052 : 2.2m Corridor : SL_90_10_15 : Corridors
+S7053 : 2.4m Corridor : SL_90_10_15 : Corridors
+S7054 : 1.65m Corridor : SL_90_10_15 : Corridors
+S7055 : 2.4m Corridor : SL_90_10_15 : Corridors
+S7056 : Entrance Lobby : SL_90_10_51 : Lobbies
+S7057 : 1.4m Corridor : SL_90_10_15 : Corridors
+S7058 : Laundry : SL_30_60_47 : Laundries
+S7059 : 1.4m Corridor : SL_90_10_15 : Corridors
+S7060 : Early Years Toilets : SL_35_80_89 : Toilets
+S7061 : Infant Toilets : SL_35_80_89 : Toilets
+S7062 : Toilets : SL_35_80_89 : Toilets
+S7063 : Staff Changing and Toilet : SL_90_20_13 : Changing rooms
+S7064 : Toilets : SL_35_80_89 : Toilets
+S7065 : Small Accessible Toilet : SL_35_80_03 : Accessible toilets
+S7066 : Toilets : SL_35_80_89 : Toilets
+S7067 : Toilets : SL_35_80_89 : Toilets
+S7068 : Toilets : SL_35_80_89 : Toilets
+S7069 : Toilets : SL_35_80_89 : Toilets
+S7070 : Toilet : SL_35_80_89 : Toilets
+S7071 : Small Accessible Toilet : SL_35_80_03 : Accessible toilets
+S7072 : Small Accessible Toilet : SL_35_80_03 : Accessible toilets
+S7073 : Hygiene Room : SL_35_80_39 : Hygiene rooms
+S7074 : Hygiene Room : SL_35_80_39 : Hygiene rooms
+S7075 : Ablution Room : SL_35_80_00 : Ablutions rooms
+S7076 : 1.65m Corridor : SL_90_10_15 : Corridors
+S7077 : Ablution Room : SL_35_80_00 : Ablutions rooms
+S7078 : Group Changing : SL_90_20_13 : Changing rooms
+S7079 : Group Changing : SL_90_20_13 : Changing rooms
+S7080 : Group Changing : SL_90_20_13 : Changing rooms
+S7081 : Drama Changing : SL_90_20_13 : Changing rooms
+S7082 : Toilet : SL_35_80_89 : Toilets
+S7083 : Team Changing and Showers : SL_90_20_13 : Changing rooms
+S7084 : Team Showers : SL_35_80_80 : Showers
+S7085 : SEN Changing and Showers : SL_35_80_01 : Accessible changing rooms
+S7086 : SEN Changing and Showers : SL_35_80_01 : Accessible changing rooms
+S7087 : Accessible Changing : SL_35_80_01 : Accessible changing rooms
+S7088 : Shower Room : SL_35_80_80 : Showers
+S7089 : Shower Room : SL_35_80_80 : Showers
+S7090 : Individual Changing : SL_90_20_13 : Changing rooms
+S7091 : Laundry : SL_30_60_47 : Laundries
+S7092 : Plant : SL_90_90_64 : Plant rooms
+S7093 : Plant : SL_90_90_64 : Plant rooms
+S7094 : Plant : SL_90_90_64 : Plant rooms
+S7095 : Plant : SL_90_90_64 : Plant rooms
+S7096 : Plant : SL_90_90_64 : Plant rooms
+S7097 : Plant : SL_90_90_64 : Plant rooms
+S7098 : Service Spine : SL_90_90_78 : Services shafts
+S7099 : Service Spine : SL_90_90_78 : Services shafts
+S7100 : Service Spine : SL_90_90_78 : Services shafts
+S7101 : Server Room : SL_90_90_77 : Server rooms
+S7102 : Server Room : SL_90_90_77 : Server rooms
+S7103 : Server Room : SL_90_90_77 : Server rooms
+S7104 : Server Room : SL_90_90_77 : Server rooms
+S7105 : Hub Room : SL_75_10_21 : Communications equipment rooms
+S7106 : Distributed Hub Room : SL_75_10_21 : Communications equipment rooms
+S7107 : Primary Kitchen : SL_35_60_14 : Commercial kitchens
+S7108 : Plant : SL_90_90_64 : Plant rooms
+S7109 : Toilet : SL_35_80_89 : Toilets
+S7110 : 5.25m Corridor : SL_90_10_15 : Corridors
+S7111 : Circulation to Circulation : SL_90_10_15 : Corridors
+S7112 : Circulation to Space : SL_90_10_15 : Corridors
+S7501 : Partitions : n/a
