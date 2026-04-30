@@ -131,31 +131,29 @@ namespace Xbim.IDS.Generator.Common
                 Stages = new List<string> { context.TargetStage.ToString() },
                 SpecificationsGroups = new List<SpecificationsGroup>()
             };
-            var now = DateTime.UtcNow;
             var singleFileHeader = new SpecificationsGroup(singleSpecIds)
             {
-                // No/static date/version so we can minimse changes in version control & see differences easily
-                 
                 Guid = Guid.NewGuid().ToString(),
-                Name = $"Single IDS File: {spec.Name} at {context.TargetStage}",
-                Milestone = context.TargetStage.ToDescription(),
-                Author = "info@xbim.net",
-                Description = $"Assurance of IFC-SPF deliverables against DfE's information requirements",
-                Version = $"S0",
-                Purpose = "IDS testing and evaluation",
-                Copyright = "xbim Ltd",
-
+                Name = spec.Name,
+                Date = DateTime.UtcNow,
+                Milestone = string.IsNullOrEmpty(context.IndividualMilestone)
+                    ? context.TargetStage.ToDescription()
+                    : context.IndividualMilestone,
+                Author = context.IndividualAuthor,
+                Description = context.IndividualDescription,
+                Version = context.IndividualVersion,
+                Purpose = context.IndividualPurpose,
+                Copyright = context.IndividualCopyright,
             };
             singleFileHeader.Specifications.Add(spec);
             singleSpecIds.SpecificationsGroups.Add(singleFileHeader);
             var stageFolderName = context.TargetStage.ToDescription().Replace(" ", "_");   // e.g. "Stage_3"
             var folder = Path.Combine(context.BasePath, "Individual", stageFolderName, context.FullPrefix);
 
-
             Directory.CreateDirectory(folder);
-            var fileName = MakeSafeFile(spec.Name) + ".ids";
-            var stage = context.TargetStage.ToDescription().Replace("Stage ", "");
-            fileName = $"{stage}_{fileName}";
+            // Replace " : " separator with "-" so the identifier and title join cleanly in the filename
+            var cleanName = spec.Name.Replace(" : ", "-");
+            var fileName = MakeSafeFile(cleanName) + ".ids";
             var file = Path.Combine(folder, fileName);
             singleSpecIds.ExportBuildingSmartIDS(file);
         }

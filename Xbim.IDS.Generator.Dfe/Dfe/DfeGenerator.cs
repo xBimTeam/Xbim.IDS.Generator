@@ -249,6 +249,29 @@ namespace Xbim.IDS.Generator.Dfe
                     };
 
 
+                    // Per-pass suffixes for titles, descriptions, and filenames
+                    var titleSuffix = targetGeneration switch
+                    {
+                        GenerationPass.All     => "",
+                        GenerationPass.Core    => ": Core Only",
+                        GenerationPass.Complex => ": Nomenclature and Classification Only",
+                        _ => throw new NotImplementedException(),
+                    };
+                    var descSuffix = targetGeneration switch
+                    {
+                        GenerationPass.All     => "",
+                        GenerationPass.Core    => " - Core Only",
+                        GenerationPass.Complex => " - Nomenclature and Classification Only",
+                        _ => throw new NotImplementedException(),
+                    };
+                    var fileNameSuffix = targetGeneration switch
+                    {
+                        GenerationPass.All     => "",
+                        GenerationPass.Core    => " Core Only",
+                        GenerationPass.Complex => " Nomenclature and Classification Only",
+                        _ => throw new NotImplementedException(),
+                    };
+
                     var specLogger = provider.GetRequiredService<ILogger<SpecContext>>();
                     using var ctx = specLogger.BeginScope(targetStage.ToString());
                     using var ctx2 = specLogger.BeginScope(targetGeneration.ToString());
@@ -259,11 +282,20 @@ namespace Xbim.IDS.Generator.Dfe
                     context.BasePath = Path.Combine("Outputs", _version.ToString(), "IDS");
                     context.SaveOneFilePerSpec = true;        // Output individual files
                     context.SaveOneFilePerScope = true;       // Use Context structure to group into smaller Spec Groups (produces IDS zip)
-
+                    // Prepend stage number to all spec identifiers: 3_01_01, 4_02_03, etc.
+                    context.StageId = stageNum.ToString();
+                    // Individual IDS file metadata
+                    context.IndividualAuthor = "DfE.BIM@Education.gov.uk";
+                    context.IndividualCopyright = "CC BY 4.0";
+                    var utcNow = DateTime.UtcNow;
+                    context.IndividualVersion = revision == "Pnn" ? $"{revision}.{utcNow.Year}.{utcNow.DayOfYear}" : revision;
+                    context.IndividualPurpose = "Information Model Assurance";
+                    context.IndividualDescription = $"Assurance of IFC-SPF deliverables against DfE's {_version} Information Requirements - Individual";
+                    context.IndividualMilestone = ribaStagesDict[targetStage];
 
                     CleanPriorFiles(context, targetStage);
 
-                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision, _version);
+                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision, _version, stageNum, titleSuffix, descSuffix);
                     context.InitialiseSpecGroup(rootGroup);
 
                     CreateProjectSpecifications(context, config);
@@ -282,26 +314,38 @@ namespace Xbim.IDS.Generator.Dfe
 
 
                     Directory.CreateDirectory(context.BasePath);
-                    var passSuffix = context.TargetGenerationPass switch
-                    {
-                        GenerationPass.Core => " Core",
-                        GenerationPass.Complex => " Naming",
-                        GenerationPass.All => "",
-                        _ => throw new NotImplementedException(),
-                    };
                     var stageDesc = targetStage.ToDescription();   // e.g. "Stage 3"
-
-                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-L-X-{version:D4}-Information Model Assurance {stageDesc}{passSuffix}-{status}-{revision}.ids");
+                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-L-X-{version:D4}-Information Model Assurance {stageDesc}{fileNameSuffix}-{status}-{revision}.ids");
 
                     var totalSpecs = ids.AllSpecifications().Count();
+                    // Core-only single file excludes optional-applicability (SHOULD) specs; All and Complex keep everything
+                    var singleFileSpecs = ids.AllSpecifications()
+                        .Where(s => targetGeneration != GenerationPass.Core ||
+                                    !(s.Cardinality is SimpleCardinality sc && sc.ApplicabilityCardinality == CardinalityEnum.Optional))
+                        .OrderBy(s => s.Guid)
+                        .ToList();
                     if (context.SaveOneFilePerScope)
                     {
                         if (ids.SpecificationsGroups.Count > 1)
                         {
-                            if (GroupCommonApplicableRequirements)
+                            // Save the Normal/Core/N&C single file with individual (ungrouped) rules first
+                            foreach (var spec in singleFileSpecs)
+                                rootGroup.Specifications.Add(spec);
+                            var singleFileIds = new Xids
                             {
+                                Guid = ids.Guid,
+                                Name = ids.Name,
+                                Project = ids.Project,
+                                Stages = ids.Stages,
+                                SpecificationsGroups = new List<SpecificationsGroup> { rootGroup }
+                            };
+                            singleFileIds.ExportBuildingSmartIDS(fileName, specLogger);
+                            specLogger.LogInformation("Created single IDS file {fileName} with {specs} specifications", fileName, singleFileSpecs.Count);
+                            rootGroup.Specifications.Clear();
+
+                            // Now apply grouping and save the Grouped zip (scope-based groups with compound specs)
+                            if (GroupCommonApplicableRequirements)
                                 GroupRequirementsByApplicability(ids);
-                            }
 
                             var zipFileName = Path.ChangeExtension(fileName, "zip");
                             ids.ExportBuildingSmartIDS(zipFileName, specLogger);
@@ -313,23 +357,24 @@ namespace Xbim.IDS.Generator.Dfe
                                 Directory.Delete(unpackFolder, true);
                             Directory.CreateDirectory(unpackFolder);
                             ZipFile.ExtractToDirectory(zipFileName, unpackFolder);
-                            File.Delete(zipFileName);   // Redundant
+                            File.Delete(zipFileName);
                         }
                         else
                         {
                             specLogger.LogWarning("Only a single spec group found. Producing single ids file only");
+                            foreach (var spec in singleFileSpecs)
+                                rootGroup.Specifications.Add(spec);
+                            ids.SpecificationsGroups.Clear();
+                            ids.SpecificationsGroups.Add(rootGroup);
+                            ids.ExportBuildingSmartIDS(fileName, specLogger);
+                            specLogger.LogInformation("Created single IDS file {fileName} with {specs} specifications", fileName, singleFileSpecs.Count);
                         }
-                        // Consolidate spec groups to single group so we can save a single file
-                        foreach (var spec in ids.AllSpecifications().OrderBy(s => s.Guid))
-                        {
-                            rootGroup.Specifications.Add(spec);
-                        }
-                        ids.SpecificationsGroups.Clear();
-                        ids.SpecificationsGroups.Add(rootGroup);
                     }
-
-                    ids.ExportBuildingSmartIDS(fileName, specLogger);
-                    specLogger.LogInformation("Created single IDS file {fileName} with {specs} specifications", fileName, totalSpecs);
+                    else
+                    {
+                        ids.ExportBuildingSmartIDS(fileName, specLogger);
+                        specLogger.LogInformation("Created single IDS file {fileName} with {specs} specifications", fileName, totalSpecs);
+                    }
 
                     if (ValidateIDSOutputs)
                         ValidateStage(context);
@@ -341,7 +386,7 @@ namespace Xbim.IDS.Generator.Dfe
 
         private void GroupRequirementsByApplicability(Xids ids)
         {
-            
+
             foreach(var specGroup in ids.SpecificationsGroups)
             {
                 var groupedApplicability = specGroup.Specifications
@@ -360,14 +405,14 @@ namespace Xbim.IDS.Generator.Dfe
                     var applicable = firstSpec.Applicability;
                     var spec = ids.PrepareSpecification(specGroup, firstSpec.IfcVersion!, applicable);
                     spec.Cardinality = firstSpec.Cardinality;
-                    
+
                     //spec.Applicability.RequirementOptions = new System.Collections.ObjectModel.ObservableCollection<RequirementCardinalityOptions>();
                     spec.Requirement!.RequirementOptions = new System.Collections.ObjectModel.ObservableCollection<RequirementCardinalityOptions>();
                     foreach (var groupedSpec in groupedSpecs)
                     {
                         if (groupedSpec.Requirement?.Facets.Any() != true)
-                            continue;   // 
-                        
+                            continue;   //
+
                         // Add the requirements to the single spec
                         foreach(var req in groupedSpec.Requirement.Facets)
                         {
@@ -384,17 +429,34 @@ namespace Xbim.IDS.Generator.Dfe
                         spec.Requirement!.RequirementOptions.Add(cardinality);
                     }
                     var groupName = firstSpec.Applicability.Name;
-                    spec.Name = $"{firstSpec.Guid}-{lastSpec.Guid}: {groupName} ({groupedSpecs.Count()} requirements)";
+                    var shortLast = ShortenEndGuid(firstSpec.Guid, lastSpec.Guid);
+                    spec.Name = $"{firstSpec.Guid}-{shortLast}: {groupName} ({groupedSpecs.Count()} requirements)";
                     spec.Guid = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => curr.Append(curr.Length == 0 ? "" : ",").Append(next.Guid)).ToString();
-                    spec.Description = groupedSpecs.Aggregate(new StringBuilder(), 
+                    spec.Description = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => curr.Append(curr.Length == 0 ? $"{groupName} " : ", and ").Append(next.Description?.Replace($"{groupName} ", ""))).ToString();
                     spec.Instructions = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => string.IsNullOrEmpty(next.Instructions) ? curr : curr.Append(curr.Length == 0 ? "" : ". ").Append(next.Guid).Append(": ").Append(next.Instructions)).ToString();
-                        
 
+                    specGroup.Name = $"{firstSpec.Guid}-{shortLast}: {groupName}";
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the trailing portion of <paramref name="last"/> after the common underscore-delimited prefix shared with <paramref name="first"/>.
+        /// E.g. "3_01_01" and "3_01_08" → "08"; "3_03_01" and "3_03_12" → "12".
+        /// </summary>
+        private static string ShortenEndGuid(string first, string last)
+        {
+            int common = 0;
+            for (int i = 0; i < Math.Min(first.Length, last.Length); i++)
+            {
+                if (first[i] == last[i]) common = i + 1;
+                else break;
+            }
+            var boundary = first[..common].LastIndexOf('_');
+            return boundary >= 0 ? last[(boundary + 1)..] : last;
         }
 
         private void CleanPriorFiles(SpecContext context, RibaStages stage)
@@ -440,25 +502,23 @@ namespace Xbim.IDS.Generator.Dfe
 
         }
 
-        private static SpecificationsGroup InitialiseSpecGroup(SpecContext context, DfeConfig config, string revision, ImrVersion version)
+        private static SpecificationsGroup InitialiseSpecGroup(SpecContext context, DfeConfig config, string revision, ImrVersion version, int stageNum, string titleSuffix, string descSuffix)
         {
             var now = DateTime.UtcNow;
             var targetStage = context.TargetStage;
-            var targetGeneration = context.TargetGenerationPass;
 
             var specGroup = new SpecificationsGroup(context.Ids)
             {
                 Date = now,
                 Guid = Guid.NewGuid().ToString(),
-                Name = $"Information Model RIBA {targetStage} {version} Assurance for {config.ProjectName}",
+                Name = $"Information Model Assurance Stage {stageNum}{titleSuffix}",
                 Specifications = new List<Specification>(),
                 Milestone = ribaStagesDict[targetStage],
                 Author = "DfE.BIM@Education.gov.uk",
-                Description = $"Assurance of IFC-SPF deliverables against {targetGeneration} DfE's {version} information requirements",
-                Version = $"{revision}.{now.Year}.{now.DayOfYear}",
+                Description = $"Assurance of IFC-SPF deliverables against DfE's {version} Information Requirements{descSuffix}",
+                Version = revision == "Pnn" ? $"{revision}.{now.Year}.{now.DayOfYear}" : revision,
                 Purpose = "Information Model Assurance",
                 Copyright = "CC BY 4.0",
-
             };
             return specGroup;
         }
