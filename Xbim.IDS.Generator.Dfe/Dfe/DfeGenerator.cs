@@ -56,7 +56,7 @@ namespace Xbim.IDS.Generator.Dfe
         internal static readonly Regex monetaryOrNaExpression = new($@"n\/a|£?\d+(\.\d{{2}})?");
         internal static readonly Regex textOrNaExpression = new($@"n\/a|(\w.*)+");
         internal static readonly Regex numberOrNaExpression = new($@"n\/a|(\d|-| |_)+");
-        internal static readonly Regex dateOrDefaultExpression = new(@"1900-12-31T23:59:59|20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
+        internal static readonly Regex dateOrDefaultExpression = new(@"1900-12-31T23:59:59(Z|[+-]\d{2}:\d{2})?|20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
         private readonly IServiceProvider provider;
         private readonly ImrVersion _version;
         private readonly string _status;
@@ -532,7 +532,7 @@ namespace Xbim.IDS.Generator.Dfe
             var applicability = GetEntityApplicability(ids, "Project", "IfcProject");
             CreateCommonRequirements(ids, applicability, config.ProjectName, config.ProjectDescription, subContext);
 
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProject.Phase), subContext);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), ribaStagesDict.Values, subContext);
             CreateAttributeValueSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), config.ProjectPhase, subContext, "Project Should Have Phase Correct For Project Stage");
         }
@@ -560,10 +560,10 @@ namespace Xbim.IDS.Generator.Dfe
             CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass En", ValueConstraint.CreatePattern(uniclassExpression.ToString()), config.BuildingCategory, subContext);
             // If testing the value
             // CreatePropertyWithValueSpecification(group, entity, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", config.BuildingBlockConstructionType, subContext);
-            CreatePropertyDefinedSpecification(group, applicability, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", subContext);
-            CreatePropertyDefinedSpecification(group, applicability, ids, "MaximumBlockHeight", "Additional_Pset_BuildingCommon", subContext);
-            CreatePropertyDefinedSpecification(group, applicability, ids, "NumberOfStoreys", "Pset_BuildingCommon", subContext);
-            CreatePropertyDefinedSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", subContext);
+            CreatePropertyNonEmptySpecification(group, applicability, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", subContext);
+            CreatePropertyNonEmptySpecification(group, applicability, ids, "MaximumBlockHeight", "Additional_Pset_BuildingCommon", subContext);
+            CreatePropertyNonEmptySpecification(group, applicability, ids, "NumberOfStoreys", "Pset_BuildingCommon", subContext);
+            CreatePropertyNonEmptySpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", subContext);
             CreatePropertyWithValueSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", config.BuildingUPRN, subContext, "IFCTEXT");
         }
 
@@ -576,13 +576,13 @@ namespace Xbim.IDS.Generator.Dfe
             var applicability = GetEntityApplicability(ids, "Building Storey", "IfcBuildingStorey");
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.GlobalId), subContext);
 
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Name), subContext);
             var floors = floorDict.Values.Where(n => n.Name != null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Name), floors.Select(f => f.Name)!, subContext);
             subContext.Skip("Unique Storey Name");
             // TODO: Building Storey Should Have Unique Name
             // TODO: Should corelate Floor Descr/Category to Floor Name
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), subContext);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), floors.Select(f => f.Description), subContext);
 
             // Building Storey Should Have Category(COBie Floor Classification) Matching The Projects Information Standard - Which classification?
@@ -610,7 +610,7 @@ namespace Xbim.IDS.Generator.Dfe
             // Space Should Have GlobalId(COBie ExtIdentifier) Defined
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcSpace.GlobalId), subContext);
             // Space Should Have Name Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcSpace.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Name), subContext);
             // Space Should Have Name Matching Format Set Out In The Projects Information Standard
             CreateAttributePatternSpecification(specs, applicability, ids, nameof(IIfcSpace.Name), spaceNameExpression.ToString(), subContext);
             // TODO: Space Should Have Name That Is Unique
@@ -620,13 +620,18 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.Skip("05.05: Name related to Floor TBC");
             //CreateSpaceNameSpecifications(specs, applicability, subContext);
             // Space Should Have Description Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcSpace.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Description), subContext);
 
             // Space Should Have RoomTag(Final Room Signage) Of 'n/a'
             var original = subContext.ApplicableToStages;
             CreatePropertyWithValueSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", "n/a", subContext.SetApplicableStages(RibaStages.Stage3 | RibaStages.Stage4), "IFCTEXT");
-            // TODO: Space Should Have RoomTag(Final Room Signage) Of Final Agreed Signage
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", subContext.SetApplicableStages(RibaStages.Stage5Plus));
+            // Space Should Have RoomTag(Final Room Signage) Of Final Agreed Signage (non-empty AND not n/a)
+            using (var roomTagStage5 = subContext.BeginSubscope().SetApplicableStages(RibaStages.Stage5Plus))
+            {
+                CreatePropertyNonEmptySpecification(specs, applicability, ids, "Roomtag", "COBie_Space", roomTagStage5, "IFCTEXT");
+                CreatePropertyWithValueSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", "n/a", roomTagStage5.SetRule(Cardinality.Prohibited), "IFCTEXT");
+                roomTagStage5.ResetRule();
+            }
             subContext.SetApplicableStages(original);   // reset default
 
             // Space Should Have Category Defined — label and code list differ between S21 (ADS) and S25 (Space)
@@ -662,8 +667,7 @@ namespace Xbim.IDS.Generator.Dfe
         private void CreateADSToUniclassSpecifications(SpecContext subContext)
         {
             using (var adsScope = subContext.BeginSubscope()
-                .SetApplicableToGeneration(GenerationPass.Complex)
-                .SetMatches(CardinalityEnum.Optional))
+                .SetApplicableToGeneration(GenerationPass.Complex))
             {
                 var specs = adsScope.CurrentSpecGroup;
                 var ids = subContext.Ids;
@@ -704,17 +708,16 @@ namespace Xbim.IDS.Generator.Dfe
         private void CreateZoneSpecifications(SpecContext context)
         {
             using var subContext = context.BeginSubscope()
-                .AddTag("Zone")
-                .SetMatches(CardinalityEnum.Optional);
+                .AddTag("Zone");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Zone", "IfcZone");
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcZone.GlobalId), subContext);
 
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcZone.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcZone.Name), subContext);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcZone.Name), GetZoneCodes(), subContext);
 
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcZone.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcZone.Description), subContext);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcZone.Description), GetZoneDescriptions(), subContext);
 
             var zoneClassification = ValueConstraint.CreatePattern(".*Zone.*");
@@ -747,7 +750,7 @@ namespace Xbim.IDS.Generator.Dfe
                     .Where(c => c.EndsWith("TYPE"))
                 .Where(c=> !c.StartsWith("IFCSPACE")).ToArray();
             var pdtApplicablity = GetEntityApplicability(ids, "Object Type", pdtTypes);
-            CreateAttributeDefinedSpecification(specs, pdtApplicablity, ids, nameof(IIfcWallType.PredefinedType), subContext.SetMatches(CardinalityEnum.Optional));
+            CreateAttributeDefinedSpecification(specs, pdtApplicablity, ids, nameof(IIfcWallType.PredefinedType), subContext);
             // Object Type Should Have Enumeration(PredefinedType) That Is Not NOTDEFINED
             // TODO: see above re DoorStyle etc
             CreateAttributeValueSpecification(specs, pdtApplicablity, ids, "PredefinedType", "NOTDEFINED", subContext.SetRule(Cardinality.Prohibited));
@@ -755,7 +758,7 @@ namespace Xbim.IDS.Generator.Dfe
                 .ResetRule()
                 .ResetMatches();
             // Object Type Should Have Name Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
 
             // Object Type Should Have Name Matching The Projects Information Standard
             // This creates hundreds of Specs as per 5.2.7/5.2.8 of the PIS as we need to test per IFC Type
@@ -764,7 +767,7 @@ namespace Xbim.IDS.Generator.Dfe
             // TODO: Object Type Should Have Name That Is Unique
             subContext.Skip("07.06 Unique support not in IDS");
             // Object Type Should Have Description Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description), subContext);
             // Object Type Should Have Uniclass Pr Products Classification(COBie Category) Defined
             CreateClassificationPatternSpecification(specs, applicability, ids, uniclassExpression.ToString(), "Pr_.*", subContext);
 
@@ -773,12 +776,12 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.SetMatches(CardinalityEnum.Optional);
 
             // Object Type Should Have AssetType Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "AssetType", "COBie_Asset", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "AssetType", "COBie_Asset", subContext);
             // Object Type Should Have AssetType That Is 'Fixed' or 'Movable'
             CreatePropertyFromListSpecification(specs, applicability, ids, "AssetType", "COBie_Asset", new string[] { "Fixed", "Movable" }, subContext, "IFCTEXT");
             // Object Type Should Have Manufacturer That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", subContext);
             // Object Type Should Have Manufacturer That Is 'n/a' Or An Email Address
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCLABEL");
             // Object Type Should Have Manufacturer That Is An Email Address
@@ -787,7 +790,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Object Type Should Have WarrantyGuarantorParts That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyGuarantorParts That Is 'n/a' Or An Email Address
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCTEXT");
             // Object Type Should Have WarrantyGuarantorParts That Is An Email Address
@@ -796,7 +799,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Object Type Should Have WarrantyDurationParts That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyDurationParts That Is '0.0' Or Is A Valid Duration
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", numericExpression.ToString(),"Valid duration", subContext, "IFCTEXT");
             // S21 only: WarrantyDurationParts must be > 0 at Stage 5+ (07.19 removed in S25)
@@ -808,7 +811,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Object Type Should Have WarrantyGuarantorLabor That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyGuarantorLabor", "COBie_Warranty", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyGuarantorLabor", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyGuarantorLabor That Is 'n/a' Or An Email Address
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyGuarantorLabor", "COBie_Warranty", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCTEXT");
             // Object Type Should Have WarrantyGuarantorLabor That Is An Email Address
@@ -818,7 +821,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Object Type Should Have WarrantyDurationLabor That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyDurationLabor That Is '0.0' Or Is A Valid Duration
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", numericExpression.ToString(), "Valid duration", subContext, "IFCTEXT");
             // S21 only: WarrantyDurationLabor must be > 0 at Stage 5+ (07.25 removed in S25)
@@ -831,48 +834,48 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.SetApplicableStages(RibaStages.Stage4Plus); // For remainder of specs
 
             // Object Type Should Have ReplacementCost That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "ReplacementCost", "COBie_EconomicImpactValues", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "ReplacementCost", "COBie_EconomicImpactValues", subContext);
             // Object Type Should Have ReplacementCost That Is 'n/a' Or Is A Replacement Cost For The Product Type
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "ReplacementCost", "COBie_EconomicImpactValues", monetaryOrNaExpression.ToString(), "Replacement Cost", subContext, "IFCTEXT");
 
             // Object Type Should Have ExpectedLife That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", subContext);
             // Object Type Should Have ExpectedLife That Is 'n/a' Or Is A Valid Expected Life For The Product Type
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", numericOrNaExpression.ToString(), "Expected Life", subContext, "IFCTEXT");
             // Object Type Should Have WarrantyDescription That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "WarrantyDescription", "COBie_Warranty", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyDescription", "COBie_Warranty", subContext);
             // Object Type Should Have WarrantyDescription That Is 'n/a' Or A Description Of The Warranty For The Product Type
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDescription", "COBie_Warranty", textOrNaExpression.ToString(), "Warranty", subContext, "IFCTEXT");
             // Object Type Should Have NominalLength That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "NominalLength", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "NominalLength", "COBie_Specification", subContext);
             // Object Type Should Have NominalWidth That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "NominalWidth", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "NominalWidth", "COBie_Specification", subContext);
             // Object Type Should Have NominalHeight That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "NominalHeight", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "NominalHeight", "COBie_Specification", subContext);
             // Object Type Should Have ModelReference That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "ModelReference", "Pset_ManufacturerTypeInformation", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "ModelReference", "Pset_ManufacturerTypeInformation", subContext);
             // Object Type Should Have Shape That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Shape", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Shape", "COBie_Specification", subContext);
             // Object Type Should Have Size That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Size", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Size", "COBie_Specification", subContext);
             // Object Type Should Have Color That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Color", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Color", "COBie_Specification", subContext);
             // Object Type Should Have Finish That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Finish", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Finish", "COBie_Specification", subContext);
             // Object Type Should Have Grade That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Grade", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Grade", "COBie_Specification", subContext);
             // Object Type Should Have Material That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Material", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Material", "COBie_Specification", subContext);
             // Object Type Should Have Constituents That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Constituents", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Constituents", "COBie_Specification", subContext);
             // Object Type Should Have Features That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "Features", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "Features", "COBie_Specification", subContext);
             // Object Type Should Have AccessibilityPerformance That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "AccessibilityPerformance", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "AccessibilityPerformance", "COBie_Specification", subContext);
             // Object Type Should Have CodePerformance That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "CodePerformance", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "CodePerformance", "COBie_Specification", subContext);
             // Object Type Should Have SustainabilityPerformance That Is Defined
-            CreatePropertyDefinedSpecification(specs, applicability, ids, "SustainabilityPerformance", "COBie_Specification", subContext);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "SustainabilityPerformance", "COBie_Specification", subContext);
         }
 
         // 08
@@ -887,7 +890,7 @@ namespace Xbim.IDS.Generator.Dfe
             var applicability = GetEntityApplicability(ids, "Object Occurrence (COBie Component)", DomainExtensions.CobieComponents);
 
             // Object Occurrence(COBie Component) Should Have Name Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
 
             // Object Occurrence(COBie Component) Should Have Name Matching The Projects Information Standard
             // This creates hundreds of Specs as per 5.2.8 of the PIS as we need to test per IFC Type
@@ -897,7 +900,7 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.Skip("08.03 Unique support not in IDS");
 
             // Object Occurrence(COBie Component) Should Have Description Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcProduct.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProduct.Description), subContext);
             // Object Occurrence(COBie Component) Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Serial number", subContext);
             // Object Occurrence(COBie Component) Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate
@@ -912,9 +915,9 @@ namespace Xbim.IDS.Generator.Dfe
             CreatePropertyWithValueSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", "n/a", subContext);
 
             // Any Door Should Have FireRating That Is Defined
-            subContext.SetMatches(CardinalityEnum.Optional);
+            subContext.ResetMatches();
             var doorApplicability = GetEntityApplicability(ids, "Door", "IfcDoor");
-            CreatePropertyDefinedSpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", subContext);
+            CreatePropertyNonEmptySpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", subContext);
             // Door Should Have FireRating That Is From PickList Provided In The Projects Information Standard
             CreatePropertyFromListSpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", new[] { "Undefined", "n/a", "20", "30", "60", "90", "120" }, subContext);
             subContext.ResetMatches();
@@ -962,8 +965,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Start new context as we build at least one spec per applicable type as part of a single Rule. e.g. 5.7.BeamType
             using var subContext = context.BeginSubscope()
-                .SetApplicableToGeneration(GenerationPass.Complex)
-                .SetMatches(CardinalityEnum.Optional);
+                .SetApplicableToGeneration(GenerationPass.Complex);
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
 
@@ -1190,10 +1192,10 @@ namespace Xbim.IDS.Generator.Dfe
             var group = context.CurrentSpecGroup;
             CreateAttributeDefinedSpecification(group, entity, ids, nameof(IIfcRoot.GlobalId), context);
 
-            CreateAttributeDefinedSpecification(group, entity, ids, nameof(IIfcRoot.Name), context);
+            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.Name), context);
             CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Name), name, context, $"{entity.Name} Should Have Name Matching The Projects Information Standard");
 
-            CreateAttributeDefinedSpecification(group, entity, ids, nameof(IIfcRoot.Description), context);
+            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.Description), context);
             CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Description), description, context, $"{entity.Name} Should Have Description Matching The Projects Information Standard");
         }
 

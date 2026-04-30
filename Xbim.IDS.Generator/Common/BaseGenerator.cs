@@ -382,6 +382,14 @@ namespace Xbim.IDS.Generator.Common
             FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
         }
 
+        public static void CreateAttributeNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context)
+        {
+            if (context.ShouldSkipSpecForStage()) return;
+            var constraint = GetAttributePatternConstraint(ids, attribute, ".+");
+            var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
+            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
+        }
+
         public static void CreateAttributeMinMaxLengthSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, int minLen, int maxLen, SpecContext context)
         {
             if (context.ShouldSkipSpecForStage()) return;
@@ -443,6 +451,14 @@ namespace Xbim.IDS.Generator.Common
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyDefinedConstraint(ids, property, propertySet);
+            var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
+            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' Defined.");
+        }
+
+        public static void CreatePropertyNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context, string? dataType = null)
+        {
+            if (context.ShouldSkipSpecForStage()) return;
+            var constraint = GetPropertyWithValuePatternConstraint(ids, property, propertySet, ".+", dataType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
             FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' Defined.");
         }
