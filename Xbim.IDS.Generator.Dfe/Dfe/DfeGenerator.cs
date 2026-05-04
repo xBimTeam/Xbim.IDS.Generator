@@ -717,8 +717,8 @@ namespace Xbim.IDS.Generator.Dfe
             // Creates 100+ specs due to permutations
             CreateADSToUniclassSpecifications(subContext);
 
-            // todo: 
-            //CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcZone", subContext.SetName("ZoneRequired"));
+            CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcZone", subContext,
+                title: _version == ImrVersion.S25 ? "Space Shall Be Allocated To A Zone" : null);
 
         }
 
@@ -787,11 +787,9 @@ namespace Xbim.IDS.Generator.Dfe
                 title: _version == ImrVersion.S25 ? "Zone Should Have Category (COBie Zone Category) Defined" : null);
             CreateClassificationFromListSpecification(specs, applicability, ids, "Category", zoneClassification, GetZoneCategories(), subContext,
                 title: _version == ImrVersion.S25 ? "Zone Should Have Category (COBie Zone Category) Matching The Projects Information Standard" : null);
-            subContext.Skip("Can't checks spaces allocated to single zone");
-            // TODO: Zone Should Have Each Spaces Allocated To A Single Zone.
-            // Could test from Space. All spaces must be Part of a Zone (Partof: RelAssignToProup)
-            if (_version != ImrVersion.S25)
-                CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcSpace", subContext);
+            subContext.Skip("Single-zone cardinality not expressible in IDS");
+            CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcSpace", subContext,
+                title: _version == ImrVersion.S25 ? "Zone Shall Have A Space Allocated To It" : null);
 
         }
 

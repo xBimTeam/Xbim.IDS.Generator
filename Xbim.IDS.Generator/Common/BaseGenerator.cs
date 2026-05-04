@@ -506,12 +506,12 @@ namespace Xbim.IDS.Generator.Common
             FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have predefinedType '{predefinedType}'.");
         }
 
-        public static void CreatePartOfSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, PartOfRelation? relationship, string entityType, SpecContext context)
+        public static void CreatePartOfSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, PartOfRelation? relationship, string entityType, SpecContext context, string? title = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPartofConstraint(ids, relationship, entityType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} Should Have a {entityType}");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} Should Have a {entityType}");
         }
 
         private static FacetGroup? GetPartofConstraint(Xids ids, PartOfRelation? relationship, string entityType)
