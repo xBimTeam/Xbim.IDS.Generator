@@ -350,10 +350,10 @@ namespace Xbim.IDS.Generator.Common
                 .Replace("Can", "SHOULD");
         }
 
-        public static void CreateAttributeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string value, SpecContext context, string? title = null)
+        public static void CreateAttributeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string value, SpecContext context, string? title = null, NetTypeName baseType = NetTypeName.String)
         {
             if (context.ShouldSkipSpecForStage()) return;
-            var constraint = GetAttributeConstraint(ids, attribute, value);
+            var constraint = GetAttributeConstraint(ids, attribute, value, baseType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
             FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Matching '{value}'");
         }
@@ -366,12 +366,13 @@ namespace Xbim.IDS.Generator.Common
             FinaliseSpec(spec, context, $"{selector.Name} {attribute} {ShouldOrShouldnt(context)} Match {patternNarrative ?? "Project Standards"}");
         }
 
-        public static void CreateAttributeFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, IEnumerable<string> values, SpecContext context, NetTypeName baseType = NetTypeName.String)
+        public static void CreateAttributeFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, IEnumerable<string> values, SpecContext context, NetTypeName baseType = NetTypeName.String, string? title = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
-            var constraint = GetAttributeFromListConstraint(ids, attribute, values, baseType);
+            var valuesList = values.ToList();
+            var constraint = GetAttributeFromListConstraint(ids, attribute, valuesList, baseType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} In One Of {values.Count()} Predefined Values.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} In One Of {valuesList.Count} Predefined Values.");
         }
 
         public static void CreateAttributeDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context)
@@ -423,12 +424,12 @@ namespace Xbim.IDS.Generator.Common
             FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationPattern} Classification With Pattern '{pattern}'");
         }
 
-        public static void CreateClassificationFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, IEnumerable<string> values, SpecContext context)
+        public static void CreateClassificationFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, IEnumerable<string> values, SpecContext context, string? title = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetClassificationConstraintList(ids, classificationName, classificationSystem, values);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification With One Of {values.Count()} Predefined Values");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification With One Of {values.Count()} Predefined Values");
         }
 
         public static void CreateClassificationCodeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, string value, SpecContext context)
@@ -833,8 +834,14 @@ namespace Xbim.IDS.Generator.Common
         }
 
 
-        public static FacetGroup GetAttributeConstraint(Xids ids, string name, string value)
+        public static FacetGroup GetAttributeConstraint(Xids ids, string name, string value, NetTypeName baseType = NetTypeName.String)
         {
+            ValueConstraint attrValue = value;
+            if (baseType != NetTypeName.String)
+            {
+                attrValue = new ValueConstraint(new[] { value });
+                attrValue.BaseType = baseType;
+            }
             return new FacetGroup(ids.FacetRepository)
             {
                 Name = name,
@@ -844,7 +851,7 @@ namespace Xbim.IDS.Generator.Common
                     new AttributeFacet
                     {
                         AttributeName = name,
-                        AttributeValue = value
+                        AttributeValue = attrValue
                     }
                 }
             };
@@ -1028,6 +1035,20 @@ namespace Xbim.IDS.Generator.Common
                         ClassificationSystem = ValueConstraint.CreatePattern(systemPattern),
                         Identification = new ValueConstraint(classifications)
                     }
+                }
+            };
+        }
+
+        public static FacetGroup GetEntityApplicabilityWithAttribute(Xids ids, string name, string ifcType, string attributeName, string attributeValue)
+        {
+            return new FacetGroup(ids.FacetRepository)
+            {
+                Name = name,
+                Description = $"{name} entity selector filtered by {attributeName} = '{attributeValue}'",
+                Facets = new ObservableCollection<IFacet>
+                {
+                    new IfcTypeFacet { IfcType = ifcType, IncludeSubtypes = false },
+                    new AttributeFacet { AttributeName = attributeName, AttributeValue = new ValueConstraint(attributeValue) }
                 }
             };
         }

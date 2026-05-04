@@ -73,6 +73,18 @@ namespace Xbim.IDS.Generator.Dfe
             [RibaStages.Stage7] = "RIBA Stage 7: Use",
         };
 
+        // Alternate "Code : Title" format accepted by some authoring tools
+        static readonly IDictionary<RibaStages, string> ribaStagesAltDict = new Dictionary<RibaStages, string>()
+        {
+            [RibaStages.Stage1] = "RIBA Stage 1 : Preparation and Brief",
+            [RibaStages.Stage2] = "RIBA Stage 2 : Concept Design",
+            [RibaStages.Stage3] = "RIBA Stage 3 : Spatial Coordination",
+            [RibaStages.Stage4] = "RIBA Stage 4 : Technical Design",
+            [RibaStages.Stage5] = "RIBA Stage 5 : Construction and Manufacturing",
+            [RibaStages.Stage6] = "RIBA Stage 6 : Handover and Close Out",
+            [RibaStages.Stage7] = "RIBA Stage 7 : Use",
+        };
+
         static readonly IDictionary<string, Floor> floorDict = new Dictionary<string, Floor>()
         {
             ["XX"] = new Floor("XX", null, "No spatial sub-division is applicable", "n/a"),
@@ -533,8 +545,9 @@ namespace Xbim.IDS.Generator.Dfe
             CreateCommonRequirements(ids, applicability, config.ProjectName, config.ProjectDescription, subContext);
 
             CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProject.Phase), subContext);
-            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), ribaStagesDict.Values, subContext);
-            CreateAttributeValueSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), config.ProjectPhase, subContext, "Project Should Have Phase Correct For Project Stage");
+            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), ribaStagesDict.Values.Concat(ribaStagesAltDict.Values), subContext);
+            var phaseAlt = ribaStagesAltDict[context.TargetStage];
+            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), new[] { config.ProjectPhase, phaseAlt }, subContext, title: "Project Should Have Phase Correct For Project Stage");
         }
 
 
@@ -556,7 +569,8 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Building", "IfcBuilding");
             CreateCommonRequirements(ids, applicability, config.BuildingName, config.BuildingDescription, subContext);
-            CreateClassificationPatternSpecification(group, applicability, ids, uniclassExpression.ToString(), "En.*", subContext);
+            var buildingUniclassLabel = _version == ImrVersion.S21 ? uniclassExpression.ToString() : "Uniclass Classification";
+            CreateClassificationPatternSpecification(group, applicability, ids, buildingUniclassLabel, "En.*", subContext);
             CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass En", ValueConstraint.CreatePattern(uniclassExpression.ToString()), config.BuildingCategory, subContext);
             // If testing the value
             // CreatePropertyWithValueSpecification(group, entity, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", config.BuildingBlockConstructionType, subContext);
@@ -585,13 +599,29 @@ namespace Xbim.IDS.Generator.Dfe
             CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), subContext);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), floors.Select(f => f.Description), subContext);
 
-            // Building Storey Should Have Category(COBie Floor Classification) Matching The Projects Information Standard - Which classification?
-
-            CreateClassificationFromListSpecification(specs, applicability, ids, "COBie Floor Classification", ValueConstraint.CreatePattern(".*Floor.*"), new string[] { "Site", "Floor", "Roof" }, subContext);
+            // Building Storey Should Have Category(Floor Classification) Matching The Projects Information Standard
+            var floorClassLabel = _version == ImrVersion.S21 ? "COBie Floor Classification" : "Floor Classification";
+            var floorClassSystem = _version == ImrVersion.S21 ? ValueConstraint.CreatePattern(".*Floor.*") : new ValueConstraint("Floor Classification");
+            var floorClassTitle = _version == ImrVersion.S25 ? $"{applicability.Name} Should Have Category Matching The Projects Information Standard" : null;
+            CreateClassificationFromListSpecification(specs, applicability, ids, floorClassLabel, floorClassSystem, new string[] { "Site", "Floor", "Roof" }, subContext, floorClassTitle);
 
             // Building Storey Should Have Elevation Matching The Projects Information Standard
-            var elevations = Enumerable.Range(0, config.NumberOfStoreys).Select(i => $@"{{{{IfcBuildingStorey.Level {i:00}.Elevation}}}}");
-            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Elevation), elevations, subContext, NetTypeName.Double);
+            var standardFloors = new[] { "00", "01", "02", "03", "04" }
+                .Take(config.NumberOfStoreys)
+                .Select(code => floorDict[code]);
+            using (var elevationContext = subContext.BeginSubscope())
+            {
+                foreach (var floor in standardFloors)
+                {
+                    var storeyApplicability = GetEntityApplicabilityWithAttribute(
+                        ids, floor.Name!, "IfcBuildingStorey", nameof(IIfcBuildingStorey.Name), floor.Name!);
+                    var elevationToken = $@"{{{{IfcBuildingStorey.Level {floor.Code}.Elevation}}}}";
+                    CreateAttributeValueSpecification(specs, storeyApplicability, ids,
+                        nameof(IIfcBuildingStorey.Elevation), elevationToken, elevationContext,
+                        title: $"{floor.Name} Should Have Elevation Matching The Projects Information Standard",
+                        baseType: NetTypeName.Double);
+                }
+            }
 
             // S21: Height, S25: NominalHeight (04.09)
             var storeyHeightProp = _version == ImrVersion.S21 ? "NetHeight" : "NominalHeight";
