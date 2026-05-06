@@ -57,6 +57,9 @@ namespace Xbim.IDS.Generator.Dfe
         internal static readonly Regex textOrNaExpression = new($@"n\/a|(\w.*)+");
         internal static readonly Regex numberOrNaExpression = new($@"n\/a|(\d|-| |_)+");
         internal static readonly Regex dateOrDefaultExpression = new(@"1900-12-31T23:59:59(Z|[+-]\d{2}:\d{2})?|20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
+        internal static readonly Regex nonZeroDurationExpression = new(@"[1-9]\d*(\.\d+)?");
+        internal static readonly Regex actualDateExpression = new(@"20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
+        internal static readonly Regex notNaExpression = new(@"[^n].*|n([^/].*)?|n\/([^a].*)?|n\/a.+");
         private readonly IServiceProvider provider;
         private readonly ImrVersion _version;
         private readonly string _status;
@@ -542,14 +545,18 @@ namespace Xbim.IDS.Generator.Dfe
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Project", "IfcProject");
+            var projModalVerb = _version == ImrVersion.S25 ? "Shall" : "Should";
             CreateCommonRequirements(ids, applicability, config.ProjectName, config.ProjectDescription, subContext,
-                _version == ImrVersion.S25 ? "Project Should Have GlobalId (COBie Facility ExternalProjectIdentifier) Defined" : null);
+                _version == ImrVersion.S25 ? "Project Shall Have GlobalId Defined" : null,
+                projModalVerb);
 
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProject.Phase), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProject.Phase), subContext,
+                title: _version == ImrVersion.S25 ? "Project Shall Have Phase Defined" : null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), ribaStagesDict.Values.Concat(ribaStagesAltDict.Values), subContext,
-                title: _version == ImrVersion.S25 ? "Project Should Have Phase Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Project Shall Have Phase Matching The Projects Information Standard" : null);
             var phaseAlt = ribaStagesAltDict[context.TargetStage];
-            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), new[] { config.ProjectPhase, phaseAlt }, subContext, title: "Project Should Have Phase Correct For Project Stage");
+            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcProject.Phase), new[] { config.ProjectPhase, phaseAlt }, subContext,
+                title: _version == ImrVersion.S25 ? "Project Shall Have Phase Matching The Current Project Stage" : "Project Should Have Phase Correct For Project Stage");
         }
 
 
@@ -561,7 +568,8 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Site", "IfcSite");
             CreateCommonRequirements(ids, applicability, config.SiteName, config.SiteDescription, subContext,
-                _version == ImrVersion.S25 ? "Site Should Have GlobalId (COBie Facility ExternalSiteIdentifier) Defined" : null);
+                _version == ImrVersion.S25 ? "Site Shall Have GlobalId Defined" : null,
+                _version == ImrVersion.S25 ? "Shall" : "Should");
         }
 
         // 03
@@ -572,24 +580,25 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Building", "IfcBuilding");
             CreateCommonRequirements(ids, applicability, config.BuildingName, config.BuildingDescription, subContext,
-                _version == ImrVersion.S25 ? "Building Should Have GlobalId (COBie Facility ExternalFacilityIdentifier) Defined" : null);
+                _version == ImrVersion.S25 ? "Building Shall Have GlobalId Defined" : null,
+                _version == ImrVersion.S25 ? "Shall" : "Should");
             var buildingUniclassLabel = _version == ImrVersion.S21 ? uniclassExpression.ToString() : "Uniclass Classification";
             CreateClassificationPatternSpecification(group, applicability, ids, buildingUniclassLabel, "En.*", subContext,
-                title: _version == ImrVersion.S25 ? "Building Should Have Uniclass En Entities Classification (COBie Facility Category) Defined" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have Uniclass Classification Defined" : null);
             CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass En", ValueConstraint.CreatePattern(uniclassExpression.ToString()), config.BuildingCategory, subContext,
-                title: _version == ImrVersion.S25 ? "Building Should Have Uniclass En Entities Classification (COBie Facility Category) Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have Uniclass Classification Matching The Projects Information Standard" : null);
             // If testing the value
             // CreatePropertyWithValueSpecification(group, entity, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", config.BuildingBlockConstructionType, subContext);
             CreatePropertyNonEmptySpecification(group, applicability, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", subContext,
-                title: _version == ImrVersion.S25 ? "Building Should Have BlockConstructionType Defined" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have BlockConstructionType Defined" : null);
             CreatePropertyNonEmptySpecification(group, applicability, ids, "MaximumBlockHeight", "Additional_Pset_BuildingCommon", subContext,
-                title: _version == ImrVersion.S25 ? "Building Should Have MaximumBlockHeight Defined" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have MaximumBlockHeight Defined" : null);
             CreatePropertyNonEmptySpecification(group, applicability, ids, "NumberOfStoreys", "Pset_BuildingCommon", subContext,
-                title: _version == ImrVersion.S25 ? "Building Should Have NumberOfStoreys Defined" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have NumberOfStoreys Defined" : null);
             CreatePropertyNonEmptySpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", subContext,
-                title: _version == ImrVersion.S25 ? "Building Should Have UPRN Defined" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have UPRN Defined" : null);
             CreatePropertyWithValueSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", config.BuildingUPRN, subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Building Should Have UPRN Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Building Shall Have UPRN Matching The Projects Information Standard" : null);
         }
 
         // 04
@@ -600,23 +609,25 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Building Storey", "IfcBuildingStorey");
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.GlobalId), subContext,
-                _version == ImrVersion.S25 ? "Building Storey Should Have GlobalId (COBie Floor ExtIdentifier) Defined" : null);
+                _version == ImrVersion.S25 ? "Building Storey Shall Have GlobalId Defined" : null);
 
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Name), subContext,
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Name Defined" : null);
             var floors = floorDict.Values.Where(n => n.Name != null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Name), floors.Select(f => f.Name)!, subContext,
-                title: _version == ImrVersion.S25 ? "Building Storey Should Have Name Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Name Matching The Projects Information Standard" : null);
             subContext.Skip("Unique Storey Name");
             // TODO: Building Storey Should Have Unique Name
             // TODO: Should corelate Floor Descr/Category to Floor Name
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), subContext,
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Description Defined And Valid" : null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), floors.Select(f => f.Description), subContext,
-                title: _version == ImrVersion.S25 ? "Building Storey Should Have Description Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Description Matching The Projects Information Standard" : null);
 
             // Building Storey Should Have Category(Floor Classification) Matching The Projects Information Standard
             var floorClassLabel = _version == ImrVersion.S21 ? "COBie Floor Classification" : "Floor Classification";
             var floorClassSystem = _version == ImrVersion.S21 ? ValueConstraint.CreatePattern(".*Floor.*") : new ValueConstraint("Floor Classification");
-            var floorClassTitle = _version == ImrVersion.S25 ? "Building Storey Should Have Category (COBie Floor Category) Matching The Projects Information Standard" : null;
+            var floorClassTitle = _version == ImrVersion.S25 ? "Building Storey Shall Have Floor Classification Matching The Projects Information Standard" : null;
             CreateClassificationFromListSpecification(specs, applicability, ids, floorClassLabel, floorClassSystem, new string[] { "Site", "Floor", "Roof" }, subContext, floorClassTitle);
 
             // Building Storey Should Have Elevation Matching The Projects Information Standard
@@ -631,7 +642,7 @@ namespace Xbim.IDS.Generator.Dfe
                         ids, floor.Name!, "IfcBuildingStorey", nameof(IIfcBuildingStorey.Name), floor.Name!);
                     var elevationToken = $@"{{{{IfcBuildingStorey.Level {floor.Code}.Elevation}}}}";
                     var elevationTitle = _version == ImrVersion.S25
-                        ? "Building Storey Should Have Elevation Matching The Projects Information Standard"
+                        ? "Building Storey Shall Have Elevation Matching The Projects Information Standard"
                         : $"{floor.Name} Should Have Elevation Matching The Projects Information Standard";
                     CreateAttributeValueSpecification(specs, storeyApplicability, ids,
                         nameof(IIfcBuildingStorey.Elevation), elevationToken, elevationContext,
@@ -640,10 +651,13 @@ namespace Xbim.IDS.Generator.Dfe
                 }
             }
 
-            // S21: Height, S25: NominalHeight (04.09)
-            var storeyHeightProp = _version == ImrVersion.S21 ? "NetHeight" : "NominalHeight";
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, storeyHeightProp, "Additional_Pset_BuildingStoreyCommon", subContext, 0, false, null, false, "IfcLengthMeasure",
-                title: _version == ImrVersion.S25 ? "Building Storey Should Have NominalHeight Matching Height Set Out In The Projects Information Standard" : null);
+            // 04.09 - Two routes to compliance:
+            // Route 1: NominalHeight in BaseQuantities (IFC 2x3 TC1 standard)
+            // Route 2: NetHeight in Additional_Pset_BuildingStoreyCommon (Revit workaround - NominalHeight not exported correctly, see revit-ifc#863, #479)
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NominalHeight", "BaseQuantities", subContext, 0, false, null, false, "IfcLengthMeasure",
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null);
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", subContext, 0, false, null, false, "IfcLengthMeasure",
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null);
             
         }
 
@@ -655,63 +669,64 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Space", "IfcSpace");
 
-            // Space Should Have GlobalId(COBie ExtIdentifier) Defined
+            // Space Shall Have GlobalId Defined
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcSpace.GlobalId), subContext,
-                _version == ImrVersion.S25 ? "Space Should Have GlobalId (COBie Space ExtIdentifier) Defined" : null);
-            // Space Should Have Name Defined
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Name), subContext);
-            // Space Should Have Name Matching Format Set Out In The Projects Information Standard
+                _version == ImrVersion.S25 ? "Space Shall Have GlobalId Defined" : null);
+            // Space Shall Have Name Defined
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Name), subContext,
+                title: _version == ImrVersion.S25 ? "Space Shall Have Name Defined" : null);
+            // Space Shall Have Name Matching Format Set Out In The Projects Information Standard
             CreateAttributePatternSpecification(specs, applicability, ids, nameof(IIfcSpace.Name), spaceNameExpression.ToString(), subContext,
-                title: _version == ImrVersion.S25 ? "Space Should Have Name Matching Format Set Out In The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have Name Matching Format Set Out In The Projects Information Standard" : null);
             // TODO: Space Should Have Name That Is Unique
             subContext.Skip("05.04: Unique name not supported");
             // TODO: Space Should Have Name Related Correctly To Each Floor
             // TODO: Sept See examples
             subContext.Skip("05.05: Name related to Floor TBC");
             //CreateSpaceNameSpecifications(specs, applicability, subContext);
-            // Space Should Have Description Defined
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Description), subContext);
+            // Space Shall Have Description Defined
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Description), subContext,
+                title: _version == ImrVersion.S25 ? "Space Shall Have Description Defined" : null);
 
-            // Space Should Have RoomTag(Final Room Signage) Of 'n/a'
+            // Space Shall Have RoomTag Defined (Stage 3-4) / Shall Have RoomTag That Is Not 'n/a' (Stage 5+)
             var original = subContext.ApplicableToStages;
             CreatePropertyWithValueSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", "n/a", subContext.SetApplicableStages(RibaStages.Stage3 | RibaStages.Stage4), "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Space Should Have RoomTag (Final Room Signage) Of 'n/a'" : null);
-            // Space Should Have RoomTag(Final Room Signage) Of Final Agreed Signage (non-empty AND not n/a)
+                title: _version == ImrVersion.S25 ? "Space Shall Have RoomTag Defined" : null);
             using (var roomTagStage5 = subContext.BeginSubscope().SetApplicableStages(RibaStages.Stage5Plus))
             {
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "Roomtag", "COBie_Space", roomTagStage5, "IFCTEXT",
-                    title: _version == ImrVersion.S25 ? "Space Should Have RoomTag (Final Room Signage) Of Final Agreed Signage" : null);
+                    title: _version == ImrVersion.S25 ? "Space Shall Have RoomTag That Is Not 'n/a'" : null);
                 CreatePropertyWithValueSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", "n/a", roomTagStage5.SetRule(Cardinality.Prohibited), "IFCTEXT",
-                    title: _version == ImrVersion.S25 ? "Space Should Have RoomTag (Final Room Signage) Of Final Agreed Signage" : null);
+                    title: _version == ImrVersion.S25 ? "Space Shall Have RoomTag That Is Not 'n/a'" : null);
                 roomTagStage5.ResetRule();
             }
             subContext.SetApplicableStages(original);   // reset default
 
-            // Space Should Have Category Defined — label and code list differ between S21 (ADS) and S25 (Space)
+            // Space Shall Have DfE Space Classification Defined — label and code list differ between S21 (ADS) and S25 (Space)
             var spaceClassConstraint = _version == ImrVersion.S21
                 ? ValueConstraint.CreatePattern(adsNameExpression.ToString())
                 : ValueConstraint.CreatePattern(spaceClassExpression.ToString());
             var spaceClassLabel = _version == ImrVersion.S21 ? "ADS Classification" : "Space Classification";
             CreateClassificationDefinedSpecification(specs, applicability, ids, spaceClassLabel, spaceClassConstraint, subContext,
-                title: _version == ImrVersion.S25 ? "Space Should Have Category (DfE Space Classification) Defined" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have DfE Space Classification Defined" : null);
             CreateClassificationFromListSpecification(specs, applicability, ids, spaceClassLabel, spaceClassConstraint, GetSpaceCodes(), subContext,
-                title: _version == ImrVersion.S25 ? "Space Should Have Category (DfE Space Classification) From Value List" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have DfE Space Classification From Value List" : null);
 
             // S21: Height/GrossArea/NetArea  |  S25: ClearHeight/GrossFloorArea/NetFloorArea  (05.11-05.13)
             var spaceHeightProp  = _version == ImrVersion.S21 ? "Height"        : "ClearHeight";
             var grossAreaProp    = _version == ImrVersion.S21 ? "GrossArea"     : "GrossFloorArea";
             var netAreaProp      = _version == ImrVersion.S21 ? "NetArea"       : "NetFloorArea";
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, spaceHeightProp, "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
-                title: _version == ImrVersion.S25 ? "Space Should Have ClearHeight Defined" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have ClearHeight Defined" : null);
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, grossAreaProp,   "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE",
-                title: _version == ImrVersion.S25 ? "Space Should Have GrossFloorArea Defined" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have GrossFloorArea Defined" : null);
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, netAreaProp,     "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE",
-                title: _version == ImrVersion.S25 ? "Space Should Have NetFloorArea Defined" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have NetFloorArea Defined" : null);
 
 
-            // Space Should Have UniclassClassification From Agreed Value List
+            // Space Shall Have Uniclass Classification Defined
             CreateClassificationFromListSpecification(specs, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(uniclassExpression.ToString()), GetUniclassSLCodes(), subContext,
-                title: _version == ImrVersion.S25 ? "Space Should Have Uniclass Classification From Agreed Value List" : null);
+                title: _version == ImrVersion.S25 ? "Space Shall Have Uniclass Classification Defined" : null);
 
             // Space Should Have UniclassClassification That Corresponds Correctly To The Category(DfE ADS Classification)
             // Creates 100+ specs due to permutations
@@ -772,21 +787,23 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Zone", "IfcZone");
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcZone.GlobalId), subContext,
-                _version == ImrVersion.S25 ? "Zone Should Have GlobalId (COBie Zone ExtIdentifier) Defined" : null);
+                _version == ImrVersion.S25 ? "Zone Shall Have GlobalId Defined" : null);
 
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcZone.Name), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcZone.Name), subContext,
+                title: _version == ImrVersion.S25 ? "Zone Shall Have Name Defined" : null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcZone.Name), GetZoneCodes(), subContext,
-                title: _version == ImrVersion.S25 ? "Zone Should Have Name Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Zone Shall Have Name Matching The Projects Information Standard" : null);
 
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcZone.Description), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcZone.Description), subContext,
+                title: _version == ImrVersion.S25 ? "Zone Shall Have Description Defined" : null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcZone.Description), GetZoneDescriptions(), subContext,
-                title: _version == ImrVersion.S25 ? "Zone Should Have Description Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Zone Shall Have Description Matching The Projects Information Standard" : null);
 
             var zoneClassification = ValueConstraint.CreatePattern(".*Zone.*");
             CreateClassificationDefinedSpecification(specs, applicability, ids, "Category", zoneClassification, subContext,
-                title: _version == ImrVersion.S25 ? "Zone Should Have Category (COBie Zone Category) Defined" : null);
+                title: _version == ImrVersion.S25 ? "Zone Shall Have Zone Classification Defined" : null);
             CreateClassificationFromListSpecification(specs, applicability, ids, "Category", zoneClassification, GetZoneCategories(), subContext,
-                title: _version == ImrVersion.S25 ? "Zone Should Have Category (COBie Zone Category) Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Zone Shall Have Zone Classification Matching The Projects Information Standard" : null);
             subContext.Skip("Single-zone cardinality not expressible in IDS");
             CreatePartOfSpecification(specs, applicability, ids, PartOfFacet.PartOfRelation.IfcRelAssignsToGroup, "IfcSpace", subContext,
                 title: _version == ImrVersion.S25 ? "Zone Shall Have A Space Allocated To It" : null);
@@ -805,55 +822,74 @@ namespace Xbim.IDS.Generator.Dfe
 
 
 
-            // TODO: Object Type Should Have Entity Correctly Defined
-            // ?? Check that instances are of correct type. Not possible in IDS1? E.g. Is a WallType only defining IfcWall[StandardCase]s
-            subContext.Skip("07.01 Entity Correctly defined");
+            // 07.01 - Object Type Shall Be Entity In Schema
+            // Broad applicability catches any IfcTypeObject; requirement constrains it to the concrete schema types under RootTypes
+            var entityApplicability = GetEntityApplicability(ids, "Object Type", "IfcTypeObject", includeSubTypes: true);
+            var validEntityTypes = GetSubTypes(RootTypes).ToArray();
+            CreateEntityInSchemaSpecification(specs, entityApplicability, ids, validEntityTypes, subContext,
+                title: _version == ImrVersion.S25 ? "Object Type Shall Be Entity In Schema" : null);
             // Object Type Should Have Enumeration(PredefinedType) Defined
             var pdtTypes = Schema.GetAttributeClasses("PredefinedType")
                     .Where(c => c.EndsWith("TYPE"))
                 .Where(c=> !c.StartsWith("IFCSPACE")).ToArray();
             var pdtApplicablity = GetEntityApplicability(ids, "Object Type", pdtTypes);
             CreateAttributeDefinedSpecification(specs, pdtApplicablity, ids, nameof(IIfcWallType.PredefinedType), subContext,
-                _version == ImrVersion.S25 ? "Object Type Should Have Enumeration (PredefinedType) Defined" : null);
-            // Object Type Should Have Enumeration(PredefinedType) That Is Not NOTDEFINED
+                _version == ImrVersion.S25 ? "Object Type Shall Have Enumeration (PredefinedType) Defined" : null);
+            // Object Type Shall Have Enumeration(PredefinedType) That Is Not NOTDEFINED
             // TODO: see above re DoorStyle etc
             CreateAttributeValueSpecification(specs, pdtApplicablity, ids, "PredefinedType", "NOTDEFINED", subContext.SetRule(Cardinality.Prohibited),
-                title: _version == ImrVersion.S25 ? "Object Type Should Have Enumeration (PredefinedType) That Is Not NOTDEFINED" : null);
+                title: _version == ImrVersion.S25 ? "Object Type Shall Have Enumeration (PredefinedType) That Is Not NOTDEFINED" : null);
             subContext
                 .ResetRule()
                 .ResetMatches();
-            // Object Type Should Have Name Defined
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
+            // Object Type Shall Have Name Defined
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext,
+                title: _version == ImrVersion.S25 ? "Object Type Shall Have Name Defined" : null);
 
-            // Object Type Should Have Name Matching The Projects Information Standard
+            // Object Type Shall Have Name Matching The Projects Information Standard
             // This creates hundreds of Specs as per 5.2.7/5.2.8 of the PIS as we need to test per IFC Type
             CreateObjectTypeNamingSpecifications(subContext);
 
-            // TODO: Object Type Should Have Name That Is Unique
+            // TODO: Object Type Shall Have Name That Is Unique
             subContext.Skip("07.06 Unique support not in IDS");
-            // Object Type Should Have Description Defined
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description), subContext);
-            // Object Type Should Have Uniclass Pr Products Classification(COBie Category) Defined
+            // Object Type Shall Have Description Defined
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description), subContext,
+                title: _version == ImrVersion.S25 ? "Object Type Shall Have Description Defined" : null);
+            // Object Type Shall Have Uniclass Classification Defined
             CreateClassificationPatternSpecification(specs, applicability, ids, uniclassExpression.ToString(), "Pr_.*", subContext,
-                title: _version == ImrVersion.S25 ? "Object Type Should Have Uniclass Pr Products Classification (COBie Type Category) Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Type Shall Have Uniclass Classification Defined" : null);
 
             //  !! Applicable to COBie Types only here on!!
             applicability = GetEntityApplicability(ids, "Object Type", DomainExtensions.CobieTypes);
             subContext.SetMatches(CardinalityEnum.Optional);
 
-            // Object Type Should Have AssetType Defined
+            // Object Type Shall Have AssetType Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "AssetType", "COBie_Asset", subContext,
-                title: _version == ImrVersion.S25 ? "Object Type Should Have AssetType Defined" : null);
-            // Object Type Should Have AssetType That Is 'Fixed' or 'Movable'
+                title: _version == ImrVersion.S25 ? "Object Type Shall Have AssetType Defined" : null);
+            // Object Type Shall Have AssetType That Is 'Fixed' or 'Movable'
             CreatePropertyFromListSpecification(specs, applicability, ids, "AssetType", "COBie_Asset", new string[] { "Fixed", "Movable" }, subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Type Should Have AssetType That Is 'Fixed' or 'Movable'" : null);
+                title: _version == ImrVersion.S25 ? "Object Type Shall Have AssetType That Is 'Fixed' or 'Movable'" : null);
+            // S25 only: Object Type Should Have ModelLabel That Is Defined / Should Not Be 'n/a'
+            if (_version == ImrVersion.S25)
+            {
+                subContext.SetApplicableStages(RibaStages.Stage4Plus);
+                CreatePropertyNonEmptySpecification(specs, applicability, ids, "ModelLabel", "Pset_ManufacturerTypeInformation", subContext,
+                    title: "Object Type Shall Have ModelLabel That Is Defined");
+                subContext.SetApplicableStages(RibaStages.Stage5Plus);
+                CreatePropertyWithValueSpecification(specs, applicability, ids, "ModelLabel", "Pset_ManufacturerTypeInformation", "n/a",
+                    subContext.SetRule(Cardinality.Prohibited),
+                    title: "Object Type Shall Not Have ModelLabel That Is 'n/a'");
+                subContext.ResetRule();
+            }
             // Object Type Should Have Manufacturer That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Manufacturer That Is Defined" : null);
-            // Object Type Should Have Manufacturer That Is 'n/a' Or An Email Address
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCLABEL",
-                title: _version == ImrVersion.S25 ? "Object Type Should Have Manufacturer That Is 'n/a' Or An Email Address" : null);
+            // Object Type Should Have Manufacturer That Is 'n/a' Or An Email Address (S21 only)
+            if (_version == ImrVersion.S21)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCLABEL");
+            }
             // Object Type Should Have Manufacturer That Is An Email Address
             // TODO: Verify Stage as this is redundant with previous spec
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "Manufacturer", "Pset_ManufacturerTypeInformation", emailExpression.ToString(), "Email Address", subContext, "IFCLABEL",
@@ -863,9 +899,11 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have WarrantyGuarantorParts That Is Defined" : null);
-            // Object Type Should Have WarrantyGuarantorParts That Is 'n/a' Or An Email Address
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Type Should Have WarrantyGuarantorParts That Is 'n/a' Or An Email Address" : null);
+            // Object Type Should Have WarrantyGuarantorParts That Is 'n/a' Or An Email Address (S21 only)
+            if (_version == ImrVersion.S21)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", emailOrNaExpression.ToString(), "n/a or Email Address", subContext, "IFCTEXT");
+            }
             // Object Type Should Have WarrantyGuarantorParts That Is An Email Address
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyGuarantorParts", "COBie_Warranty", emailExpression.ToString(), "Email Address", subContext, "IFCTEXT",
@@ -878,11 +916,16 @@ namespace Xbim.IDS.Generator.Dfe
             // Object Type Should Have WarrantyDurationParts That Is '0.0' Or Is A Valid Duration
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", numericExpression.ToString(),"Valid duration", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have WarrantyDurationParts That Is '0.0' Or Is A Valid Duration" : null);
-            // S21 only: WarrantyDurationParts must be > 0 at Stage 5+ (07.19 removed in S25)
+            // WarrantyDurationParts must be > 0 at Stage 5+ (S21: range check; S25: pattern-based)
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
             if (_version == ImrVersion.S21)
             {
-                subContext.SetApplicableStages(RibaStages.Stage5Plus);
                 CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", subContext, 0, minInclusive: false, null, default, "IFCTEXT");
+            }
+            else
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationParts", "COBie_Warranty", nonZeroDurationExpression.ToString(), "Non-zero duration", subContext, "IFCTEXT",
+                    title: "Object Type Should Have WarrantyDurationParts That Is A Valid Non-Zero Duration");
             }
 
             // Object Type Should Have WarrantyGuarantorLabor That Is Defined
@@ -905,11 +948,16 @@ namespace Xbim.IDS.Generator.Dfe
             // Object Type Should Have WarrantyDurationLabor That Is '0.0' Or Is A Valid Duration
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", numericExpression.ToString(), "Valid duration", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have WarrantyDurationLabor That Is '0.0' Or Is A Valid Duration" : null);
-            // S21 only: WarrantyDurationLabor must be > 0 at Stage 5+ (07.25 removed in S25)
+            // WarrantyDurationLabor must be > 0 at Stage 5+ (S21: range check; S25: pattern-based)
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
             if (_version == ImrVersion.S21)
             {
-                subContext.SetApplicableStages(RibaStages.Stage5Plus);
                 CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", subContext, 0, minInclusive: false, null, default, "IFCTEXT");
+            }
+            else
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDurationLabor", "COBie_Warranty", nonZeroDurationExpression.ToString(), "Non-zero duration", subContext, "IFCTEXT",
+                    title: "Object Type Should Have WarrantyDurationLabor That Is A Valid Non-Zero Duration");
             }
 
             subContext.SetApplicableStages(RibaStages.Stage4Plus); // For remainder of specs
@@ -920,6 +968,12 @@ namespace Xbim.IDS.Generator.Dfe
             // Object Type Should Have ReplacementCost That Is 'n/a' Or Is A Replacement Cost For The Product Type
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "ReplacementCost", "COBie_EconomicImpactValues", monetaryOrNaExpression.ToString(), "Replacement Cost", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have ReplacementCost That Is 'n/a' Or Is A Replacement Cost For The Product Type" : null);
+            // Object Type Should Not Have ReplacementCost That Is 'n/a'
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "ReplacementCost", "COBie_EconomicImpactValues", "n/a",
+                subContext.SetRule(Cardinality.Prohibited), "IFCTEXT",
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have ReplacementCost That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
 
             // Object Type Should Have ExpectedLife That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", subContext,
@@ -927,57 +981,161 @@ namespace Xbim.IDS.Generator.Dfe
             // Object Type Should Have ExpectedLife That Is 'n/a' Or Is A Valid Expected Life For The Product Type
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", numericOrNaExpression.ToString(), "Expected Life", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have ExpectedLife That Is 'n/a' Or Is A Valid Expected Life For The Product Type" : null);
+            // Object Type Should Not Have ExpectedLife That Is 'n/a'
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", "n/a",
+                subContext.SetRule(Cardinality.Prohibited), "IFCTEXT",
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have ExpectedLife That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have WarrantyDescription That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyDescription", "COBie_Warranty", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have WarrantyDescription That Is Defined" : null);
             // Object Type Should Have WarrantyDescription That Is 'n/a' Or A Description Of The Warranty For The Product Type
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyDescription", "COBie_Warranty", textOrNaExpression.ToString(), "Warranty", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have WarrantyDescription That Is 'n/a' Or A Description Of The Warranty For The Product Type" : null);
+            // Object Type Should Not Have WarrantyDescription That Is 'n/a'
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "WarrantyDescription", "COBie_Warranty", "n/a",
+                subContext.SetRule(Cardinality.Prohibited), "IFCTEXT",
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have WarrantyDescription That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
             // Object Type Should Have NominalLength That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "NominalLength", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have NominalLength That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "NominalLength", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have NominalLength That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have NominalWidth That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "NominalWidth", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have NominalWidth That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "NominalWidth", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have NominalWidth That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have NominalHeight That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "NominalHeight", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have NominalHeight That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "NominalHeight", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have NominalHeight That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have ModelReference That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "ModelReference", "Pset_ManufacturerTypeInformation", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have ModelReference That Is Defined" : null);
-            // Object Type Should Have Shape That Is Defined
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "ModelReference", "Pset_ManufacturerTypeInformation", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have ModelReference That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
+            // Object Type Shall Have Shape That Is Defined (Stage 4)
+            subContext.SetMatches(CardinalityEnum.Required);
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Shape", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Shape That Is Defined" : null);
+            // Object Type Should Have Shape That Is Not 'n/a' Or Empty (Stage 5/6)
+            subContext.SetApplicableStages(RibaStages.Stage5Plus).SetMatches(CardinalityEnum.Optional);
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "Shape", "COBie_Specification",
+                notNaExpression.ToString(), "Non-empty, non-n/a text", subContext,
+                title: _version == ImrVersion.S25 ? "Object Type Should Have Shape That Is Not 'n/a' Or Empty" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus);
+
             // Object Type Should Have Size That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Size", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Size That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Size", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Size That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have Color That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Color", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Color That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Color", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Color That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have Finish That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Finish", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Finish That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Finish", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Finish That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have Grade That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Grade", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Grade That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Grade", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Grade That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have Material That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Material", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Material That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Material", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Material That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have Constituents That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Constituents", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Constituents That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Constituents", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Constituents That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have Features That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "Features", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have Features That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "Features", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have Features That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have AccessibilityPerformance That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "AccessibilityPerformance", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have AccessibilityPerformance That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "AccessibilityPerformance", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have AccessibilityPerformance That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have CodePerformance That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "CodePerformance", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have CodePerformance That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "CodePerformance", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have CodePerformance That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
             // Object Type Should Have SustainabilityPerformance That Is Defined
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "SustainabilityPerformance", "COBie_Specification", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Should Have SustainabilityPerformance That Is Defined" : null);
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "SustainabilityPerformance", "COBie_Specification", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Type Should Not Have SustainabilityPerformance That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
         }
 
         // 08
@@ -991,45 +1149,87 @@ namespace Xbim.IDS.Generator.Dfe
 
             var applicability = GetEntityApplicability(ids, "Object Occurrence (COBie Component)", DomainExtensions.CobieComponents);
 
-            // Object Occurrence(COBie Component) Should Have Name Defined
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext);
+            // Object Occurrence(COBie Component) Shall Have Name Defined
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have Name Defined" : null);
 
-            // Object Occurrence(COBie Component) Should Have Name Matching The Projects Information Standard
+            // Object Occurrence(COBie Component) Shall Have Name Matching The Projects Information Standard
             // This creates hundreds of Specs as per 5.2.8 of the PIS as we need to test per IFC Type
             CreateObjectOccurrenceNamingSpecifications(subContext);
 
             // TODO: Object Occurrence(COBie Component) Should Have Unique Name
             subContext.Skip("08.03 Unique support not in IDS");
 
-            // Object Occurrence(COBie Component) Should Have Description Defined
-            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProduct.Description), subContext);
-            // Object Occurrence(COBie Component) Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber
+            // Object Occurrence(COBie Component) Shall Have Description Defined
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProduct.Description), subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have Description Defined" : null);
+            // Object Occurrence Should Have SerialNumber That Is Defined
+            subContext.SetApplicableStages(RibaStages.Stage4Plus);
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have SerialNumber That Is Defined" : null);
+            // Object Occurrence Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Serial number", subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence (COBie Component) Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber" : null);
-            // Object Occurrence(COBie Component) Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber" : null);
+            // Object Occurrence Should Not Have SerialNumber That Is 'n/a'
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have SerialNumber That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
+            // Object Occurrence Should Have InstallationDate That Is Defined
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have InstallationDate That Is Defined" : null);
+            // Object Occurrence Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", dateOrDefaultExpression.ToString(), "Valid date", subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence (COBie Component) Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate" : null);
-            // Object Occurrence(COBie Component) Should Have WarrantyStartDate That Is '1900-12-31T23:59:59' Or Actual WarrantyStartDate
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate" : null);
+            // Object Occurrence Should Have InstallationDate That Is An Actual Date
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", actualDateExpression.ToString(), "Actual date", subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have InstallationDate That Is An Actual Date" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus);
+
+            // Object Occurrence Should Have WarrantyStartDate That Is Defined
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is Defined" : null);
+            // Object Occurrence Should Have WarrantyStartDate That Is '1900-12-31T23:59:59' Or Actual WarrantyStartDate
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", dateOrDefaultExpression.ToString(), "Valid date", subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence (COBie Component) Should Have WarrantyStartDate That Is '1900-12-31T23:59:59' Or Actual WarrantyStartDate" : null);
-            // Object Occurrence(COBie Component) Should Have TagNumber That Is 'n/a'
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is '1900-12-31T23:59:59' Or Actual WarrantyStartDate" : null);
+            // Object Occurrence Should Have WarrantyStartDate That Is An Actual Date
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", actualDateExpression.ToString(), "Actual date", subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is An Actual Date" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus);
+
+            // Object Occurrence Should Have TagNumber That Is 'n/a' (fixed at all stages)
             CreatePropertyWithValueSpecification(specs, applicability, ids, "TagNumber", "COBie_Component", "n/a", subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence (COBie Component) Should Have TagNumber That Is 'n/a'" : null);
-            // Object Occurrence(COBie Component) Should Have BarCode That Is 'n/a' Or Actual BarCode
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have TagNumber That Is 'n/a'" : null);
+
+            // Object Occurrence Should Have BarCode That Is Defined
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", subContext,
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have BarCode That Is Defined" : null);
+            // Object Occurrence Should Have BarCode That Is 'n/a' Or Actual BarCode
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Bar code", subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence (COBie Component) Should Have BarCode That Is 'n/a' Or Actual BarCode" : null);
-            // Object Occurrence(COBie Component) Should Have AssetIdentifier That Is 'n/a'
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have BarCode That Is 'n/a' Or Actual BarCode" : null);
+            // Object Occurrence Should Not Have BarCode That Is 'n/a'
+            subContext.SetApplicableStages(RibaStages.Stage5Plus);
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", "n/a",
+                subContext.SetRule(Cardinality.Prohibited),
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have BarCode That Is 'n/a'" : null);
+            subContext.SetApplicableStages(RibaStages.Stage4Plus).ResetRule();
+
+            // Object Occurrence Should Have AssetIdentifier That Is 'n/a' (fixed at all stages)
             CreatePropertyWithValueSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", "n/a", subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence (COBie Component) Should Have AssetIdentifier That Is 'n/a'" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have AssetIdentifier That Is 'n/a'" : null);
 
             // Any Door Should Have FireRating That Is Defined
             subContext.ResetMatches();
             var doorApplicability = GetEntityApplicability(ids, "Door", "IfcDoor");
             CreatePropertyNonEmptySpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", subContext,
-                title: _version == ImrVersion.S25 ? "Door Should Have FireRating That Is Defined" : null);
-            // Door Should Have FireRating That Is From PickList Provided In The Projects Information Standard
+                title: _version == ImrVersion.S25 ? "Object Occurrence (Door) Shall Have FireRating That Is Defined" : null);
+            // Object Occurrence (Door) Shall Have FireRating That Is From PickList Provided In The Projects Information Standard
             CreatePropertyFromListSpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", new[] { "Undefined", "n/a", "20", "30", "60", "90", "120" }, subContext,
-                title: _version == ImrVersion.S25 ? "Door Should Have FireRating That Is From PickList Provided In The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence (Door) Shall Have FireRating That Is From PickList Provided In The Projects Information Standard" : null);
             subContext.ResetMatches();
             // TODO: Object Occurrences Must Not Contain Duplicate Entities
             subContext.Skip("08:13: Duplicates not supported");
@@ -1056,7 +1256,7 @@ namespace Xbim.IDS.Generator.Dfe
             // TODO: System Should Have Category(Uniclass Ss Systems) Matching The Projects Information Standard (Classification or SystemCategory Prop)
             // TODO: Update to match 5.2.9 Catgorys
             CreateClassificationPatternSpecification(specs, applicability, ids, uniclassExpression.ToString(), "Ss_.*", subContext,
-                title: _version == ImrVersion.S25 ? "System Should Have Category (Uniclass Ss Systems) Matching The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "System Should Have Uniclass Classification Matching The Projects Information Standard" : null);
         }
 
         // 07.05
@@ -1298,16 +1498,20 @@ namespace Xbim.IDS.Generator.Dfe
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="context"></param>
-        private void CreateCommonRequirements(Xids ids, FacetGroup entity, string name, string description, SpecContext context, string? globalIdTitle = null)
+        private void CreateCommonRequirements(Xids ids, FacetGroup entity, string name, string description, SpecContext context, string? globalIdTitle = null, string modalVerb = "Should")
         {
             var group = context.CurrentSpecGroup;
             CreateAttributeDefinedSpecification(group, entity, ids, nameof(IIfcRoot.GlobalId), context, globalIdTitle);
 
-            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.Name), context);
-            CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Name), name, context, $"{entity.Name} Should Have Name Matching The Projects Information Standard");
+            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.Name), context,
+                title: $"{entity.Name} {modalVerb} Have Name Defined");
+            CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Name), name, context,
+                $"{entity.Name} {modalVerb} Have Name Matching The Projects Information Standard");
 
-            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.Description), context);
-            CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Description), description, context, $"{entity.Name} Should Have Description Matching The Projects Information Standard");
+            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.Description), context,
+                title: $"{entity.Name} {modalVerb} Have Description Defined");
+            CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Description), description, context,
+                $"{entity.Name} {modalVerb} Have Description Matching The Projects Information Standard");
         }
 
 

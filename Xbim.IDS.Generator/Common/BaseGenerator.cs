@@ -383,12 +383,12 @@ namespace Xbim.IDS.Generator.Common
             FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
         }
 
-        public static void CreateAttributeNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context)
+        public static void CreateAttributeNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context, string? title = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributePatternConstraint(ids, attribute, ".+");
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
         }
 
         public static void CreateAttributeMinMaxLengthSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, int minLen, int maxLen, SpecContext context)
@@ -888,6 +888,31 @@ namespace Xbim.IDS.Generator.Common
                     {
                         AttributeName = name,
                         AttributeValue = constraint
+                    }
+                }
+            };
+        }
+
+        public static void CreateEntityInSchemaSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, IEnumerable<string> validEntityTypes, SpecContext context, string? title = null)
+        {
+            if (context.ShouldSkipSpecForStage()) return;
+            var constraint = GetEntityInSchemaConstraint(ids, validEntityTypes);
+            var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} Shall Be Entity In Schema");
+        }
+
+        public static FacetGroup GetEntityInSchemaConstraint(Xids ids, IEnumerable<string> validEntityTypes)
+        {
+            return new FacetGroup(ids.FacetRepository)
+            {
+                Name = "Entity",
+                Description = "Entity shall be a valid IFC schema entity type",
+                Facets = new ObservableCollection<IFacet>
+                {
+                    new IfcTypeFacet
+                    {
+                        IfcType = new ValueConstraint(validEntityTypes),
+                        IncludeSubtypes = false
                     }
                 }
             };
