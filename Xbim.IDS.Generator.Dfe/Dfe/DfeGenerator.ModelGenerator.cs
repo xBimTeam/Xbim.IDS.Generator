@@ -35,7 +35,7 @@ namespace Xbim.IDS.Generator.Dfe
             //GenerationSchema = XbimSchemaVersion.Ifc2X3;
 
             var targetStage = RibaStages.Stage3;
-            config.ProjectPhase = ribaStagesDict[targetStage];
+            config.ProjectPhase = StageNames[targetStage];
             var status = _status;
             var revision = _revision;
             var version = 44;
@@ -56,7 +56,7 @@ namespace Xbim.IDS.Generator.Dfe
             {
 
                 targetStage = RibaStages.Stage5;
-                config.ProjectPhase = ribaStagesDict[targetStage];
+                config.ProjectPhase = StageNames[targetStage];
 
                 fileName = Path.Combine(ifcBase, $"ER-DFE-XX-XX-M3-X-{version:D4}-Information Model {targetStage} Assurance-{status}-{revision}-MetaData.ifc");
                 specLogger.LogInformation("Creating {stage} test model {file}", targetStage.ToDescription(), fileName);

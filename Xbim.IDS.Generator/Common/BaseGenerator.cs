@@ -96,9 +96,9 @@ namespace Xbim.IDS.Generator.Common
             }
         }
 
-        public static void FinaliseSpec(Specification spec, SpecContext context, string title)
+        public static void FinaliseSpec(Specification spec, SpecContext context, string title, string? ruleId = null)
         {
-            var id = context.GenerateIdentifier();
+            var id = ruleId ?? context.GenerateIdentifier();
             title = ApplyModalVerbs(title, context);
             if (SetIdsIdentifier)
                 spec.Guid = id;
@@ -350,168 +350,168 @@ namespace Xbim.IDS.Generator.Common
                 .Replace("Can", "Should");
         }
 
-        public static void CreateAttributeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string value, SpecContext context, string? title = null, NetTypeName baseType = NetTypeName.String)
+        public static void CreateAttributeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string value, SpecContext context, string? title = null, NetTypeName baseType = NetTypeName.String, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributeConstraint(ids, attribute, value, baseType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Matching '{value}'");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Matching '{value}'", ruleId);
         }
 
-        public static void CreateAttributePatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string pattern, SpecContext context, string? patternNarrative = null, string? title = null)
+        public static void CreateAttributePatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, string pattern, SpecContext context, string? patternNarrative = null, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributePatternConstraint(ids, attribute, pattern);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Matching {patternNarrative ?? "Project Standards"}");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Matching {patternNarrative ?? "Project Standards"}", ruleId);
         }
 
-        public static void CreateAttributeFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, IEnumerable<string> values, SpecContext context, NetTypeName baseType = NetTypeName.String, string? title = null)
+        public static void CreateAttributeFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, IEnumerable<string> values, SpecContext context, NetTypeName baseType = NetTypeName.String, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var valuesList = values.ToList();
             var constraint = GetAttributeFromListConstraint(ids, attribute, valuesList, baseType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} In One Of {valuesList.Count} Predefined Values.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} In One Of {valuesList.Count} Predefined Values.", ruleId);
         }
 
-        public static void CreateAttributeDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context, string? title = null)
+        public static void CreateAttributeDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributeDefinedConstraint(ids, attribute);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined", ruleId);
         }
 
-        public static void CreateAttributeNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context, string? title = null)
+        public static void CreateAttributeNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributePatternConstraint(ids, attribute, ".+");
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Defined", ruleId);
         }
 
-        public static void CreateAttributeMinMaxLengthSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, int minLen, int maxLen, SpecContext context)
+        public static void CreateAttributeMinMaxLengthSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, int minLen, int maxLen, SpecContext context, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributeMinMaxConstraint(ids, attribute, minLen, maxLen);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Length Between {minLen} And {maxLen}");
+            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have {attribute} Length Between {minLen} And {maxLen}", ruleId);
         }
 
-        public static void CreateAttributeWithValueInRangeSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, object? minValue, bool minInclusive, object? maxValue, bool maxInclusive, SpecContext context)
+        public static void CreateAttributeWithValueInRangeSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string attribute, object? minValue, bool minInclusive, object? maxValue, bool maxInclusive, SpecContext context, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetAttributeWithValueInRangeConstraint(ids, attribute, minValue, minInclusive, maxValue, maxInclusive);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name}  {ShouldOrShouldnt(context)} Have {attribute} Value Between {minValue ?? "nil"} And {maxValue ?? "&infin;"}");
+            FinaliseSpec(spec, context, $"{selector.Name}  {ShouldOrShouldnt(context)} Have {attribute} Value Between {minValue ?? "nil"} And {maxValue ?? "&infin;"}", ruleId);
         }
 
-        public static void CreateClassificationDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classification, SpecContext context, string? title = null)
+        public static void CreateClassificationDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classification, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetClassificationSystemDefined(ids, classificationName, classification);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification Defined");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification Defined", ruleId);
         }
 
 
-        public static void CreateClassificationPatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationPattern, string pattern, SpecContext context, string? title = null)
+        public static void CreateClassificationPatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationPattern, string pattern, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetClassificationConstraintPatterns(ids, classificationPattern, pattern);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationPattern} Classification With Pattern '{pattern}'");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationPattern} Classification With Pattern '{pattern}'", ruleId);
         }
 
-        public static void CreateClassificationFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, IEnumerable<string> values, SpecContext context, string? title = null)
+        public static void CreateClassificationFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, IEnumerable<string> values, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetClassificationConstraintList(ids, classificationName, classificationSystem, values);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification With One Of {values.Count()} Predefined Values");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification With One Of {values.Count()} Predefined Values", ruleId);
         }
 
-        public static void CreateClassificationCodeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, string value, SpecContext context, string? title = null)
+        public static void CreateClassificationCodeValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string classificationName, ValueConstraint classificationSystem, string value, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetClassificationValueConstraint(ids, classificationName, classificationSystem, value);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification With Value '{value}'");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have {classificationName} Classification With Value '{value}'", ruleId);
         }
 
-        public static void CreatePropertyFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, IEnumerable<string> values, SpecContext context, string? dataType = null, string? title = null)
+        public static void CreatePropertyFromListSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, IEnumerable<string> values, SpecContext context, string? dataType = null, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyIsFromListConstraint(ids, property, propertySet, values, dataType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With One Of {values.Count()} Predefined Values.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With One Of {values.Count()} Predefined Values.", ruleId);
         }
 
-        public static void CreatePropertyDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context)
+        public static void CreatePropertyDefinedSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context, string? dataType = null, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
-            var constraint = GetPropertyDefinedConstraint(ids, property, propertySet);
+            var constraint = GetPropertyDefinedConstraint(ids, property, propertySet, dataType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' Defined.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' Defined.", ruleId);
         }
 
-        public static void CreatePropertyNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context, string? dataType = null, string? title = null)
+        public static void CreatePropertyNonEmptySpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context, string? dataType = null, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyWithValuePatternConstraint(ids, property, propertySet, ".+", dataType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' Defined.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' Defined.", ruleId);
         }
 
-        public static void CreatePropertyWithValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, string value, SpecContext context, string? dataType = null, string? title = null)
+        public static void CreatePropertyWithValueSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, string value, SpecContext context, string? dataType = null, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyWithValueConstraint(ids, property, propertySet, value, dataType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With Value '{value}'.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With Value '{value}'.", ruleId);
         }
 
-        public static void CreatePropertyWithValueInRangeSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context, object? minValue, bool minInclusive, object? maxValue, bool maxInclusive, string? dataType = null, string? title = null)
+        public static void CreatePropertyWithValueInRangeSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, SpecContext context, object? minValue, bool minInclusive, object? maxValue, bool maxInclusive, string? dataType = null, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyWithValueInRangeConstraint(ids, property, propertySet, dataType, minValue, minInclusive, maxValue, maxInclusive);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
             var range = constraint.Facets.OfType<IfcPropertyFacet>().First().PropertyValue.Short();
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With Value '{range}'.");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With Value '{range}'.", ruleId);
         }
 
-        public static void CreatePropertyWithPatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, string pattern, string patternName, SpecContext context, string? dataType = "", string? title = null)
+        public static void CreatePropertyWithPatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string property, string propertySet, string pattern, string patternName, SpecContext context, string? dataType = "", string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyWithValuePatternConstraint(ids, property, propertySet, pattern, dataType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With Value Matching {patternName}");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} {ShouldOrShouldnt(context)} Have Property '{propertySet}.{property}' With Value Matching {patternName}", ruleId);
         }
 
 
-        public static void CreatePropertyWithPsetPatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string propertySetPattern, string propertyName, SpecContext context)
+        public static void CreatePropertyWithPsetPatternSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string propertySetPattern, string propertyName, SpecContext context, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPropertyWithPsetPatternConstraint(ids, propertyName, propertySetPattern);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have Property Matching '{propertySetPattern}.{propertyName}' Defined");
+            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have Property Matching '{propertySetPattern}.{propertyName}' Defined", ruleId);
         }
 
-        public static void CreateIfcTypePredefinedType(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string ifcType, string predefinedType, SpecContext context)
+        public static void CreateIfcTypePredefinedType(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, string ifcType, string predefinedType, SpecContext context, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetEntityPredefinedTypeConstraint(ids, ifcType, predefinedType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have predefinedType '{predefinedType}'.");
+            FinaliseSpec(spec, context, $"{selector.Name} {ShouldOrShouldnt(context)} Have predefinedType '{predefinedType}'.", ruleId);
         }
 
-        public static void CreatePartOfSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, PartOfRelation? relationship, string entityType, SpecContext context, string? title = null)
+        public static void CreatePartOfSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, PartOfRelation? relationship, string entityType, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetPartofConstraint(ids, relationship, entityType);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} Should Have a {entityType}");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} Should Have a {entityType}", ruleId);
         }
 
         private static FacetGroup? GetPartofConstraint(Xids ids, PartOfRelation? relationship, string entityType)
@@ -535,7 +535,7 @@ namespace Xbim.IDS.Generator.Common
             };
         }
 
-        public static FacetGroup GetPropertyDefinedConstraint(Xids ids, string property, string propertySet)
+        public static FacetGroup GetPropertyDefinedConstraint(Xids ids, string property, string propertySet, string? dataType = null)
         {
             return new FacetGroup(ids.FacetRepository)
             {
@@ -547,6 +547,7 @@ namespace Xbim.IDS.Generator.Common
                     {
                         PropertyName = property,
                         PropertySetName = propertySet,
+                        DataType = dataType?.ToUpperInvariant()
                     }
                 }
             };
@@ -893,12 +894,12 @@ namespace Xbim.IDS.Generator.Common
             };
         }
 
-        public static void CreateEntityInSchemaSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, IEnumerable<string> validEntityTypes, SpecContext context, string? title = null)
+        public static void CreateEntityInSchemaSpecification(SpecificationsGroup projectSpecs, FacetGroup selector, Xids ids, IEnumerable<string> validEntityTypes, SpecContext context, string? title = null, string? ruleId = null)
         {
             if (context.ShouldSkipSpecForStage()) return;
             var constraint = GetEntityInSchemaConstraint(ids, validEntityTypes);
             var spec = ids.PrepareSpecification(projectSpecs, IfcSchemaVersion.IFC2X3, selector, constraint);
-            FinaliseSpec(spec, context, title ?? $"{selector.Name} Shall Be Entity In Schema");
+            FinaliseSpec(spec, context, title ?? $"{selector.Name} Shall Be Entity In Schema", ruleId);
         }
 
         public static FacetGroup GetEntityInSchemaConstraint(Xids ids, IEnumerable<string> validEntityTypes)

@@ -14,13 +14,13 @@ namespace Xbim.IDS.Generator.Sample
     {
         static readonly IDictionary<RibaStages, string> stageDescriptions = new Dictionary<RibaStages, string>()
         {
-            [RibaStages.Stage1] = "RIBA Stage 1: Preparation and Brief",
-            [RibaStages.Stage2] = "RIBA Stage 2: Concept Design",
-            [RibaStages.Stage3] = "RIBA Stage 3: Spatial Coordination",
-            [RibaStages.Stage4] = "RIBA Stage 4: Technical Design",
-            [RibaStages.Stage5] = "RIBA Stage 5: Construction and Manufacturing",
-            [RibaStages.Stage6] = "RIBA Stage 6: Handover and Close Out",
-            [RibaStages.Stage7] = "RIBA Stage 7: Use",
+            [RibaStages.Stage1] = "RIBA Stage 1 : Preparation and Brief",
+            [RibaStages.Stage2] = "RIBA Stage 2 : Concept Design",
+            [RibaStages.Stage3] = "RIBA Stage 3 : Spatial Coordination",
+            [RibaStages.Stage4] = "RIBA Stage 4 : Technical Design",
+            [RibaStages.Stage5] = "RIBA Stage 5 : Construction and Manufacturing",
+            [RibaStages.Stage6] = "RIBA Stage 6 : Handover and Close Out",
+            [RibaStages.Stage7] = "RIBA Stage 7 : Use",
         };
 
         static readonly IDictionary<string, Floor> floorDict = new Dictionary<string, Floor>()
@@ -298,7 +298,7 @@ namespace Xbim.IDS.Generator.Sample
             using var subContext = context.BeginSubscope();
             var applicability = GetEntityApplicability(ids, "All Building Storeys", "IfcBuildingStorey");
 
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.GlobalId), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.GlobalId), subContext);
 
             var floors = floorDict.Values.Where(n => n.Name != null);
             // Storey has a name and is from the approved naming conventions
@@ -330,7 +330,7 @@ namespace Xbim.IDS.Generator.Sample
             var originalStages = subContext.ApplicableToStages;
 
             // Space Should Have GlobalId(COBie ExtIdentifier) Defined
-            CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcSpace.GlobalId), subContext);
+            CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.GlobalId), subContext);
             // Space Should Have Name Defined
             CreateAttributeDefinedSpecification(specs, applicability, ids, nameof(IIfcSpace.Name), subContext);
             // Space Should Have Name Matching Format Set Out In The Project Standards
@@ -478,7 +478,7 @@ namespace Xbim.IDS.Generator.Sample
         /// <param name="context"></param>
         private static void CreateCommonRequirements(Xids ids, SpecificationsGroup group, FacetGroup entity, string name, string description, SpecContext context)
         {
-            CreateAttributeDefinedSpecification(group, entity, ids, nameof(IIfcRoot.GlobalId), context);
+            CreateAttributeNonEmptySpecification(group, entity, ids, nameof(IIfcRoot.GlobalId), context);
 
             CreateAttributeDefinedSpecification(group, entity, ids, nameof(IIfcRoot.Name), context);
             CreateAttributeValueSpecification(group, entity, ids, nameof(IIfcRoot.Name), name, context);
