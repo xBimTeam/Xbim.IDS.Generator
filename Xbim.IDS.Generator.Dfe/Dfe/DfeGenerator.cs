@@ -48,7 +48,6 @@ namespace Xbim.IDS.Generator.Dfe
         internal static readonly Regex adsNameExpression = new(@".*(DfE ADS|dfe ads|DFE ADS).*");
         internal static readonly Regex spaceClassExpression = new(@".*(DfE Space|dfe space|DFE SPACE).*");
         internal static readonly Regex uniclassExpression = new(@".*[Uu]niclass.*");
-        // Not perfect but likely good enough for our purposes: https://www.regular-expressions.info/email.html
         internal const string emailRegex = @"([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})";
         internal static readonly Regex emailOrNaExpression = new($@"n\/a|{emailRegex}");
         internal static readonly Regex emailExpression = new(emailRegex);
@@ -72,6 +71,9 @@ namespace Xbim.IDS.Generator.Dfe
         /// </summary>
         private string? RuleId(string? s25Id, string? s21Id = null) =>
             _version == ImrVersion.S25 ? s25Id : s21Id;
+
+        private string UniclassSystemLabel =>
+            _version == ImrVersion.S25 ? "Uniclass Classification" : uniclassExpression.ToString();
 
         /// <summary>
         /// Returns the version-appropriate rule ID with the stage prefix replaced by the context's target stage.
@@ -549,7 +551,7 @@ namespace Xbim.IDS.Generator.Dfe
                 Guid = Guid.NewGuid().ToString(),
                 Name = $"Information Model Assurance Stage {stageNum}{titleSuffix}",
                 Specifications = new List<Specification>(),
-                Milestone = StageNames[targetStage],
+                Milestone = (version == ImrVersion.S25 ? ribaStagesS25 : ribaStagesS21)[targetStage],
                 Author = "DfE.BIM@Education.gov.uk",
                 Description = $"Assurance of IFC-SPF deliverables against DfE's {version} Information Requirements{descSuffix}",
                 Version = revision == "Pnn" ? $"{revision}.{now.Year}.{now.DayOfYear}" : revision,
@@ -602,10 +604,9 @@ namespace Xbim.IDS.Generator.Dfe
             CreateCommonRequirements(ids, applicability, config.BuildingName, config.BuildingDescription, subContext,
                 _version == ImrVersion.S25 ? "Building Shall Have GlobalId Defined" : null,
                 _version == ImrVersion.S25 ? "Shall" : "Should");
-            var buildingUniclassLabel = _version == ImrVersion.S21 ? uniclassExpression.ToString() : "Uniclass Classification";
-            CreateClassificationPatternSpecification(group, applicability, ids, buildingUniclassLabel, "En.*", subContext,
+            CreateClassificationPatternSpecification(group, applicability, ids, UniclassSystemLabel, "En.*", subContext,
                 title: _version == ImrVersion.S25 ? "Building Shall Have Uniclass Classification Defined" : null);
-            CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass En", ValueConstraint.CreatePattern(uniclassExpression.ToString()), config.BuildingCategory, subContext,
+            CreateClassificationCodeValueSpecification(group, applicability, ids, "Uniclass En", ValueConstraint.CreatePattern(UniclassSystemLabel), config.BuildingCategory, subContext,
                 title: _version == ImrVersion.S25 ? "Building Shall Have Uniclass Classification Matching The Projects Information Standard" : null);
             CreatePropertyNonEmptySpecification(group, applicability, ids, "BlockConstructionType", "Additional_Pset_BuildingCommon", subContext, dataType: "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Building Shall Have BlockConstructionType Defined" : null);
@@ -643,7 +644,7 @@ namespace Xbim.IDS.Generator.Dfe
             // TODO: Building Storey Should Have Unique Name
             // TODO: Should corelate Floor Descr/Category to Floor Name
             CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), subContext,
-                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Description Defined And Valid" : null);
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Description Defined" : null);
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcBuildingStorey.Description), floors.Select(f => f.Description), subContext,
                 title: _version == ImrVersion.S25 ? "Building Storey Shall Have Description Matching The Projects Information Standard" : null);
 
@@ -669,8 +670,7 @@ namespace Xbim.IDS.Generator.Dfe
                         : $"{floor.Name} Should Have Elevation Matching The Projects Information Standard";
                     CreateAttributeValueSpecification(specs, storeyApplicability, ids,
                         nameof(IIfcBuildingStorey.Elevation), elevationToken, elevationContext,
-                        title: elevationTitle,
-                        baseType: NetTypeName.Double);
+                        title: elevationTitle);
                 }
             }
 
@@ -748,7 +748,7 @@ namespace Xbim.IDS.Generator.Dfe
 
 
             // Space Shall Have Uniclass Classification Defined
-            CreateClassificationFromListSpecification(specs, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(uniclassExpression.ToString()), GetUniclassSLCodes(), subContext,
+            CreateClassificationFromListSpecification(specs, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(UniclassSystemLabel), GetUniclassSLCodes(), subContext,
                 title: _version == ImrVersion.S25 ? "Space Shall Have Uniclass Classification Defined" : null);
 
             // Space Should Have UniclassClassification That Corresponds Correctly To The Category(DfE ADS Classification)
@@ -783,7 +783,7 @@ namespace Xbim.IDS.Generator.Dfe
 
                     var applicab = GetEntityApplicabilityWithClassifications(ids, name, "IfcSpace", classFilter, item.Value, false);
 
-                    CreateClassificationCodeValueSpecification(specs, applicab, ids, "Uniclass", ValueConstraint.CreatePattern(uniclassExpression.ToString()), item.Key, adsScope);
+                    CreateClassificationCodeValueSpecification(specs, applicab, ids, "Uniclass", ValueConstraint.CreatePattern(UniclassSystemLabel), item.Key, adsScope);
                 }
 
             }
@@ -877,7 +877,7 @@ namespace Xbim.IDS.Generator.Dfe
             CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description), subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Shall Have Description Defined" : null);
             // Object Type Shall Have Uniclass Classification Defined
-            CreateClassificationPatternSpecification(specs, applicability, ids, uniclassExpression.ToString(), "Pr_.*", subContext,
+            CreateClassificationPatternSpecification(specs, applicability, ids, UniclassSystemLabel, "Pr_.*", subContext,
                 title: _version == ImrVersion.S25 ? "Object Type Shall Have Uniclass Classification Defined" : null);
 
             //  !! Applicable to COBie Types only here on!!
@@ -1187,15 +1187,15 @@ namespace Xbim.IDS.Generator.Dfe
                 title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have Description Defined" : null);
             // Object Occurrence Should Have SerialNumber That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
-            CreatePropertyNonEmptySpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", subContext, dataType: "IFCIDENTIFIER",
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", subContext, dataType: "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Have SerialNumber That Is Defined" : null);
             // Object Occurrence Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Serial number", subContext, "IFCIDENTIFIER",
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Serial number", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber" : null);
             // Object Occurrence Should Not Have SerialNumber That Is 'n/a'
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence",
-                notNaExpression.ToString(), "not n/a", subContext, "IFCIDENTIFIER",
+                notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have SerialNumber That Is 'n/a'" : null);
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
@@ -1226,7 +1226,7 @@ namespace Xbim.IDS.Generator.Dfe
             // 08.11 S25: TagNumber NotEmpty (Stage4+) — new S25 rule; S21 has no Stage4 TagNumber check
             if (_version == ImrVersion.S25)
             {
-                CreatePropertyNonEmptySpecification(specs, applicability, ids, "TagNumber", "COBie_Component", subContext, dataType: "IFCIDENTIFIER",
+                CreatePropertyNonEmptySpecification(specs, applicability, ids, "TagNumber", "COBie_Component", subContext, dataType: "IFCTEXT",
                     title: "Object Occurrence Shall Have TagNumber That Is Defined");
             }
             // 08.12 S25 / 08.08 S21: TagNumber rule at Stage5+ only
@@ -1234,33 +1234,33 @@ namespace Xbim.IDS.Generator.Dfe
             if (_version == ImrVersion.S25)
             {
                 CreatePropertyWithPatternSpecification(specs, applicability, ids, "TagNumber", "COBie_Component",
-                    notNaExpression.ToString(), "not n/a", subContext, "IFCIDENTIFIER",
+                    notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
                     title: "Object Occurrence Should Not Have TagNumber That Is 'n/a'");
             }
             else
             {
-                CreatePropertyWithValueSpecification(specs, applicability, ids, "TagNumber", "COBie_Component", "n/a", subContext, dataType: "IFCIDENTIFIER",
+                CreatePropertyWithValueSpecification(specs, applicability, ids, "TagNumber", "COBie_Component", "n/a", subContext, dataType: "IFCTEXT",
                     title: null);
             }
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // Object Occurrence Should Have BarCode That Is Defined
-            CreatePropertyNonEmptySpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", subContext, dataType: "IFCIDENTIFIER",
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", subContext, dataType: "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Have BarCode That Is Defined" : null);
             // Object Occurrence Should Have BarCode That Is 'n/a' Or Actual BarCode
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Bar code", subContext, "IFCIDENTIFIER",
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Bar code", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Have BarCode That Is 'n/a' Or Actual BarCode" : null);
             // Object Occurrence Should Not Have BarCode That Is 'n/a'
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence",
-                notNaExpression.ToString(), "not n/a", subContext, "IFCIDENTIFIER",
+                notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have BarCode That Is 'n/a'" : null);
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // 08.15 S25: AssetIdentifier NotEmpty (Stage4+) — new S25 rule; S21 has no Stage4 AssetIdentifier check
             if (_version == ImrVersion.S25)
             {
-                CreatePropertyNonEmptySpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", subContext, dataType: "IFCIDENTIFIER",
+                CreatePropertyNonEmptySpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", subContext, dataType: "IFCTEXT",
                     title: "Object Occurrence Shall Have AssetIdentifier That Is Defined");
             }
             // 08.16 S25 / 08.10 S21: AssetIdentifier rule at Stage5+ only
@@ -1268,12 +1268,12 @@ namespace Xbim.IDS.Generator.Dfe
             if (_version == ImrVersion.S25)
             {
                 CreatePropertyWithPatternSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component",
-                    notNaExpression.ToString(), "not n/a", subContext, "IFCIDENTIFIER",
+                    notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
                     title: "Object Occurrence Should Not Have AssetIdentifier That Is 'n/a'");
             }
             else
             {
-                CreatePropertyWithValueSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", "n/a", subContext, dataType: "IFCIDENTIFIER",
+                CreatePropertyWithValueSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", "n/a", subContext, dataType: "IFCTEXT",
                     title: null);
             }
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
@@ -1329,7 +1329,7 @@ namespace Xbim.IDS.Generator.Dfe
                     title: "System Shall Have Uniclass Classification Defined");
             }
             // 09.06 S25 / 09.03 S21: System Uniclass Matching PIS
-            CreateClassificationPatternSpecification(specs, applicability, ids, uniclassExpression.ToString(), "Ss_.*", subContext,
+            CreateClassificationPatternSpecification(specs, applicability, ids, UniclassSystemLabel, "Ss_.*", subContext,
                 title: _version == ImrVersion.S25 ? "System Shall Have Uniclass Classification Matching The Projects Information Standard" : null);
         }
 

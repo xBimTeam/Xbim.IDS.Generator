@@ -215,12 +215,14 @@ namespace Xbim.IDS.Generator.Common
 
                 if (!classInfo.ValidSchemaVersions.HasFlag(IfcSchemaVersions.Ifc2x3) && !classInfo.UpperCaseName.EndsWith("TYPE"))
                 {
-                    // Look for Type equivalents. E.g we can use AirTerminal in IFC2x3 by inference from AirTerminalType
+                    // IFC4 entity usable in IFC2x3 via type inference (e.g. IFCAIRTERMINAL via IFCAIRTERMINALTYPE).
+                    // The entity name itself is only valid in IFC4, so tag the spec as IFC4 — not IFC2X3 — to
+                    // avoid IDS validation error 103 ("Invalid entity name in the context of Ifc2x3").
                     var candidate = classInfo.UpperCaseName + "TYPE";
                     var ifc2x3classInfo = SchemaInfo.SchemaIfc2x3[candidate];
                     if (ifc2x3classInfo != null)
                     {
-                        result.Add(IfcSchemaVersion.IFC2X3);
+                        result.Add(IfcSchemaVersion.IFC4);
                     }
                 }
             }
