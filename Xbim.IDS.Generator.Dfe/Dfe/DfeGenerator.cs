@@ -619,9 +619,9 @@ namespace Xbim.IDS.Generator.Dfe
                 title: _version == ImrVersion.S25 ? "Building Shall Have MaximumBlockHeight Defined" : null);
             CreatePropertyDefinedSpecification(group, applicability, ids, "NumberOfStoreys", "Pset_BuildingCommon", subContext, "IFCINTEGER",
                 title: _version == ImrVersion.S25 ? "Building Shall Have NumberOfStoreys Defined" : null);
-            CreatePropertyNonEmptySpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", subContext, dataType: "IFCIDENTIFIER",
+            CreatePropertyNonEmptySpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", subContext, dataType: "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Building Shall Have UPRN Defined" : null);
-            CreatePropertyWithValueSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", config.BuildingUPRN, subContext, "IFCIDENTIFIER",
+            CreatePropertyWithValueSpecification(group, applicability, ids, "UPRN", "COBie_BuildingCommon_UK", config.BuildingUPRN, subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Building Shall Have UPRN Matching The Projects Information Standard" : null);
         }
 
