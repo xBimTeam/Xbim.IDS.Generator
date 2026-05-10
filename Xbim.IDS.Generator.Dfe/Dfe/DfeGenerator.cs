@@ -309,8 +309,8 @@ namespace Xbim.IDS.Generator.Dfe
                     };
                     var fileNameSuffix = targetGeneration switch
                     {
-                        GenerationPass.All     => " Spatial",
-                        GenerationPass.Core    => " MetaData",
+                        GenerationPass.All     => "",
+                        GenerationPass.Core    => " Core Only",
                         GenerationPass.Complex => " Nomenclature and Classification Only",
                         _ => throw new NotImplementedException(),
                     };
@@ -358,7 +358,7 @@ namespace Xbim.IDS.Generator.Dfe
 
                     Directory.CreateDirectory(context.BasePath);
                     var stageDesc = targetStage.ToDescription();   // e.g. "Stage 3"
-                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-M-X-{version:D4}-Information Model Assurance {stageDesc}{fileNameSuffix}-{status}-{revision}.ids");
+                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-L-X-{version:D4}-Information Model Assurance {stageDesc}{fileNameSuffix}-{status}-{revision}.ids");
 
                     var totalSpecs = ids.AllSpecifications().Count();
                     // Core-only single file excludes optional-applicability (SHOULD) specs; All and Complex keep everything
