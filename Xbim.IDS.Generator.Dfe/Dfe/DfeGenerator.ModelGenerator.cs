@@ -252,18 +252,18 @@ namespace Xbim.IDS.Generator.Dfe
 
             GetRoom(enumerator).Description = "";
 
-            // Remove a Roomtag from room
+            // Remove a RoomTag from room
             var room = GetRoom(enumerator);
             var pset = room.GetPropertySet("COBie_Space");
             var psetProps = pset.HasProperties;
-            var toDel = psetProps.First(p => p.Name == "Roomtag");
+            var toDel = psetProps.First(p => p.Name == "RoomTag");
             psetProps.Remove(toDel);
             //room.Model.Delete(pset);// Tidy up empty pset
 
             // Add bogus Room tag to Room
             room = GetRoom(enumerator);
             psetProps = room.GetPropertySet("COBie_Space").HasProperties;
-            var toUpdate = room.GetPropertySingleValue("COBie_Space", "Roomtag");
+            var toUpdate = room.GetPropertySingleValue("COBie_Space", "RoomTag");
             toUpdate.NominalValue = new IfcText("INVALID");
 
             var spaceClassSystem = _version == ImrVersion.S25 ? "DfE Space Classification" : "DFE ADS";
@@ -344,7 +344,8 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Remove classification from Zone
             var zone = GetZone(enumerator);
-            var cls = zone.HasAssociations.OfType<IIfcRelAssociatesClassification>().First(e => e.RelatingClassification is IIfcClassificationReference r && r.ReferencedSource.Name() == "Zones");
+            var zoneSystemName = _version == ImrVersion.S25 ? "Zone Classification" : "Zones";
+            var cls = zone.HasAssociations.OfType<IIfcRelAssociatesClassification>().First(e => e.RelatingClassification is IIfcClassificationReference r && r.ReferencedSource.Name() == zoneSystemName);
             cls.RelatedObjects.Remove(zone);
             if(cls.RelatedObjects.Any() == false)
             {
@@ -353,9 +354,9 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Replace classification code with invalid
             zone = GetZone(enumerator);
-            cls = zone.HasAssociations.OfType<IIfcRelAssociatesClassification>().First(e => e.RelatingClassification is IIfcClassificationReference r && r.ReferencedSource.Name() == "Zones");
+            cls = zone.HasAssociations.OfType<IIfcRelAssociatesClassification>().First(e => e.RelatingClassification is IIfcClassificationReference r && r.ReferencedSource.Name() == zoneSystemName);
             cls.RelatedObjects.Remove(zone);
-            zone.WithClassificationReference("Zones", "Invalid Category", "Not valid zone category");
+            zone.WithClassificationReference(zoneSystemName, "Invalid Category", "Not valid zone category");
 
         }
 
@@ -1219,6 +1220,7 @@ namespace Xbim.IDS.Generator.Dfe
         private IEnumerable<IIfcBuildingStorey> CreateBuildingStoreys(IModelInstanceBuilder builder, DfeConfig config, IIfcBuilding building, string[] levels)
         {
             var storeyHeight = 3400;
+            var lengthUnit = builder.Model.Instances.OfType<IIfcSIUnit>().First(u => u.UnitType == IfcUnitEnum.LENGTHUNIT);
             var stories = levels
                 .Select((level, i) =>
                 {
@@ -1234,6 +1236,8 @@ namespace Xbim.IDS.Generator.Dfe
                         o.CompositionType = IfcElementCompositionEnum.ELEMENT;
                         o.Elevation = i * storeyHeight;
                     })
+                    .WithQuantity("BaseQuantities", "NominalHeight", storeyHeight, XbimQuantityTypeEnum.Length, lengthUnit)
+                    .WithQuantity("BaseQuantities", "Height", storeyHeight, XbimQuantityTypeEnum.Length, lengthUnit)
                     .WithPropertySingle("Additional_Pset_BuildingStoreyCommon", "NetHeight", new IfcLengthMeasure(storeyHeight - 600))
                     .WithClassificationReference(_version == ImrVersion.S25 ? "Floor Classification" : "Floor", floor.Category)
                     .WithRelativePlacement(builder, GeometryDefaults, building,
@@ -1306,7 +1310,8 @@ namespace Xbim.IDS.Generator.Dfe
                     .WithRelativePlacement(builder, GeometryDefaults, storey, new XbimPoint3D(6000 * roomNo, 0, 0))
                     .WithClassificationReference("Uniclass SL", slClass.Code, slClass.Description)
                     .WithClassificationReference(_version == ImrVersion.S25 ? "DfE Space Classification" : "DFE ADS", adsClass.Code, adsClass.Description)
-                    .WithPropertySingle("COBie_Space", "Roomtag", new IfcText("n/a"))
+                    .WithPropertySingle("COBie_Space", "RoomTag", new IfcText("n/a"))
+                    .WithQuantity("BaseQuantities", "ClearHeight", 2400, XbimQuantityTypeEnum.Length, lengthUnit)
                     .WithQuantity("BaseQuantities", "Height", 2400, XbimQuantityTypeEnum.Length, lengthUnit)
                     .WithQuantity("BaseQuantities", "GrossFloorArea", 100 * i, XbimQuantityTypeEnum.Area, areaUnit)
                     .WithQuantity("BaseQuantities", "NetFloorArea", 95 * i, XbimQuantityTypeEnum.Area, areaUnit)
@@ -1338,7 +1343,7 @@ namespace Xbim.IDS.Generator.Dfe
                         o.Name = zoneName;
                         o.Description = data.Description;
                     })
-                    .WithClassificationReference("Zones", data.Category);
+                    .WithClassificationReference(_version == ImrVersion.S25 ? "Zone Classification" : "Zones", data.Category);
                     zones.Add(zone);
                 }
                 else

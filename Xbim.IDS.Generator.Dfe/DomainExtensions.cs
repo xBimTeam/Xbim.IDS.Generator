@@ -63,7 +63,7 @@ namespace Xbim.IDS.Generator.Dfe
             var spaceClassCode   = version == ImrVersion.S25 ? "S6004" : "STT10";
 
             return space
-                .WithPropertySingle("COBie_Space", "Roomtag", new IfcText("n/a"))
+                .WithPropertySingle("COBie_Space", "RoomTag", new IfcText("n/a"))
                 .WithClassificationReference("Uniclass SL", "SL_90_50_87", "Teaching resources stores")
                 .WithClassificationReference(spaceClassSystem, spaceClassCode, "Teaching resources stores")
                 ;

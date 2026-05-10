@@ -674,13 +674,19 @@ namespace Xbim.IDS.Generator.Dfe
                 }
             }
 
-            // 04.09 - Two routes to compliance:
+            // 04.09 - Three routes to compliance:
             // Route 1: NominalHeight in BaseQuantities (IFC 2x3 TC1 standard)
-            // Route 2: NetHeight in Additional_Pset_BuildingStoreyCommon (Revit workaround - NominalHeight not exported correctly, see revit-ifc#863, #479)
+            // Route 2: Height in BaseQuantities (Revit/ArchiCAD actual output)
+            // Route 3: NetHeight in Additional_Pset_BuildingStoreyCommon (user-recorded fallback)
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NominalHeight", "BaseQuantities", subContext, 0, false, null, false, "IfcLengthMeasure",
-                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                ruleId: RuleId("4_04_09_01", subContext));
+            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IfcLengthMeasure",
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                ruleId: RuleId("4_04_09_02", subContext));
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", subContext, 0, false, null, false, "IfcLengthMeasure",
-                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
+                ruleId: RuleId("4_04_09_03", subContext));
             
         }
 
@@ -713,14 +719,14 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Space Shall Have RoomTag Defined (Stage 3-4) / Shall Have RoomTag That Is Not 'n/a' (Stage 5+)
             var original = subContext.ApplicableToStages;
-            CreatePropertyWithValueSpecification(specs, applicability, ids, "Roomtag", "COBie_Space", "n/a", subContext.SetApplicableStages(RibaStages.Stage3 | RibaStages.Stage4), "IFCLABEL",
+            CreatePropertyWithValueSpecification(specs, applicability, ids, "RoomTag", "COBie_Space", "n/a", subContext.SetApplicableStages(RibaStages.Stage3 | RibaStages.Stage4), "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Space Shall Have RoomTag Defined" : null);
             using (var roomTagStage5 = subContext.BeginSubscope().SetApplicableStages(RibaStages.Stage5Plus))
             {
-                CreatePropertyNonEmptySpecification(specs, applicability, ids, "Roomtag", "COBie_Space", roomTagStage5, "IFCLABEL",
+                CreatePropertyNonEmptySpecification(specs, applicability, ids, "RoomTag", "COBie_Space", roomTagStage5, "IFCTEXT",
                     title: _version == ImrVersion.S25 ? "Space Shall Have RoomTag That Is Not 'n/a'" : null);
-                CreatePropertyWithPatternSpecification(specs, applicability, ids, "Roomtag", "COBie_Space",
-                    notNaExpression.ToString(), "not n/a", roomTagStage5, "IFCLABEL",
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "RoomTag", "COBie_Space",
+                    notNaExpression.ToString(), "not n/a", roomTagStage5, "IFCTEXT",
                     title: _version == ImrVersion.S25 ? "Space Shall Have RoomTag That Is Not 'n/a'" : null);
             }
             subContext.SetApplicableStages(original);   // reset default
@@ -728,19 +734,31 @@ namespace Xbim.IDS.Generator.Dfe
             // Space Shall Have DfE Space Classification Defined — label and code list differ between S21 (ADS) and S25 (Space)
             var spaceClassConstraint = _version == ImrVersion.S21
                 ? ValueConstraint.CreatePattern(adsNameExpression.ToString())
-                : ValueConstraint.CreatePattern(spaceClassExpression.ToString());
-            var spaceClassLabel = _version == ImrVersion.S21 ? "ADS Classification" : "Space Classification";
+                : new ValueConstraint("DfE Space Classification");
+            var spaceClassLabel = _version == ImrVersion.S21 ? "ADS Classification" : "DfE Space Classification";
             CreateClassificationDefinedSpecification(specs, applicability, ids, spaceClassLabel, spaceClassConstraint, subContext,
                 title: _version == ImrVersion.S25 ? "Space Shall Have DfE Space Classification Defined" : null);
             CreateClassificationFromListSpecification(specs, applicability, ids, spaceClassLabel, spaceClassConstraint, GetSpaceCodes(), subContext,
                 title: _version == ImrVersion.S25 ? "Space Shall Have DfE Space Classification From Value List" : null);
 
-            // S21: Height/GrossArea/NetArea  |  S25: ClearHeight/GrossFloorArea/NetFloorArea  (05.11-05.13)
-            var spaceHeightProp  = _version == ImrVersion.S21 ? "Height"        : "ClearHeight";
+            // S21: Height/GrossArea/NetArea  |  S25: ClearHeight (05.11.01) + Height fallback (05.11.02), GrossFloorArea/NetFloorArea  (05.11-05.13)
             var grossAreaProp    = _version == ImrVersion.S21 ? "GrossArea"     : "GrossFloorArea";
             var netAreaProp      = _version == ImrVersion.S21 ? "NetArea"       : "NetFloorArea";
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, spaceHeightProp, "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
-                title: _version == ImrVersion.S25 ? "Space Shall Have ClearHeight Defined" : null);
+            if (_version == ImrVersion.S21)
+            {
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE");
+            }
+            else
+            {
+                // 05.11.01: ClearHeight — schema-correct BaseQuantity name per IFC specification
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "ClearHeight", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
+                    title: "Space Shall Have ClearHeight Defined In BaseQuantities",
+                    ruleId: RuleId("4_05_11_01", subContext));
+                // 05.11.02: Height — fallback for software that incorrectly exports ClearHeight as Height in BaseQuantities
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
+                    title: "Space Shall Have Height Defined In BaseQuantities",
+                    ruleId: RuleId("4_05_11_02", subContext));
+            }
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, grossAreaProp,   "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE",
                 title: _version == ImrVersion.S25 ? "Space Shall Have GrossFloorArea Defined" : null);
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, netAreaProp,     "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE",
@@ -748,7 +766,11 @@ namespace Xbim.IDS.Generator.Dfe
 
 
             // Space Shall Have Uniclass Classification Defined
-            CreateClassificationFromListSpecification(specs, applicability, ids, "Uniclass 2015", ValueConstraint.CreatePattern(UniclassSystemLabel), GetUniclassSLCodes(), subContext,
+            var uniclassSystemLabel = _version == ImrVersion.S21 ? "Uniclass 2015" : UniclassSystemLabel;
+            var uniclassSystemConstraint = _version == ImrVersion.S25
+                ? new ValueConstraint(UniclassSystemLabel)
+                : ValueConstraint.CreatePattern(UniclassSystemLabel);
+            CreateClassificationFromListSpecification(specs, applicability, ids, uniclassSystemLabel, uniclassSystemConstraint, GetUniclassSLCodes(), subContext,
                 title: _version == ImrVersion.S25 ? "Space Shall Have Uniclass Classification Defined" : null);
 
             // Space Should Have UniclassClassification That Corresponds Correctly To The Category(DfE ADS Classification)
@@ -764,12 +786,16 @@ namespace Xbim.IDS.Generator.Dfe
         private void CreateADSToUniclassSpecifications(SpecContext subContext)
         {
             using (var adsScope = subContext.BeginSubscope()
-                .SetApplicableToGeneration(GenerationPass.Complex))
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional))
             {
                 var specs = adsScope.CurrentSpecGroup;
                 var ids = subContext.Ids;
                 var spaceMap = GetUniclassSpaceMap();
-                var classFilter = _version == ImrVersion.S21 ? ".*ADS.*" : ".*Space.*";
+                var classFilter = _version == ImrVersion.S21 ? ".*ADS.*" : "DfE Space Classification";
+                var uniclassConstraint = _version == ImrVersion.S25
+                    ? new ValueConstraint(UniclassSystemLabel)
+                    : ValueConstraint.CreatePattern(UniclassSystemLabel);
                 const int trimAt = 3;
                 foreach (var item in spaceMap)
                 {
@@ -783,7 +809,7 @@ namespace Xbim.IDS.Generator.Dfe
 
                     var applicab = GetEntityApplicabilityWithClassifications(ids, name, "IfcSpace", classFilter, item.Value, false);
 
-                    CreateClassificationCodeValueSpecification(specs, applicab, ids, "Uniclass", ValueConstraint.CreatePattern(UniclassSystemLabel), item.Key, adsScope);
+                    CreateClassificationCodeValueSpecification(specs, applicab, ids, UniclassSystemLabel, uniclassConstraint, item.Key, adsScope);
                 }
 
             }
@@ -822,10 +848,11 @@ namespace Xbim.IDS.Generator.Dfe
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcZone.Description), GetZoneDescriptions(), subContext,
                 title: _version == ImrVersion.S25 ? "Zone Shall Have Description Matching The Projects Information Standard" : null);
 
-            var zoneClassification = ValueConstraint.CreatePattern(".*Zone.*");
-            CreateClassificationDefinedSpecification(specs, applicability, ids, "Category", zoneClassification, subContext,
+            var zoneClassLabel = _version == ImrVersion.S21 ? "COBie Zone Classification" : "Zone Classification";
+            var zoneClassification = _version == ImrVersion.S21 ? ValueConstraint.CreatePattern(".*Zone.*") : new ValueConstraint("Zone Classification");
+            CreateClassificationDefinedSpecification(specs, applicability, ids, zoneClassLabel, zoneClassification, subContext,
                 title: _version == ImrVersion.S25 ? "Zone Shall Have Zone Classification Defined" : null);
-            CreateClassificationFromListSpecification(specs, applicability, ids, "Category", zoneClassification, GetZoneCategories(), subContext,
+            CreateClassificationFromListSpecification(specs, applicability, ids, zoneClassLabel, zoneClassification, GetZoneCategories(), subContext,
                 title: _version == ImrVersion.S25 ? "Zone Shall Have Zone Classification Matching The Projects Information Standard" : null);
             subContext.Skip("Single-zone cardinality not expressible in IDS (Zone-has-Space cannot be expressed as partOf from the Zone side)");
 
