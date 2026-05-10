@@ -17,9 +17,10 @@ internal class Program
 
         var status = args.FirstOrDefault(a => a.StartsWith("--status=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1] ?? "Sn";
         var revision = args.FirstOrDefault(a => a.StartsWith("--revision=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1] ?? "Pnn";
+        var buildingStoreys = args.FirstOrDefault(a => a.StartsWith("--bs=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1] is string bsStr && int.TryParse(bsStr, out var bsN) ? bsN : (int?)null;
 
         // bootstrap an app
-        var host = CreateHostBuilder(imrVersion, status, revision).Build();
+        var host = CreateHostBuilder(imrVersion, status, revision, buildingStoreys).Build();
 
         var generator = host.Services.GetRequiredService<IIdsSchemaGenerator>();
         var modelGenerator = host.Services.GetRequiredService<IModelGenerator>();
@@ -28,7 +29,7 @@ internal class Program
         await modelGenerator.GenerateTestModels();
     }
 
-    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision)
+    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision, int? buildingStoreys = null)
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(outputTemplate:
@@ -42,7 +43,7 @@ internal class Program
         hostBuilder.Services
             .AddXbimToolkit()
             .AddLogging(o => o.AddSerilog(Log.Logger).SetMinimumLevel(LogLevel.Debug))
-            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision })
+            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision, BuildingStoreys = buildingStoreys })
             .AddTransient<IIdsSchemaGenerator, DfeGenerator>()
             .AddTransient<IModelGenerator, DfeGenerator>()
             .AddIdsValidation()

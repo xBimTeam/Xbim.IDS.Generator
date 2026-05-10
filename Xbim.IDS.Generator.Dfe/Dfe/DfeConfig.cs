@@ -16,6 +16,7 @@ namespace Xbim.IDS.Generator.Dfe
         public ImrVersion Version { get; set; } = ImrVersion.S25;
         public string Status { get; set; } = "Sn";
         public string Revision { get; set; } = "Pnn";
+        public int? BuildingStoreys { get; set; }
     }
 
     /// <summary>
@@ -55,8 +56,18 @@ namespace Xbim.IDS.Generator.Dfe
         [JsonPropertyName("Building UPRN")]
         public string BuildingUPRN { get; set; } = "{{IfcBuildingUPRN}}";
 
-        [JsonPropertyName("Number of Storeys")]
         public int NumberOfStoreys { get; set; } = 3;
+
+        [JsonPropertyName("Level 00 Height")]
+        public string Level00Height { get; set; } = "{{IfcBuildingStorey.Level 00.Height}}";
+        [JsonPropertyName("Level 01 Height")]
+        public string Level01Height { get; set; } = "{{IfcBuildingStorey.Level 01.Height}}";
+        [JsonPropertyName("Level 02 Height")]
+        public string Level02Height { get; set; } = "{{IfcBuildingStorey.Level 02.Height}}";
+        [JsonPropertyName("Level 03 Height")]
+        public string Level03Height { get; set; } = "{{IfcBuildingStorey.Level 03.Height}}";
+        [JsonPropertyName("Level 04 Height")]
+        public string Level04Height { get; set; } = "{{IfcBuildingStorey.Level 04.Height}}";
 
 #if AirTable
         public static async Task<DfeConfig> Read(IAirTableService airtable, string table)

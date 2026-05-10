@@ -31,6 +31,7 @@ namespace Xbim.IDS.Generator.Dfe
             _version = options.Version;
             _status = options.Status;
             _revision = options.Revision;
+            _buildingStoreys = options.BuildingStoreys;
 
             Xids.Settings.ApplyPrefixToSpecGroupFileNames = false;
 
@@ -64,6 +65,7 @@ namespace Xbim.IDS.Generator.Dfe
         private readonly ImrVersion _version;
         private readonly string _status;
         private readonly string _revision;
+        private readonly int? _buildingStoreys;
 
         /// <summary>
         /// Returns the version-appropriate explicit rule ID, or null (auto-counter) when no ID is defined for the current version.
@@ -71,6 +73,9 @@ namespace Xbim.IDS.Generator.Dfe
         /// </summary>
         private string? RuleId(string? s25Id, string? s21Id = null) =>
             _version == ImrVersion.S25 ? s25Id : s21Id;
+
+        private static string HeightToken(string floorCode) =>
+            $"{{{{IfcBuildingStorey.Level {floorCode}.Height}}}}";
 
         private string UniclassSystemLabel =>
             _version == ImrVersion.S25 ? "Uniclass Classification" : uniclassExpression.ToString();
@@ -655,8 +660,9 @@ namespace Xbim.IDS.Generator.Dfe
             CreateClassificationFromListSpecification(specs, applicability, ids, floorClassLabel, floorClassSystem, new string[] { "Site", "Floor", "Roof" }, subContext, floorClassTitle);
 
             // Building Storey Should Have Elevation Matching The Projects Information Standard
+            var storeyCount = _buildingStoreys ?? config.NumberOfStoreys;
             var standardFloors = new[] { "00", "01", "02", "03", "04" }
-                .Take(config.NumberOfStoreys)
+                .Take(storeyCount)
                 .Select(code => floorDict[code]);
             using (var elevationContext = subContext.BeginSubscope())
             {
@@ -674,19 +680,27 @@ namespace Xbim.IDS.Generator.Dfe
                 }
             }
 
-            // 04.09 - Three routes to compliance:
+            // 04.09 - Three routes to compliance per storey (mirrors 04.08 elevation pattern):
             // Route 1: NominalHeight in BaseQuantities (IFC 2x3 TC1 standard)
             // Route 2: Height in BaseQuantities (Revit/ArchiCAD actual output)
             // Route 3: NetHeight in Additional_Pset_BuildingStoreyCommon (user-recorded fallback)
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NominalHeight", "BaseQuantities", subContext, 0, false, null, false, "IfcLengthMeasure",
-                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
-                ruleId: RuleId("4_04_09_01", subContext));
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IfcLengthMeasure",
-                title: _version == ImrVersion.S25 ? "Building Storey Shall Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
-                ruleId: RuleId("4_04_09_02", subContext));
-            CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", subContext, 0, false, null, false, "IfcLengthMeasure",
-                title: _version == ImrVersion.S25 ? "Building Storey Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
-                ruleId: RuleId("4_04_09_03", subContext));
+            using var heightContext = subContext.BeginSubscope();
+            foreach (var floor in standardFloors)
+            {
+                var storeyApplicability = GetEntityApplicabilityWithAttribute(
+                    ids, floor.Name!, "IfcBuildingStorey", nameof(IIfcBuildingStorey.Name), floor.Name!);
+                var heightToken = HeightToken(floor.Code);
+
+                CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "NominalHeight", "BaseQuantities", heightToken, heightContext, "IfcLengthMeasure",
+                    title: _version == ImrVersion.S25 ? "Building Storey Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                    ruleId: RuleId("4_04_09_01", heightContext));
+                CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "Height", "BaseQuantities", heightToken, heightContext, "IfcLengthMeasure",
+                    title: _version == ImrVersion.S25 ? "Building Storey Shall Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                    ruleId: RuleId("4_04_09_02", heightContext));
+                CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", heightToken, heightContext, "IfcLengthMeasure",
+                    title: _version == ImrVersion.S25 ? "Building Storey Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
+                    ruleId: RuleId("4_04_09_03", heightContext));
+            }
             
         }
 
