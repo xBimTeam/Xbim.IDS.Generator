@@ -64,7 +64,7 @@ namespace Xbim.IDS.Generator.Dfe
 
             return space
                 .WithPropertySingle("COBie_Space", "RoomTag", new IfcText("n/a"))
-                .WithClassificationReference("Uniclass SL", "SL_90_50_87", "Teaching resources stores")
+                .WithClassificationReference(version == ImrVersion.S25 ? "Uniclass Classification" : "Uniclass SL", "SL_90_50_87", "Teaching resources stores")
                 .WithClassificationReference(spaceClassSystem, spaceClassCode, "Teaching resources stores")
                 ;
         }
