@@ -309,8 +309,8 @@ namespace Xbim.IDS.Generator.Dfe
                     };
                     var fileNameSuffix = targetGeneration switch
                     {
-                        GenerationPass.All     => "",
-                        GenerationPass.Core    => " Core Only",
+                        GenerationPass.All     => " Spatial",
+                        GenerationPass.Core    => " MetaData",
                         GenerationPass.Complex => " Nomenclature and Classification Only",
                         _ => throw new NotImplementedException(),
                     };
@@ -358,7 +358,7 @@ namespace Xbim.IDS.Generator.Dfe
 
                     Directory.CreateDirectory(context.BasePath);
                     var stageDesc = targetStage.ToDescription();   // e.g. "Stage 3"
-                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-L-X-{version:D4}-Information Model Assurance {stageDesc}{fileNameSuffix}-{status}-{revision}.ids");
+                    var fileName = Path.Combine(context.BasePath, $"ER-DFE-XX-XX-M-X-{version:D4}-Information Model Assurance {stageDesc}{fileNameSuffix}-{status}-{revision}.ids");
 
                     var totalSpecs = ids.AllSpecifications().Count();
                     // Core-only single file excludes optional-applicability (SHOULD) specs; All and Complex keep everything
@@ -695,12 +695,14 @@ namespace Xbim.IDS.Generator.Dfe
                 CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "NominalHeight", "BaseQuantities", heightToken, heightContext, "IfcLengthMeasure",
                     title: _version == ImrVersion.S25 ? $"{floor.Name} Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
                     ruleId: RuleId($"4_04_09_01_{idx}", heightContext));
+                heightContext.SetMatches(CardinalityEnum.Optional);
                 CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "Height", "BaseQuantities", heightToken, heightContext, "IfcLengthMeasure",
-                    title: _version == ImrVersion.S25 ? $"{floor.Name} Shall Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                    title: _version == ImrVersion.S25 ? $"{floor.Name} Should Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
                     ruleId: RuleId($"4_04_09_02_{idx}", heightContext));
                 CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", heightToken, heightContext, "IfcLengthMeasure",
-                    title: _version == ImrVersion.S25 ? $"{floor.Name} Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
+                    title: _version == ImrVersion.S25 ? $"{floor.Name} Should Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
                     ruleId: RuleId($"4_04_09_03_{idx}", heightContext));
+                heightContext.ResetMatches();
             }
             
         }
@@ -770,9 +772,15 @@ namespace Xbim.IDS.Generator.Dfe
                     title: "Space Shall Have ClearHeight Defined In BaseQuantities",
                     ruleId: RuleId("4_05_11_01", subContext));
                 // 05.11.02: Height — fallback for software that incorrectly exports ClearHeight as Height in BaseQuantities
+                subContext.SetMatches(CardinalityEnum.Optional);
                 CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
-                    title: "Space Shall Have Height Defined In BaseQuantities",
+                    title: "Space Should Have Height Defined In BaseQuantities",
                     ruleId: RuleId("4_05_11_02", subContext));
+                // 05.11.03: FinishCeilingHeight — optional user-recorded accurate value
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "FinishCeilingHeight", "Additional_Pset_SpaceCommon", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
+                    title: "Space Should Have FinishCeilingHeight Defined In Additional_Pset_SpaceCommon",
+                    ruleId: RuleId("4_05_11_03", subContext));
+                subContext.ResetMatches();
             }
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, grossAreaProp,   "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE",
                 title: _version == ImrVersion.S25 ? "Space Shall Have GrossFloorArea Defined" : null);
