@@ -685,21 +685,22 @@ namespace Xbim.IDS.Generator.Dfe
             // Route 2: Height in BaseQuantities (Revit/ArchiCAD actual output)
             // Route 3: NetHeight in Additional_Pset_BuildingStoreyCommon (user-recorded fallback)
             using var heightContext = subContext.BeginSubscope();
-            foreach (var floor in standardFloors)
+            foreach (var (floor, i) in standardFloors.Select((f, i) => (f, i + 1)))
             {
                 var storeyApplicability = GetEntityApplicabilityWithAttribute(
                     ids, floor.Name!, "IfcBuildingStorey", nameof(IIfcBuildingStorey.Name), floor.Name!);
                 var heightToken = HeightToken(floor.Code);
+                var idx = $"{i:D2}";
 
                 CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "NominalHeight", "BaseQuantities", heightToken, heightContext, "IfcLengthMeasure",
-                    title: _version == ImrVersion.S25 ? "Building Storey Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
-                    ruleId: RuleId("4_04_09_01", heightContext));
+                    title: _version == ImrVersion.S25 ? $"{floor.Name} Shall Have NominalHeight In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                    ruleId: RuleId($"4_04_09_01_{idx}", heightContext));
                 CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "Height", "BaseQuantities", heightToken, heightContext, "IfcLengthMeasure",
-                    title: _version == ImrVersion.S25 ? "Building Storey Shall Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
-                    ruleId: RuleId("4_04_09_02", heightContext));
+                    title: _version == ImrVersion.S25 ? $"{floor.Name} Shall Have Height In BaseQuantities Matching Height Set Out In The Projects Information Standard" : null,
+                    ruleId: RuleId($"4_04_09_02_{idx}", heightContext));
                 CreatePropertyWithValueSpecification(specs, storeyApplicability, ids, "NetHeight", "Additional_Pset_BuildingStoreyCommon", heightToken, heightContext, "IfcLengthMeasure",
-                    title: _version == ImrVersion.S25 ? "Building Storey Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
-                    ruleId: RuleId("4_04_09_03", heightContext));
+                    title: _version == ImrVersion.S25 ? $"{floor.Name} Shall Have NetHeight Matching Height Set Out In The Projects Information Standard" : null,
+                    ruleId: RuleId($"4_04_09_03_{idx}", heightContext));
             }
             
         }
