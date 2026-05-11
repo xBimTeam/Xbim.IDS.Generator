@@ -894,11 +894,11 @@ namespace Xbim.IDS.Generator.Dfe
 
 
             // 07.01 - Object Type Shall Be Entity In Schema
-            // Broad applicability catches any IfcTypeObject; requirement constrains it to the concrete schema types under RootTypes
-            var entityApplicability = GetEntityApplicability(ids, "Object Type", "IfcTypeObject", includeSubTypes: true);
-            var validEntityTypes = GetSubTypes(RootTypes).ToArray();
-            CreateEntityInSchemaSpecification(specs, entityApplicability, ids, validEntityTypes, subContext,
-                title: _version == ImrVersion.S25 ? "Object Type Shall Be Entity In Schema" : null);
+            // Temporarily disabled: triggers AttributeError in Bonsai ifctester (upstream bug — xs:restriction entity name in requirements not handled)
+            // var entityApplicability = GetEntityApplicability(ids, "Object Type", "IfcTypeObject", includeSubTypes: true);
+            // var validEntityTypes = GetSubTypes(RootTypes).ToArray();
+            // CreateEntityInSchemaSpecification(specs, entityApplicability, ids, validEntityTypes, subContext,
+            //     title: _version == ImrVersion.S25 ? "Object Type Shall Be Entity In Schema" : null);
             // Object Type Should Have Enumeration(PredefinedType) Defined
             var pdtTypes = Schema.GetAttributeClasses("PredefinedType")
                     .Where(c => c.EndsWith("TYPE"))
