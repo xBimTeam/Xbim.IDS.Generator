@@ -1398,27 +1398,31 @@ namespace Xbim.IDS.Generator.Dfe
             CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description),
                 GetSystemDescriptions(), subContext,
                 title: "System Shall Have Description Matching The Projects Information Standard");
-            // 09.05 S25: System Uniclass Classification Defined
+            // 09.05_01 S25: System Uniclass Classification Defined (primary: IFC classification)
             if (_version == ImrVersion.S25)
             {
-                CreateClassificationDefinedSpecification(specs, applicability, ids, "Uniclass Classification",
-                    ValueConstraint.CreatePattern(uniclassExpression.ToString()), subContext,
-                    title: "System Shall Have Uniclass Classification Defined");
+                CreateClassificationDefinedSpecification(specs, applicability, ids, UniclassSystemLabel,
+                    new ValueConstraint(UniclassSystemLabel), subContext,
+                    title: "System Shall Have Uniclass Classification Defined",
+                    ruleId: RuleId("4_09_05_01", subContext));
             }
-            // 09.05 Route 2 (S25): property fallback for tools that cannot attach IFC classification to IfcSystem
+            // 09.05_02 S25: System Uniclass Classification Defined (secondary: property fallback for tools that cannot attach IFC classification to IfcSystem)
             if (_version == ImrVersion.S25)
             {
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "SystemCategory", "Additional_Pset_SystemCommon", subContext, dataType: "IFCTEXT",
-                    title: "System Shall Have Uniclass Classification Defined");
+                    title: "System Shall Have Uniclass Classification Defined",
+                    ruleId: RuleId("4_09_05_02", subContext));
             }
-            // 09.06 S25 / 09.03 S21: System Uniclass Matching PIS
+            // 09.06_01 S25 / 09.03 S21: System Uniclass Matching PIS (primary: IFC classification)
             CreateClassificationPatternSpecification(specs, applicability, ids, UniclassSystemLabel, "Ss_.*", subContext,
-                title: _version == ImrVersion.S25 ? "System Shall Have Uniclass Classification Matching The Projects Information Standard" : null);
-            // 09.06 Route 2 (S25): property fallback
+                title: _version == ImrVersion.S25 ? "System Shall Have Uniclass Classification Matching The Projects Information Standard" : null,
+                ruleId: RuleId("4_09_06_01", subContext));
+            // 09.06_02 S25: System Uniclass Matching PIS (secondary: property fallback)
             if (_version == ImrVersion.S25)
             {
                 CreatePropertyWithPatternSpecification(specs, applicability, ids, "SystemCategory", "Additional_Pset_SystemCommon", "Ss_.*", "Ss Systems", subContext, "IFCTEXT",
-                    title: "System Shall Have Uniclass Classification Matching The Projects Information Standard");
+                    title: "System Shall Have Uniclass Classification Matching The Projects Information Standard",
+                    ruleId: RuleId("4_09_06_02", subContext));
             }
         }
 
