@@ -1,4 +1,4 @@
-using IdsLib.IfcSchema;
+ï»¿using IdsLib.IfcSchema;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO.Compression;
@@ -54,7 +54,7 @@ namespace Xbim.IDS.Generator.Dfe
         internal static readonly Regex emailExpression = new(emailRegex);
         internal static readonly Regex numericExpression = new($@"\d+(\.\d+)?");
         internal static readonly Regex numericOrNaExpression = new($@"n\/a|\d+(\.\d+)?");
-        internal static readonly Regex monetaryOrNaExpression = new($@"n\/a|£?\d+(\.\d{{2}})?");
+        internal static readonly Regex monetaryOrNaExpression = new($@"n\/a|ï¿½?\d+(\.\d{{2}})?");
         internal static readonly Regex textOrNaExpression = new($@"n\/a|(\w.*)+");
         internal static readonly Regex numberOrNaExpression = new($@"n\/a|(\d|-| |_)+");
         internal static readonly Regex dateOrDefaultExpression = new(@"1900-12-31T23:59:59(Z|[+-]\d{2}:\d{2})?|20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])(?:T(?:[01][0-9]|2[0-3]):(?:[0-5][0-9]):(?:[0-5][0-9])(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)?");
@@ -509,7 +509,7 @@ namespace Xbim.IDS.Generator.Dfe
             var path = Path.Combine(context.BasePath, "Individual", stageFolderName);
             if (!Directory.Exists(path)) return;
 
-            // Retry once — OneDrive/antivirus can briefly lock files during sync
+            // Retry once ï¿½ OneDrive/antivirus can briefly lock files during sync
             for (int attempt = 0; attempt < 2; attempt++)
             {
                 try
@@ -765,7 +765,7 @@ namespace Xbim.IDS.Generator.Dfe
             }
             subContext.SetApplicableStages(original);   // reset default
 
-            // Space Shall Have DfE Space Classification Defined — label and code list differ between S21 (ADS) and S25 (Space)
+            // Space Shall Have DfE Space Classification Defined ï¿½ label and code list differ between S21 (ADS) and S25 (Space)
             var spaceClassConstraint = _version == ImrVersion.S21
                 ? ValueConstraint.CreatePattern(adsNameExpression.ToString())
                 : new ValueConstraint("DfE Space Classification");
@@ -784,16 +784,16 @@ namespace Xbim.IDS.Generator.Dfe
             }
             else
             {
-                // 05.11.01: ClearHeight — schema-correct BaseQuantity name per IFC specification
+                // 05.11.01: ClearHeight ï¿½ schema-correct BaseQuantity name per IFC specification
                 CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "ClearHeight", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
                     title: "Space Shall Have ClearHeight Defined In BaseQuantities",
                     ruleId: RuleId("4_05_11_01", subContext));
-                // 05.11.02: Height — fallback for software that incorrectly exports ClearHeight as Height in BaseQuantities
+                // 05.11.02: Height ï¿½ fallback for software that incorrectly exports ClearHeight as Height in BaseQuantities
                 subContext.SetMatches(CardinalityEnum.Optional);
                 CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
                     title: "Space Should Have Height Defined In BaseQuantities",
                     ruleId: RuleId("4_05_11_02", subContext));
-                // 05.11.03: FinishCeilingHeight — optional user-recorded accurate value
+                // 05.11.03: FinishCeilingHeight ï¿½ optional user-recorded accurate value
                 CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "FinishCeilingHeight", "Additional_Pset_SpaceCommon", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
                     title: "Space Should Have FinishCeilingHeight Defined In Additional_Pset_SpaceCommon",
                     ruleId: RuleId("4_05_11_03", subContext));
@@ -911,7 +911,7 @@ namespace Xbim.IDS.Generator.Dfe
 
 
             // 07.01 - Object Type Shall Be Entity In Schema
-            // Temporarily disabled: triggers AttributeError in Bonsai ifctester (upstream bug — xs:restriction entity name in requirements not handled)
+            // Temporarily disabled: triggers AttributeError in Bonsai ifctester (upstream bug ï¿½ xs:restriction entity name in requirements not handled)
             // var entityApplicability = GetEntityApplicability(ids, "Object Type", "IfcTypeObject", includeSubTypes: true);
             // var validEntityTypes = GetSubTypes(RootTypes).ToArray();
             // CreateEntityInSchemaSpecification(specs, entityApplicability, ids, validEntityTypes, subContext,
@@ -1296,7 +1296,7 @@ namespace Xbim.IDS.Generator.Dfe
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is An Actual Date" : null);
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
-            // 08.11 S25: TagNumber NotEmpty (Stage4+) — new S25 rule; S21 has no Stage4 TagNumber check
+            // 08.11 S25: TagNumber NotEmpty (Stage4+) ï¿½ new S25 rule; S21 has no Stage4 TagNumber check
             if (_version == ImrVersion.S25)
             {
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "TagNumber", "COBie_Component", subContext, dataType: "IFCTEXT",
@@ -1330,7 +1330,7 @@ namespace Xbim.IDS.Generator.Dfe
                 title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have BarCode That Is 'n/a'" : null);
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
-            // 08.15 S25: AssetIdentifier NotEmpty (Stage4+) — new S25 rule; S21 has no Stage4 AssetIdentifier check
+            // 08.15 S25: AssetIdentifier NotEmpty (Stage4+) ï¿½ new S25 rule; S21 has no Stage4 AssetIdentifier check
             if (_version == ImrVersion.S25)
             {
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", subContext, dataType: "IFCTEXT",
@@ -1378,22 +1378,32 @@ namespace Xbim.IDS.Generator.Dfe
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "System", "IfcSystem", false);
             // See PIS 5.2.9 & table
-            // 09.01 S25: System Name Defined — IfcSystem.Name is available in IFC2X3
+            // 09.01 S25: System Name Defined ï¿½ IfcSystem.Name is available in IFC2X3
             if (_version == ImrVersion.S25)
             {
                 CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name), subContext,
                     title: "System Shall Have Name Defined");
             }
-            // 09.02 S25 / 09.01 S21: System Name Matching PIS — needs PIS 5.2.9 system name list (not yet in config)
-            subContext.Skip("System Name Matching requires PIS 5.2.9 name list not yet in DfeConfig");
-            // 09.03 S25: System Description Defined — IfcSystem.Description is available in IFC2X3
+            // 09.02 S25 / 09.01 S21: System Name Matching PIS ï¿½ needs PIS 5.2.9 system name list (not yet in config)
+            if (_version == ImrVersion.S25)
+                CreateAttributePatternSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name),
+                    GetSystemNamePattern(), subContext,
+                    title: "System Shall Have Name Matching The Projects Information Standard");
+            else
+                subContext.Skip("09.01 S21: System Name Matching - PIS 5.2.9 name list not yet in S21 DfeConfig");
+            // 09.03 S25: System Description Defined ï¿½ IfcSystem.Description is available in IFC2X3
             if (_version == ImrVersion.S25)
             {
                 CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description), subContext,
                     title: "System Shall Have Description Defined");
             }
-            // 09.04 S25 / 09.02 S21: System Description Matching PIS — needs PIS 5.2.9 description list (not yet in config)
-            subContext.Skip("System Description Matching requires PIS 5.2.9 description list not yet in DfeConfig");
+            // 09.04 S25 / 09.02 S21: System Description Matching PIS ï¿½ needs PIS 5.2.9 description list (not yet in config)
+            if (_version == ImrVersion.S25)
+                CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description),
+                    GetSystemDescriptions(), subContext,
+                    title: "System Shall Have Description Matching The Projects Information Standard");
+            else
+                subContext.Skip("09.02 S21: System Description Matching - PIS 5.2.9 description list not yet in S21 DfeConfig");
             // 09.05 S25: System Uniclass Classification Defined
             if (_version == ImrVersion.S25)
             {
@@ -1632,6 +1642,15 @@ namespace Xbim.IDS.Generator.Dfe
 
         private IEnumerable<string[]> GetZoneData() =>
             ReadVersionedContent("Zones");
+
+        private string GetSystemNamePattern()
+        {
+            var escaped = ReadVersionedContent("Systems").Select(r => Regex.Escape(r[0]));
+            return $"({string.Join("|", escaped)})_System\\d{{2,3}}";
+        }
+
+        private IEnumerable<string> GetSystemDescriptions() =>
+            ReadVersionedContent("Systems").Select(r => r[1]);
 
         private IDictionary<string, string> GetDfeTypes() =>
             ReadVersionedContent("Naming")
