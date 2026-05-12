@@ -169,7 +169,7 @@ namespace Xbim.IDS.Generator.Dfe
             var guarantor = $"service.{domain}@example.com";
             if(data.ApplyClassification)
                 type
-                    .WithClassificationReference("Uniclass Pr", productType, domain!);
+                    .WithClassificationReference("Uniclass Classification", productType, domain!);
 
             if(isCobieFn(type))
                 type
