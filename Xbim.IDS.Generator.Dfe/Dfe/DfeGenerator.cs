@@ -1385,12 +1385,9 @@ namespace Xbim.IDS.Generator.Dfe
                     title: "System Shall Have Name Defined");
             }
             // 09.02 S25 / 09.01 S21: System Name Matching PIS � needs PIS 5.2.9 system name list (not yet in config)
-            if (_version == ImrVersion.S25)
-                CreateAttributePatternSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name),
-                    GetSystemNamePattern(), subContext,
-                    title: "System Shall Have Name Matching The Projects Information Standard");
-            else
-                subContext.Skip("09.01 S21: System Name Matching - PIS 5.2.9 name list not yet in S21 DfeConfig");
+            CreateAttributePatternSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Name),
+                GetSystemNamePattern(), subContext,
+                title: "System Shall Have Name Matching The Projects Information Standard");
             // 09.03 S25: System Description Defined � IfcSystem.Description is available in IFC2X3
             if (_version == ImrVersion.S25)
             {
@@ -1398,12 +1395,9 @@ namespace Xbim.IDS.Generator.Dfe
                     title: "System Shall Have Description Defined");
             }
             // 09.04 S25 / 09.02 S21: System Description Matching PIS � needs PIS 5.2.9 description list (not yet in config)
-            if (_version == ImrVersion.S25)
-                CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description),
-                    GetSystemDescriptions(), subContext,
-                    title: "System Shall Have Description Matching The Projects Information Standard");
-            else
-                subContext.Skip("09.02 S21: System Description Matching - PIS 5.2.9 description list not yet in S21 DfeConfig");
+            CreateAttributeFromListSpecification(specs, applicability, ids, nameof(IIfcTypeObject.Description),
+                GetSystemDescriptions(), subContext,
+                title: "System Shall Have Description Matching The Projects Information Standard");
             // 09.05 S25: System Uniclass Classification Defined
             if (_version == ImrVersion.S25)
             {
@@ -1411,9 +1405,21 @@ namespace Xbim.IDS.Generator.Dfe
                     ValueConstraint.CreatePattern(uniclassExpression.ToString()), subContext,
                     title: "System Shall Have Uniclass Classification Defined");
             }
+            // 09.05 Route 2 (S25): property fallback for tools that cannot attach IFC classification to IfcSystem
+            if (_version == ImrVersion.S25)
+            {
+                CreatePropertyNonEmptySpecification(specs, applicability, ids, "SystemCategory", "Additional_Pset_SystemCommon", subContext, dataType: "IFCTEXT",
+                    title: "System Shall Have Uniclass Classification Defined");
+            }
             // 09.06 S25 / 09.03 S21: System Uniclass Matching PIS
             CreateClassificationPatternSpecification(specs, applicability, ids, UniclassSystemLabel, "Ss_.*", subContext,
                 title: _version == ImrVersion.S25 ? "System Shall Have Uniclass Classification Matching The Projects Information Standard" : null);
+            // 09.06 Route 2 (S25): property fallback
+            if (_version == ImrVersion.S25)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "SystemCategory", "Additional_Pset_SystemCommon", "Ss_.*", "Ss Systems", subContext, "IFCTEXT",
+                    title: "System Shall Have Uniclass Classification Matching The Projects Information Standard");
+            }
         }
 
         // 07.05
