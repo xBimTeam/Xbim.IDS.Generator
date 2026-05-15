@@ -175,7 +175,7 @@ namespace Xbim.IDS.Generator.Common
             return fileName;
         }
 
-        // Infer the schema support from the Applicable Entity Tyoe
+        // Infer the schema support from the Applicable Entity Type
         // e.g. IfcTank can only be IFC4 / 4X3
         public static List<IfcSchemaVersion> GetApplicableSchemas(FacetGroup applicability)
         {

@@ -146,70 +146,114 @@ namespace Xbim.IDS.Generator.Dfe
         static readonly IDictionary<string, TypeMap> typeCodeDict = new Dictionary<string, TypeMap>()
         {
             ["Actuator"] = new TypeMap("ATR"),
-            ["AirTerminal"] = new TypeMap("AIR"),
-            ["AirTerminalBox"] = new TypeMap("ATB"),
+            ["AirTerminal"] = new TypeMap("AIR")
+                .OverrideWith("DIFFUSER", "(ASD|AED)")
+                .OverrideWith("LINEARDIFFUSER", "(ASD|AED)")
+                .OverrideWith("GRILLE", "AEG")
+                .OverrideWith("LINEARGRILLE", "AEG")
+                .OverrideWith("USERDEFINED", "ATG"),
+            ["AirTerminalBox"] = new TypeMap("ATB")
+                .OverrideWith("USERDEFINED", "(PLB|BC)"),
             ["AirToAirHeatRecovery"] = new TypeMap("ATA"),
             ["Alarm"] = new TypeMap("ALR"),
             ["Boiler"] = new TypeMap("BLR"),
             ["BuildingElementProxy"] = new TypeMap("OTH"),
             ["Chiller"] = new TypeMap("CHL"),
-            ["Coil"] = new TypeMap("COIL"),
+            ["Coil"] = new TypeMap("CCO")
+                .OverrideWith("ELECTRICHEATINGCOIL", "HCO")
+                .OverrideWith("GASHEATINGCOIL", "HCO")
+                .OverrideWith("HEATINGCOIL", "HCO")
+                .OverrideWith("STEAMHEATINGCOIL", "HCO")
+                .OverrideWith("WATERHEATINGCOIL", "HCO")
+                .OverrideWith("USERDEFINED", "RAC"),
             ["Compressor"] = new TypeMap("CMP"),
             ["Condenser"] = new TypeMap("CND"),
-            ["Controller"] = new TypeMap("CRL"),
+            ["Controller"] = new TypeMap("CRL")
+                .OverrideWith("USERDEFINED", "(LCM|LCMD)"),
             ["CooledBeam"] = new TypeMap("CBM"),
             ["CoolingTower"] = new TypeMap("CTR"),
-            ["Damper"] = new TypeMap("DMP"),
+            ["Damper"] = new TypeMap("DMP")
+                .OverrideWith("CONTROLDAMPER", "(CAV|MLO|MLH|VAV)")
+                .OverrideWith("FIREDAMPER", "FDM")
+                .OverrideWith("FIRESMOKEDAMPER", "FSD")
+                .OverrideWith("SMOKEDAMPER", "(SMD|MSD)"),
             ["DiscreteAccessory"] = new TypeMap("DAC"),
             ["DistributionChamberElement"] = new TypeMap("DCE"),
             ["Door"] = new TypeMap("D").SpaceNaming(),
-            ["ElectricAppliance"] = new TypeMap("EAP"),
-            ["ElectricDistributionPoint"] = new TypeMap("EDP"),
-            ["ElectricFlowStorageDevice"] = new TypeMap("EFS"),
-            ["ElectricGenerator"] = new TypeMap("EGN"),
-            ["ElectricHeater"] = new TypeMap("EHT"),
+            ["ElectricAppliance"] = new TypeMap("EAP")
+                .OverrideWith("RADIANTHEATER", "ERP")
+                .OverrideWith("WATERHEATER", "(WHR|LWH)"),
+            ["ElectricDistributionPoint"] = new TypeMap("EDP")
+                .OverrideWith("ALARMPANEL", "EPB")
+                .OverrideWith("CONTROLPANEL", "MCP")
+                .OverrideWith("DISTRIBUTIONBOARD", "(EDB|ELB|EPB)")
+                .OverrideWith("GASDETECTORPANEL", "EPB")
+                .OverrideWith("MIMICPANEL", "EPB"),
+            ["ElectricFlowStorageDevice"] = new TypeMap("EFS")
+                .OverrideWith("BATTERY", "EHB")
+                .OverrideWith("UPS", "UPS"),
+            ["ElectricGenerator"] = new TypeMap("G"),
+            ["ElectricHeater"] = new TypeMap("EHT")
+                .OverrideWith("USERDEFINED", "THR"),
             ["ElectricMotor"] = new TypeMap("EMT"),
             ["ElectricTimeControl"] = new TypeMap("ETC"),
             ["EvaporativeCooler"] = new TypeMap("ECL"),
             ["Evaporator"] = new TypeMap("EVP"),
-            ["Fan"] = new TypeMap("FAN"),
-            ["Filter"] = new TypeMap("FLT"),
+            ["Fan"] = new TypeMap("(EFN|SFN)"),
+            ["Filter"] = new TypeMap("FLT")
+                .OverrideWith("AIRPARTICLEFILTER", "APF")
+                .OverrideWith("WATERFILTER", "WFT"),
             ["FireSuppressionTerminal"] = new TypeMap("FST"),
             ["FlowInstrument"] = new TypeMap("FIN"),
-            ["FlowMeter"] = new TypeMap("FMT"),
+            ["FlowMeter"] = new TypeMap("FMT")
+                .OverrideWith("GASMETER", "GMT")
+                .OverrideWith("USERDEFINED", "HMT")
+                .OverrideWith("WATERMETER", "WMT"),
             ["Furniture"] = new TypeMap("FRN"),
-            ["FurnishingElement"] = new TypeMap("FRN"),// Added
-            ["GasTerminal"] = new TypeMap("GTM"),
-            ["HeatExchanger"] = new TypeMap("HEX"),
+            ["FurnishingElement"] = new TypeMap("FRN"),
+            ["GasTerminal"] = new TypeMap("GTM")
+                .OverrideWith("GASBOOSTER", "BSR")
+                .OverrideWith("USERDEFINED", "GRH"),
+            ["HeatExchanger"] = new TypeMap("HEX")
+                .OverrideWith("PLATE", "HEP"),
             ["Humidifier"] = new TypeMap("HUM"),
             ["LightFixture"] = new TypeMap("LFT"),
-            //["Lamp"] = new TypeMap("LFT"),  // Added
+            //["Lamp"] = new TypeMap("LFT"),
             ["MotorConnection"] = new TypeMap("MCN"),
             ["Outlet"] = new TypeMap("OUT"),
             ["ProtectiveDevice"] = new TypeMap("PDV"),
             ["Pump"] = new TypeMap("PMP"),
             ["SanitaryTerminal"] = new TypeMap("SAN"),
-            ["Sensor"] = new TypeMap("SNS"),
+            ["Sensor"] = new TypeMap("SNS")
+                .OverrideWith("USERDEFINED", "LDS"),
             ["SpaceHeater"] = new TypeMap("SPH")
-                .OverrideWith("RADIATOR", "RAD")
-                .OverrideWith("PANELRADIATOR", "RAD")
-                .OverrideWith("SECTIONALRADIATOR", "RAD")
-                .OverrideWith("TUBULARRADIATOR", "RAD"),
-            ["StackTerminal"] = new TypeMap("STM"),
+                .OverrideWith("CONVECTOR", "SCH")
+                .OverrideWith("PANELRADIATOR", "SRH")
+                .OverrideWith("SECTIONALRADIATOR", "SRH")
+                .OverrideWith("TUBULARRADIATOR", "SRH")
+                .OverrideWith("UNITHEATER", "(SUH|SGH)"),
+            ["StackTerminal"] = new TypeMap("STM")
+                .OverrideWith("COWL", "RCW"),
             ["SwitchingDevice"] = new TypeMap("SWD"),
             ["SystemFurnitureElement"] = new TypeMap("SFE"),
-            ["Tank"] = new TypeMap("TNK"),
+            ["Tank"] = new TypeMap("(EVL|CWT|PUT|BVL|TSR)")
+                .OverrideWith("EXPANSION", "EVL")
+                .OverrideWith("PREFORMED", "CWT")
+                .OverrideWith("PRESSUREVESSEL", "PUT")
+                .OverrideWith("SECTIONAL", "CWT")
+                .OverrideWith("USERDEFINED", "(BVL|TSR)"),
             ["Transformer"] = new TypeMap("TRF"),
             ["TransportElement"] = new TypeMap("TRE")
                 .OverrideWith("ELEVATOR", "ELE")
                 .OverrideWith("ESCALATOR", "ESC")
-                .OverrideWith("MOVINGWALKWAY", "MOV")
-            ,
+                .OverrideWith("MOVINGWALKWAY", "MOV"),
             ["TubeBundle"] = new TypeMap("TBN"),
             ["UnitaryEquipment"] = new TypeMap("UEQ")
-                .OverrideWith("AIRCONDITIONINGUNIT", "ACU")
+                .OverrideWith("AIRCONDITIONINGUNIT", "(IAC|OAC)")
                 .OverrideWith("AIRHANDLER", "AHU"),
-            ["Valve"] = new TypeMap("VLV"),
+            ["Valve"] = new TypeMap("VLV")
+                .OverrideWith("GASCOCK", "GSV")
+                .OverrideWith("GASTAP", "GSV"),
             ["VibrationIsolator"] = new TypeMap("VIB"),
             ["WasteTerminal"] = new TypeMap("WTM"),
             ["Window"] = new TypeMap("W").SpaceNaming(),
@@ -482,7 +526,10 @@ namespace Xbim.IDS.Generator.Dfe
                     }
                     var groupName = firstSpec.Applicability.Name;
                     var shortLast = ShortenEndGuid(firstSpec.Guid, lastSpec.Guid);
-                    spec.Name = $"{firstSpec.Guid}-{shortLast}: {groupName} ({groupedSpecs.Count()} requirements)";
+                    // Omit the end-range suffix when it crosses nesting levels (contains '_'),
+                    // which would produce an unreadable filename like "5_04_08_03-09_03_03".
+                    var rangeSuffix = shortLast.Contains('_') ? "" : $"-{shortLast}";
+                    spec.Name = $"{firstSpec.Guid}{rangeSuffix}: {groupName} ({groupedSpecs.Count()} requirements)";
                     spec.Guid = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => curr.Append(curr.Length == 0 ? "" : ",").Append(next.Guid)).ToString();
                     spec.Description = groupedSpecs.Aggregate(new StringBuilder(),
@@ -490,7 +537,7 @@ namespace Xbim.IDS.Generator.Dfe
                     spec.Instructions = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => string.IsNullOrEmpty(next.Instructions) ? curr : curr.Append(curr.Length == 0 ? "" : ". ").Append(next.Guid).Append(": ").Append(next.Instructions)).ToString();
 
-                    specGroup.Name = $"{firstSpec.Guid}-{shortLast}: {groupName}";
+                    specGroup.Name = $"{firstSpec.Guid}{rangeSuffix}: {groupName}";
                 }
             }
         }
@@ -910,7 +957,7 @@ namespace Xbim.IDS.Generator.Dfe
         private void CreateObjectTypeSpecifications(SpecContext context)
         {
             using var subContext = context.BeginSubscope()
-                .AddTag("Type");
+                .AddTag("Object Type");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             //var applicability = GetEntityApplicability(ids, "Object Type", "IfcTypeObject");
@@ -1079,14 +1126,14 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // Object Type Should Have ExpectedLife That Is Defined
-            CreatePropertyNonEmptySpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", subContext, dataType: "IFCTEXT",
+            CreatePropertyNonEmptySpecification(specs, applicability, ids, "ServiceLifeDuration", "COBie_ServiceLife", subContext, dataType: "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have ExpectedLife That Is Defined" : null);
             // Object Type Should Have ExpectedLife That Is 'n/a' Or Is A Valid Expected Life For The Product Type
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife", numericOrNaExpression.ToString(), "Expected Life", subContext, "IFCTEXT",
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "ServiceLifeDuration", "COBie_ServiceLife", numericOrNaExpression.ToString(), "Expected Life", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Have ExpectedLife That Is 'n/a' Or Is A Valid Expected Life For The Product Type" : null);
             // Object Type Should Not Have ExpectedLife That Is 'n/a'
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "ExpectedLife", "COBie_ServiceLife",
+            CreatePropertyWithPatternSpecification(specs, applicability, ids, "ServiceLifeDuration", "COBie_ServiceLife",
                 notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
                 title: _version == ImrVersion.S25 ? "Object Type Should Not Have ExpectedLife That Is 'n/a'" : null);
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
@@ -1550,15 +1597,8 @@ namespace Xbim.IDS.Generator.Dfe
             var objectLabel = "Object Occurrence [COBie]";
             var dfeDict = GetDfeTypes();    // Maps Uppercase PredefinedTypes to Proper-case
 
-            // Start new context as we build at least one spec per applicable type as part of a single Rule. e.g. 5.7.BeamType
-            using var subContext = context.BeginSubscope()
-                .SetApplicableToGeneration(GenerationPass.Complex)
-                .SetMatches(CardinalityEnum.Optional);
-            var specs = subContext.CurrentSpecGroup;
-            var ids = subContext.Ids;
-
             IEnumerable<IdsLib.IfcSchema.ClassInfo> roots;
-            if(UseIfc4TypesIn2x3)
+            if (UseIfc4TypesIn2x3)
             {
                 var schema = new HybridSchemaIfc2x3();
                 roots = schema.Where(e => baseTypes.Contains(e.Name));
@@ -1567,75 +1607,124 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 roots = Schema.Where(e => baseTypes.Contains(e.Name));
             }
-            var ifcTypes = roots.SelectMany(r => r.MatchingConcreteClasses).Distinct();
+            var ifcTypes = roots.SelectMany(r => r.MatchingConcreteClasses).Distinct().ToList();
+
+            // 08.02.01 Shall — format check for normal occurrences: ([A-Z]-)?[A-Z]{1,5}-\d{2,5}
+            using var shallNormalContext = context.BeginSubscope()
+                .AddTag("Object Naming Shall")
+                .SetApplicableToGeneration(GenerationPass.All)
+                .SetMatches(CardinalityEnum.Required);
+            var shallNormalSpecs = shallNormalContext.CurrentSpecGroup;
+            var shallNormalIds = shallNormalContext.Ids;
 
             foreach (var ifcType in ifcTypes)
             {
-                // remove 'Ifc' prefix for labeling
                 var typeName = ifcType.Name.Substring(3);
-                var entityName = typeName;
+                if (!typeCodeDict.TryGetValue(typeName, out TypeMap? typeCode)) continue;
+                if (typeCode.UsesSpaceNaming) continue;
 
-                if (typeCodeDict.TryGetValue(typeName, out TypeMap? typeCode))
+                using var typeContext = shallNormalContext.BeginSubscope(typeName);
+                var applicability = GetEntityApplicability(shallNormalIds, objectLabel, ifcType.Name, includeSubTypes: false);
+                CreateAttributePatternSpecification(shallNormalSpecs, applicability, shallNormalIds, "Name", @"([A-Z]-)?[A-Z]{1,5}-\d{2,5}",
+                    typeContext.SetName(typeName),
+                    title: "Object Occurrence Shall Have Name Matching Format Set Out In The Projects Information Standard",
+                    ruleId: RuleId("4_08_02_01", shallNormalContext));
+            }
+
+            // 08.02.02 Shall — format check for space-named occurrences (Door, Window): ([A-Z]-)?{spaceNameRegex}-[A-Z]{1,5}\d{2,3}
+            using var shallSpaceContext = context.BeginSubscope()
+                .AddTag("Object Naming Shall Space")
+                .SetApplicableToGeneration(GenerationPass.All)
+                .SetMatches(CardinalityEnum.Required);
+            var shallSpaceSpecs = shallSpaceContext.CurrentSpecGroup;
+            var shallSpaceIds = shallSpaceContext.Ids;
+
+            foreach (var ifcType in ifcTypes)
+            {
+                var typeName = ifcType.Name.Substring(3);
+                if (!typeCodeDict.TryGetValue(typeName, out TypeMap? typeCode)) continue;
+                if (!typeCode.UsesSpaceNaming) continue;
+
+                using var typeContext = shallSpaceContext.BeginSubscope(typeName);
+                var applicability = GetEntityApplicability(shallSpaceIds, objectLabel, ifcType.Name, includeSubTypes: false);
+                CreateAttributePatternSpecification(shallSpaceSpecs, applicability, shallSpaceIds, "Name", @$"([A-Z]-)?{spaceNameRegex}-[A-Z]{{1,5}}\d{{2,3}}",
+                    typeContext.SetName(typeName),
+                    title: "Object Occurrence Shall Have Name Matching Format Set Out In The Projects Information Standard",
+                    ruleId: RuleId("4_08_02_02", shallSpaceContext));
+            }
+
+            // 08.02.03 Should — specific PIS code check for normal occurrences per entity+PDT
+            using var shouldNormalContext = context.BeginSubscope()
+                .AddTag("Object Naming Should")
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional);
+            var shouldNormalSpecs = shouldNormalContext.CurrentSpecGroup;
+            var shouldNormalIds = shouldNormalContext.Ids;
+
+            foreach (var ifcType in ifcTypes)
+            {
+                var typeName = ifcType.Name.Substring(3);
+                if (!typeCodeDict.TryGetValue(typeName, out TypeMap? typeCode)) continue;
+                if (typeCode.UsesSpaceNaming) continue;
+
+                const string suffix = "\\d{2,5}";
+
+                if (!typeCode.HasOverides)
                 {
-                    const string suffix = "\\d{2,5}";
-
-                    if (!typeCode.HasOverides)
-                    {
-                        // Simple case - apply to whole IFC class
-                        using var typeContext = subContext.BeginSubscope(typeName);
-                        var applicability = GetEntityApplicability(ids, $"{objectLabel}", ifcType.Name, includeSubTypes: false);
-
-                        var code = typeCode.GetCode();
-                        var pattern = "";
-                        if (typeCode.UsesSpaceNaming)
-                        {
-                            pattern = @$"{spaceNameRegex}-{code}\d{{2,3}}";
-                        }
-                        else
-                        {
-                            pattern = $"{code}-{suffix}";
-                        }
-
-
-                        CreateAttributePatternSpecification(specs, applicability, ids, "Name", pattern, subContext.SetName(typeName));
-                    }
-                    else
-                    {
-                        // One spec per PDT
-                        // Propogate PDTs from Type., E.g Vibration Isolators are DiscreteAccessories in IFC2x3 defined by VibrationIsolatorType
-                        var definingTypes = ifcType.RelationTypeClasses!;// !.Where(r => r.StartsWith(ifcType.Name, StringComparison.OrdinalIgnoreCase));
-                        var pdts = definingTypes.Select(t => Schema[t]).Where(c => c is not null).SelectMany(c => c!.PredefinedTypeValues);
-                        //var pdts = ifcType.PredefinedTypeValues.Union(typePdts);
-
-                        foreach (var pdt in pdts)
-                        {
-                            using var pdtContext = subContext.BeginSubscope(typeName);
-                            if (pdt == "NOTDEFINED")
-                            {
-                                // TODO: Should check this - still possible for an untyped Occurrence to have Notdefined PDT and thereby avoid name checks
-                                continue;
-                            }
-                            var pureIfc2x3OccClass = SchemaInfo.SchemaIfc2x3[ifcType.Name];
-                            if (pureIfc2x3OccClass == null || !pureIfc2x3OccClass.PredefinedTypeValues.Contains(pdt, StringComparer.OrdinalIgnoreCase))
-                                continue;
-
-                            var enumerationName = dfeDict.ContainsKey(pdt) ? dfeDict[pdt] : pdt;
-                            var applicability = GetEntityApplicabilityWithPredefinedType(ids, $"{objectLabel}", ifcType.Name, pdt, includeSubTypes: false);
-
-                            var code = typeCode.GetCode(pdt);
-
-                            var pattern = $"{code}-{suffix}";
-                            CreateAttributePatternSpecification(specs, applicability, ids, "Name", pattern, pdtContext.SetName(pdt));
-                        }
-                        if(!pdts.Any())
-                        {
-                            Console.WriteLine($"WARNING: Type {ifcType.Name} has no predefined Types");
-                        }
-
-                    }
-
+                    using var typeContext = shouldNormalContext.BeginSubscope(typeName);
+                    var applicability = GetEntityApplicability(shouldNormalIds, objectLabel, ifcType.Name, includeSubTypes: false);
+                    var code = typeCode.GetCode();
+                    CreateAttributePatternSpecification(shouldNormalSpecs, applicability, shouldNormalIds, "Name", $"([A-Z]-)?{code}-{suffix}",
+                        typeContext.SetName(typeName),
+                        ruleId: RuleId("4_08_02_03", shouldNormalContext));
                 }
+                else
+                {
+                    // One spec per PDT
+                    // Propagate PDTs from Type, e.g. Vibration Isolators are DiscreteAccessories in IFC2x3 defined by VibrationIsolatorType
+                    var definingTypes = ifcType.RelationTypeClasses!;
+                    var pdts = definingTypes.Select(t => Schema[t]).Where(c => c is not null).SelectMany(c => c!.PredefinedTypeValues);
 
+                    foreach (var pdt in pdts)
+                    {
+                        using var pdtContext = shouldNormalContext.BeginSubscope(typeName);
+                        if (pdt == "NOTDEFINED")
+                            continue;
+                        var pureIfc2x3OccClass = SchemaInfo.SchemaIfc2x3[ifcType.Name];
+                        if (pureIfc2x3OccClass == null || !pureIfc2x3OccClass.PredefinedTypeValues.Contains(pdt, StringComparer.OrdinalIgnoreCase))
+                            continue;
+
+                        var applicability = GetEntityApplicabilityWithPredefinedType(shouldNormalIds, objectLabel, ifcType.Name, pdt, includeSubTypes: false);
+                        var code = typeCode.GetCode(pdt);
+                        CreateAttributePatternSpecification(shouldNormalSpecs, applicability, shouldNormalIds, "Name", $"([A-Z]-)?{code}-{suffix}",
+                            pdtContext.SetName(pdt),
+                            ruleId: RuleId("4_08_02_03", shouldNormalContext));
+                    }
+                    if (!pdts.Any())
+                        Console.WriteLine($"WARNING: Type {ifcType.Name} has no predefined Types");
+                }
+            }
+
+            // 08.02.04 Should — specific PIS code check for space-named occurrences (Door, Window)
+            using var shouldSpaceContext = context.BeginSubscope()
+                .AddTag("Object Naming Should Space")
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional);
+            var shouldSpaceSpecs = shouldSpaceContext.CurrentSpecGroup;
+            var shouldSpaceIds = shouldSpaceContext.Ids;
+
+            foreach (var ifcType in ifcTypes)
+            {
+                var typeName = ifcType.Name.Substring(3);
+                if (!typeCodeDict.TryGetValue(typeName, out TypeMap? typeCode)) continue;
+                if (!typeCode.UsesSpaceNaming) continue;
+
+                using var typeContext = shouldSpaceContext.BeginSubscope(typeName);
+                var applicability = GetEntityApplicability(shouldSpaceIds, objectLabel, ifcType.Name, includeSubTypes: false);
+                var code = typeCode.GetCode();
+                CreateAttributePatternSpecification(shouldSpaceSpecs, applicability, shouldSpaceIds, "Name", @$"([A-Z]-)?{spaceNameRegex}-{code}\d{{2,3}}",
+                    typeContext.SetName(typeName),
+                    ruleId: RuleId("4_08_02_04", shouldSpaceContext));
             }
         }
 
