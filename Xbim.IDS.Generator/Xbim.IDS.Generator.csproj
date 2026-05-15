@@ -19,7 +19,8 @@
     <None Remove="Common\Content\NRM\NRM3.txt" />
     <None Remove="Common\Content\SFG20.txt" />
     <None Remove="Common\Content\Uniclass\EN_Codes.txt" />
-    <None Remove="Common\Content\Uniclass\EN_Codes_1_32.txt" />
+    <None Remove="Common\Content\Uniclass\EN_Codes_1_34.txt" />
+    <None Remove="Common\Content\Uniclass\SL_Codes_1_20.txt" />
     <None Remove="Common\Content\Uniclass\SL_Codes.txt" />
     <None Remove="Common\Content\Uniclass\SL_Codes_1_32.txt" />
   </ItemGroup>
@@ -46,7 +47,10 @@
     <EmbeddedResource Include="Common\Content\Uniclass\EN_Codes.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Common\Content\Uniclass\EN_Codes_1_32.txt">
+    <EmbeddedResource Include="Common\Content\Uniclass\EN_Codes_1_34.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Content\Uniclass\SL_Codes_1_20.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Common\Content\Uniclass\SL_Codes.txt">
