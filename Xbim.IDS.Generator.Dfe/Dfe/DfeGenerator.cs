@@ -743,9 +743,8 @@ namespace Xbim.IDS.Generator.Dfe
                 title: _version == ImrVersion.S25 ? "Space Shall Have Name Matching Format Set Out In The Projects Information Standard" : null);
             // TODO: Space Should Have Name That Is Unique
             subContext.Skip("05.04: Unique name not supported");
-            // TODO: Space Should Have Name Related Correctly To Each Floor
-            // TODO: Sept See examples
-            subContext.Skip("05.05: Name related to Floor TBC");
+            // 05.05: Space Shall Have Name Related Correctly To Each Floor
+            subContext.Skip("05.05: IDS 1.0 cannot traverse spatial containment relationships - if applied, every space would be checked against every floor's naming rule, producing incorrect failures");
             //CreateSpaceNameSpecifications(specs, applicability, subContext);
             // Space Shall Have Description Defined
             CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcSpace.Description), subContext,
