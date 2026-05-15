@@ -490,6 +490,11 @@ namespace Xbim.IDS.Generator.Dfe
                     .OrderBy(sp => sp.First().Guid).ThenBy(sp => sp.Key)
                     .ToList();// TODO Consider all facets and equality
 
+                // Capture the scope label from the original group name ("{prefix}-{Tag} Grouped")
+                // before the inner loop overwrites specGroup.Name. Used for the filename so that
+                // per-applicability labels (e.g. "Level 02") don't leak into the file label.
+                var scopeTag = ExtractScopeTag(specGroup.Name);
+
                 foreach (var groupedSpecs in groupedApplicability)
                 {
                     if(groupedSpecs.Count() == 1)
@@ -529,7 +534,7 @@ namespace Xbim.IDS.Generator.Dfe
                     // Omit the end-range suffix when it crosses nesting levels (contains '_'),
                     // which would produce an unreadable filename like "5_04_08_03-09_03_03".
                     var rangeSuffix = shortLast.Contains('_') ? "" : $"-{shortLast}";
-                    spec.Name = $"{firstSpec.Guid}{rangeSuffix}: {groupName} ({groupedSpecs.Count()} requirements)";
+                    spec.Name = $"{firstSpec.Guid}{rangeSuffix}-{groupName} ({groupedSpecs.Count()} requirements)";
                     spec.Guid = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => curr.Append(curr.Length == 0 ? "" : ",").Append(next.Guid)).ToString();
                     spec.Description = groupedSpecs.Aggregate(new StringBuilder(),
@@ -537,7 +542,7 @@ namespace Xbim.IDS.Generator.Dfe
                     spec.Instructions = groupedSpecs.Aggregate(new StringBuilder(),
                         (curr, next) => string.IsNullOrEmpty(next.Instructions) ? curr : curr.Append(curr.Length == 0 ? "" : ". ").Append(next.Guid).Append(": ").Append(next.Instructions)).ToString();
 
-                    specGroup.Name = $"{firstSpec.Guid}{rangeSuffix}: {groupName}";
+                    specGroup.Name = $"{firstSpec.Guid}{rangeSuffix}-{scopeTag}";
                 }
             }
         }
@@ -546,6 +551,20 @@ namespace Xbim.IDS.Generator.Dfe
         /// Returns the trailing portion of <paramref name="last"/> after the common underscore-delimited prefix shared with <paramref name="first"/>.
         /// E.g. "3_01_01" and "3_01_08" ? "08"; "3_03_01" and "3_03_12" ? "12".
         /// </summary>
+        /// <summary>
+        /// Extracts the scope tag from a spec group name in the form "{prefix}-{Tag} Grouped".
+        /// Returns the raw name if it doesn't match that pattern.
+        /// </summary>
+        private static string ExtractScopeTag(string? groupName)
+        {
+            if (string.IsNullOrEmpty(groupName)) return "";
+            var dash = groupName.IndexOf('-');
+            var grouped = groupName.IndexOf(" Grouped", StringComparison.Ordinal);
+            if (dash >= 0 && grouped > dash)
+                return groupName[(dash + 1)..grouped];
+            return groupName;
+        }
+
         private static string ShortenEndGuid(string first, string last)
         {
             int common = 0;
@@ -706,7 +725,7 @@ namespace Xbim.IDS.Generator.Dfe
         // 04
         private void CreateBuildingStoreySpecifications(SpecContext context, DfeConfig config)
         {
-            using var subContext = context.BeginSubscope().AddTag("BuildingStorey");
+            using var subContext = context.BeginSubscope().AddTag("Levels");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "Building Storey", "IfcBuildingStorey");
