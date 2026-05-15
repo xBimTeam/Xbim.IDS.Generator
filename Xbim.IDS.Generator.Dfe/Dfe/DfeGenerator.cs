@@ -1392,8 +1392,7 @@ namespace Xbim.IDS.Generator.Dfe
         private void CreateSystemSpecifications(SpecContext context)
         {
             using var subContext = context.BeginSubscope()
-                .AddTag("System")
-                .SetMatches(CardinalityEnum.Optional);
+                .AddTag("System");
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
             var applicability = GetEntityApplicability(ids, "System", "IfcSystem", false);
@@ -1514,7 +1513,7 @@ namespace Xbim.IDS.Generator.Dfe
                         {
                             // Any Proper-cased Enum will do
                             // EntityName_CustomEnumerationField_TypeNN
-                            var pattern = $"{entityName}_(([A-Z][a-z]+)+_)Type\\d{{2,4}}";
+                            var pattern = $"{entityName}_(([A-Z][a-z]+)+_)Type[A-Za-z]{{0,3}}\\d{{2,4}}";
                             CreateAttributePatternSpecification(specs, applicability, ids, "Name", pattern, pdtContext.SetName(pdt));
                         }
                         else
@@ -1525,7 +1524,7 @@ namespace Xbim.IDS.Generator.Dfe
                             //}
                             // PDTs must use the proper case PDT in field 2 of the name
                             // EntityName_EnumerationField_TypeNN
-                            var pattern = $"{entityName}_{enumerationName}_Type\\d{{2,4}}";
+                            var pattern = $"{entityName}_{enumerationName}_Type[A-Za-z]{{0,3}}\\d{{2,4}}";
                             CreateAttributePatternSpecification(specs, applicability, ids, "Name", pattern, pdtContext.SetName(pdt));
                         }
 
@@ -1537,7 +1536,7 @@ namespace Xbim.IDS.Generator.Dfe
                     // We don't have a PDT, or it's not applicable to enumerate (e.g. Doors, Furniture)
                     var applicability = GetEntityApplicability(ids, $"{objectLabel}", ifcType.Name, includeSubTypes: false);
                     // EntityName_<OptionalEnumField>_TypeNN
-                    var pattern = $"{entityName}_(([A-Z][a-z]+)+_)?Type\\d{{2,4}}";
+                    var pattern = $"{entityName}_(([A-Z][a-z]+)+_)?Type[A-Za-z]{{0,3}}\\d{{2,4}}";
                     CreateAttributePatternSpecification(specs, applicability, ids, "Name", pattern, subContext.SetName(typeName));
                 }
 
