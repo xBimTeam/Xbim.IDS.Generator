@@ -1429,9 +1429,11 @@ namespace Xbim.IDS.Generator.Dfe
             // 09.05_02 S25: System Uniclass Classification Defined (secondary: property fallback for tools that cannot attach IFC classification to IfcSystem)
             if (_version == ImrVersion.S25)
             {
+                subContext.SetMatches(CardinalityEnum.Optional);
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "SystemCategory", "Additional_Pset_SystemCommon", subContext, dataType: "IFCTEXT",
-                    title: "System Shall Have Uniclass Classification Defined",
+                    title: "System Should Have Uniclass Classification Defined",
                     ruleId: RuleId("4_09_05_02", subContext));
+                subContext.ResetMatches();
             }
             // 09.06_01 S25 / 09.03 S21: System Uniclass Matching PIS (primary: IFC classification)
             CreateClassificationPatternSpecification(specs, applicability, ids, UniclassSystemLabel, "Ss_.*", subContext,
@@ -1440,9 +1442,11 @@ namespace Xbim.IDS.Generator.Dfe
             // 09.06_02 S25: System Uniclass Matching PIS (secondary: property fallback)
             if (_version == ImrVersion.S25)
             {
+                subContext.SetMatches(CardinalityEnum.Optional);
                 CreatePropertyWithPatternSpecification(specs, applicability, ids, "SystemCategory", "Additional_Pset_SystemCommon", "Ss_.*", "Ss Systems", subContext, "IFCTEXT",
-                    title: "System Shall Have Uniclass Classification Matching The Projects Information Standard",
+                    title: "System Should Have Uniclass Classification Matching The Projects Information Standard",
                     ruleId: RuleId("4_09_06_02", subContext));
+                subContext.ResetMatches();
             }
         }
 
