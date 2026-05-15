@@ -32,6 +32,14 @@ namespace Xbim.IDS.Generator.Dfe
             _status = options.Status;
             _revision = options.Revision;
             _buildingStoreys = options.BuildingStoreys;
+            _classificationVersions = new ClassificationVersionOptions
+            {
+                UniclassVersion = options.UniclassVersion,
+                NrmVersion = options.NrmVersion,
+                Sfg20Version = options.Sfg20Version,
+            };
+            ClassificationVersions = _classificationVersions;
+            WarnIfUniclassVersionMismatch(options);
 
             Xids.Settings.ApplyPrefixToSpecGroupFileNames = false;
 
@@ -66,6 +74,7 @@ namespace Xbim.IDS.Generator.Dfe
         private readonly string _status;
         private readonly string _revision;
         private readonly int? _buildingStoreys;
+        private readonly ClassificationVersionOptions _classificationVersions;
 
         /// <summary>
         /// Returns the version-appropriate explicit rule ID, or null (auto-counter) when no ID is defined for the current version.
@@ -333,12 +342,12 @@ namespace Xbim.IDS.Generator.Dfe
                     var utcNow = DateTime.UtcNow;
                     context.IndividualVersion = revision == "Pnn" ? $"{revision}.{utcNow.Year}.{utcNow.DayOfYear}" : revision;
                     context.IndividualPurpose = "Information Model Assurance";
-                    context.IndividualDescription = $"Assurance of IFC-SPF deliverables against DfE's {_version} Information Requirements - Individual";
+                    context.IndividualDescription = $"Assurance of IFC-SPF deliverables against DfE's {_version} Information Requirements - Individual{BuildClassificationVersionNote()}";
                     context.IndividualMilestone = StageNames[targetStage];
 
                     CleanPriorFiles(context, targetStage);
 
-                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision, _version, stageNum, titleSuffix, descSuffix);
+                    SpecificationsGroup rootGroup = InitialiseSpecGroup(context, config, revision, _version, stageNum, titleSuffix, descSuffix, BuildClassificationVersionNote());
                     context.InitialiseSpecGroup(rootGroup);
 
                     CreateProjectSpecifications(context, config);
@@ -562,7 +571,7 @@ namespace Xbim.IDS.Generator.Dfe
 
         }
 
-        private static SpecificationsGroup InitialiseSpecGroup(SpecContext context, DfeConfig config, string revision, ImrVersion version, int stageNum, string titleSuffix, string descSuffix)
+        private static SpecificationsGroup InitialiseSpecGroup(SpecContext context, DfeConfig config, string revision, ImrVersion version, int stageNum, string titleSuffix, string descSuffix, string classVersionNote = "")
         {
             var now = DateTime.UtcNow;
             var targetStage = context.TargetStage;
@@ -575,7 +584,7 @@ namespace Xbim.IDS.Generator.Dfe
                 Specifications = new List<Specification>(),
                 Milestone = (version == ImrVersion.S25 ? ribaStagesS25 : ribaStagesS21)[targetStage],
                 Author = "DfE.BIM@Education.gov.uk",
-                Description = $"Assurance of IFC-SPF deliverables against DfE's {version} Information Requirements{descSuffix}",
+                Description = $"Assurance of IFC-SPF deliverables against DfE's {version} Information Requirements{descSuffix}{classVersionNote}",
                 Version = revision == "Pnn" ? $"{revision}.{now.Year}.{now.DayOfYear}" : revision,
                 Purpose = "Information Model Assurance",
                 Copyright = "CC BY 4.0",
@@ -1632,8 +1641,48 @@ namespace Xbim.IDS.Generator.Dfe
 
         private IEnumerable<string[]> ReadVersionedContent(string name) =>
             File.ReadAllLines(VersionedContentPath(name))
-                .Where(l => !string.IsNullOrWhiteSpace(l))
+                .Where(l => !string.IsNullOrWhiteSpace(l) && !l.TrimStart().StartsWith("#"))
                 .Select(l => l.Split(':').Select(p => p.Trim()).ToArray());
+
+        /// <summary>
+        /// Warns to stderr if the active TypeCodes file declares a Uniclass SL version in its header
+        /// that does not match the requested --uniclass-version. Non-fatal; generation continues.
+        /// </summary>
+        private void WarnIfUniclassVersionMismatch(DfeOptions options)
+        {
+            if (string.IsNullOrEmpty(options.UniclassVersion)) return;
+
+            var path = VersionedContentPath("TypeCodes");
+            if (!File.Exists(path)) return;
+
+            var headerLine = File.ReadLines(path)
+                .TakeWhile(l => l.TrimStart().StartsWith("#"))
+                .FirstOrDefault(l => l.Contains("uniclass-sl-version:"));
+
+            if (headerLine == null) return;
+
+            var declared = headerLine.Split(':').LastOrDefault()?.Trim().Replace(".", "_");
+            if (!string.Equals(declared, options.UniclassVersion, StringComparison.OrdinalIgnoreCase))
+            {
+                Console.Error.WriteLine(
+                    $"WARNING: {Path.GetFileName(path)} was authored against Uniclass SL v{declared?.Replace("_", ".")} " +
+                    $"but --uniclass-version={options.UniclassVersion.Replace("_", ".")} was requested. " +
+                    "SL code cross-references may be invalid.");
+            }
+        }
+
+        /// <summary>Returns a version annotation string for IDS descriptions, e.g. " [Classification versions: Uniclass SL/EN v1.32]", or empty when no versions are pinned.</summary>
+        private string BuildClassificationVersionNote()
+        {
+            var parts = new List<string>();
+            if (!string.IsNullOrEmpty(_classificationVersions.UniclassVersion))
+                parts.Add($"Uniclass SL/EN v{_classificationVersions.UniclassVersion.Replace("_", ".")}");
+            if (!string.IsNullOrEmpty(_classificationVersions.NrmVersion))
+                parts.Add($"NRM {_classificationVersions.NrmVersion}");
+            if (!string.IsNullOrEmpty(_classificationVersions.Sfg20Version))
+                parts.Add($"SFG20 {_classificationVersions.Sfg20Version}");
+            return parts.Count > 0 ? $" [Classification versions: {string.Join(", ", parts)}]" : "";
+        }
 
         /// <summary>Returns valid space classification codes for the active IMR version (ADS for S21, Space codes for S25).</summary>
         private IEnumerable<string> GetSpaceCodes() =>

@@ -56,6 +56,9 @@ dotnet run [flags]
 | `--status=VALUE` | `Sn` | IDS status code — appears in all output filenames. |
 | `--revision=VALUE` | `Pnn` | IDS revision code — appears in all output filenames. |
 | `--bs=N` | `3` | Number of above-ground storeys (1–5). Controls per-storey rules for elevation (04_08) and height (04_09). |
+| `--uniclass-version=VALUE` | *(latest)* | Pin Uniclass 2015 SL and EN tables to a specific release, e.g. `1_32`. |
+| `--nrm-version=VALUE` | *(latest)* | Pin NRM cost classification to a specific edition year, e.g. `2016`. |
+| `--sfg20-version=VALUE` | *(latest)* | Pin SFG20 FM classification to a specific release year, e.g. `2023`. |
 
 ### Status codes
 
@@ -86,6 +89,17 @@ Sets how many above-ground storeys the building has. Levels are activated in ord
 | `4` | 00, 01, 02, 03 |
 | `5` | 00, 01, 02, 03, 04 |
 
+### Classification versioning (`--uniclass-version`, `--nrm-version`, `--sfg20-version`)
+
+Classification code files (Uniclass SL/EN, NRM, SFG20) can change between releases — codes may be renumbered or renamed. By default the generator uses the latest bundled version. To pin to a specific release, pass the appropriate flag.
+
+Version tokens use underscores in place of dots (e.g. `1_32` for v1.32) to avoid conflicts with file path separators.
+
+- Versioned files are bundled alongside the latest: `SL_Codes_1_32.txt`, `EN_Codes_1_32.txt`, etc.
+- If a requested version file is not found, a warning is printed and the latest is used.
+- When pinned, the chosen version is recorded in the generated IDS description (e.g. `[Classification versions: Uniclass SL/EN v1.32]`).
+- The S21/S25 TypeCodes files declare which Uniclass SL version their mappings were authored against (via a `# uniclass-sl-version:` header). A mismatch between that declaration and `--uniclass-version` produces a warning on stderr.
+
 ### Examples
 
 ```bash
@@ -97,6 +111,12 @@ dotnet run --bs=1 --status=A --revision=C01
 
 # Four-storey building, S21, first working draft
 dotnet run --bs=4 --s21 --status=S2 --revision=P01
+
+# Pin Uniclass SL/EN to version 1.32
+dotnet run --uniclass-version=1_32
+
+# Pin Uniclass 1.32, published S25 issue
+dotnet run --uniclass-version=1_32 --status=A --revision=C01
 ```
 
 ---

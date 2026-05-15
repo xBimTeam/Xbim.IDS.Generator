@@ -1,3 +1,4 @@
+# S25 Projects Information Standard C01
 Basic teaching:Net:		Classrooms, playrooms, ICT, light practical spaces and heavy practical spaces
 Halls and dining:Net:	Halls, activity studios, sports halls, dining and social areas
 Learning resources:Net:	Libraries and study areas, arts & DT learning resources and SEN and support spaces

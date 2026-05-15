@@ -29,6 +29,12 @@ namespace Xbim.IDS.Generator.Common
         public static bool SetIdsIdentifier { get; set; } = true;
 
         /// <summary>
+        /// Version pins for classification code files. Null fields mean "use the latest (unversioned) file".
+        /// Set before calling PublishIDS(). Not thread-safe — intended for single-threaded generation.
+        /// </summary>
+        public static ClassificationVersionOptions ClassificationVersions { get; set; } = new();
+
+        /// <summary>
         /// Use IDS type inference - e.g. IfcAirTerminal = IfcFlowTerminal typedBy IfcAirTerminalType.
         /// </summary>
         /// <remarks>See https://github.com/buildingSMART/IDS/blob/development/Documentation/ImplementersDocumentation/ifc2x3-occurrence-type-mapping-table.md</remarks>
@@ -233,47 +239,47 @@ namespace Xbim.IDS.Generator.Common
         /// Gets Uniclass Space Codes
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> GetUniclassSLCodes() => GetClassificationFile("Common", "Uniclass/SL_Codes.txt", 0);
+        public static IEnumerable<string> GetUniclassSLCodes() => GetClassificationFile("Common", "Uniclass/SL_Codes.txt", 0, ClassificationVersions.UniclassVersion);
 
         /// <summary>
         /// Gets Uniclass Entity Codes
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> GetUniclassEnCodes() => GetClassificationFile("Common", "Uniclass/EN_Codes.txt", 0);
+        public static IEnumerable<string> GetUniclassEnCodes() => GetClassificationFile("Common", "Uniclass/EN_Codes.txt", 0, ClassificationVersions.UniclassVersion);
 
         /// <summary>
         /// Gets NRM1 Codes
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> GetNrm1Codes() => GetClassificationFile("Common", "NRM/NRM1.txt", 0);
+        public static IEnumerable<string> GetNrm1Codes() => GetClassificationFile("Common", "NRM/NRM1.txt", 0, ClassificationVersions.NrmVersion);
 
         /// <summary>
         /// Gets NRM2 Codes
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> GetNrm2Codes() => GetClassificationFile("Common", "NRM/NRM2.txt", 0);
+        public static IEnumerable<string> GetNrm2Codes() => GetClassificationFile("Common", "NRM/NRM2.txt", 0, ClassificationVersions.NrmVersion);
 
         /// <summary>
         /// Gets NRM3 Codes
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> GetNrm3Codes() => GetClassificationFile("Common", "NRM/NRM3.txt", 0);
+        public static IEnumerable<string> GetNrm3Codes() => GetClassificationFile("Common", "NRM/NRM3.txt", 0, ClassificationVersions.NrmVersion);
 
         /// <summary>
         /// Gets SFG20 Codes
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<string> GetSfg20Codes() => GetClassificationFile("Common", "SFG20.txt", 0);
+        public static IEnumerable<string> GetSfg20Codes() => GetClassificationFile("Common", "SFG20.txt", 0, ClassificationVersions.Sfg20Version);
 
         /// <summary>
-        /// Helper method to load classification file lines from either physical file or embedded resources
+        /// Helper method to load classification file lines from either physical file or embedded resources.
+        /// When <paramref name="versionSuffix"/> is supplied (e.g. "1_32"), the versioned filename is tried first
+        /// (e.g. SL_Codes_1_32.txt). Falls back to the unversioned file with a console warning if not found.
         /// </summary>
-        /// <param name="area">Area folder (e.g., "Common", "Dfe")</param>
-        /// <param name="filename">Filename within the Content folder</param>
-        /// <returns>Array of lines from the file</returns>
-        private static string[] GetClassificationFileLines(string area, string filename)
+        private static string[] GetClassificationFileLines(string area, string filename, string? versionSuffix = null)
         {
-            var localFile = Path.Combine(area, "Content", filename);
+            var resolvedFilename = ResolveVersionedFilename(area, filename, versionSuffix);
+            var localFile = Path.Combine(area, "Content", resolvedFilename);
             string[] lines = [];
             if (File.Exists(localFile))
             {
@@ -282,7 +288,7 @@ namespace Xbim.IDS.Generator.Common
             else
             {
                 // try read from embedded
-                var file = filename.Replace('/', '.').Replace('\\', '.');
+                var file = resolvedFilename.Replace('/', '.').Replace('\\', '.');
                 var fileOrResourceName = $"Xbim.IDS.Generator.{area}.Content.{file}";
                 var thisAssembly = global::System.Reflection.Assembly.GetExecutingAssembly();
                 using (var inputStream = thisAssembly.GetManifestResourceStream(fileOrResourceName))
@@ -299,25 +305,55 @@ namespace Xbim.IDS.Generator.Common
             return lines;
         }
 
-        public static IEnumerable<string> GetClassificationFile(string area, string filename, int index)
+        /// <summary>
+        /// Resolves the versioned filename if a suffix is specified and the file exists; otherwise returns the original.
+        /// Falls back to the unversioned file with a warning if the versioned file cannot be found.
+        /// </summary>
+        private static string ResolveVersionedFilename(string area, string filename, string? versionSuffix)
         {
-            var lines = GetClassificationFileLines(area, filename);
-            return lines.Where(l => !string.IsNullOrWhiteSpace(l))
+            if (string.IsNullOrEmpty(versionSuffix))
+                return filename;
+
+            var dir = Path.GetDirectoryName(filename)?.Replace('\\', '/') ?? "";
+            var stem = Path.GetFileNameWithoutExtension(filename);
+            var ext = Path.GetExtension(filename);
+            var versionedName = string.IsNullOrEmpty(dir)
+                ? $"{stem}_{versionSuffix}{ext}"
+                : $"{dir}/{stem}_{versionSuffix}{ext}";
+
+            // Check physical file first
+            if (File.Exists(Path.Combine(area, "Content", versionedName)))
+                return versionedName;
+
+            // Check embedded resource
+            var resourceKey = $"Xbim.IDS.Generator.{area}.Content.{versionedName.Replace('/', '.')}";
+            if (global::System.Reflection.Assembly.GetExecutingAssembly()
+                    .GetManifestResourceInfo(resourceKey) != null)
+                return versionedName;
+
+            Console.Error.WriteLine($"WARNING: Versioned classification file '{versionedName}' not found. Falling back to latest.");
+            return filename;
+        }
+
+        public static IEnumerable<string> GetClassificationFile(string area, string filename, int index, string? versionSuffix = null)
+        {
+            var lines = GetClassificationFileLines(area, filename, versionSuffix);
+            return lines.Where(l => !string.IsNullOrWhiteSpace(l) && !l.TrimStart().StartsWith("#"))
                     .Select(l => l.Split(":")[index].Trim());
         }
 
-        public static IEnumerable<KeyValuePair<string, string>> GetClassificationFilePairs(string area, string filename)
+        public static IEnumerable<KeyValuePair<string, string>> GetClassificationFilePairs(string area, string filename, string? versionSuffix = null)
         {
-            var lines = GetClassificationFileLines(area, filename);
-            return lines.Where(l => !string.IsNullOrWhiteSpace(l))
+            var lines = GetClassificationFileLines(area, filename, versionSuffix);
+            return lines.Where(l => !string.IsNullOrWhiteSpace(l) && !l.TrimStart().StartsWith("#"))
                 .Select(l => l.Split(":"))
                 .Select(v => new KeyValuePair<string, string>(v[1].Trim(), v[0].Trim()));
         }
 
-        public static IEnumerable<string[]> GetClassificationFileStrings(string area, string filename)
+        public static IEnumerable<string[]> GetClassificationFileStrings(string area, string filename, string? versionSuffix = null)
         {
-            var lines = GetClassificationFileLines(area, filename);
-            return lines.Where(l => !string.IsNullOrWhiteSpace(l))
+            var lines = GetClassificationFileLines(area, filename, versionSuffix);
+            return lines.Where(l => !string.IsNullOrWhiteSpace(l) && !l.TrimStart().StartsWith("#"))
                 .Select(l => l.Split(":"));
         }
 

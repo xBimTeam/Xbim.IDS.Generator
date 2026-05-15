@@ -17,6 +17,12 @@ namespace Xbim.IDS.Generator.Dfe
         public string Status { get; set; } = "Sn";
         public string Revision { get; set; } = "Pnn";
         public int? BuildingStoreys { get; set; }
+        /// <summary>Uniclass 2015 version for SL and EN tables, e.g. "1_32". Null = latest.</summary>
+        public string? UniclassVersion { get; set; }
+        /// <summary>NRM edition year, e.g. "2016". Null = latest.</summary>
+        public string? NrmVersion { get; set; }
+        /// <summary>SFG20 release year, e.g. "2023". Null = latest.</summary>
+        public string? Sfg20Version { get; set; }
     }
 
     /// <summary>
