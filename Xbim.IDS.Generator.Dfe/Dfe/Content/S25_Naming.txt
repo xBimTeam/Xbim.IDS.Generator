@@ -1,0 +1,625 @@
+# S25 Projects Information Standard C01
+Actuator: ELECTRICACTUATOR: ElectricActuator
+Actuator: HANDOPERATEDACTUATOR: HandOperatedActuator
+Actuator: HYDRAULICACTUATOR: HydraulicActuator
+Actuator: NOTDEFINED: NotDefined
+Actuator: PNEUMATICACTUATOR: PneumaticActuator
+Actuator: THERMOSTATICACTUATOR: ThermostaticActuator
+Actuator: USERDEFINED: UserDefined
+Air Terminal: DIFFUSER: Diffuser
+Air Terminal: EYEBALL: Eyeball
+Air Terminal: GRILLE: Grille
+Air Terminal: IRIS: Iris
+Air Terminal: LINEARDIFFUSER: LinearDiffuser
+Air Terminal: LINEARGRILLE: LinearGrille
+Air Terminal: NOTDEFINED: NotDefined
+Air Terminal: REGISTER: Register
+Air Terminal: USERDEFINED: UserDefined
+Air Terminal Box: CONSTANTFLOW: ConstantFlow
+Air Terminal Box: NOTDEFINED: NotDefined
+Air Terminal Box: USERDEFINED: UserDefined
+Air Terminal Box: VARIABLEFLOWPRESSUREDEPENDANT: VariableFlowPressureDependant
+Air Terminal Box: VARIABLEFLOWPRESSUREINDEPENDANT: VariableFlowPressureIndependant
+Air To Air Heat Recovery: FIXEDPLATECOUNTERFLOWEXCHANGER: FixedPlateCounterFlowExchanger
+Air To Air Heat Recovery: FIXEDPLATECROSSFLOWEXCHANGER: FixedPlateCrossFlowExchanger
+Air To Air Heat Recovery: FIXEDPLATEPARALLELFLOWEXCHANGER: FixedPlateParallelFlowExchanger
+Air To Air Heat Recovery: HEATPIPE: HeatPipe
+Air To Air Heat Recovery: NOTDEFINED: NotDefined
+Air To Air Heat Recovery: ROTARYWHEEL: RotaryWheel
+Air To Air Heat Recovery: RUNAROUNDCOILLOOP: RunAroundCoilLoop
+Air To Air Heat Recovery: THERMOSIPHONSEALEDTUBEHEATEXCHANGERS: ThermosiphonSealedTubeHeatExchangers
+Air To Air Heat Recovery: THERMOSIPHONCOILTYPEHEATEXCHANGERS: ThermosiphonCoilTypeHeatExchangers
+Air To Air Heat Recovery: TWINTOWERENTHALPYRECOVERYLOOPS: TwinTowerEnthalpyRecoveryLoops
+Air To Air Heat Recovery: USERDEFINED: UserDefined
+Alarm: BELL: Bell
+Alarm: BREAKGLASSBUTTON: BreakGlassButton
+Alarm: LIGHT: Light
+Alarm: MANUALPULLBOX: ManualPullBox
+Alarm: NOTDEFINED: NotDefined
+Alarm: SIREN: Siren
+Alarm: USERDEFINED: UserDefined
+Alarm: WHISTLE: Whistle
+Beam: BEAM: Beam
+Beam: JOIST: Joist
+Beam: LINTEL: Lintel
+Beam: NOTDEFINED: NotDefined
+Beam: T_BEAM: TBeam
+Beam: USERDEFINED: UserDefined
+Boiler: NOTDEFINED: NotDefined
+Boiler: STEAM: Steam
+Boiler: USERDEFINED: UserDefined
+Boiler: WATER: Water
+Cable Carrier Fitting: BEND: Bend
+Cable Carrier Fitting: CROSS: Cross
+Cable Carrier Fitting: NOTDEFINED: NotDefined
+Cable Carrier Fitting: REDUCER: Reducer
+Cable Carrier Fitting: TEE: Tee
+Cable Carrier Fitting: USERDEFINED: UserDefined
+Cable Carrier Segment: CABLELADDERSEGMENT: CableLadderSegment
+Cable Carrier Segment: CABLETRAYSEGMENT: CableTraySegment
+Cable Carrier Segment: CABLETRUNKINGSEGMENT: CableTrunkingSegment
+Cable Carrier Segment: CONDUITSEGMENT: ConduitSegment
+Cable Carrier Segment: NOTDEFINED: NotDefined
+Cable Carrier Segment: USERDEFINED: UserDefined
+Cable Segment: CABLESEGMENT: CableSegment
+Cable Segment: CONDUCTORSEGMENT: ConductorSegment
+Cable Segment: NOTDEFINED: NotDefined
+Cable Segment: USERDEFINED: UserDefined
+Chiller: AIRCOOLED: AirCooled
+Chiller: HEATRECOVERY: HeatRecovery
+Chiller: NOTDEFINED: NotDefined
+Chiller: USERDEFINED: UserDefined
+Chiller: WATERCOOLED: WaterCooled
+Coil: DXCOOLINGCOIL: DxCoolingCoil
+Coil: ELECTRICHEATINGCOIL: ElectricHeatingCoil
+Coil: GASHEATINGCOIL: GasHeatingCoil
+Coil: NOTDEFINED: NotDefined
+Coil: STEAMHEATINGCOIL: SteamHeatingCoil
+Coil: USERDEFINED: UserDefined
+Coil: WATERCOOLINGCOIL: WaterCoolingCoil
+Coil: WATERHEATINGCOIL: WaterHeatingCoil
+Column: COLUMN: Column
+Column: NOTDEFINED: NotDefined
+Column: USERDEFINED: UserDefined
+Compressor: BOOSTER: Booster
+Compressor: DYNAMIC: Dynamic
+Compressor: HERMETIC: Hermetic
+Compressor: NOTDEFINED: NotDefined
+Compressor: OPENTYPE: OpenType
+Compressor: RECIPROCATING: Reciprocating
+Compressor: ROLLINGPISTON: RollingPiston
+Compressor: ROTARY: Rotary
+Compressor: ROTARYVANE: RotaryVane
+Compressor: SCROLL: Scroll
+Compressor: SEMIHERMETIC: SemiHermetic
+Compressor: SINGLESCREW: SingleScrew
+Compressor: SINGLESTAGE: SingleStage
+Compressor: TROCHOIDAL: Trochoidal
+Compressor: TWINSCREW: TwinScrew
+Compressor: USERDEFINED: UserDefined
+Compressor: WELDEDSHELLHERMETIC: WeldedShellHermetic
+Condenser: AIRCOOLED: AirCooled
+Condenser: EVAPORATIVECOOLED: EvaporativeCooled
+Condenser: NOTDEFINED: NotDefined
+Condenser: USERDEFINED: UserDefined
+Condenser: WATERCOOLEDBRAZEDPLATE: WaterCooledBrazedPlate
+Condenser: WATERCOOLEDSHELLCOIL: WaterCooledShellCoil
+Condenser: WATERCOOLEDSHELLTUBE: WaterCooledShellTube
+Condenser: WATERCOOLEDTUBEINTUBE: WaterCooledTubeInTube
+Controller: FLOATING: Floating
+Controller: NOTDEFINED: NotDefined
+Controller: PROPORTIONAL: Proportional
+Controller: PROPORTIONALINTEGRAL: ProportionalIntegral
+Controller: PROPORTIONALINTEGRALDERIVATIVE: ProportionalIntegralDerivative
+Controller: TWOPOSITION: TwoPosition
+Controller: USERDEFINED: UserDefined
+Controller: TIMEDTWOPOSITION: TimedTwoPosition
+Cooled Beam: ACTIVE: Active
+Cooled Beam: NOTDEFINED: NotDefined
+Cooled Beam: PASSIVE: Passive
+Cooled Beam: USERDEFINED: UserDefined
+Cooling Tower: MECHANICALFORCEDDRAFT: MechanicalForcedDraft
+Cooling Tower: MECHANICALINDUCEDDRAFT: MechanicalInducedDraft
+Cooling Tower: NATURALDRAFT: NaturalDraft
+Cooling Tower: NOTDEFINED: NotDefined
+Cooling Tower: USERDEFINED: UserDefined
+Covering: CEILING: Ceiling
+Covering: CLADDING: Cladding
+Covering: FLOORING: Flooring
+Covering: INSULATION: Insulation
+Covering: MEMBRANE: Membrane
+Covering: NOTDEFINED: NotDefined
+Covering: ROOFING: Roofing
+Covering: SLEEVING: Sleeving
+Covering: USERDEFINED: UserDefined
+Covering: WRAPPING: Wrapping
+Curtain Wall: NOTDEFINED: NotDefined
+Curtain Wall: USERDEFINED: UserDefined
+Damper: BACKDRAFTDAMPER: BackDraftDamper
+Damper: BALANCINGDAMPER: BalancingDamper
+Damper: BLASTDAMPER: BlastDamper
+Damper: CONTROLDAMPER: ControlDamper
+Damper: FIREDAMPER: FireDamper
+Damper: FIRESMOKEDAMPER: FireSmokeDamper
+Damper: FUMEHOODEXHAUST: FumeHoodExhaust
+Damper: GRAVITYDAMPER: GravityDamper
+Damper: GRAVITYRELIEFDAMPER: GravityReliefDamper
+Damper: NOTDEFINED: NotDefined
+Damper: RELIEFDAMPER: ReliefDamper
+Damper: SMOKEDAMPER: SmokeDamper
+Damper: USERDEFINED: UserDefined
+Discrete Accessory: n/a: n/a
+Distribution Chamber Element: FORMEDDUCT: FormedDuct
+Distribution Chamber Element: INSPECTIONCHAMBER: InspectionChamber
+Distribution Chamber Element: INSPECTIONPIT: InspectionPit
+Distribution Chamber Element: MANHOLE: Manhole
+Distribution Chamber Element: METERCHAMBER: MeterChamber
+Distribution Chamber Element: NOTDEFINED: NotDefined
+Distribution Chamber Element: SUMP: Sump
+Distribution Chamber Element: TRENCH: Trench
+Distribution Chamber Element: USERDEFINED: UserDefined
+Distribution Chamber Element: VALVECHAMBER: ValveChamber
+Door: n/a: n/a
+Duct Fitting: BEND: Bend
+Duct Fitting: CONNECTOR: Connector
+Duct Fitting: ENTRY: Entry
+Duct Fitting: EXIT: Exit
+Duct Fitting: JUNCTION: Junction
+Duct Fitting: NOTDEFINED: NotDefined
+Duct Fitting: OBSTRUCTION: Obstruction
+Duct Fitting: TRANSITION: Transition
+Duct Fitting: USERDEFINED: UserDefined
+Duct Segment: FLEXIBLESEGMENT: FlexibleSegment
+Duct Segment: NOTDEFINED: NotDefined
+Duct Segment: RIGIDSEGMENT: RigidSegment
+Duct Segment: USERDEFINED: UserDefined
+Duct Silencer: FLATOVAL: FlatOval
+Duct Silencer: NOTDEFINED: NotDefined
+Duct Silencer: RECTANGULAR: Rectangular
+Duct Silencer: ROUND: Round
+Duct Silencer: USERDEFINED: UserDefined
+Electric Appliance: COMPUTER: Computer
+Electric Appliance: DIRECTWATERHEATER: DirectWaterHeater
+Electric Appliance: DISHWASHER: Dishwasher
+Electric Appliance: ELECTRICCOOKER: ElectricCooker
+Electric Appliance: ELECTRICHEATER: ElectricHeater
+Electric Appliance: FACSIMILE: Facsimile
+Electric Appliance: FREESTANDINGFAN: FreeStandingFan
+Electric Appliance: FREEZER: Freezer
+Electric Appliance: FRIDGE_FREEZER: FridgeFreezer
+Electric Appliance: HANDDRYER: HandDryer
+Electric Appliance: INDIRECTWATERHEATER: IndirectWaterHeater
+Electric Appliance: MICROWAVE: Microwave
+Electric Appliance: NOTDEFINED: NotDefined
+Electric Appliance: PHOTOCOPIER: Photocopier
+Electric Appliance: PRINTER: Printer
+Electric Appliance: RADIANTHEATER: RadiantHeater
+Electric Appliance: REFRIGERATOR: Refrigerator
+Electric Appliance: SCANNER: Scanner
+Electric Appliance: TELEPHONE: Telephone
+Electric Appliance: TUMBLEDRYER: TumbleDryer
+Electric Appliance: TV: Tv
+Electric Appliance: USERDEFINED: UserDefined
+Electric Appliance: VENDINGMACHINE: VendingMachine
+Electric Appliance: WASHINGMACHINE: WashingMachine
+Electric Appliance: WATERCOOLER: WaterCooler
+Electric Appliance: WATERHEATER: WaterHeater
+Electric Distribution Point: ALARMPANEL: AlarmPanel
+Electric Distribution Point: CONSUMERUNIT: ConsumerUnit
+Electric Distribution Point: CONTROLPANEL: ControlPanel
+Electric Distribution Point: DISTRIBUTIONBOARD: DistributionBoard
+Electric Distribution Point: GASDETECTORPANEL: GasDetectorPanel
+Electric Distribution Point: MIMICPANEL: MimicPanel
+Electric Distribution Point: MOTORCONTROLCENTRE: MotorControlCentre
+Electric Distribution Point: NOTDEFINED: NotDefined
+Electric Distribution Point: SWITCHBOARD: Switchboard
+Electric Distribution Point: USERDEFINED: UserDefined
+Electric Flow Storage Device: BATTERY: Battery
+Electric Flow Storage Device: CAPACITORBANK: CapacitorBank
+Electric Flow Storage Device: HARMONICFILTER: HarmonicFilter
+Electric Flow Storage Device: INDUCTORBANK: InductorBank
+Electric Flow Storage Device: NOTDEFINED: NotDefined
+Electric Flow Storage Device: UPS: Ups
+Electric Flow Storage Device: USERDEFINED: UserDefined
+Electric Generator: NOTDEFINED: NotDefined
+Electric Generator: USERDEFINED: UserDefined
+Electric Heater: ELECTRICCABLEHEATER: ElectricCableHeater
+Electric Heater: ELECTRICMATHEATER: ElectricMatHeater
+Electric Heater: ELECTRICPOINTHEATER: ElectricPointHeater
+Electric Heater: NOTDEFINED: NotDefined
+Electric Heater: USERDEFINED: UserDefined
+Electric Motor: DC: Dc
+Electric Motor: INDUCTION: Induction
+Electric Motor: NOTDEFINED: NotDefined
+Electric Motor: POLYPHASE: Polyphase
+Electric Motor: RELUCTANCESYNCHRONOUS: ReluctanceSynchronous
+Electric Motor: SYNCHRONOUS: Synchronous
+Electric Motor: USERDEFINED: UserDefined
+Electric Time Control: NOTDEFINED: NotDefined
+Electric Time Control: RELAY: Relay
+Electric Time Control: TIMECLOCK: TimeClock
+Electric Time Control: TIMEDELAY: TimeDelay
+Electric Time Control: USERDEFINED: UserDefined
+Element Assembly: ACCESSORY_ASSEMBLY: AccessoryAssembly
+Element Assembly: ARCH: Arch
+Element Assembly: BEAM_GRID: BeamGrid
+Element Assembly: BRACED_FRAME: BracedFrame
+Element Assembly: GIRDER: Girder
+Element Assembly: NOTDEFINED: NotDefined
+Element Assembly: REINFORCEMENT_UNIT: ReinforcementUnit
+Element Assembly: RIGID_FRAME: RigidFrame
+Element Assembly: SLAB_FIELD: SlabField
+Element Assembly: TRUSS: Truss
+Element Assembly: USERDEFINED: UserDefined
+Evaporative Cooler: DIRECTEVAPORATIVEAIRWASHER: DirectEvaporativeAirWasher
+Evaporative Cooler: DIRECTEVAPORATIVEPACKAGEDROTARYAIRCOOLER: DirectEvaporativePackagedRotaryAirCooler
+Evaporative Cooler: DIRECTEVAPORATIVERANDOMMEDIAAIRCOOLER: DirectEvaporativeRandomMediaAirCooler
+Evaporative Cooler: DIRECTEVAPORATIVERIGIDMEDIAAIRCOOLER: DirectEvaporativeRigidMediaAirCooler
+Evaporative Cooler: DIRECTEVAPORATIVESLINGERSPACKAGEDAIRCOOLER: DirectEvaporativeSlingersPackagedAirCooler
+Evaporative Cooler: INDIRECTDIRECTCOMBINATION: IndirectDirectCombination
+Evaporative Cooler: INDIRECTEVAPORATIVECOOLINGTOWERORCOILCOOLER: IndirectEvaporativeCoolingTowerOrCoilCooler
+Evaporative Cooler: INDIRECTEVAPORATIVEPACKAGEAIRCOOLER: IndirectEvaporativePackageAirCooler
+Evaporative Cooler: INDIRECTEVAPORATIVEWETCOIL: IndirectEvaporativeWetCoil
+Evaporative Cooler: NOTDEFINED: NotDefined
+Evaporative Cooler: USERDEFINED: UserDefined
+Evaporator: DIRECTEXPANSIONBRAZEDPLATE: DirectExpansionBrazedPlate
+Evaporator: DIRECTEXPANSIONSHELLANDTUBE: DirectExpansionShellAndTube
+Evaporator: DIRECTEXPANSIONTUBEINTUBE: DirectExpansionTubeInTube
+Evaporator: FLOODEDSHELLANDTUBE: FloodedShellAndTube
+Evaporator: NOTDEFINED: NotDefined
+Evaporator: SHELLANDCOIL: ShellAndCoil
+Evaporator: USERDEFINED: UserDefined
+Fan: CENTRIFUGALAIRFOIL: CentrifugalAirFoil
+Fan: CENTRIFUGALBACKWARDINCLINEDCURVED: CentrifugalBackwardInclinedCurved
+Fan: CENTRIFUGALFORWARDCURVED: CentrifugalForwardCurved
+Fan: CENTRIFUGALRADIAL: CentrifugalRadial
+Fan: NOTDEFINED: NotDefined
+Fan: PROPELLORAXIAL: PropellorAxial
+Fan: TUBEAXIAL: TubeAxial
+Fan: USERDEFINED: UserDefined
+Fan: VANEAXIAL: VaneAxial
+Fastener: n/a: n/a
+Filter: AIRPARTICLEFILTER: AirParticleFilter
+Filter: NOTDEFINED: NotDefined
+Filter: ODORFILTER: OdorFilter
+Filter: OILFILTER: OilFilter
+Filter: STRAINER: Strainer
+Filter: USERDEFINED: UserDefined
+Filter: WATERFILTER: WaterFilter
+Fire Suppression Terminal: BREECHINGINLET: BreechingInlet
+Fire Suppression Terminal: FIREHYDRANT: FireHydrant
+Fire Suppression Terminal: HOSEREEL: HoseReel
+Fire Suppression Terminal: NOTDEFINED: NotDefined
+Fire Suppression Terminal: SPRINKLER: Sprinkler
+Fire Suppression Terminal: SPRINKLERDEFLECTOR: SprinklerDeflector
+Fire Suppression Terminal: USERDEFINED: UserDefined
+Flow Instrument: AMMETER: Ammeter
+Flow Instrument: FREQUENCYMETER: FrequencyMeter
+Flow Instrument: NOTDEFINED: NotDefined
+Flow Instrument: PHASEANGLEMETER: PhaseAngleMeter
+Flow Instrument: POWERFACTORMETER: PowerFactorMeter
+Flow Instrument: PRESSUREGAUGE: PressureGauge
+Flow Instrument: THERMOMETER: Thermometer
+Flow Instrument: USERDEFINED: UserDefined
+Flow Instrument: VOLTMETER_PEAK: VoltmeterPeak
+Flow Instrument: VOLTMETER_RMS: VoltmeterRms
+Flow Meter: ELECTRICMETER: ElectricMeter
+Flow Meter: ENERGYMETER: EnergyMeter
+Flow Meter: FLOWMETER: FlowMeter
+Flow Meter: GASMETER: GasMeter
+Flow Meter: NOTDEFINED: NotDefined
+Flow Meter: OILMETER: OilMeter
+Flow Meter: USERDEFINED: UserDefined
+Flow Meter: WATERMETER: WaterMeter
+Footing: FOOTING_BEAM: FootingBeam
+Footing: NOTDEFINED: NotDefined
+Footing: PAD_FOOTING: PadFooting
+Footing: PILE_CAP: PileCap
+Footing: STRIP_FOOTING: StripFooting
+Footing: USERDEFINED: UserDefined
+Furniture: n/a: n/a
+Gas Terminal: GASAPPLIANCE: GasAppliance
+Gas Terminal: GASBOOSTER: GasBooster
+Gas Terminal: GASBURNER: GasBurner
+Gas Terminal: NOTDEFINED: NotDefined
+Gas Terminal: USERDEFINED: UserDefined
+Grid: n/a: n/a
+Heat Exchanger: NOTDEFINED: NotDefined
+Heat Exchanger: PLATE: Plate
+Heat Exchanger: SHELLANDTUBE: ShellAndTube
+Heat Exchanger: USERDEFINED: UserDefined
+Humidifier: ADIABATICAIRWASHER: AdiabaticAirWasher
+Humidifier: ADIABATICATOMIZING: AdiabaticAtomizing
+Humidifier: ADIABATICCOMPRESSEDAIRNOZZLE: AdiabaticCompressedAirNozzle
+Humidifier: ADIABATICPAN: AdiabaticPan
+Humidifier: ADIABATICRIGIDMEDIA: AdiabaticRigidMedia
+Humidifier: ADIABATICULTRASONIC: AdiabaticUltrasonic
+Humidifier: ADIABATICWETTEDELEMENT: AdiabaticWettedElement
+Humidifier: ASSISTEDBUTANE: AssistedButane
+Humidifier: ASSISTEDELECTRIC: AssistedElectric
+Humidifier: ASSISTEDNATURALGAS: AssistedNaturalGas
+Humidifier: ASSISTEDPROPANE: AssistedPropane
+Humidifier: ASSISTEDSTEAM: AssistedSteam
+Humidifier: NOTDEFINED: NotDefined
+Humidifier: STEAMINJECTION: SteamInjection
+Humidifier: USERDEFINED: UserDefined
+Junction Box: NOTDEFINED: NotDefined
+Junction Box: USERDEFINED: UserDefined
+Lamp: COMPACTFLUORESCENT: CompactFluorescent
+Lamp: FLUORESCENT: Fluorescent
+Lamp: HIGHPRESSUREMERCURY: HighPressureMercury
+Lamp: HIGHPRESSURESODIUM: HighPressureSodium
+Lamp: METALHALIDE: MetalHalide
+Lamp: NOTDEFINED: NotDefined
+Lamp: TUNGSTENFILAMENT: TungstenFilament
+Lamp: USERDEFINED: UserDefined
+Light Fixture: DIRECTIONSOURCE: DirectionSource
+Light Fixture: NOTDEFINED: NotDefined
+Light Fixture: POINTSOURCE: PointSource
+Light Fixture: USERDEFINED: UserDefined
+Mechanical Fastener: n/a: n/a
+Member: BRACE: Brace
+Member: CHORD: Chord
+Member: COLLAR: Collar
+Member: MEMBER: Member
+Member: MULLION: Mullion
+Member: NOTDEFINED: NotDefined
+Member: PLATE: Plate
+Member: POST: Post
+Member: PURLIN: Purlin
+Member: RAFTER: Rafter
+Member: STRINGER: Stringer
+Member: STRUT: Strut
+Member: STUD: Stud
+Member: USERDEFINED: UserDefined
+Motor Connection: BELTDRIVE: BeltDrive
+Motor Connection: COUPLING: Coupling
+Motor Connection: DIRECTDRIVE: DirectDrive
+Motor Connection: NOTDEFINED: NotDefined
+Motor Connection: USERDEFINED: UserDefined
+Other: NOTDEFINED: NotDefined
+Other: USERDEFINED: UserDefined
+Outlet: AUDIOVISUALOUTLET: AudioVisualOutlet
+Outlet: COMMUNICATIONSOUTLET: CommunicationsOutlet
+Outlet: NOTDEFINED: NotDefined
+Outlet: POWEROUTLET: PowerOutlet
+Outlet: USERDEFINED: UserDefined
+Pile: COHESION: Cohesion
+Pile: FRICTION: Friction
+Pile: NOTDEFINED: NotDefined
+Pile: SUPPORT: Support
+Pile: USERDEFINED: UserDefined
+Pipe Fitting: BEND: Bend
+Pipe Fitting: CONNECTOR: Connector
+Pipe Fitting: ENTRY: Entry
+Pipe Fitting: EXIT: Exit
+Pipe Fitting: JUNCTION: Junction
+Pipe Fitting: NOTDEFINED: NotDefined
+Pipe Fitting: OBSTRUCTION: Obstruction
+Pipe Fitting: TRANSITION: Transition
+Pipe Fitting: USERDEFINED: UserDefined
+Pipe Segment: FLEXIBLESEGMENT: FlexibleSegment
+Pipe Segment: GUTTER: Gutter
+Pipe Segment: NOTDEFINED: NotDefined
+Pipe Segment: RIGIDSEGMENT: RigidSegment
+Pipe Segment: SPOOL: Spool
+Pipe Segment: USERDEFINED: UserDefined
+Plate: CURTAIN_PANEL: CurtainPanel
+Plate: NOTDEFINED: NotDefined
+Plate: SHEET: Sheet
+Plate: USERDEFINED: UserDefined
+Protective Device: CIRCUITBREAKER: CircuitBreaker
+Protective Device: FUSEDISCONNECTOR: FuseDisconnector
+Protective Device: NOTDEFINED: NotDefined
+Protective Device: RESIDUALCURRENTCIRCUITBREAKER: ResidualCurrentCircuitBreaker
+Protective Device: RESIDUALCURRENTSWITCH: ResidualCurrentSwitch
+Protective Device: USERDEFINED: UserDefined
+Protective Device: VARISTOR: Varistor
+Protective Device: EARTHFAILUREDEVICE: EarthFailureDevice
+Pump: CIRCULATOR: Circulator
+Pump: ENDSUCTION: EndSuction
+Pump: NOTDEFINED: NotDefined
+Pump: SPLITCASE: SplitCase
+Pump: USERDEFINED: UserDefined
+Pump: VERTICALINLINE: VerticalInline
+Pump: VERTICALTURBINE: VerticalTurbine
+Railing: BALUSTRADE: Balustrade
+Railing: GUARDRAIL: Guardrail
+Railing: HANDRAIL: Handrail
+Railing: NOTDEFINED: NotDefined
+Railing: USERDEFINED: UserDefined
+Ramp: HALF_TURN_RAMP: HalfTurnRamp
+Ramp: NOTDEFINED: NotDefined
+Ramp: QUARTER_TURN_RAMP: QuarterTurnRamp
+Ramp: SPIRAL_RAMP: SpiralRamp
+Ramp: STRAIGHT_RUN_RAMP: StraightRunRamp
+Ramp: TWO_QUARTER_TURN_RAMP: TwoQuarterTurnRamp
+Ramp: TWO_STRAIGHT_RUN_RAMP: TwoStraightRunRamp
+Ramp: USERDEFINED: UserDefined
+Ramp Flight: NOTDEFINED: NotDefined
+Ramp Flight: SPIRAL: Spiral
+Ramp Flight: STRAIGHT: Straight
+Ramp Flight: USERDEFINED: UserDefined
+Reinforcing Bar: EDGE: Edge
+Reinforcing Bar: LIGATURE: Ligature
+Reinforcing Bar: MAIN: Main
+Reinforcing Bar: NOTDEFINED: NotDefined
+Reinforcing Bar: PUNCHING: Punching
+Reinforcing Bar: RING: Ring
+Reinforcing Bar: SHEAR: Shear
+Reinforcing Bar: STUD: Stud
+Reinforcing Bar: USERDEFINED: UserDefined
+Reinforcing Mesh: n/a: n/a
+Roof: BARREL_ROOF: BarrelRoof
+Roof: BUTTERFLY_ROOF: ButterflyRoof
+Roof: DOME_ROOF: DomeRoof
+Roof: FLAT_ROOF: FlatRoof
+Roof: FREEFORM: Freeform
+Roof: GABLE_ROOF: GableRoof
+Roof: GAMBREL_ROOF: GambrelRoof
+Roof: HIP_ROOF: HipRoof
+Roof: HIPPED_GABLE_ROOF: HippedGableRoof
+Roof: MANSARD_ROOF: MansardRoof
+Roof: NOTDEFINED: NotDefined
+Roof: PAVILION_ROOF: PavilionRoof
+Roof: RAINBOW_ROOF: RainbowRoof
+Roof: SHED_ROOF: ShedRoof
+Roof: USERDEFINED: UserDefined
+Sanitary Terminal: BATH: Bath
+Sanitary Terminal: BIDET: Bidet
+Sanitary Terminal: CISTERN: Cistern
+Sanitary Terminal: NOTDEFINED: NotDefined
+Sanitary Terminal: SANITARYFOUNTAIN: SanitaryFountain
+Sanitary Terminal: SHOWER: Shower
+Sanitary Terminal: SINK: Sink
+Sanitary Terminal: TOILETPAN: ToiletPan
+Sanitary Terminal: URINAL: Urinal
+Sanitary Terminal: USERDEFINED: UserDefined
+Sanitary Terminal: WASHHANDBASIN: WashHandBasin
+Sanitary Terminal: WCSEAT: WcSeat
+Sensor: CO2SENSOR: Co2Sensor
+Sensor: FIRESENSOR: FireSensor
+Sensor: FLOWSENSOR: FlowSensor
+Sensor: GASSENSOR: GasSensor
+Sensor: HEATSENSOR: HeatSensor
+Sensor: HUMIDITYSENSOR: HumiditySensor
+Sensor: LIGHTSENSOR: LightSensor
+Sensor: MOISTURESENSOR: MoistureSensor
+Sensor: MOVEMENTSENSOR: MovementSensor
+Sensor: NOTDEFINED: NotDefined
+Sensor: PRESSURESENSOR: PressureSensor
+Sensor: SMOKESENSOR: SmokeSensor
+Sensor: SOUNDSENSOR: SoundSensor
+Sensor: TEMPERATURESENSOR: TemperatureSensor
+Sensor: USERDEFINED: UserDefined
+Slab: BASESLAB: BaseSlab
+Slab: FLOOR: Floor
+Slab: LANDING: Landing
+Slab: NOTDEFINED: NotDefined
+Slab: ROOF: Roof
+Slab: USERDEFINED: UserDefined
+Space: n/a: n/a
+Space Heater: CONVECTOR: Convector
+Space Heater: NOTDEFINED: NotDefined
+Space Heater: USERDEFINED: UserDefined
+Space Heater: BASEBOARDHEATER: BaseboardHeater
+Space Heater: FINNEDTUBEUNIT: FinnedTubeUnit
+Space Heater: PANELRADIATOR: PanelRadiator
+Space Heater: SECTIONALRADIATOR: SectionalRadiator
+Space Heater: TUBULARRADIATOR: TubularRadiator
+Space Heater: UNITHEATER: UnitHeater
+Stack Terminal: BIRDCAGE: Birdcage
+Stack Terminal: COWL: Cowl
+Stack Terminal: NOTDEFINED: NotDefined
+Stack Terminal: RAINWATERHOPPER: RainwaterHopper
+Stack Terminal: USERDEFINED: UserDefined
+Stair: CURVED_RUN_STAIR: CurvedRunStair
+Stair: DOUBLE_RETURN_STAIR: DoubleReturnStair
+Stair: HALF_TURN_STAIR: HalfTurnStair
+Stair: HALF_WINDING_STAIR: HalfWindingStair
+Stair: NOTDEFINED: NotDefined
+Stair: QUARTER_TURN_STAIR: QuarterTurnStair
+Stair: QUARTER_WINDING_STAIR: QuarterWindingStair
+Stair: SPIRAL_STAIR: SpiralStair
+Stair: STRAIGHT_RUN_STAIR: StraightRunStair
+Stair: THREE_QUARTER_TURN_STAIR: ThreeQuarterTurnStair
+Stair: THREE_QUARTER_WINDING_STAIR: ThreeQuarterWindingStair
+Stair: TWO_CURVED_RUN_STAIR: TwoCurvedRunStair
+Stair: TWO_QUARTER_TURN_STAIR: TwoQuarterTurnStair
+Stair: TWO_QUARTER_WINDING_STAIR: TwoQuarterWindingStair
+Stair: TWO_STRAIGHT_RUN_STAIR: TwoStraightRunStair
+Stair: USERDEFINED: UserDefined
+Stair Flight: CURVED: Curved
+Stair Flight: FREEFORM: Freeform
+Stair Flight: NOTDEFINED: NotDefined
+Stair Flight: SPIRAL: Spiral
+Stair Flight: STRAIGHT: Straight
+Stair Flight: USERDEFINED: UserDefined
+Stair Flight: WINDER: Winder
+Switching Device: CONTACTOR: Contactor
+Switching Device: EMERGENCYSTOP: EmergencyStop
+Switching Device: NOTDEFINED: NotDefined
+Switching Device: STARTER: Starter
+Switching Device: SWITCHDISCONNECTOR: SwitchDisconnector
+Switching Device: TOGGLESWITCH: ToggleSwitch
+Switching Device: USERDEFINED: UserDefined
+System Furniture Element: n/a: n/a
+Tank: EXPANSION: Expansion
+Tank: NOTDEFINED: NotDefined
+Tank: PREFORMED: Preformed
+Tank: PRESSUREVESSEL: PressureVessel
+Tank: SECTIONAL: Sectional
+Tank: USERDEFINED: UserDefined
+Tendon: BAR: Bar
+Tendon: COATED: Coated
+Tendon: NOTDEFINED: NotDefined
+Tendon: STRAND: Strand
+Tendon: USERDEFINED: UserDefined
+Tendon: WIRE: Wire
+Tendon Anchor: n/a: n/a
+Transformer: CURRENT: Current
+Transformer: FREQUENCY: Frequency
+Transformer: NOTDEFINED: NotDefined
+Transformer: USERDEFINED: UserDefined
+Transformer: VOLTAGE: Voltage
+Transport Element: ELEVATOR: Elevator
+Transport Element: ESCALATOR: Escalator
+Transport Element: MOVINGWALKWAY: MovingWalkway
+Transport Element: NOTDEFINED: NotDefined
+Transport Element: USERDEFINED: UserDefined
+Tube Bundle: FINNED: Finned
+Tube Bundle: NOTDEFINED: NotDefined
+Tube Bundle: USERDEFINED: UserDefined
+Unitary Equipment: AIRCONDITIONINGUNIT: AirConditioningUnit
+Unitary Equipment: AIRHANDLER: AirHandler
+Unitary Equipment: NOTDEFINED: NotDefined
+Unitary Equipment: ROOFTOPUNIT: RooftopUnit
+Unitary Equipment: SPLITSYSTEM: SplitSystem
+Unitary Equipment: USERDEFINED: UserDefined
+Valve: AIRRELEASE: AirRelease
+Valve: ANTIVACUUM: AntiVacuum
+Valve: CHANGEOVER: Changeover
+Valve: CHECK: Check
+Valve: COMMISSIONING: Commissioning
+Valve: DIVERTING: Diverting
+Valve: DOUBLECHECK: DoubleCheck
+Valve: DOUBLEREGULATING: DoubleRegulating
+Valve: DRAWOFFCOCK: DrawOffCock
+Valve: FAUCET: Faucet
+Valve: FLUSHING: Flushing
+Valve: GASCOCK: GasCock
+Valve: GASTAP: GasTap
+Valve: ISOLATING: Isolating
+Valve: MIXING: Mixing
+Valve: NOTDEFINED: NotDefined
+Valve: PRESSUREREDUCING: PressureReducing
+Valve: PRESSURERELIEF: PressureRelief
+Valve: REGULATING: Regulating
+Valve: SAFETYCUTOFF: SafetyCutoff
+Valve: STEAMTRAP: SteamTrap
+Valve: STOPCOCK: Stopcock
+Valve: USERDEFINED: UserDefined
+Vibration Isolator: COMPRESSION: Compression
+Vibration Isolator: NOTDEFINED: NotDefined
+Vibration Isolator: SPRING: Spring
+Vibration Isolator: USERDEFINED: UserDefined
+Wall: ELEMENTEDWALL: ElementedWall
+Wall: NOTDEFINED: NotDefined
+Wall: PLUMBINGWALL: PlumbingWall
+Wall: POLYGONAL: Polygonal
+Wall: SHEAR: Shear
+Wall: STANDARD: Standard
+Wall: USERDEFINED: UserDefined
+Waste Terminal: FLOORTRAP: FloorTrap
+Waste Terminal: FLOORWASTE: FloorWaste
+Waste Terminal: GREASEINTERCEPTOR: GreaseInterceptor
+Waste Terminal: GULLYSUMP: GullySump
+Waste Terminal: GULLYTRAP: GullyTrap
+Waste Terminal: NOTDEFINED: NotDefined
+Waste Terminal: OILINTERCEPTOR: OilInterceptor
+Waste Terminal: PETROLINTERCEPTOR: PetrolInterceptor
+Waste Terminal: ROOFDRAIN: RoofDrain
+Waste Terminal: USERDEFINED: UserDefined
+Waste Terminal: WASTEDISPOSALUNIT: WasteDisposalUnit
+Waste Terminal: WASTETRAP: WasteTrap
+Window: n/a: n/a

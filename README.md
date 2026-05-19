@@ -16,10 +16,9 @@ It also includes a feature to generate test IFC models based on conventions to a
 There are two runnable projects:
 
  - _Xbim.IDS.Generator.Sample_ generates a generic set of IDS files for a notional client
- - _Xbim.IDS.Generator.Dfe_ generates IDS specification for the UK Department for Education's Framework Agreement EIR / PIS.  
-This Dfe example includes a model Generator implementation.
+ - _Xbim.IDS.Generator.Dfe_ generates IDS specification for the UK Department for Education's Information Management Requirements (IMR). This library includes a model generator implementation based on the IMR.
 
-The code for the Dfe project has been published with the agreement of the Dfe.
+The code for the DfE project has been published with the agreement of the DfE.
 
 
 ## Licence

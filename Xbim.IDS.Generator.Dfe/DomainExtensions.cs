@@ -57,14 +57,15 @@ namespace Xbim.IDS.Generator.Dfe
             "IfcTransportElement",
         ];
 
-        public static IIfcSpace AddDfeData(this IIfcSpace space)
+        public static IIfcSpace AddDfeData(this IIfcSpace space, ImrVersion version = ImrVersion.S21)
         {
+            var spaceClassSystem = version == ImrVersion.S25 ? "DfE Space Classification" : "DFE ADS";
+            var spaceClassCode   = version == ImrVersion.S25 ? "S6004" : "STT10";
 
             return space
-                .WithPropertySingle("COBie_Space", "Roomtag", new IfcText("n/a"))
-
-                .WithClassificationReference("Uniclass SL", "SL_90_50_87", "Teaching resources stores")
-                .WithClassificationReference("DFE ADS", "STT10", "Teaching resources stores")
+                .WithPropertySingle("COBie_Space", "RoomTag", new IfcText("n/a"))
+                .WithClassificationReference(version == ImrVersion.S25 ? "Uniclass Classification" : "Uniclass SL", "SL_90_50_87", "Teaching resources stores")
+                .WithClassificationReference(spaceClassSystem, spaceClassCode, "Teaching resources stores")
                 ;
         }
 
@@ -139,8 +140,8 @@ namespace Xbim.IDS.Generator.Dfe
             string? installationDate = null, string? warranteeStartDate = null) where T : IIfcProduct
         {
             return entity
-                .WithPropertySingle("Pset_ManufacturerOccurrence", "SerialNumber", new IfcIdentifier(serialNo))
-                .WithPropertySingle("Pset_ManufacturerOccurrence", "BarCode", new IfcIdentifier(barcode))
+                .WithPropertySingle("Pset_ManufacturerOccurrence", "SerialNumber", new IfcText(serialNo))
+                .WithPropertySingle("Pset_ManufacturerOccurrence", "BarCode", new IfcText(barcode))
                 .WithPropertySingle("COBie_Component", "AssetIdentifier", new IfcText(assetIdentifier ?? "n/a"))
                 .WithPropertySingle("COBie_Component", "TagNumber", new IfcText(tag ?? "n/a"))
                 .WithPropertySingle("COBie_Component", "InstallationDate", new IfcText(installationDate ?? "1900-12-31T23:59:59"))
@@ -168,7 +169,7 @@ namespace Xbim.IDS.Generator.Dfe
             var guarantor = $"service.{domain}@example.com";
             if(data.ApplyClassification)
                 type
-                    .WithClassificationReference("Uniclass Pr", productType, domain!);
+                    .WithClassificationReference("Uniclass Classification", productType, domain!);
 
             if(isCobieFn(type))
                 type

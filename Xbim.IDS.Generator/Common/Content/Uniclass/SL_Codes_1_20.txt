@@ -34,7 +34,6 @@ SL_20_50_51 : Market stalls
 SL_20_50_55 : Motor vehicle showrooms
 SL_20_50_70 : Refrigerated wholesale spaces
 SL_20_50_72 : Retail kiosks
-SL_20_50_74 : Retail spaces
 SL_20_50_85 : Supermarket shop floors
 SL_20_50_86 : Tan spray booths
 SL_20_50_87 : Tattoo and piercing parlours
@@ -68,32 +67,14 @@ SL_20_70_41 : Judicial benches
 SL_20_70_44 : Jury boxes
 SL_20_70_97 : Witness stands
 SL_20_75 : Detention spaces
-SL_20_75_02 : Accessible cells
 SL_20_75_13 : Charge areas
 SL_20_75_15 : Communal inmate dayrooms
-SL_20_75_17 : Constant observation cells
 SL_20_75_22 : Detention cells
-SL_20_75_23 : Dirty protest cells
-SL_20_75_24 : Double-occupancy cells
-SL_20_75_25 : Dry cells
 SL_20_75_28 : Exercise yards
 SL_20_75_35 : Guard stations
 SL_20_75_38 : Holding cells
-SL_20_75_39 : Holding rooms
-SL_20_75_46 : Listener suites
-SL_20_75_48 : Low-mobility cells
-SL_20_75_50 : Medical single-occupancy cells
-SL_20_75_51 : Medical single-occupancy end-of-life cells
-SL_20_75_52 : Medical single-occupancy isolation cells
-SL_20_75_53 : Medical single-occupancy social care cells
-SL_20_75_54 : Medical multiple-occupancy wards
-SL_20_75_55 : Multiple-occupancy bedrooms
-SL_20_75_65 : Protest cells
-SL_20_75_70 : Regular care and separation unit (CaSU) cells
 SL_20_75_75 : Sally ports
 SL_20_75_77 : Secure visiting rooms
-SL_20_75_79 : Single-occupancy cells
-SL_20_75_82 : Specimen capture cells
 SL_20_75_95 : Vehicle impound yards
 SL_20_80 : Weapons training spaces
 SL_20_80_03 : Artillery firing ranges
@@ -106,7 +87,6 @@ SL_20_85_75 : Security control spaces
 SL_20_85_80 : Security offices
 SL_20_85_95 : Vehicular security checkpoints
 SL_20_90 : Fire and incident support spaces
-SL_20_90_23 : Emergency and rescue equipment spaces
 SL_20_90_25 : Escape stairs
 SL_20_90_28 : Firefighting stairs
 SL_20_90_30 : Fire refuge spaces
@@ -171,8 +151,6 @@ SL_25_30_02 : Anechoic chambers
 SL_25_30_04 : Astronomical observatories
 SL_25_30_05 : Autoclave rooms
 SL_25_30_07 : Biological laboratories
-SL_25_30_08 : Biological samples storage room
-SL_25_30_09 : Biomechanics laboratories
 SL_25_30_10 : Bioscience laboratories
 SL_25_30_13 : Chemistry laboratories
 SL_25_30_14 : Clean rooms
@@ -183,8 +161,6 @@ SL_25_30_19 : Containment laboratories
 SL_25_30_21 : Darkrooms
 SL_25_30_22 : Dental laboratories
 SL_25_30_23 : Dissection rooms
-SL_25_30_24 : EMI shielded room
-SL_25_30_25 : Ecology laboratories
 SL_25_30_26 : Earth sciences laboratories
 SL_25_30_27 : Engineering laboratories
 SL_25_30_28 : Experiment control rooms
@@ -193,7 +169,6 @@ SL_25_30_30 : Food testing laboratories
 SL_25_30_31 : Forensics laboratories
 SL_25_30_32 : Forensic scientific support rooms
 SL_25_30_33 : Geology laboratories
-SL_25_30_35 : Growth chamber
 SL_25_30_42 : Instrument rooms
 SL_25_30_46 : Laboratory cold rooms
 SL_25_30_47 : Laboratory warm rooms
@@ -201,10 +176,8 @@ SL_25_30_50 : Material testing laboratories
 SL_25_30_66 : Physics laboratories
 SL_25_30_68 : Psychology laboratories
 SL_25_30_70 : Radiation shielded rooms
-SL_25_30_71 : Radiation laboratories
 SL_25_30_76 : Scientific equipment rooms
 SL_25_30_78 : Seismograph rooms
-SL_25_30_87 : Temperature-controlled room
 SL_25_30_88 : Testing rooms
 SL_25_40 : Training spaces
 SL_25_40_03 : Animal care training rooms
@@ -221,7 +194,6 @@ SL_25_40_50 : Manufacturing workshops
 SL_25_40_51 : Media studios
 SL_25_40_61 : Outdoor training spaces
 SL_25_40_65 : Photography studios
-SL_25_40_70 : Rail training simulators
 SL_25_40_90 : Training restaurants
 SL_25_40_94 : Vehicle workshops
 SL_25_50 : Exhibition spaces
@@ -307,7 +279,6 @@ SL_30_50_61 : Paint spray booths
 SL_30_50_62 : Pharmaceuticals clean rooms
 SL_30_50_64 : Printing spaces
 SL_30_60 : Cleaning and maintenance spaces
-SL_30_60_03 : Animal cage washing areas
 SL_30_60_11 : Caretaker rooms
 SL_30_60_13 : Clothes drying and airing rooms
 SL_30_60_22 : Decontamination spaces
@@ -347,23 +318,12 @@ SL_32_10_39 : Hothouse spaces
 SL_32_10_47 : Livestock fields
 SL_32_10_52 : Milking parlours
 SL_32_10_55 : Mushroom cultivation spaces
-SL_32_10_58 : Organic waste treatment spaces
 SL_32_10_60 : Paddocks
 SL_32_10_65 : Polytunnel spaces
 SL_32_10_66 : Poultry batteries
-SL_32_10_73 : Seed banks
-SL_32_10_75 : Seed processing spaces
 SL_32_10_77 : Shearing spaces
 SL_32_10_78 : Sheep dips
 SL_32_10_94 : Vineyard spaces
-SL_32_15 : Dam spaces
-SL_32_15_17 : Dam crests
-SL_32_15_29 : Dam faces
-SL_32_15_37 : Dam heels
-SL_32_15_81 : Dam spillway crests
-SL_32_15_82 : Dam spillway funnels
-SL_32_15_83 : Dam spillway faces
-SL_32_15_89 : Dam toes
 SL_32_35 : Ground spaces
 SL_32_35_02 : Access strips
 SL_32_35_04 : Allotments
@@ -375,7 +335,6 @@ SL_32_35_60 : Patios
 SL_32_35_94 : Vegetable gardens
 SL_32_40 : Land managed spaces
 SL_32_40_06 : Berms
-SL_32_40_16 : Contaminated land areas
 SL_32_40_26 : Easement access areas
 SL_32_40_27 : Embankment cores
 SL_32_40_28 : Embankment crests
@@ -407,7 +366,6 @@ SL_32_50_72 : Roller boat lifts
 SL_32_50_76 : Scour protection aprons
 SL_32_50_79 : Slipways
 SL_32_65 : Natural spaces
-SL_32_65_12 : Caves
 SL_32_65_71 : Riverbeds
 SL_32_65_72 : River reaches
 SL_32_65_74 : Sand dune active zones
@@ -432,7 +390,6 @@ SL_32_85_15 : Control gate sills
 SL_32_85_30 : Fishtails
 SL_32_85_35 : Groyne faces
 SL_32_85_42 : Intake towers
-SL_32_85_58 : Orifice flow control structures
 SL_32_85_60 : Paddles and rymers
 SL_32_85_65 : Preliminary weirs
 SL_32_85_70 : Roundheads
@@ -449,7 +406,6 @@ SL_32_95 : Waterways spaces
 SL_32_95_15 : Channel sides
 SL_32_95_18 : Culvert soffits
 SL_32_95_20 : Culvert walls
-SL_32_95_23 : Fish, eel and lamprey pass crests
 SL_32_95_29 : Fish, eel and lamprey pass faces
 SL_32_95_30 : Fish, eel and lamprey pass sills
 SL_35 : Medical, health, welfare and sanitary spaces
@@ -457,8 +413,6 @@ SL_35_10 : Medical spaces
 SL_35_10_08 : Birthing rooms
 SL_35_10_10 : Burns units
 SL_35_10_15 : Consulting rooms
-SL_35_10_22 : Dental treatment rooms
-SL_35_10_23 : Diagnostics laboratories
 SL_35_10_30 : First aid posts
 SL_35_10_31 : First aid rooms
 SL_35_10_36 : Hearing test rooms
@@ -469,18 +423,14 @@ SL_35_10_51 : Medical scanning and x-ray rooms
 SL_35_10_53 : Medical treatment rooms
 SL_35_10_58 : Occupational therapy rooms
 SL_35_10_59 : Operating theatres
-SL_35_10_63 : Phlebotomy room
 SL_35_10_64 : Pharmaceutical dispensaries
 SL_35_10_65 : Phototherapy spaces
 SL_35_10_66 : Physiotherapy rooms
 SL_35_10_70 : Radiography rooms
 SL_35_10_71 : Radiotherapy rooms
-SL_35_10_72 : Radiology reading room
 SL_35_10_73 : Recovery rooms
 SL_35_10_74 : Rehabilitation rooms
-SL_35_10_82 : Sterilization room
 SL_35_10_88 : Therapy rooms
-SL_35_10_94 : Venepuncture room
 SL_35_10_96 : Wards
 SL_35_10_97 : Warm water pools
 SL_35_50 : Welfare spaces
@@ -500,13 +450,12 @@ SL_35_60_56 : Non-domestic kitchens
 SL_35_60_78 : Servery areas
 SL_35_70 : Funerary spaces
 SL_35_70_12 : Cemetery plots
-SL_35_70_15 : Funerary columbariums
+SL_35_70_15 : Columbariums
 SL_35_70_18 : Crematorium oven rooms
 SL_35_70_32 : Funeral vaults
 SL_35_70_50 : Mausoleums
 SL_35_70_90 : Tombs
 SL_35_80 : Sanitary spaces
-SL_35_80_00 : Ablutions rooms
 SL_35_80_01 : Accessible changing rooms
 SL_35_80_03 : Accessible toilets
 SL_35_80_06 : Baby changing rooms
@@ -552,7 +501,7 @@ SL_40_05_43 : Indoor play spaces
 SL_40_05_58 : Observation decks
 SL_40_05_59 : Outdoor activity areas
 SL_40_05_60 : Outdoor fairground spaces
-SL_40_05_68 : Public gardens
+SL_40_05_68 : Public parks and gardens
 SL_40_05_79 : Sensory gardens
 SL_40_05_81 : Soft play rooms
 SL_40_20 : Dining spaces
@@ -708,7 +657,6 @@ SL_45_10_45 : Kitchen-dining-living rooms
 SL_45_10_49 : Living rooms
 SL_45_10_57 : Nursing home bedrooms
 SL_45_10_60 : Panic rooms
-SL_45_10_78 : Single-occupancy bedrooms
 SL_45_10_85 : Studies
 SL_45_10_88 : Tent pitches
 SL_45_10_93 : Utility rooms
@@ -736,12 +684,15 @@ SL_50_60_94 : Waste liquids treatment spaces
 SL_50_60_95 : Waste liquids storage spaces
 SL_50_70 : Drainage treatment and disposal spaces
 SL_50_75 : Wastewater treatment and disposal spaces
+SL_50_75_01 : Aeration tanks
+SL_50_75_22 : Disinfection channels
 SL_50_75_26 : Effluent outfalls
 SL_50_75_28 : Evaporation ponds
-SL_50_75_35 : Wastewater grass plots
-SL_50_75_71 : Wastewater reed beds
+SL_50_75_76 : Sludge grit chambers
+SL_50_75_79 : Sludge primary clarifier tanks
+SL_50_75_82 : Sludge screenings
+SL_50_75_83 : Sludge secondary clarifier tanks
 SL_50_75_85 : Stormwater overflows
-SL_50_75_95 : Wastewater wetlands
 SL_50_80 : Dry waste treatment and disposal spaces
 SL_50_80_40 : Dry waste treatment spaces
 SL_50_80_70 : Dry waste disposal spaces
@@ -759,7 +710,7 @@ SL_55_15_70 : Raw water intakes
 SL_55_20 : Gas supply spaces
 SL_55_20_34 : Gas storage spaces
 SL_55_20_65 : Service gas supply pipes
-SL_55_30 : Fire-extinguishing supply spaces
+SL_55_30 : Fire extinguishing supply spaces
 SL_55_30_80 : Sprinkler tank enclosures
 SL_55_40 : Steam supply spaces
 SL_55_50 : Liquid fuel supply spaces
@@ -775,47 +726,16 @@ SL_60 : Heating, cooling and refrigeration spaces
 SL_60_30 : Rail and paving heating spaces
 SL_60_40 : Space heating and cooling spaces
 SL_60_60 : Refrigeration spaces
-SL_60_60_20 : Cryogenic storage room
-SL_60_60_29 : Freezer room
-SL_60_60_70 : Refrigeration room
 SL_60_80 : Drying spaces
 SL_60_80_25 : Drying rooms
 SL_70 : Electrical power generation and lighting spaces
 SL_70_10 : Electrical power generation spaces
 SL_70_10_82 : Solar arrays
 SL_70_10_91 : Turbine rooms
-SL_70_20 : Electricity transmission spaces
-SL_70_20_05 : Auxiliary transformer equipment bay
-SL_70_20_08 : Bus coupler bay
-SL_70_20_10 : Bus section bay
-SL_70_20_11 : Cable sealing end bay
-SL_70_20_13 : Capacitor banks
-SL_70_20_26 : Earthing transformer bay
-SL_70_20_27 : Enclosed high-voltage switchgear room
-SL_70_20_29 : Electricity feeder bay
-SL_70_20_30 : Flexible a.c. transmission system (FACTS) bay
-SL_70_20_32 : Grid battery bay
-SL_70_20_33 : Grid transformer bay
-SL_70_20_35 : High-voltage electricity substation chambers
-SL_70_20_50 : Main busbar section
-SL_70_20_64 : Power transformer equipment bay
-SL_70_20_70 : Reactor equipment bay
-SL_70_20_72 : Relay and control equipment bay
-SL_70_20_74 : Reserve busbar section
-SL_70_20_83 : Static VAR compensator bay
-SL_70_20_85 : Supergrid transformer bay
-SL_70_20_86 : Synchronous condenser bay
-SL_70_20_89 : Transmission cable section
-SL_70_20_90 : Transmission line span
-SL_70_20_92 : Underground transmission cable inspection and monitoring access points
-SL_70_30 : Electricity distribution spaces
-SL_70_30_06 : Battery room
-SL_70_30_15 : Combined switch and direct current (d.c.) distribution room
-SL_70_30_22 : Direct current (d.c.) distribution room
+SL_70_30 : Electricity distribution and transmission spaces
 SL_70_30_26 : Electrical distribution pedestals
-SL_70_30_45 : Low-voltage electricity substation chambers
-SL_70_30_52 : Metering room
-SL_70_30_83 : Substation bays
+SL_70_30_35 : High voltage electricity substation chambers
+SL_70_30_45 : Low voltage electricity substation chambers
 SL_70_30_92 : Uninterruptible power supply rooms
 SL_75 : Communications, security, safety and protection spaces
 SL_75_10 : Communications spaces
@@ -834,13 +754,11 @@ SL_75_40 : Electronic security spaces
 SL_75_40_28 : Electronic security control rooms
 SL_75_50 : Safety and protection spaces
 SL_75_50_30 : Exclusion zones
-SL_75_50_33 : Gas zones
 SL_75_60 : Environmental safety
 SL_75_70 : Control and management spaces
 SL_75_80 : Protection spaces
 SL_80 : Transport spaces
 SL_80_05 : Aerospace ground spaces
-SL_80_05_01 : Aircraft apron bays
 SL_80_05_02 : Aeroplane landing strips
 SL_80_05_03 : Aeroplane runways
 SL_80_05_04 : Aircraft fuelling spaces
@@ -882,11 +800,9 @@ SL_80_30_35 : Gondola storage spaces
 SL_80_35 : Road spaces
 SL_80_35_04 : Arrestor beds
 SL_80_35_08 : Bus manoeuvring areas
-SL_80_35_09 : Bus travel lanes
 SL_80_35_11 : Car manoeuvring areas
 SL_80_35_13 : Carriageways
 SL_80_35_16 : Central reservations
-SL_80_35_17 : Channelizing islands
 SL_80_35_18 : Crossover spaces
 SL_80_35_19 : Cycle crossings
 SL_80_35_20 : Cycle lanes
@@ -909,8 +825,7 @@ SL_80_35_70 : Railway crossings
 SL_80_35_71 : Refuge areas
 SL_80_35_72 : Roadside rest areas
 SL_80_35_74 : Road sections
-SL_80_35_75 : Roundabouts
-SL_80_35_77 : Roadside reservations
+SL_80_35_77 : Side reservations
 SL_80_35_78 : Side road carriageways
 SL_80_35_80 : Slip road carriageways
 SL_80_35_81 : Soft shoulders
@@ -946,12 +861,11 @@ SL_80_50_72 : Railway lines
 SL_80_50_74 : Railway sections
 SL_80_50_76 : Railway sidings
 SL_80_50_77 : Railway signal control spaces
-SL_80_50_78 : Rolling stock inspection spaces
-SL_80_50_79 : Signalling equipment rooms
+SL_80_50_79 : Signalling equipment room
 SL_80_50_80 : Single-sided platforms
 SL_80_50_85 : Stabling yards
 SL_80_50_88 : Track paralleling huts
-SL_80_50_90 : Train halts
+SL_80_50_90 : Train stops
 SL_80_50_92 : Railway underpasses
 SL_80_50_95 : Wagon decontamination spaces
 SL_80_50_97 : Wagon maintenance spaces
@@ -976,34 +890,19 @@ SL_80_96 : Tunnel and shaft spaces
 SL_80_96_15 : Concourse tunnels
 SL_80_96_18 : Crossover tunnels
 SL_80_96_20 : Drift tunnel portals
-SL_80_96_44 : Junction tunnels
 SL_80_96_58 : Overrun tunnels
 SL_80_96_60 : Passageway tunnels
 SL_80_96_64 : Platform tunnels
 SL_80_96_78 : Sidings tunnels
-SL_80_96_89 : Tunnel boring machine (TBM) launching and retrieval shafts
-SL_80_96_90 : Tunnel dives
-SL_80_96_91 : Turnback tunnels
 SL_80_98 : Transport kinematic envelopes
 SL_80_98_09 : Bridge headrooms
-SL_80_98_13 : Chainage
 SL_80_98_15 : Collapse radius
 SL_80_98_46 : Lateral safety zones
 SL_80_98_48 : Longitudinal safety zones
-SL_80_98_70 : Rail kinematic envelope
-SL_80_98_72 : Restricted speed zones
 SL_80_98_75 : Safety clearance zones
-SL_80_98_83 : Structure gauge
 SL_80_98_85 : Swept path areas
 SL_80_98_90 : Tunnel headrooms
-SL_80_98_94 : Vehicle loading gauge
 SL_80_98_97 : Working widths
-SL_82 : Vehicle spaces
-SL_82_61 : Passenger spaces
-SL_82_61_61 : Passenger seating spaces
-SL_82_61_62 : Passenger standing spaces
-SL_82_61_63 : Passenger wheelchair spaces
-SL_82_61_65 : Priority passenger seating spaces
 SL_90 : General spaces
 SL_90_10 : Circulation spaces
 SL_90_10_02 : Airlocks
@@ -1016,12 +915,10 @@ SL_90_10_24 : Drop-off and collection areas
 SL_90_10_27 : Entrance halls
 SL_90_10_28 : Escalators
 SL_90_10_34 : Goods conveyors
-SL_90_10_35 : Goods lifts
 SL_90_10_36 : Hallways
 SL_90_10_46 : Landings
 SL_90_10_47 : Lifts
 SL_90_10_51 : Lobbies
-SL_90_10_62 : Passenger lifts
 SL_90_10_64 : Porches
 SL_90_10_68 : Public squares
 SL_90_10_71 : Retail circulation spaces
@@ -1050,8 +947,6 @@ SL_90_20_85 : Staff rooms
 SL_90_20_86 : Staff workrooms
 SL_90_20_88 : Temporary seating areas
 SL_90_20_89 : Ticket offices
-SL_90_20_91 : Terraces
-SL_90_20_94 : Vacant spaces
 SL_90_20_96 : Waiting rooms
 SL_90_20_98 : Work booths
 SL_90_30 : Construction voids
@@ -1067,7 +962,6 @@ SL_90_50_06 : Baggage storage areas
 SL_90_50_07 : Battery stores
 SL_90_50_08 : Blood banks
 SL_90_50_09 : Boat storage spaces
-SL_90_50_10 : Building services stores
 SL_90_50_11 : Cargo storage areas
 SL_90_50_12 : Carports
 SL_90_50_13 : Chemicals stores
@@ -1115,11 +1009,10 @@ SL_90_50_98 : Wine cellars
 SL_90_60 : Unoccupied voids
 SL_90_60_01 : Access spaces
 SL_90_60_02 : Air shafts
-SL_90_60_07 : Belfries
 SL_90_60_10 : Cavities
+SL_90_60_12 : Chimneys
 SL_90_60_13 : Chutes
 SL_90_60_18 : Crawl spaces
-SL_90_60_30 : Flues
 SL_90_60_49 : Lift pits
 SL_90_60_50 : Lift shafts
 SL_90_60_51 : Light wells

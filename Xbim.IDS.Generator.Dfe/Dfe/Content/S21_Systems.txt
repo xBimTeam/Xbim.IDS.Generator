@@ -1,0 +1,44 @@
+# S21 Projects Information Standard C02
+AirConditioning : Conditioned air distribution system for purposes of maintaining a temperature range within one or more spaces
+Audiovisual : A transport of a single media source, having audio and/or video streams
+Chemical : Arbitrary chemical further qualified by property set, such as for medical or industrial use
+ChilledWater : Nonpotable chilled water, such as circulated through an evaporator
+Communication : Communication system
+CompressedAir : Compressed air system
+CondenserWater : Nonpotable water, such as circulated through a condenser
+Control : A transport or network dedicated to control system usage
+Conveying : Arbitrary supply of substances
+Data : A network having general-purpose usage
+Disposal : Arbitrary disposal of substances
+DomesticColdWater : Unheated potable water distribution system
+DomesticHotWater : Heated potable water distribution system
+Drainage : Drainage collection system
+Earthing : A path for equipotential bonding, conducting current to the ground
+Electrical : A circuit for delivering electrical power
+Electroacoustic : An amplified audio signal such as for loudspeakers
+Exhaust : Exhaust air collection system for removing stale or noxious air from one or more spaces
+FireProtection : Fire protection sprinkler system
+Fuel : Arbitrary supply of fuel
+Gas : Gas-phase materials such as methane or natural gas
+Hazardous : Hazardous material or fluid collection system
+Heating : Water or steam heated from a boiler and circulated through radiators
+Lighting : A circuit dedicated for lighting, such as a fixture having sockets for lamps
+LightningProtection : A path for conducting lightning current to the ground
+MunicipalSolidWaste : Items consumed and discarded, commonly known as trash or garbage
+Oil : Oil distribution system
+Operation : Operating supplies system
+PowerGeneration : A path for power generation
+Rainwater : Rainwater resulting from precipitation which directly falls on a parcel
+Refrigeration : Refrigerant distribution system for purposes of fulfilling all or parts of a refrigeration cycle
+Security : A transport or network dedicated to security system usage
+Sewage : Sewage collection system
+Signal : A raw analog signal, such as modulated data or measurements from sensors
+Stormwater : Stormwater resulting from precipitation which runs off or travels over the ground surface
+Telephone : A transport or network dedicated to telephone system usage
+TV : A transport of multiple media sources such as analog cable TV, satellite TV, or over-the-air TV
+Vacuum : Vacuum distribution system
+Vent : Vent system for wastewater piping systems
+Ventilation : Ventilation air distribution system involved in either the exchange of air to the outside as well as circulation of air within a building
+Wastewater : Water adversely affected in quality by anthropogenic influence, possibly originating from sewage, drainage, or other source
+WaterSupply : Arbitrary water supply
+[UserDefined] : Other user defined system

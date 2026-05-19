@@ -41,7 +41,26 @@ namespace Xbim.IDS.Generator.Common
         /// <summary>
         /// Gets the fully qualified identifier for this Context
         /// </summary>
-        public string Identifier => string.IsNullOrEmpty(Prefix) ? Id : $"{Prefix}_{Id}";
+        public string Identifier => string.IsNullOrEmpty(Prefix)
+            ? (string.IsNullOrEmpty(StageId) ? Id : $"{StageId}_{Id}")
+            : $"{Prefix}_{Id}";
+
+        /// <summary>
+        /// Stage number prefix prepended to root-level identifiers (e.g. "3" → "3_01").
+        /// Inherited by child contexts so their Prefix already carries the stage.
+        /// </summary>
+        public string StageId { get; set; } = "";
+
+        /// <summary>
+        /// Metadata written into each Individual IDS file header.
+        /// Override these from the generator to supply project-specific values.
+        /// </summary>
+        public string IndividualAuthor { get; set; } = "info@xbim.net";
+        public string IndividualCopyright { get; set; } = "xbim Ltd";
+        public string IndividualVersion { get; set; } = "S0";
+        public string IndividualPurpose { get; set; } = "IDS testing and evaluation";
+        public string IndividualDescription { get; set; } = "Assurance of IFC-SPF deliverables against DfE's information requirements";
+        public string IndividualMilestone { get; set; } = "";
 
         /// <summary>
         /// The stage the IDS file is targeting
@@ -146,6 +165,13 @@ namespace Xbim.IDS.Generator.Common
             SaveOneFilePerScope = parent.SaveOneFilePerScope;
             SaveOneFilePerSpec = parent.SaveOneFilePerSpec;
             Tag = parent.Tag;
+            StageId = parent.StageId;
+            IndividualAuthor = parent.IndividualAuthor;
+            IndividualCopyright = parent.IndividualCopyright;
+            IndividualVersion = parent.IndividualVersion;
+            IndividualPurpose = parent.IndividualPurpose;
+            IndividualDescription = parent.IndividualDescription;
+            IndividualMilestone = parent.IndividualMilestone;
         }
 
         /// <summary>
@@ -215,12 +241,21 @@ namespace Xbim.IDS.Generator.Common
             return this;
         }
 
+        /// <summary>
+        /// Indicates whether the presence of matching applicable items is Required, Optional or Prohibited in the model
+        /// </summary>
+        /// <param name="cardinality"></param>
+        /// <returns></returns>
         public SpecContext SetMatches(CardinalityEnum cardinality)
         {
             ApplicabilityCardinality = cardinality;
             return this;
         }
 
+        /// <summary>
+        /// Resets the applicability cardinality to its default (Required) value.
+        /// </summary>
+        /// <returns>The current instance of the <see cref="SpecContext"/> with the applicability cardinality reset.</returns>
         public SpecContext ResetMatches()
         {
             ApplicabilityCardinality = DefaultCardinality;
@@ -356,18 +391,18 @@ namespace Xbim.IDS.Generator.Common
 
         private SpecificationsGroup CreateNewSpecGroup(SpecificationsGroup toCopy)
         {
-            var stage = TargetStage.ToDescription().Replace("Stage ", "");
-
+            var baseDesc = toCopy.Description ?? "";
+            var groupedDesc = baseDesc.EndsWith(" - Grouped") ? baseDesc : $"{baseDesc} - Grouped";
             var specGroup = new SpecificationsGroup(Ids)
             {
                 Guid = Guid.NewGuid().ToString(),
-                Name = $"{stage}_{Prefix} {Tag} - {BaseName}",
+                Name = $"{Prefix}-{Tag} Grouped",
                 Specifications = new List<Specification>(),
 
                 Date = toCopy.Date,
                 Milestone = toCopy.Milestone,
                 Author = toCopy.Author,
-                Description = toCopy.Description,
+                Description = groupedDesc,
                 Version = toCopy.Version,
                 Purpose = toCopy.Purpose,
                 Copyright = toCopy.Copyright
