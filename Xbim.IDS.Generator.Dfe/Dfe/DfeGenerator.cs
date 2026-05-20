@@ -39,6 +39,7 @@ namespace Xbim.IDS.Generator.Dfe
                 Sfg20Version = options.Sfg20Version,
             };
             ClassificationVersions = _classificationVersions;
+            _outputRoot = string.IsNullOrWhiteSpace(options.OutputPath) ? "Outputs" : options.OutputPath;
             WarnIfUniclassVersionMismatch(options);
 
             Xids.Settings.ApplyPrefixToSpecGroupFileNames = false;
@@ -75,6 +76,7 @@ namespace Xbim.IDS.Generator.Dfe
         private readonly string _revision;
         private readonly int? _buildingStoreys;
         private readonly ClassificationVersionOptions _classificationVersions;
+        private readonly string _outputRoot;
 
         /// <summary>
         /// Returns the version-appropriate explicit rule ID, or null (auto-counter) when no ID is defined for the current version.
@@ -375,7 +377,7 @@ namespace Xbim.IDS.Generator.Dfe
                     using var context = new SpecContext(targetStage, ids, targetGeneration, specLogger);
                     context.SetApplicableStages(RibaStages.All);
                     context.SetApplicableToGeneration(GenerationPass.Core);      // Determines whether to separate complex (e.g. naming) rules out from 'core' vs a single file ('All')
-                    context.BasePath = Path.Combine("Outputs", _version.ToString(), "IDS");
+                    context.BasePath = Path.Combine(_outputRoot, _version.ToString(), "IDS");
                     context.SaveOneFilePerSpec = true;        // Output individual files
                     context.SaveOneFilePerScope = true;       // Use Context structure to group into smaller Spec Groups (produces IDS zip)
                     // Prepend stage number to all spec identifiers: 3_01_01, 4_02_03, etc.
@@ -584,17 +586,24 @@ namespace Xbim.IDS.Generator.Dfe
             var path = Path.Combine(context.BasePath, "Individual", stageFolderName);
             if (!Directory.Exists(path)) return;
 
-            // Retry once � OneDrive/antivirus can briefly lock files during sync
-            for (int attempt = 0; attempt < 2; attempt++)
+            // Clear read-only flags first — OneDrive/antivirus can mark files read-only during sync
+            foreach (var file in Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
+            {
+                try { File.SetAttributes(file, FileAttributes.Normal); } catch { /* best-effort */ }
+            }
+
+            // Retry a few times — OneDrive/antivirus can briefly lock files during sync
+            for (int attempt = 0; attempt < 3; attempt++)
             {
                 try
                 {
                     Directory.Delete(path, true);
                     return;
                 }
-                catch (IOException) when (attempt == 0)
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                 {
-                    System.Threading.Thread.Sleep(1500);
+                    if (attempt == 2) break;
+                    System.Threading.Thread.Sleep(2000 * (attempt + 1));
                 }
             }
 

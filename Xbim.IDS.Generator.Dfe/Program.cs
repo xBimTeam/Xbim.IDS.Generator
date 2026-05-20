@@ -21,9 +21,10 @@ internal class Program
         var uniclassVersion = args.FirstOrDefault(a => a.StartsWith("--uniclass-version=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1];
         var nrmVersion = args.FirstOrDefault(a => a.StartsWith("--nrm-version=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1];
         var sfg20Version = args.FirstOrDefault(a => a.StartsWith("--sfg20-version=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1];
+        var outputPath = args.FirstOrDefault(a => a.StartsWith("--output=", StringComparison.OrdinalIgnoreCase))?.Split('=', 2)[1];
 
         // bootstrap an app
-        var host = CreateHostBuilder(imrVersion, status, revision, buildingStoreys, uniclassVersion, nrmVersion, sfg20Version).Build();
+        var host = CreateHostBuilder(imrVersion, status, revision, buildingStoreys, uniclassVersion, nrmVersion, sfg20Version, outputPath).Build();
 
         var generator = host.Services.GetRequiredService<IIdsSchemaGenerator>();
         var modelGenerator = host.Services.GetRequiredService<IModelGenerator>();
@@ -32,7 +33,7 @@ internal class Program
         await modelGenerator.GenerateTestModels();
     }
 
-    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision, int? buildingStoreys = null, string? uniclassVersion = null, string? nrmVersion = null, string? sfg20Version = null)
+    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision, int? buildingStoreys = null, string? uniclassVersion = null, string? nrmVersion = null, string? sfg20Version = null, string? outputPath = null)
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(outputTemplate:
@@ -46,7 +47,7 @@ internal class Program
         hostBuilder.Services
             .AddXbimToolkit()
             .AddLogging(o => o.AddSerilog(Log.Logger).SetMinimumLevel(LogLevel.Debug))
-            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision, BuildingStoreys = buildingStoreys, UniclassVersion = uniclassVersion, NrmVersion = nrmVersion, Sfg20Version = sfg20Version })
+            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision, BuildingStoreys = buildingStoreys, UniclassVersion = uniclassVersion, NrmVersion = nrmVersion, Sfg20Version = sfg20Version, OutputPath = outputPath })
             .AddTransient<IIdsSchemaGenerator, DfeGenerator>()
             .AddTransient<IModelGenerator, DfeGenerator>()
             .AddIdsValidation()

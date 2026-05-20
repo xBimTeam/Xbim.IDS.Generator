@@ -23,6 +23,8 @@ namespace Xbim.IDS.Generator.Dfe
         public string? NrmVersion { get; set; }
         /// <summary>SFG20 release year, e.g. "2023". Null = latest.</summary>
         public string? Sfg20Version { get; set; }
+        /// <summary>Root folder for all outputs. Null = "Outputs" (relative to working directory).</summary>
+        public string? OutputPath { get; set; }
     }
 
     /// <summary>
