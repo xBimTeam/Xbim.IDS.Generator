@@ -59,6 +59,7 @@ dotnet run [flags]
 | `--uniclass-version=VALUE` | *(latest)* | Pin Uniclass 2015 SL and EN tables to a specific release, e.g. `1_32`. |
 | `--nrm-version=VALUE` | *(latest)* | Pin NRM cost classification to a specific edition year, e.g. `2016`. |
 | `--sfg20-version=VALUE` | *(latest)* | Pin SFG20 FM classification to a specific release year, e.g. `2023`. |
+| `--output=PATH` | `Outputs` | Root folder for all generated files. Useful when the project directory is OneDrive-synced — redirect to a local path (e.g. `C:/TMP`) to avoid sync-lock errors. |
 
 ### Status codes
 
@@ -117,13 +118,16 @@ dotnet run --uniclass-version=1_32
 
 # Pin Uniclass 1.32, published S25 issue
 dotnet run --uniclass-version=1_32 --status=A --revision=C01
+
+# Write outputs to C:/TMP to avoid OneDrive sync-lock issues
+dotnet run --output=C:/TMP
 ```
 
 ---
 
 ## Output Files
 
-Files are written to `Outputs/` relative to the project directory, organised by IMR version:
+Files are written to `Outputs/` relative to the project directory by default (override with `--output=PATH`), organised by IMR version:
 
 ```
 Outputs/
