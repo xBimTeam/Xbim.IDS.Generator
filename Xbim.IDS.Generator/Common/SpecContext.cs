@@ -241,12 +241,21 @@ namespace Xbim.IDS.Generator.Common
             return this;
         }
 
+        /// <summary>
+        /// Indicates whether the presence of matching applicable items is Required, Optional or Prohibited in the model
+        /// </summary>
+        /// <param name="cardinality"></param>
+        /// <returns></returns>
         public SpecContext SetMatches(CardinalityEnum cardinality)
         {
             ApplicabilityCardinality = cardinality;
             return this;
         }
 
+        /// <summary>
+        /// Resets the applicability cardinality to its default (Required) value.
+        /// </summary>
+        /// <returns>The current instance of the <see cref="SpecContext"/> with the applicability cardinality reset.</returns>
         public SpecContext ResetMatches()
         {
             ApplicabilityCardinality = DefaultCardinality;

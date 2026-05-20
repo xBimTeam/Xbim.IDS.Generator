@@ -1532,7 +1532,8 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Start new context as we build at least one spec per applicable type as part of a single Rule. e.g. 5.7.BeamType
             using var subContext = context.BeginSubscope()
-                .SetApplicableToGeneration(GenerationPass.Complex);
+                .SetApplicableToGeneration(GenerationPass.Complex)
+                .SetMatches(CardinalityEnum.Optional);  // Optional since models won't have every single elementType/PDT we specify the naming rules on
             var specs = subContext.CurrentSpecGroup;
             var ids = subContext.Ids;
 
@@ -1632,7 +1633,7 @@ namespace Xbim.IDS.Generator.Dfe
             using var shallNormalContext = context.BeginSubscope()
                 .AddTag("Object Naming Shall")
                 .SetApplicableToGeneration(GenerationPass.All)
-                .SetMatches(CardinalityEnum.Required);
+                .SetMatches(CardinalityEnum.Optional);  // Optional since models won't have every single elementType/PDT we specify the naming rules for
             var shallNormalSpecs = shallNormalContext.CurrentSpecGroup;
             var shallNormalIds = shallNormalContext.Ids;
 
@@ -1654,7 +1655,7 @@ namespace Xbim.IDS.Generator.Dfe
             using var shallSpaceContext = context.BeginSubscope()
                 .AddTag("Object Naming Shall Space")
                 .SetApplicableToGeneration(GenerationPass.All)
-                .SetMatches(CardinalityEnum.Required);
+                .SetMatches(CardinalityEnum.Optional);      // Not all models (e.g. MEP) will contain space-named elements, so optional to avoid failures where not applicable
             var shallSpaceSpecs = shallSpaceContext.CurrentSpecGroup;
             var shallSpaceIds = shallSpaceContext.Ids;
 
