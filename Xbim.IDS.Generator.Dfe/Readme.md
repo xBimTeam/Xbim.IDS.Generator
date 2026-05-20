@@ -46,6 +46,8 @@ dotnet run [flags]
 
 **F5 / Debug:** A `.vscode/launch.json` is pre-configured for the DfE project. Output appears in the **Debug Console** tab.
 
+E.g., dotnet run --status=S3 --revision=P01 --output=C:/TMP 
+
 ---
 
 ## CLI Flags
