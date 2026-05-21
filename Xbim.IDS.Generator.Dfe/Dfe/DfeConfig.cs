@@ -25,6 +25,12 @@ namespace Xbim.IDS.Generator.Dfe
         public string? Sfg20Version { get; set; }
         /// <summary>Root folder for all outputs. Null = "Outputs" (relative to working directory).</summary>
         public string? OutputPath { get; set; }
+        /// <summary>Include RIBA Stage 1 outputs (off by default; not yet fully implemented).</summary>
+        public bool IncludeStage1 { get; set; } = false;
+        /// <summary>Include RIBA Stage 2 outputs (off by default; not yet fully implemented).</summary>
+        public bool IncludeStage2 { get; set; } = false;
+        /// <summary>Include RIBA Stage 6 outputs (off by default; same check coverage as Stage 5).</summary>
+        public bool IncludeStage6 { get; set; } = false;
     }
 
     /// <summary>
