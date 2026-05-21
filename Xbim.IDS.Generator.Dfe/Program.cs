@@ -22,9 +22,12 @@ internal class Program
         var nrmVersion = args.FirstOrDefault(a => a.StartsWith("--nrm-version=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1];
         var sfg20Version = args.FirstOrDefault(a => a.StartsWith("--sfg20-version=", StringComparison.OrdinalIgnoreCase))?.Split('=')[1];
         var outputPath = args.FirstOrDefault(a => a.StartsWith("--output=", StringComparison.OrdinalIgnoreCase))?.Split('=', 2)[1];
+        var includeStage1 = args.Contains("--stage1", StringComparer.OrdinalIgnoreCase);
+        var includeStage2 = args.Contains("--stage2", StringComparer.OrdinalIgnoreCase);
+        var includeStage6 = args.Contains("--stage6", StringComparer.OrdinalIgnoreCase);
 
         // bootstrap an app
-        var host = CreateHostBuilder(imrVersion, status, revision, buildingStoreys, uniclassVersion, nrmVersion, sfg20Version, outputPath).Build();
+        var host = CreateHostBuilder(imrVersion, status, revision, buildingStoreys, uniclassVersion, nrmVersion, sfg20Version, outputPath, includeStage1, includeStage2, includeStage6).Build();
 
         var generator = host.Services.GetRequiredService<IIdsSchemaGenerator>();
         var modelGenerator = host.Services.GetRequiredService<IModelGenerator>();
@@ -33,7 +36,7 @@ internal class Program
         await modelGenerator.GenerateTestModels();
     }
 
-    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision, int? buildingStoreys = null, string? uniclassVersion = null, string? nrmVersion = null, string? sfg20Version = null, string? outputPath = null)
+    static HostApplicationBuilder CreateHostBuilder(ImrVersion imrVersion, string status, string revision, int? buildingStoreys = null, string? uniclassVersion = null, string? nrmVersion = null, string? sfg20Version = null, string? outputPath = null, bool includeStage1 = false, bool includeStage2 = false, bool includeStage6 = false)
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(outputTemplate:
@@ -47,7 +50,7 @@ internal class Program
         hostBuilder.Services
             .AddXbimToolkit()
             .AddLogging(o => o.AddSerilog(Log.Logger).SetMinimumLevel(LogLevel.Debug))
-            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision, BuildingStoreys = buildingStoreys, UniclassVersion = uniclassVersion, NrmVersion = nrmVersion, Sfg20Version = sfg20Version, OutputPath = outputPath })
+            .AddSingleton(new DfeOptions { Version = imrVersion, Status = status, Revision = revision, BuildingStoreys = buildingStoreys, UniclassVersion = uniclassVersion, NrmVersion = nrmVersion, Sfg20Version = sfg20Version, OutputPath = outputPath, IncludeStage1 = includeStage1, IncludeStage2 = includeStage2, IncludeStage6 = includeStage6 })
             .AddTransient<IIdsSchemaGenerator, DfeGenerator>()
             .AddTransient<IModelGenerator, DfeGenerator>()
             .AddIdsValidation()

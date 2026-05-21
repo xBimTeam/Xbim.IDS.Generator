@@ -40,6 +40,9 @@ namespace Xbim.IDS.Generator.Dfe
             };
             ClassificationVersions = _classificationVersions;
             _outputRoot = string.IsNullOrWhiteSpace(options.OutputPath) ? "Outputs" : options.OutputPath;
+            _includeStage1 = options.IncludeStage1;
+            _includeStage2 = options.IncludeStage2;
+            _includeStage6 = options.IncludeStage6;
             WarnIfUniclassVersionMismatch(options);
 
             Xids.Settings.ApplyPrefixToSpecGroupFileNames = false;
@@ -77,6 +80,9 @@ namespace Xbim.IDS.Generator.Dfe
         private readonly int? _buildingStoreys;
         private readonly ClassificationVersionOptions _classificationVersions;
         private readonly string _outputRoot;
+        private readonly bool _includeStage1;
+        private readonly bool _includeStage2;
+        private readonly bool _includeStage6;
 
         /// <summary>
         /// Returns the version-appropriate explicit rule ID, or null (auto-counter) when no ID is defined for the current version.
@@ -308,7 +314,11 @@ namespace Xbim.IDS.Generator.Dfe
             foreach (var targetGeneration in generations)
             {
 
-                var stages = new[] { RibaStages.Stage3, RibaStages.Stage4, RibaStages.Stage5 }; //  RibaStages.Stage6
+                var stages = new List<RibaStages>();
+                if (_includeStage1) stages.Add(RibaStages.Stage1);
+                if (_includeStage2) stages.Add(RibaStages.Stage2);
+                stages.AddRange(new[] { RibaStages.Stage3, RibaStages.Stage4, RibaStages.Stage5 });
+                if (_includeStage6) stages.Add(RibaStages.Stage6);
                 foreach (var targetStage in stages)
                 {
                     config.ProjectPhase = StageNames[targetStage];
@@ -317,9 +327,12 @@ namespace Xbim.IDS.Generator.Dfe
 
                     int stageNum = targetStage switch
                     {
+                        RibaStages.Stage1 => 1,
+                        RibaStages.Stage2 => 2,
                         RibaStages.Stage3 => 3,
                         RibaStages.Stage4 => 4,
                         RibaStages.Stage5 => 5,
+                        RibaStages.Stage6 => 6,
                         _ => throw new NotImplementedException($"Stage {targetStage} not mapped to a version number")
                     };
                     int passOffset = targetGeneration switch
@@ -868,19 +881,21 @@ namespace Xbim.IDS.Generator.Dfe
             else
             {
                 // 05.11.01: ClearHeight � schema-correct BaseQuantity name per IFC specification
-                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "ClearHeight", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
+                using (var clearHeightScope = subContext.BeginSubscope())
+                {
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "ClearHeight", "BaseQuantities", clearHeightScope, 0, false, null, false, "IFCLENGTHMEASURE",
                     title: "Space Shall Have ClearHeight Defined In BaseQuantities",
-                    ruleId: RuleId("4_05_11_01", subContext));
+                    ruleId: RuleId("4_05_11_01", clearHeightScope));
                 // 05.11.02: Height � fallback for software that incorrectly exports ClearHeight as Height in BaseQuantities
-                subContext.SetMatches(CardinalityEnum.Optional);
-                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
+                clearHeightScope.SetMatches(CardinalityEnum.Optional);
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "Height", "BaseQuantities", clearHeightScope, 0, false, null, false, "IFCLENGTHMEASURE",
                     title: "Space Should Have Height Defined In BaseQuantities",
-                    ruleId: RuleId("4_05_11_02", subContext));
+                    ruleId: RuleId("4_05_11_02", clearHeightScope));
                 // 05.11.03: FinishCeilingHeight � optional user-recorded accurate value
-                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "FinishCeilingHeight", "Additional_Pset_SpaceCommon", subContext, 0, false, null, false, "IFCLENGTHMEASURE",
+                CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, "FinishCeilingHeight", "Additional_Pset_SpaceCommon", clearHeightScope, 0, false, null, false, "IFCLENGTHMEASURE",
                     title: "Space Should Have FinishCeilingHeight Defined In Additional_Pset_SpaceCommon",
-                    ruleId: RuleId("4_05_11_03", subContext));
-                subContext.ResetMatches();
+                    ruleId: RuleId("4_05_11_03", clearHeightScope));
+                }
             }
             CreatePropertyWithValueInRangeSpecification(specs, applicability, ids, grossAreaProp,   "BaseQuantities", subContext, 0, false, null, false, "IFCAREAMEASURE",
                 title: _version == ImrVersion.S25 ? "Space Shall Have GrossFloorArea Defined" : null);
@@ -1340,49 +1355,62 @@ namespace Xbim.IDS.Generator.Dfe
 
             // Object Occurrence(COBie Component) Shall Have Description Defined
             CreateAttributeNonEmptySpecification(specs, applicability, ids, nameof(IIfcProduct.Description), subContext,
-                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have Description Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have Description Defined" : null,
+                ruleId: RuleId("4_08_04", subContext));
             // Object Occurrence Shall Have SerialNumber That Is Defined
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
             subContext.ResetMatches();
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", subContext, dataType: "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have SerialNumber That Is Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have SerialNumber That Is Defined" : null,
+                ruleId: RuleId("4_08_05", subContext));
             subContext.SetMatches(CardinalityEnum.Optional);
             // Object Occurrence Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Serial number", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have SerialNumber That Is 'n/a' Or Valid SerialNumber" : null);
+            if (_version != ImrVersion.S25)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Serial number", subContext, "IFCTEXT");
+            }
             // Object Occurrence Should Not Have SerialNumber That Is 'n/a'
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "SerialNumber", "Pset_ManufacturerOccurrence",
                 notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have SerialNumber That Is 'n/a'" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have SerialNumber That Is 'n/a'" : null,
+                ruleId: RuleId("4_08_06", subContext));
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // Object Occurrence Shall Have InstallationDate That Is Defined
             subContext.ResetMatches();
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", subContext, dataType: "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have InstallationDate That Is Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have InstallationDate That Is Defined" : null,
+                ruleId: RuleId("4_08_07", subContext));
             subContext.SetMatches(CardinalityEnum.Optional);
             // Object Occurrence Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", dateOrDefaultExpression.ToString(), "Valid date", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have InstallationDate That Is '1900-12-31T23:59:59' Or Actual InstallationDate" : null);
+            if (_version != ImrVersion.S25)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", dateOrDefaultExpression.ToString(), "Valid date", subContext, "IFCTEXT");
+            }
             // Object Occurrence Should Have InstallationDate That Is An Actual Date
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "InstallationDate", "COBie_Component", actualDateExpression.ToString(), "Actual date", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have InstallationDate That Is An Actual Date" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have InstallationDate That Is An Actual Date" : null,
+                ruleId: RuleId("4_08_08", subContext));
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // Object Occurrence Shall Have WarrantyStartDate That Is Defined
             subContext.ResetMatches();
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", subContext, dataType: "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have WarrantyStartDate That Is Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have WarrantyStartDate That Is Defined" : null,
+                ruleId: RuleId("4_08_09", subContext));
             subContext.SetMatches(CardinalityEnum.Optional);
             // Object Occurrence Should Have WarrantyStartDate That Is '1900-12-31T23:59:59' Or Actual WarrantyStartDate
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", dateOrDefaultExpression.ToString(), "Valid date", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is '1900-12-31T23:59:59' Or Actual WarrantyStartDate" : null);
+            if (_version != ImrVersion.S25)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", dateOrDefaultExpression.ToString(), "Valid date", subContext, "IFCTEXT");
+            }
             // Object Occurrence Should Have WarrantyStartDate That Is An Actual Date
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "WarrantyStartDate", "COBie_Component", actualDateExpression.ToString(), "Actual date", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is An Actual Date" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have WarrantyStartDate That Is An Actual Date" : null,
+                ruleId: RuleId("4_08_10", subContext));
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // 08.11 S25: TagNumber NotEmpty (Stage4+) − new S25 rule; S21 has no Stage4 TagNumber check
@@ -1390,7 +1418,8 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 subContext.ResetMatches();
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "TagNumber", "COBie_Component", subContext, dataType: "IFCTEXT",
-                    title: "Object Occurrence Shall Have TagNumber That Is Defined");
+                    title: "Object Occurrence Shall Have TagNumber That Is Defined",
+                    ruleId: RuleId("4_08_11", subContext));
                 subContext.SetMatches(CardinalityEnum.Optional);
             }
             // 08.12 S25 / 08.08 S21: TagNumber rule at Stage5+ only
@@ -1399,7 +1428,8 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 CreatePropertyWithPatternSpecification(specs, applicability, ids, "TagNumber", "COBie_Component",
                     notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
-                    title: "Object Occurrence Should Not Have TagNumber That Is 'n/a'");
+                    title: "Object Occurrence Should Not Have TagNumber That Is 'n/a'",
+                    ruleId: RuleId("4_08_12", subContext));
             }
             else
             {
@@ -1411,16 +1441,20 @@ namespace Xbim.IDS.Generator.Dfe
             // Object Occurrence Shall Have BarCode That Is Defined
             subContext.ResetMatches();
             CreatePropertyNonEmptySpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", subContext, dataType: "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have BarCode That Is Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Shall Have BarCode That Is Defined" : null,
+                ruleId: RuleId("4_08_13", subContext));
             subContext.SetMatches(CardinalityEnum.Optional);
             // Object Occurrence Should Have BarCode That Is 'n/a' Or Actual BarCode
-            CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Bar code", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Have BarCode That Is 'n/a' Or Actual BarCode" : null);
+            if (_version != ImrVersion.S25)
+            {
+                CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence", numberOrNaExpression.ToString(), "Bar code", subContext, "IFCTEXT");
+            }
             // Object Occurrence Should Not Have BarCode That Is 'n/a'
             subContext.SetApplicableStages(RibaStages.Stage5Plus);
             CreatePropertyWithPatternSpecification(specs, applicability, ids, "BarCode", "Pset_ManufacturerOccurrence",
                 notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
-                title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have BarCode That Is 'n/a'" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence Should Not Have BarCode That Is 'n/a'" : null,
+                ruleId: RuleId("4_08_14", subContext));
             subContext.SetApplicableStages(RibaStages.Stage4Plus);
 
             // 08.15 S25: AssetIdentifier NotEmpty (Stage4+) − new S25 rule; S21 has no Stage4 AssetIdentifier check
@@ -1428,7 +1462,8 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 subContext.ResetMatches();
                 CreatePropertyNonEmptySpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component", subContext, dataType: "IFCTEXT",
-                    title: "Object Occurrence Shall Have AssetIdentifier That Is Defined");
+                    title: "Object Occurrence Shall Have AssetIdentifier That Is Defined",
+                    ruleId: RuleId("4_08_15", subContext));
                 subContext.SetMatches(CardinalityEnum.Optional);
             }
             // 08.16 S25 / 08.10 S21: AssetIdentifier rule at Stage5+ only
@@ -1437,7 +1472,8 @@ namespace Xbim.IDS.Generator.Dfe
             {
                 CreatePropertyWithPatternSpecification(specs, applicability, ids, "AssetIdentifier", "COBie_Component",
                     notNaExpression.ToString(), "not n/a", subContext, "IFCTEXT",
-                    title: "Object Occurrence Should Not Have AssetIdentifier That Is 'n/a'");
+                    title: "Object Occurrence Should Not Have AssetIdentifier That Is 'n/a'",
+                    ruleId: RuleId("4_08_16", subContext));
             }
             else
             {
@@ -1450,10 +1486,12 @@ namespace Xbim.IDS.Generator.Dfe
             subContext.ResetMatches();
             var doorApplicability = GetEntityApplicability(ids, "Door", "IfcDoor");
             CreatePropertyNonEmptySpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", subContext, dataType: "IFCLABEL",
-                title: _version == ImrVersion.S25 ? "Object Occurrence (Door) Shall Have FireRating That Is Defined" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence (Door) Shall Have FireRating That Is Defined" : null,
+                ruleId: RuleId("4_08_17", subContext));
             // Object Occurrence (Door) Shall Have FireRating That Is From PickList Provided In The Projects Information Standard
             CreatePropertyFromListSpecification(specs, doorApplicability, ids, "FireRating", "Pset_DoorCommon", new[] { "Undefined", "n/a", "20", "30", "60", "90", "120" }, subContext, "IFCLABEL",
-                title: _version == ImrVersion.S25 ? "Object Occurrence (Door) Shall Have FireRating That Is From PickList Provided In The Projects Information Standard" : null);
+                title: _version == ImrVersion.S25 ? "Object Occurrence (Door) Shall Have FireRating That Is From PickList Provided In The Projects Information Standard" : null,
+                ruleId: RuleId("4_08_18", subContext));
             subContext.ResetMatches();
             // TODO: S25 08.19 - Object Occurrence Shall Not Contain Duplicate Names
             subContext.Skip("08:19: Duplicates not supported in IDS 1.0");
