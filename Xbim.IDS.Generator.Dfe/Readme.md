@@ -59,6 +59,10 @@ dotnet run [flags]
 | `--uniclass-version=VALUE` | *(latest)* | Pin Uniclass 2015 SL and EN tables to a specific release, e.g. `1_32`. |
 | `--nrm-version=VALUE` | *(latest)* | Pin NRM cost classification to a specific edition year, e.g. `2016`. |
 | `--sfg20-version=VALUE` | *(latest)* | Pin SFG20 FM classification to a specific release year, e.g. `2023`. |
+| `--output=PATH` | `Outputs` | Root folder for all generated files. Useful when the project directory is OneDrive-synced — redirect to a local path (e.g. `C:/TMP`) to avoid sync-lock errors. |
+| `--stage1` | *(off)* | Also generate Stage 1 outputs. Not yet fully implemented — added for future expansion. |
+| `--stage2` | *(off)* | Also generate Stage 2 outputs. Not yet fully implemented — added for future expansion. |
+| `--stage6` | *(off)* | Also generate Stage 6 outputs. Stage 6 has the same check coverage as Stage 5. |
 
 ### Status codes
 
@@ -109,21 +113,33 @@ dotnet run
 # Single-storey building, published issue
 dotnet run --bs=1 --status=A --revision=C01
 
-# Four-storey building, S21, first working draft
+# Four-storey building, S21,  issue
 dotnet run --bs=4 --s21 --status=S2 --revision=P01
+
+# S25, for review and commnet and write outputs to C:/TMP 
+E.g., dotnet run --status=S3 --revision=P01 --output=C:/TMP 
 
 # Pin Uniclass SL/EN to version 1.32
 dotnet run --uniclass-version=1_32
 
 # Pin Uniclass 1.32, published S25 issue
 dotnet run --uniclass-version=1_32 --status=A --revision=C01
+
+# Write outputs to C:/TMP to avoid OneDrive sync-lock issues
+dotnet run --output=C:/TMP
+
+# Include Stage 6 outputs (same check coverage as Stage 5)
+dotnet run --stage6
+
+# Include Stage 6 and write to a local path
+dotnet run --stage6 --output=C:/TMP
 ```
 
 ---
 
 ## Output Files
 
-Files are written to `Outputs/` relative to the project directory, organised by IMR version:
+Files are written to `Outputs/` relative to the project directory by default (override with `--output=PATH`), organised by IMR version:
 
 ```
 Outputs/

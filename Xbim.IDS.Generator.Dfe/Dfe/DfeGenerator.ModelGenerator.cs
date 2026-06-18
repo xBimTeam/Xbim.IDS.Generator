@@ -40,7 +40,7 @@ namespace Xbim.IDS.Generator.Dfe
             var revision = _revision;
             _typeSeqenceDict.Clear();
 
-            var ifcBase = Path.Combine("Outputs", _version.ToString(), "IFC");
+            var ifcBase = Path.Combine(_outputRoot, _version.ToString(), "IFC");
             Directory.CreateDirectory(ifcBase);
 
             var version = 30; // Stage 3, All pass (3×10 + 0)
